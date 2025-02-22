@@ -143,11 +143,8 @@ void detailedGlobalSwapCUDA::run(DetailedMgr* mgrPtr,
 
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
-void detailedGlobalSwapCUDA::globalSwapCUDA(int batch_size = 10, int num_bins = 512)
+void detailedGlobalSwapCUDA::globalSwapCUDA(int batch_size = 10, int num_bins_x = 512, int num_bins_y = 512)
 {
-  // Nothing for than random greedy improvement with only a hpwl objective
-  // and done such that every candidate cell is considered once!!!
-
   traversal_ = 0;
   edgeMask_.resize(network_->getNumEdges());
   std::fill(edgeMask_.begin(), edgeMask_.end(), 0);
@@ -175,6 +172,7 @@ void detailedGlobalSwapCUDA::globalSwapCUDA(int batch_size = 10, int num_bins = 
     int idx_begin = i;
     int idx_end = std::min(i + batch_size, candidates.size());
     dim3 grid(5, (idx_end - idx_begin), 1);
+    // we can use 1 kernel to avoid having to call multiple kernels
     collect_candidates<<<grid, 256>>>(idx_begin, idx_end, candidates.size());
     compute_candidate_cost<<<grid, 256>>>(idx_begin, idx_end, candidates.size());
     reduce_min_2d_cub<Node*, 256><<<idx_end - idx_begin, 256>>>(idx_begin, idx_end, max_num_candidates);
