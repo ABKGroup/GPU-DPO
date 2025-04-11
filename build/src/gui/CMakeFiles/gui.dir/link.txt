@@ -1,0 +1,2 @@
+/home/tool/binutils/binutils-2.27/bin/ar qc libgui.a CMakeFiles/gui.dir/src/stub.cpp.o CMakeFiles/gui.dir/src/stub_heatMap.cpp.o
+/home/tool/binutils/binutils-2.27/bin/ranlib libgui.a

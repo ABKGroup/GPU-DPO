@@ -1,0 +1,22 @@
+ORD 2001 dbNetwork.cc:1935         LEF macro {} pin {} missing from liberty cell. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dbSta/src/dbNetwork.cc#L1935
+ORD 2002 dbNetwork.cc:2093         Liberty cell {} pin {} missing from LEF macro. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dbSta/src/dbNetwork.cc#L2093
+ORD 2003 dbNetwork.cc:2358         deletePin not implemented for dbITerm CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dbSta/src/dbNetwork.cc#L2358
+ORD 2004 dbNetwork.cc:2414         unimplemented network function mergeInto CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dbSta/src/dbNetwork.cc#L2414
+ORD 2005 dbNetwork.cc:2419         unimplemented network function mergeInto CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dbSta/src/dbNetwork.cc#L2419
+ORD 2007 dbNetwork.cc:2684         unhandled port direction CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dbSta/src/dbNetwork.cc#L2684
+ORD 2008 dbNetwork.cc:2796         unknown master term type CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dbSta/src/dbNetwork.cc#L2796
+ORD 2010 dbReadVerilog.tcl:55      no technology has been read. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dbSta/src/dbReadVerilog.tcl#L55
+ORD 2011 dbReadVerilog.cc:937      LEF master {} has no liberty cell. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dbSta/src/dbReadVerilog.cc#L937
+ORD 2012 dbReadVerilog.cc:943      Liberty cell {} has no LEF master. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dbSta/src/dbReadVerilog.cc#L943
+ORD 2013 dbReadVerilog.cc:525      instance {} LEF master {} not found. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dbSta/src/dbReadVerilog.cc#L525
+ORD 2015 dbReadVerilog.cc:553      Leaf instance creation failed for {} of {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dbSta/src/dbReadVerilog.cc#L553
+ORD 2016 dbNetwork.cc:2455         instance is not Inst or ModInst CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dbSta/src/dbNetwork.cc#L2455
+ORD 2017 dbNetwork.cc:183          Unknown database type passed into unique id generation ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dbSta/src/dbNetwork.cc#L183
+ORD 2018 dbNetwork.cc:2544         pin is not ITerm or BTerm or modITerm or ModBTerm WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dbSta/src/dbNetwork.cc#L2544
+ORD 2019 dbNetwork.cc:151          Database id exceeds capacity ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dbSta/src/dbNetwork.cc#L151
+ORD 2020 dbNetwork.cc:724          Database badly formed bus name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dbSta/src/dbNetwork.cc#L724
+ORD 2021 dbNetwork.cc:2902         Bad bus from_index defintion ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dbSta/src/dbNetwork.cc#L2902
+ORD 2022 dbNetwork.cc:2922         Bad bus to_index defintion ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dbSta/src/dbNetwork.cc#L2922
+ORD 2023 dbReadVerilog.cc:387      hierachical instance creation failed for {} of {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dbSta/src/dbReadVerilog.cc#L387
+ORD 2024 dbNetwork.cc:2235         Illegal net/pin combination. Modnets can only be hooked to iterm,  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dbSta/src/dbNetwork.cc#L2235
+STA 1000 dbSta.cc:813              instance {} swap master {} is not equivalent ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dbSta/src/dbSta.cc#L813

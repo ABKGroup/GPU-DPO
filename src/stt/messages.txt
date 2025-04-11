@@ -1,0 +1,5 @@
+STT 0001 SteinerTreeBuilder.tcl:53 The alpha value must be between 0.0 and 1.0. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/stt/src/SteinerTreeBuilder.tcl#L53
+STT 0004 SteinerTreeBuilder.cpp:252 Net {} is connected to unplaced instance {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/stt/src/SteinerTreeBuilder.cpp#L252
+STT 0005 SteinerTreeBuilder.cpp:271 Net {} is connected to unplaced pin {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/stt/src/SteinerTreeBuilder.cpp#L271
+STT 0006 SteinerTreeBuilder.tcl:91 Clock nets for $cmd command were not found ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/stt/src/SteinerTreeBuilder.tcl#L91
+STT 0007 SteinerTreeBuilder.cpp:333 Invalid driver index {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/stt/src/SteinerTreeBuilder.cpp#L333

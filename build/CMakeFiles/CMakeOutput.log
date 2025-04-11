@@ -1,0 +1,1454 @@
+The system is: Linux - 4.18.0-553.6.1.el8.x86_64 - x86_64
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++ 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/jsliang/GPU-DPO/build/CMakeFiles/3.25.1/CompilerIdCXX/a.out"
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-dxRhDn
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_0442f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_0442f.dir/build.make CMakeFiles/cmTC_0442f.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-dxRhDn'
+Building CXX object CMakeFiles/cmTC_0442f.dir/CMakeCXXCompilerABI.cpp.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -v -o CMakeFiles/cmTC_0442f.dir/CMakeCXXCompilerABI.cpp.o -c /home/tool/cmake/cmake-3.25.1-linux-x86_64/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp
+Using built-in specs.
+COLLECT_GCC=/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++
+Target: x86_64-pc-linux-gnu
+Configured with: ../gcc-9.3.0/configure --prefix=/home/tool/gcc/gcc-9.3.0
+Thread model: posix
+gcc version 9.3.0 (GCC) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0442f.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/cc1plus -quiet -v -D_GNU_SOURCE /home/tool/cmake/cmake-3.25.1-linux-x86_64/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_0442f.dir/CMakeCXXCompilerABI.cpp.o -version -o /tmp/ccxCVEcd.s
+GNU C++14 (GCC) version 9.3.0 (x86_64-pc-linux-gnu)
+	compiled by GNU C version 9.3.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../x86_64-pc-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/tool/GTest/gtest/1.13.0/include
+ /home/tool/tcl/tcl8.6.6/include
+ /home/tool/boost/boost_1_81_0/include
+ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0
+ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/x86_64-pc-linux-gnu
+ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/backward
+ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include
+ /usr/local/include
+ /home/tool/gcc/gcc-9.3.0/include
+ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed
+ /usr/include
+End of search list.
+GNU C++14 (GCC) version 9.3.0 (x86_64-pc-linux-gnu)
+	compiled by GNU C version 9.3.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 608dbf8298fb9e6b2430729c8dbfac11
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0442f.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ as -v --64 -o CMakeFiles/cmTC_0442f.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccxCVEcd.s
+GNU assembler version 2.27 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.27
+COMPILER_PATH=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/
+LIBRARY_PATH=/home/tool/GTest/gtest/1.13.0/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64/:/home/tool/gcc/gcc-9.3.0/lib64/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/../lib64/:/home/tool/git/install/2.9.5/libexec/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/tool/GTest/gtest/1.13.0/lib64/:/home/tool/boost/boost_1_81_0/lib/:/home/tool/klayout/install/0.27.1-c8/lib64/klayout/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/:/home/tool/tcl/tcl8.6.6/lib/:/home/tool/gcc/gcc-9.3.0/lib64/:/home/tool/gcc/gcc-9.3.0/lib/:/home/tool/git/install/2.9.5/libexec/:/home/tool/flex/2.6.4/lib/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0442f.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+Linking CXX executable cmTC_0442f
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0442f.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++  -v CMakeFiles/cmTC_0442f.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_0442f 
+Using built-in specs.
+COLLECT_GCC=/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++
+COLLECT_LTO_WRAPPER=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/lto-wrapper
+Target: x86_64-pc-linux-gnu
+Configured with: ../gcc-9.3.0/configure --prefix=/home/tool/gcc/gcc-9.3.0
+Thread model: posix
+gcc version 9.3.0 (GCC) 
+COMPILER_PATH=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/
+LIBRARY_PATH=/home/tool/GTest/gtest/1.13.0/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64/:/home/tool/gcc/gcc-9.3.0/lib64/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/../lib64/:/home/tool/git/install/2.9.5/libexec/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/tool/GTest/gtest/1.13.0/lib64/:/home/tool/boost/boost_1_81_0/lib/:/home/tool/klayout/install/0.27.1-c8/lib64/klayout/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/:/home/tool/tcl/tcl8.6.6/lib/:/home/tool/gcc/gcc-9.3.0/lib64/:/home/tool/gcc/gcc-9.3.0/lib/:/home/tool/git/install/2.9.5/libexec/:/home/tool/flex/2.6.4/lib/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0442f' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/collect2 -plugin /home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/liblto_plugin.so -plugin-opt=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccpIV58h.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_0442f /lib/../lib64/crt1.o /lib/../lib64/crti.o /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtbegin.o -L/home/tool/GTest/gtest/1.13.0/lib64/../lib64 -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64 -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64 -L/home/tool/gcc/gcc-9.3.0/lib64/../lib64 -L/home/tool/gcc/gcc-9.3.0/lib/../lib64 -L/home/tool/git/install/2.9.5/libexec/../lib64 -L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0 -L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/home/tool/GTest/gtest/1.13.0/lib64 -L/home/tool/boost/boost_1_81_0/lib -L/home/tool/klayout/install/0.27.1-c8/lib64/klayout -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64 -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib -L/home/tool/tcl/tcl8.6.6/lib -L/home/tool/gcc/gcc-9.3.0/lib64 -L/home/tool/gcc/gcc-9.3.0/lib -L/home/tool/git/install/2.9.5/libexec -L/home/tool/flex/2.6.4/lib -L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../.. CMakeFiles/cmTC_0442f.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtend.o /lib/../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0442f' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-dxRhDn'
+
+
+
+Parsed CXX implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/home/tool/GTest/gtest/1.13.0/include]
+    add: [/home/tool/tcl/tcl8.6.6/include]
+    add: [/home/tool/boost/boost_1_81_0/include]
+    add: [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0]
+    add: [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/x86_64-pc-linux-gnu]
+    add: [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/backward]
+    add: [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include]
+    add: [/usr/local/include]
+    add: [/home/tool/gcc/gcc-9.3.0/include]
+    add: [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/home/tool/GTest/gtest/1.13.0/include] ==> [/home/tool/GTest/gtest/1.13.0/include]
+  collapse include dir [/home/tool/tcl/tcl8.6.6/include] ==> [/home/tool/tcl/tcl8.6.6/include]
+  collapse include dir [/home/tool/boost/boost_1_81_0/include] ==> [/home/tool/boost/boost_1_81_0/include]
+  collapse include dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0] ==> [/home/tool/gcc/gcc-9.3.0/include/c++/9.3.0]
+  collapse include dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/x86_64-pc-linux-gnu] ==> [/home/tool/gcc/gcc-9.3.0/include/c++/9.3.0/x86_64-pc-linux-gnu]
+  collapse include dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/backward] ==> [/home/tool/gcc/gcc-9.3.0/include/c++/9.3.0/backward]
+  collapse include dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include] ==> [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/home/tool/gcc/gcc-9.3.0/include] ==> [/home/tool/gcc/gcc-9.3.0/include]
+  collapse include dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed] ==> [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/home/tool/GTest/gtest/1.13.0/include;/home/tool/tcl/tcl8.6.6/include;/home/tool/boost/boost_1_81_0/include;/home/tool/gcc/gcc-9.3.0/include/c++/9.3.0;/home/tool/gcc/gcc-9.3.0/include/c++/9.3.0/x86_64-pc-linux-gnu;/home/tool/gcc/gcc-9.3.0/include/c++/9.3.0/backward;/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include;/usr/local/include;/home/tool/gcc/gcc-9.3.0/include;/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed;/usr/include]
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-dxRhDn]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_0442f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_0442f.dir/build.make CMakeFiles/cmTC_0442f.dir/build]
+  ignore line: [gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-dxRhDn']
+  ignore line: [Building CXX object CMakeFiles/cmTC_0442f.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -v -o CMakeFiles/cmTC_0442f.dir/CMakeCXXCompilerABI.cpp.o -c /home/tool/cmake/cmake-3.25.1-linux-x86_64/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ../gcc-9.3.0/configure --prefix=/home/tool/gcc/gcc-9.3.0]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 9.3.0 (GCC) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0442f.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  ignore line: [ /home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/cc1plus -quiet -v -D_GNU_SOURCE /home/tool/cmake/cmake-3.25.1-linux-x86_64/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_0442f.dir/CMakeCXXCompilerABI.cpp.o -version -o /tmp/ccxCVEcd.s]
+  ignore line: [GNU C++14 (GCC) version 9.3.0 (x86_64-pc-linux-gnu)]
+  ignore line: [	compiled by GNU C version 9.3.0  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../x86_64-pc-linux-gnu/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /home/tool/GTest/gtest/1.13.0/include]
+  ignore line: [ /home/tool/tcl/tcl8.6.6/include]
+  ignore line: [ /home/tool/boost/boost_1_81_0/include]
+  ignore line: [ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0]
+  ignore line: [ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/x86_64-pc-linux-gnu]
+  ignore line: [ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/backward]
+  ignore line: [ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /home/tool/gcc/gcc-9.3.0/include]
+  ignore line: [ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C++14 (GCC) version 9.3.0 (x86_64-pc-linux-gnu)]
+  ignore line: [	compiled by GNU C version 9.3.0  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 608dbf8298fb9e6b2430729c8dbfac11]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0442f.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  ignore line: [ as -v --64 -o CMakeFiles/cmTC_0442f.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccxCVEcd.s]
+  ignore line: [GNU assembler version 2.27 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.27]
+  ignore line: [COMPILER_PATH=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/home/tool/GTest/gtest/1.13.0/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64/:/home/tool/gcc/gcc-9.3.0/lib64/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/../lib64/:/home/tool/git/install/2.9.5/libexec/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/tool/GTest/gtest/1.13.0/lib64/:/home/tool/boost/boost_1_81_0/lib/:/home/tool/klayout/install/0.27.1-c8/lib64/klayout/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/:/home/tool/tcl/tcl8.6.6/lib/:/home/tool/gcc/gcc-9.3.0/lib64/:/home/tool/gcc/gcc-9.3.0/lib/:/home/tool/git/install/2.9.5/libexec/:/home/tool/flex/2.6.4/lib/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0442f.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  ignore line: [Linking CXX executable cmTC_0442f]
+  ignore line: [/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0442f.dir/link.txt --verbose=1]
+  ignore line: [/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++  -v CMakeFiles/cmTC_0442f.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_0442f ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++]
+  ignore line: [COLLECT_LTO_WRAPPER=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/lto-wrapper]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ../gcc-9.3.0/configure --prefix=/home/tool/gcc/gcc-9.3.0]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 9.3.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/home/tool/GTest/gtest/1.13.0/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64/:/home/tool/gcc/gcc-9.3.0/lib64/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/../lib64/:/home/tool/git/install/2.9.5/libexec/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/tool/GTest/gtest/1.13.0/lib64/:/home/tool/boost/boost_1_81_0/lib/:/home/tool/klayout/install/0.27.1-c8/lib64/klayout/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/:/home/tool/tcl/tcl8.6.6/lib/:/home/tool/gcc/gcc-9.3.0/lib64/:/home/tool/gcc/gcc-9.3.0/lib/:/home/tool/git/install/2.9.5/libexec/:/home/tool/flex/2.6.4/lib/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0442f' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/collect2 -plugin /home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/liblto_plugin.so -plugin-opt=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccpIV58h.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_0442f /lib/../lib64/crt1.o /lib/../lib64/crti.o /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtbegin.o -L/home/tool/GTest/gtest/1.13.0/lib64/../lib64 -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64 -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64 -L/home/tool/gcc/gcc-9.3.0/lib64/../lib64 -L/home/tool/gcc/gcc-9.3.0/lib/../lib64 -L/home/tool/git/install/2.9.5/libexec/../lib64 -L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0 -L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/home/tool/GTest/gtest/1.13.0/lib64 -L/home/tool/boost/boost_1_81_0/lib -L/home/tool/klayout/install/0.27.1-c8/lib64/klayout -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64 -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib -L/home/tool/tcl/tcl8.6.6/lib -L/home/tool/gcc/gcc-9.3.0/lib64 -L/home/tool/gcc/gcc-9.3.0/lib -L/home/tool/git/install/2.9.5/libexec -L/home/tool/flex/2.6.4/lib -L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../.. CMakeFiles/cmTC_0442f.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtend.o /lib/../lib64/crtn.o]
+    arg [/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccpIV58h.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_0442f] ==> ignore
+    arg [/lib/../lib64/crt1.o] ==> obj [/lib/../lib64/crt1.o]
+    arg [/lib/../lib64/crti.o] ==> obj [/lib/../lib64/crti.o]
+    arg [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtbegin.o] ==> obj [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtbegin.o]
+    arg [-L/home/tool/GTest/gtest/1.13.0/lib64/../lib64] ==> dir [/home/tool/GTest/gtest/1.13.0/lib64/../lib64]
+    arg [-L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64] ==> dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64]
+    arg [-L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64] ==> dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib64/../lib64] ==> dir [/home/tool/gcc/gcc-9.3.0/lib64/../lib64]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib/../lib64] ==> dir [/home/tool/gcc/gcc-9.3.0/lib/../lib64]
+    arg [-L/home/tool/git/install/2.9.5/libexec/../lib64] ==> dir [/home/tool/git/install/2.9.5/libexec/../lib64]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0] ==> dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64] ==> dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/home/tool/GTest/gtest/1.13.0/lib64] ==> dir [/home/tool/GTest/gtest/1.13.0/lib64]
+    arg [-L/home/tool/boost/boost_1_81_0/lib] ==> dir [/home/tool/boost/boost_1_81_0/lib]
+    arg [-L/home/tool/klayout/install/0.27.1-c8/lib64/klayout] ==> dir [/home/tool/klayout/install/0.27.1-c8/lib64/klayout]
+    arg [-L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64] ==> dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64]
+    arg [-L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib] ==> dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib]
+    arg [-L/home/tool/tcl/tcl8.6.6/lib] ==> dir [/home/tool/tcl/tcl8.6.6/lib]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib64] ==> dir [/home/tool/gcc/gcc-9.3.0/lib64]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib] ==> dir [/home/tool/gcc/gcc-9.3.0/lib]
+    arg [-L/home/tool/git/install/2.9.5/libexec] ==> dir [/home/tool/git/install/2.9.5/libexec]
+    arg [-L/home/tool/flex/2.6.4/lib] ==> dir [/home/tool/flex/2.6.4/lib]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../..] ==> dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../..]
+    arg [CMakeFiles/cmTC_0442f.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtend.o] ==> obj [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtend.o]
+    arg [/lib/../lib64/crtn.o] ==> obj [/lib/../lib64/crtn.o]
+  collapse obj [/lib/../lib64/crt1.o] ==> [/lib64/crt1.o]
+  collapse obj [/lib/../lib64/crti.o] ==> [/lib64/crti.o]
+  collapse obj [/lib/../lib64/crtn.o] ==> [/lib64/crtn.o]
+  collapse library dir [/home/tool/GTest/gtest/1.13.0/lib64/../lib64] ==> [/home/tool/GTest/gtest/1.13.0/lib64]
+  collapse library dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64] ==> [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64]
+  collapse library dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64] ==> [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib64/../lib64] ==> [/home/tool/gcc/gcc-9.3.0/lib64]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib/../lib64] ==> [/home/tool/gcc/gcc-9.3.0/lib64]
+  collapse library dir [/home/tool/git/install/2.9.5/libexec/../lib64] ==> [/home/tool/git/install/2.9.5/lib64]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0] ==> [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64] ==> [/home/tool/gcc/gcc-9.3.0/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/home/tool/GTest/gtest/1.13.0/lib64] ==> [/home/tool/GTest/gtest/1.13.0/lib64]
+  collapse library dir [/home/tool/boost/boost_1_81_0/lib] ==> [/home/tool/boost/boost_1_81_0/lib]
+  collapse library dir [/home/tool/klayout/install/0.27.1-c8/lib64/klayout] ==> [/home/tool/klayout/install/0.27.1-c8/lib64/klayout]
+  collapse library dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64] ==> [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64]
+  collapse library dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib] ==> [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib]
+  collapse library dir [/home/tool/tcl/tcl8.6.6/lib] ==> [/home/tool/tcl/tcl8.6.6/lib]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib64] ==> [/home/tool/gcc/gcc-9.3.0/lib64]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib] ==> [/home/tool/gcc/gcc-9.3.0/lib]
+  collapse library dir [/home/tool/git/install/2.9.5/libexec] ==> [/home/tool/git/install/2.9.5/libexec]
+  collapse library dir [/home/tool/flex/2.6.4/lib] ==> [/home/tool/flex/2.6.4/lib]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../..] ==> [/home/tool/gcc/gcc-9.3.0/lib]
+  implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+  implicit objs: [/lib64/crt1.o;/lib64/crti.o;/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtbegin.o;/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtend.o;/lib64/crtn.o]
+  implicit dirs: [/home/tool/GTest/gtest/1.13.0/lib64;/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64;/home/tool/gcc/gcc-9.3.0/lib64;/home/tool/git/install/2.9.5/lib64;/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0;/lib64;/usr/lib64;/home/tool/boost/boost_1_81_0/lib;/home/tool/klayout/install/0.27.1-c8/lib64/klayout;/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib;/home/tool/tcl/tcl8.6.6/lib;/home/tool/gcc/gcc-9.3.0/lib;/home/tool/git/install/2.9.5/libexec;/home/tool/flex/2.6.4/lib]
+  implicit fwks: []
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-KRF8wi
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_4a797/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_4a797.dir/build.make CMakeFiles/cmTC_4a797.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-KRF8wi'
+Building CXX object CMakeFiles/cmTC_4a797.dir/CheckFunctionExists.cxx.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -DCHECK_FUNCTION_EXISTS=pthread_create -std=c++17 -o CMakeFiles/cmTC_4a797.dir/CheckFunctionExists.cxx.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-KRF8wi/CheckFunctionExists.cxx
+Linking CXX executable cmTC_4a797
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4a797.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_4a797.dir/CheckFunctionExists.cxx.o -o cmTC_4a797  -lpthread 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-KRF8wi'
+
+
+
+Detecting CXX OpenMP compiler ABI info compiled with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-18gNK4
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f6357/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f6357.dir/build.make CMakeFiles/cmTC_f6357.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-18gNK4'
+Building CXX object CMakeFiles/cmTC_f6357.dir/OpenMPTryFlag.cpp.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -fopenmp -v -std=c++17 -o CMakeFiles/cmTC_f6357.dir/OpenMPTryFlag.cpp.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-18gNK4/OpenMPTryFlag.cpp
+Using built-in specs.
+COLLECT_GCC=/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++
+Target: x86_64-pc-linux-gnu
+Configured with: ../gcc-9.3.0/configure --prefix=/home/tool/gcc/gcc-9.3.0
+Thread model: posix
+gcc version 9.3.0 (GCC) 
+COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-std=c++17' '-o' 'CMakeFiles/cmTC_f6357.dir/OpenMPTryFlag.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-pthread'
+ /home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/cc1plus -quiet -v -D_GNU_SOURCE -D_REENTRANT /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-18gNK4/OpenMPTryFlag.cpp -quiet -dumpbase OpenMPTryFlag.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_f6357.dir/OpenMPTryFlag.cpp.o -std=c++17 -version -fopenmp -o /tmp/cchYXYiq.s
+GNU C++17 (GCC) version 9.3.0 (x86_64-pc-linux-gnu)
+	compiled by GNU C version 9.3.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../x86_64-pc-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/tool/GTest/gtest/1.13.0/include
+ /home/tool/tcl/tcl8.6.6/include
+ /home/tool/boost/boost_1_81_0/include
+ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0
+ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/x86_64-pc-linux-gnu
+ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/backward
+ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include
+ /usr/local/include
+ /home/tool/gcc/gcc-9.3.0/include
+ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed
+ /usr/include
+End of search list.
+GNU C++17 (GCC) version 9.3.0 (x86_64-pc-linux-gnu)
+	compiled by GNU C version 9.3.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 608dbf8298fb9e6b2430729c8dbfac11
+COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-std=c++17' '-o' 'CMakeFiles/cmTC_f6357.dir/OpenMPTryFlag.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-pthread'
+ as -v --64 -o CMakeFiles/cmTC_f6357.dir/OpenMPTryFlag.cpp.o /tmp/cchYXYiq.s
+GNU assembler version 2.27 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.27
+COMPILER_PATH=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/
+LIBRARY_PATH=/home/tool/GTest/gtest/1.13.0/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64/:/home/tool/gcc/gcc-9.3.0/lib64/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/../lib64/:/home/tool/git/install/2.9.5/libexec/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/tool/GTest/gtest/1.13.0/lib64/:/home/tool/boost/boost_1_81_0/lib/:/home/tool/klayout/install/0.27.1-c8/lib64/klayout/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/:/home/tool/tcl/tcl8.6.6/lib/:/home/tool/gcc/gcc-9.3.0/lib64/:/home/tool/gcc/gcc-9.3.0/lib/:/home/tool/git/install/2.9.5/libexec/:/home/tool/flex/2.6.4/lib/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-std=c++17' '-o' 'CMakeFiles/cmTC_f6357.dir/OpenMPTryFlag.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-pthread'
+Linking CXX executable cmTC_f6357
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f6357.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++  -fopenmp -v CMakeFiles/cmTC_f6357.dir/OpenMPTryFlag.cpp.o -o cmTC_f6357  -v 
+Using built-in specs.
+COLLECT_GCC=/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++
+COLLECT_LTO_WRAPPER=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/lto-wrapper
+Target: x86_64-pc-linux-gnu
+Configured with: ../gcc-9.3.0/configure --prefix=/home/tool/gcc/gcc-9.3.0
+Thread model: posix
+gcc version 9.3.0 (GCC) 
+COMPILER_PATH=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/
+LIBRARY_PATH=/home/tool/GTest/gtest/1.13.0/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64/:/home/tool/gcc/gcc-9.3.0/lib64/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/../lib64/:/home/tool/git/install/2.9.5/libexec/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/tool/GTest/gtest/1.13.0/lib64/:/home/tool/boost/boost_1_81_0/lib/:/home/tool/klayout/install/0.27.1-c8/lib64/klayout/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/:/home/tool/tcl/tcl8.6.6/lib/:/home/tool/gcc/gcc-9.3.0/lib64/:/home/tool/gcc/gcc-9.3.0/lib/:/home/tool/git/install/2.9.5/libexec/:/home/tool/flex/2.6.4/lib/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../:/lib/:/usr/lib/
+Reading specs from /home/tool/gcc/gcc-9.3.0/lib64/../lib64/libgomp.spec
+COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'cmTC_f6357' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-pthread'
+ /home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/collect2 -plugin /home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/liblto_plugin.so -plugin-opt=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/cc9Pxqp3.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_f6357 /lib/../lib64/crt1.o /lib/../lib64/crti.o /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtbegin.o -L/home/tool/GTest/gtest/1.13.0/lib64/../lib64 -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64 -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64 -L/home/tool/gcc/gcc-9.3.0/lib64/../lib64 -L/home/tool/gcc/gcc-9.3.0/lib/../lib64 -L/home/tool/git/install/2.9.5/libexec/../lib64 -L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0 -L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/home/tool/GTest/gtest/1.13.0/lib64 -L/home/tool/boost/boost_1_81_0/lib -L/home/tool/klayout/install/0.27.1-c8/lib64/klayout -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64 -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib -L/home/tool/tcl/tcl8.6.6/lib -L/home/tool/gcc/gcc-9.3.0/lib64 -L/home/tool/gcc/gcc-9.3.0/lib -L/home/tool/git/install/2.9.5/libexec -L/home/tool/flex/2.6.4/lib -L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../.. CMakeFiles/cmTC_f6357.dir/OpenMPTryFlag.cpp.o -lstdc++ -lm -lgomp -lgcc_s -lgcc -lpthread -lc -lgcc_s -lgcc /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtend.o /lib/../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'cmTC_f6357' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-pthread'
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-18gNK4'
+
+
+
+Parsed CXX OpenMP implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-18gNK4]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f6357/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f6357.dir/build.make CMakeFiles/cmTC_f6357.dir/build]
+  ignore line: [gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-18gNK4']
+  ignore line: [Building CXX object CMakeFiles/cmTC_f6357.dir/OpenMPTryFlag.cpp.o]
+  ignore line: [/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -fopenmp -v -std=c++17 -o CMakeFiles/cmTC_f6357.dir/OpenMPTryFlag.cpp.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-18gNK4/OpenMPTryFlag.cpp]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ../gcc-9.3.0/configure --prefix=/home/tool/gcc/gcc-9.3.0]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 9.3.0 (GCC) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-std=c++17' '-o' 'CMakeFiles/cmTC_f6357.dir/OpenMPTryFlag.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-pthread']
+  ignore line: [ /home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/cc1plus -quiet -v -D_GNU_SOURCE -D_REENTRANT /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-18gNK4/OpenMPTryFlag.cpp -quiet -dumpbase OpenMPTryFlag.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_f6357.dir/OpenMPTryFlag.cpp.o -std=c++17 -version -fopenmp -o /tmp/cchYXYiq.s]
+  ignore line: [GNU C++17 (GCC) version 9.3.0 (x86_64-pc-linux-gnu)]
+  ignore line: [	compiled by GNU C version 9.3.0  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../x86_64-pc-linux-gnu/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /home/tool/GTest/gtest/1.13.0/include]
+  ignore line: [ /home/tool/tcl/tcl8.6.6/include]
+  ignore line: [ /home/tool/boost/boost_1_81_0/include]
+  ignore line: [ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0]
+  ignore line: [ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/x86_64-pc-linux-gnu]
+  ignore line: [ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../include/c++/9.3.0/backward]
+  ignore line: [ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /home/tool/gcc/gcc-9.3.0/include]
+  ignore line: [ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C++17 (GCC) version 9.3.0 (x86_64-pc-linux-gnu)]
+  ignore line: [	compiled by GNU C version 9.3.0  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 608dbf8298fb9e6b2430729c8dbfac11]
+  ignore line: [COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-std=c++17' '-o' 'CMakeFiles/cmTC_f6357.dir/OpenMPTryFlag.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-pthread']
+  ignore line: [ as -v --64 -o CMakeFiles/cmTC_f6357.dir/OpenMPTryFlag.cpp.o /tmp/cchYXYiq.s]
+  ignore line: [GNU assembler version 2.27 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.27]
+  ignore line: [COMPILER_PATH=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/home/tool/GTest/gtest/1.13.0/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64/:/home/tool/gcc/gcc-9.3.0/lib64/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/../lib64/:/home/tool/git/install/2.9.5/libexec/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/tool/GTest/gtest/1.13.0/lib64/:/home/tool/boost/boost_1_81_0/lib/:/home/tool/klayout/install/0.27.1-c8/lib64/klayout/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/:/home/tool/tcl/tcl8.6.6/lib/:/home/tool/gcc/gcc-9.3.0/lib64/:/home/tool/gcc/gcc-9.3.0/lib/:/home/tool/git/install/2.9.5/libexec/:/home/tool/flex/2.6.4/lib/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-std=c++17' '-o' 'CMakeFiles/cmTC_f6357.dir/OpenMPTryFlag.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-pthread']
+  ignore line: [Linking CXX executable cmTC_f6357]
+  ignore line: [/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f6357.dir/link.txt --verbose=1]
+  ignore line: [/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++  -fopenmp -v CMakeFiles/cmTC_f6357.dir/OpenMPTryFlag.cpp.o -o cmTC_f6357  -v ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++]
+  ignore line: [COLLECT_LTO_WRAPPER=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/lto-wrapper]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ../gcc-9.3.0/configure --prefix=/home/tool/gcc/gcc-9.3.0]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 9.3.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/home/tool/GTest/gtest/1.13.0/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64/:/home/tool/gcc/gcc-9.3.0/lib64/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/../lib64/:/home/tool/git/install/2.9.5/libexec/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/tool/GTest/gtest/1.13.0/lib64/:/home/tool/boost/boost_1_81_0/lib/:/home/tool/klayout/install/0.27.1-c8/lib64/klayout/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/:/home/tool/tcl/tcl8.6.6/lib/:/home/tool/gcc/gcc-9.3.0/lib64/:/home/tool/gcc/gcc-9.3.0/lib/:/home/tool/git/install/2.9.5/libexec/:/home/tool/flex/2.6.4/lib/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../:/lib/:/usr/lib/]
+  ignore line: [Reading specs from /home/tool/gcc/gcc-9.3.0/lib64/../lib64/libgomp.spec]
+  ignore line: [COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'cmTC_f6357' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-pthread']
+  link line: [ /home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/collect2 -plugin /home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/liblto_plugin.so -plugin-opt=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/cc9Pxqp3.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_f6357 /lib/../lib64/crt1.o /lib/../lib64/crti.o /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtbegin.o -L/home/tool/GTest/gtest/1.13.0/lib64/../lib64 -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64 -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64 -L/home/tool/gcc/gcc-9.3.0/lib64/../lib64 -L/home/tool/gcc/gcc-9.3.0/lib/../lib64 -L/home/tool/git/install/2.9.5/libexec/../lib64 -L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0 -L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/home/tool/GTest/gtest/1.13.0/lib64 -L/home/tool/boost/boost_1_81_0/lib -L/home/tool/klayout/install/0.27.1-c8/lib64/klayout -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64 -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib -L/home/tool/tcl/tcl8.6.6/lib -L/home/tool/gcc/gcc-9.3.0/lib64 -L/home/tool/gcc/gcc-9.3.0/lib -L/home/tool/git/install/2.9.5/libexec -L/home/tool/flex/2.6.4/lib -L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../.. CMakeFiles/cmTC_f6357.dir/OpenMPTryFlag.cpp.o -lstdc++ -lm -lgomp -lgcc_s -lgcc -lpthread -lc -lgcc_s -lgcc /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtend.o /lib/../lib64/crtn.o]
+    arg [/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cc9Pxqp3.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_f6357] ==> ignore
+    arg [-L/home/tool/GTest/gtest/1.13.0/lib64/../lib64] ==> dir [/home/tool/GTest/gtest/1.13.0/lib64/../lib64]
+    arg [-L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64] ==> dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64]
+    arg [-L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64] ==> dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib64/../lib64] ==> dir [/home/tool/gcc/gcc-9.3.0/lib64/../lib64]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib/../lib64] ==> dir [/home/tool/gcc/gcc-9.3.0/lib/../lib64]
+    arg [-L/home/tool/git/install/2.9.5/libexec/../lib64] ==> dir [/home/tool/git/install/2.9.5/libexec/../lib64]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0] ==> dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64] ==> dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/home/tool/GTest/gtest/1.13.0/lib64] ==> dir [/home/tool/GTest/gtest/1.13.0/lib64]
+    arg [-L/home/tool/boost/boost_1_81_0/lib] ==> dir [/home/tool/boost/boost_1_81_0/lib]
+    arg [-L/home/tool/klayout/install/0.27.1-c8/lib64/klayout] ==> dir [/home/tool/klayout/install/0.27.1-c8/lib64/klayout]
+    arg [-L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64] ==> dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64]
+    arg [-L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib] ==> dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib]
+    arg [-L/home/tool/tcl/tcl8.6.6/lib] ==> dir [/home/tool/tcl/tcl8.6.6/lib]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib64] ==> dir [/home/tool/gcc/gcc-9.3.0/lib64]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib] ==> dir [/home/tool/gcc/gcc-9.3.0/lib]
+    arg [-L/home/tool/git/install/2.9.5/libexec] ==> dir [/home/tool/git/install/2.9.5/libexec]
+    arg [-L/home/tool/flex/2.6.4/lib] ==> dir [/home/tool/flex/2.6.4/lib]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../..] ==> dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../..]
+    arg [CMakeFiles/cmTC_f6357.dir/OpenMPTryFlag.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgomp] ==> lib [gomp]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lpthread] ==> lib [pthread]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+  collapse library dir [/home/tool/GTest/gtest/1.13.0/lib64/../lib64] ==> [/home/tool/GTest/gtest/1.13.0/lib64]
+  collapse library dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64] ==> [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64]
+  collapse library dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64] ==> [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib64/../lib64] ==> [/home/tool/gcc/gcc-9.3.0/lib64]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib/../lib64] ==> [/home/tool/gcc/gcc-9.3.0/lib64]
+  collapse library dir [/home/tool/git/install/2.9.5/libexec/../lib64] ==> [/home/tool/git/install/2.9.5/lib64]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0] ==> [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64] ==> [/home/tool/gcc/gcc-9.3.0/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/home/tool/GTest/gtest/1.13.0/lib64] ==> [/home/tool/GTest/gtest/1.13.0/lib64]
+  collapse library dir [/home/tool/boost/boost_1_81_0/lib] ==> [/home/tool/boost/boost_1_81_0/lib]
+  collapse library dir [/home/tool/klayout/install/0.27.1-c8/lib64/klayout] ==> [/home/tool/klayout/install/0.27.1-c8/lib64/klayout]
+  collapse library dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64] ==> [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64]
+  collapse library dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib] ==> [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib]
+  collapse library dir [/home/tool/tcl/tcl8.6.6/lib] ==> [/home/tool/tcl/tcl8.6.6/lib]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib64] ==> [/home/tool/gcc/gcc-9.3.0/lib64]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib] ==> [/home/tool/gcc/gcc-9.3.0/lib]
+  collapse library dir [/home/tool/git/install/2.9.5/libexec] ==> [/home/tool/git/install/2.9.5/libexec]
+  collapse library dir [/home/tool/flex/2.6.4/lib] ==> [/home/tool/flex/2.6.4/lib]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../..] ==> [/home/tool/gcc/gcc-9.3.0/lib]
+  implicit libs: [stdc++;m;gomp;gcc_s;gcc;pthread;c;gcc_s;gcc]
+  implicit objs: []
+  implicit dirs: [/home/tool/GTest/gtest/1.13.0/lib64;/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64;/home/tool/gcc/gcc-9.3.0/lib64;/home/tool/git/install/2.9.5/lib64;/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0;/lib64;/usr/lib64;/home/tool/boost/boost_1_81_0/lib;/home/tool/klayout/install/0.27.1-c8/lib64/klayout;/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib;/home/tool/tcl/tcl8.6.6/lib;/home/tool/gcc/gcc-9.3.0/lib;/home/tool/git/install/2.9.5/libexec;/home/tool/flex/2.6.4/lib]
+  implicit fwks: []
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/jsliang/GPU-DPO/build/CMakeFiles/3.25.1/CompilerIdC/a.out"
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-qJqz6O
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_5de36/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5de36.dir/build.make CMakeFiles/cmTC_5de36.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-qJqz6O'
+Building C object CMakeFiles/cmTC_5de36.dir/CMakeCCompilerABI.c.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc   -v -o CMakeFiles/cmTC_5de36.dir/CMakeCCompilerABI.c.o -c /home/tool/cmake/cmake-3.25.1-linux-x86_64/share/cmake-3.25/Modules/CMakeCCompilerABI.c
+Using built-in specs.
+COLLECT_GCC=/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc
+Target: x86_64-pc-linux-gnu
+Configured with: ../gcc-9.3.0/configure --prefix=/home/tool/gcc/gcc-9.3.0
+Thread model: posix
+gcc version 9.3.0 (GCC) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5de36.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+ /home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/cc1 -quiet -v /home/tool/cmake/cmake-3.25.1-linux-x86_64/share/cmake-3.25/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_5de36.dir/CMakeCCompilerABI.c.o -version -o /tmp/ccOxHX9f.s
+GNU C17 (GCC) version 9.3.0 (x86_64-pc-linux-gnu)
+	compiled by GNU C version 9.3.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../x86_64-pc-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/tool/GTest/gtest/1.13.0/include
+ /home/tool/tcl/tcl8.6.6/include
+ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include
+ /usr/local/include
+ /home/tool/gcc/gcc-9.3.0/include
+ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed
+ /usr/include
+End of search list.
+GNU C17 (GCC) version 9.3.0 (x86_64-pc-linux-gnu)
+	compiled by GNU C version 9.3.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 2a1dc21a8f6b5cc82f9759ab894b38f9
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5de36.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+ as -v --64 -o CMakeFiles/cmTC_5de36.dir/CMakeCCompilerABI.c.o /tmp/ccOxHX9f.s
+GNU assembler version 2.27 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.27
+COMPILER_PATH=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/
+LIBRARY_PATH=/home/tool/GTest/gtest/1.13.0/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64/:/home/tool/gcc/gcc-9.3.0/lib64/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/../lib64/:/home/tool/git/install/2.9.5/libexec/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/tool/GTest/gtest/1.13.0/lib64/:/home/tool/boost/boost_1_81_0/lib/:/home/tool/klayout/install/0.27.1-c8/lib64/klayout/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/:/home/tool/tcl/tcl8.6.6/lib/:/home/tool/gcc/gcc-9.3.0/lib64/:/home/tool/gcc/gcc-9.3.0/lib/:/home/tool/git/install/2.9.5/libexec/:/home/tool/flex/2.6.4/lib/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5de36.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+Linking C executable cmTC_5de36
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5de36.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc  -v CMakeFiles/cmTC_5de36.dir/CMakeCCompilerABI.c.o -o cmTC_5de36 
+Using built-in specs.
+COLLECT_GCC=/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc
+COLLECT_LTO_WRAPPER=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/lto-wrapper
+Target: x86_64-pc-linux-gnu
+Configured with: ../gcc-9.3.0/configure --prefix=/home/tool/gcc/gcc-9.3.0
+Thread model: posix
+gcc version 9.3.0 (GCC) 
+COMPILER_PATH=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/
+LIBRARY_PATH=/home/tool/GTest/gtest/1.13.0/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64/:/home/tool/gcc/gcc-9.3.0/lib64/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/../lib64/:/home/tool/git/install/2.9.5/libexec/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/tool/GTest/gtest/1.13.0/lib64/:/home/tool/boost/boost_1_81_0/lib/:/home/tool/klayout/install/0.27.1-c8/lib64/klayout/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/:/home/tool/tcl/tcl8.6.6/lib/:/home/tool/gcc/gcc-9.3.0/lib64/:/home/tool/gcc/gcc-9.3.0/lib/:/home/tool/git/install/2.9.5/libexec/:/home/tool/flex/2.6.4/lib/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5de36' '-mtune=generic' '-march=x86-64'
+ /home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/collect2 -plugin /home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/liblto_plugin.so -plugin-opt=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/cceehyyd.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_5de36 /lib/../lib64/crt1.o /lib/../lib64/crti.o /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtbegin.o -L/home/tool/GTest/gtest/1.13.0/lib64/../lib64 -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64 -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64 -L/home/tool/gcc/gcc-9.3.0/lib64/../lib64 -L/home/tool/gcc/gcc-9.3.0/lib/../lib64 -L/home/tool/git/install/2.9.5/libexec/../lib64 -L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0 -L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/home/tool/GTest/gtest/1.13.0/lib64 -L/home/tool/boost/boost_1_81_0/lib -L/home/tool/klayout/install/0.27.1-c8/lib64/klayout -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64 -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib -L/home/tool/tcl/tcl8.6.6/lib -L/home/tool/gcc/gcc-9.3.0/lib64 -L/home/tool/gcc/gcc-9.3.0/lib -L/home/tool/git/install/2.9.5/libexec -L/home/tool/flex/2.6.4/lib -L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../.. CMakeFiles/cmTC_5de36.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtend.o /lib/../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5de36' '-mtune=generic' '-march=x86-64'
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-qJqz6O'
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/home/tool/GTest/gtest/1.13.0/include]
+    add: [/home/tool/tcl/tcl8.6.6/include]
+    add: [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include]
+    add: [/usr/local/include]
+    add: [/home/tool/gcc/gcc-9.3.0/include]
+    add: [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/home/tool/GTest/gtest/1.13.0/include] ==> [/home/tool/GTest/gtest/1.13.0/include]
+  collapse include dir [/home/tool/tcl/tcl8.6.6/include] ==> [/home/tool/tcl/tcl8.6.6/include]
+  collapse include dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include] ==> [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/home/tool/gcc/gcc-9.3.0/include] ==> [/home/tool/gcc/gcc-9.3.0/include]
+  collapse include dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed] ==> [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/home/tool/GTest/gtest/1.13.0/include;/home/tool/tcl/tcl8.6.6/include;/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include;/usr/local/include;/home/tool/gcc/gcc-9.3.0/include;/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed;/usr/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-qJqz6O]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_5de36/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5de36.dir/build.make CMakeFiles/cmTC_5de36.dir/build]
+  ignore line: [gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-qJqz6O']
+  ignore line: [Building C object CMakeFiles/cmTC_5de36.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc   -v -o CMakeFiles/cmTC_5de36.dir/CMakeCCompilerABI.c.o -c /home/tool/cmake/cmake-3.25.1-linux-x86_64/share/cmake-3.25/Modules/CMakeCCompilerABI.c]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ../gcc-9.3.0/configure --prefix=/home/tool/gcc/gcc-9.3.0]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 9.3.0 (GCC) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5de36.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+  ignore line: [ /home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/cc1 -quiet -v /home/tool/cmake/cmake-3.25.1-linux-x86_64/share/cmake-3.25/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_5de36.dir/CMakeCCompilerABI.c.o -version -o /tmp/ccOxHX9f.s]
+  ignore line: [GNU C17 (GCC) version 9.3.0 (x86_64-pc-linux-gnu)]
+  ignore line: [	compiled by GNU C version 9.3.0  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../x86_64-pc-linux-gnu/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /home/tool/GTest/gtest/1.13.0/include]
+  ignore line: [ /home/tool/tcl/tcl8.6.6/include]
+  ignore line: [ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /home/tool/gcc/gcc-9.3.0/include]
+  ignore line: [ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C17 (GCC) version 9.3.0 (x86_64-pc-linux-gnu)]
+  ignore line: [	compiled by GNU C version 9.3.0  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 2a1dc21a8f6b5cc82f9759ab894b38f9]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5de36.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+  ignore line: [ as -v --64 -o CMakeFiles/cmTC_5de36.dir/CMakeCCompilerABI.c.o /tmp/ccOxHX9f.s]
+  ignore line: [GNU assembler version 2.27 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.27]
+  ignore line: [COMPILER_PATH=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/home/tool/GTest/gtest/1.13.0/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64/:/home/tool/gcc/gcc-9.3.0/lib64/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/../lib64/:/home/tool/git/install/2.9.5/libexec/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/tool/GTest/gtest/1.13.0/lib64/:/home/tool/boost/boost_1_81_0/lib/:/home/tool/klayout/install/0.27.1-c8/lib64/klayout/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/:/home/tool/tcl/tcl8.6.6/lib/:/home/tool/gcc/gcc-9.3.0/lib64/:/home/tool/gcc/gcc-9.3.0/lib/:/home/tool/git/install/2.9.5/libexec/:/home/tool/flex/2.6.4/lib/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5de36.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+  ignore line: [Linking C executable cmTC_5de36]
+  ignore line: [/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5de36.dir/link.txt --verbose=1]
+  ignore line: [/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc  -v CMakeFiles/cmTC_5de36.dir/CMakeCCompilerABI.c.o -o cmTC_5de36 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/lto-wrapper]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ../gcc-9.3.0/configure --prefix=/home/tool/gcc/gcc-9.3.0]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 9.3.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/home/tool/GTest/gtest/1.13.0/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64/:/home/tool/gcc/gcc-9.3.0/lib64/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/../lib64/:/home/tool/git/install/2.9.5/libexec/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/tool/GTest/gtest/1.13.0/lib64/:/home/tool/boost/boost_1_81_0/lib/:/home/tool/klayout/install/0.27.1-c8/lib64/klayout/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/:/home/tool/tcl/tcl8.6.6/lib/:/home/tool/gcc/gcc-9.3.0/lib64/:/home/tool/gcc/gcc-9.3.0/lib/:/home/tool/git/install/2.9.5/libexec/:/home/tool/flex/2.6.4/lib/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5de36' '-mtune=generic' '-march=x86-64']
+  link line: [ /home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/collect2 -plugin /home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/liblto_plugin.so -plugin-opt=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/cceehyyd.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_5de36 /lib/../lib64/crt1.o /lib/../lib64/crti.o /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtbegin.o -L/home/tool/GTest/gtest/1.13.0/lib64/../lib64 -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64 -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64 -L/home/tool/gcc/gcc-9.3.0/lib64/../lib64 -L/home/tool/gcc/gcc-9.3.0/lib/../lib64 -L/home/tool/git/install/2.9.5/libexec/../lib64 -L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0 -L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/home/tool/GTest/gtest/1.13.0/lib64 -L/home/tool/boost/boost_1_81_0/lib -L/home/tool/klayout/install/0.27.1-c8/lib64/klayout -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64 -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib -L/home/tool/tcl/tcl8.6.6/lib -L/home/tool/gcc/gcc-9.3.0/lib64 -L/home/tool/gcc/gcc-9.3.0/lib -L/home/tool/git/install/2.9.5/libexec -L/home/tool/flex/2.6.4/lib -L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../.. CMakeFiles/cmTC_5de36.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtend.o /lib/../lib64/crtn.o]
+    arg [/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cceehyyd.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_5de36] ==> ignore
+    arg [/lib/../lib64/crt1.o] ==> obj [/lib/../lib64/crt1.o]
+    arg [/lib/../lib64/crti.o] ==> obj [/lib/../lib64/crti.o]
+    arg [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtbegin.o] ==> obj [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtbegin.o]
+    arg [-L/home/tool/GTest/gtest/1.13.0/lib64/../lib64] ==> dir [/home/tool/GTest/gtest/1.13.0/lib64/../lib64]
+    arg [-L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64] ==> dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64]
+    arg [-L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64] ==> dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib64/../lib64] ==> dir [/home/tool/gcc/gcc-9.3.0/lib64/../lib64]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib/../lib64] ==> dir [/home/tool/gcc/gcc-9.3.0/lib/../lib64]
+    arg [-L/home/tool/git/install/2.9.5/libexec/../lib64] ==> dir [/home/tool/git/install/2.9.5/libexec/../lib64]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0] ==> dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64] ==> dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/home/tool/GTest/gtest/1.13.0/lib64] ==> dir [/home/tool/GTest/gtest/1.13.0/lib64]
+    arg [-L/home/tool/boost/boost_1_81_0/lib] ==> dir [/home/tool/boost/boost_1_81_0/lib]
+    arg [-L/home/tool/klayout/install/0.27.1-c8/lib64/klayout] ==> dir [/home/tool/klayout/install/0.27.1-c8/lib64/klayout]
+    arg [-L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64] ==> dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64]
+    arg [-L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib] ==> dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib]
+    arg [-L/home/tool/tcl/tcl8.6.6/lib] ==> dir [/home/tool/tcl/tcl8.6.6/lib]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib64] ==> dir [/home/tool/gcc/gcc-9.3.0/lib64]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib] ==> dir [/home/tool/gcc/gcc-9.3.0/lib]
+    arg [-L/home/tool/git/install/2.9.5/libexec] ==> dir [/home/tool/git/install/2.9.5/libexec]
+    arg [-L/home/tool/flex/2.6.4/lib] ==> dir [/home/tool/flex/2.6.4/lib]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../..] ==> dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../..]
+    arg [CMakeFiles/cmTC_5de36.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtend.o] ==> obj [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtend.o]
+    arg [/lib/../lib64/crtn.o] ==> obj [/lib/../lib64/crtn.o]
+  collapse obj [/lib/../lib64/crt1.o] ==> [/lib64/crt1.o]
+  collapse obj [/lib/../lib64/crti.o] ==> [/lib64/crti.o]
+  collapse obj [/lib/../lib64/crtn.o] ==> [/lib64/crtn.o]
+  collapse library dir [/home/tool/GTest/gtest/1.13.0/lib64/../lib64] ==> [/home/tool/GTest/gtest/1.13.0/lib64]
+  collapse library dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64] ==> [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64]
+  collapse library dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64] ==> [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib64/../lib64] ==> [/home/tool/gcc/gcc-9.3.0/lib64]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib/../lib64] ==> [/home/tool/gcc/gcc-9.3.0/lib64]
+  collapse library dir [/home/tool/git/install/2.9.5/libexec/../lib64] ==> [/home/tool/git/install/2.9.5/lib64]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0] ==> [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64] ==> [/home/tool/gcc/gcc-9.3.0/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/home/tool/GTest/gtest/1.13.0/lib64] ==> [/home/tool/GTest/gtest/1.13.0/lib64]
+  collapse library dir [/home/tool/boost/boost_1_81_0/lib] ==> [/home/tool/boost/boost_1_81_0/lib]
+  collapse library dir [/home/tool/klayout/install/0.27.1-c8/lib64/klayout] ==> [/home/tool/klayout/install/0.27.1-c8/lib64/klayout]
+  collapse library dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64] ==> [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64]
+  collapse library dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib] ==> [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib]
+  collapse library dir [/home/tool/tcl/tcl8.6.6/lib] ==> [/home/tool/tcl/tcl8.6.6/lib]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib64] ==> [/home/tool/gcc/gcc-9.3.0/lib64]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib] ==> [/home/tool/gcc/gcc-9.3.0/lib]
+  collapse library dir [/home/tool/git/install/2.9.5/libexec] ==> [/home/tool/git/install/2.9.5/libexec]
+  collapse library dir [/home/tool/flex/2.6.4/lib] ==> [/home/tool/flex/2.6.4/lib]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../..] ==> [/home/tool/gcc/gcc-9.3.0/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit objs: [/lib64/crt1.o;/lib64/crti.o;/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtbegin.o;/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtend.o;/lib64/crtn.o]
+  implicit dirs: [/home/tool/GTest/gtest/1.13.0/lib64;/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64;/home/tool/gcc/gcc-9.3.0/lib64;/home/tool/git/install/2.9.5/lib64;/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0;/lib64;/usr/lib64;/home/tool/boost/boost_1_81_0/lib;/home/tool/klayout/install/0.27.1-c8/lib64/klayout;/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib;/home/tool/tcl/tcl8.6.6/lib;/home/tool/gcc/gcc-9.3.0/lib;/home/tool/git/install/2.9.5/libexec;/home/tool/flex/2.6.4/lib]
+  implicit fwks: []
+
+
+Detecting C OpenMP compiler ABI info compiled with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-5lSnao
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_a2f92/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a2f92.dir/build.make CMakeFiles/cmTC_a2f92.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-5lSnao'
+Building C object CMakeFiles/cmTC_a2f92.dir/OpenMPTryFlag.c.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc   -fopenmp -v -o CMakeFiles/cmTC_a2f92.dir/OpenMPTryFlag.c.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-5lSnao/OpenMPTryFlag.c
+Using built-in specs.
+COLLECT_GCC=/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc
+Target: x86_64-pc-linux-gnu
+Configured with: ../gcc-9.3.0/configure --prefix=/home/tool/gcc/gcc-9.3.0
+Thread model: posix
+gcc version 9.3.0 (GCC) 
+COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_a2f92.dir/OpenMPTryFlag.c.o' '-c' '-mtune=generic' '-march=x86-64' '-pthread'
+ /home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/cc1 -quiet -v -D_REENTRANT /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-5lSnao/OpenMPTryFlag.c -quiet -dumpbase OpenMPTryFlag.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_a2f92.dir/OpenMPTryFlag.c.o -version -fopenmp -o /tmp/ccozA8ES.s
+GNU C17 (GCC) version 9.3.0 (x86_64-pc-linux-gnu)
+	compiled by GNU C version 9.3.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../x86_64-pc-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/tool/GTest/gtest/1.13.0/include
+ /home/tool/tcl/tcl8.6.6/include
+ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include
+ /usr/local/include
+ /home/tool/gcc/gcc-9.3.0/include
+ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed
+ /usr/include
+End of search list.
+GNU C17 (GCC) version 9.3.0 (x86_64-pc-linux-gnu)
+	compiled by GNU C version 9.3.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 2a1dc21a8f6b5cc82f9759ab894b38f9
+COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_a2f92.dir/OpenMPTryFlag.c.o' '-c' '-mtune=generic' '-march=x86-64' '-pthread'
+ as -v --64 -o CMakeFiles/cmTC_a2f92.dir/OpenMPTryFlag.c.o /tmp/ccozA8ES.s
+GNU assembler version 2.27 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.27
+COMPILER_PATH=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/
+LIBRARY_PATH=/home/tool/GTest/gtest/1.13.0/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64/:/home/tool/gcc/gcc-9.3.0/lib64/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/../lib64/:/home/tool/git/install/2.9.5/libexec/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/tool/GTest/gtest/1.13.0/lib64/:/home/tool/boost/boost_1_81_0/lib/:/home/tool/klayout/install/0.27.1-c8/lib64/klayout/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/:/home/tool/tcl/tcl8.6.6/lib/:/home/tool/gcc/gcc-9.3.0/lib64/:/home/tool/gcc/gcc-9.3.0/lib/:/home/tool/git/install/2.9.5/libexec/:/home/tool/flex/2.6.4/lib/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_a2f92.dir/OpenMPTryFlag.c.o' '-c' '-mtune=generic' '-march=x86-64' '-pthread'
+Linking C executable cmTC_a2f92
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a2f92.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc  -fopenmp -v CMakeFiles/cmTC_a2f92.dir/OpenMPTryFlag.c.o -o cmTC_a2f92  -v 
+Using built-in specs.
+COLLECT_GCC=/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc
+COLLECT_LTO_WRAPPER=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/lto-wrapper
+Target: x86_64-pc-linux-gnu
+Configured with: ../gcc-9.3.0/configure --prefix=/home/tool/gcc/gcc-9.3.0
+Thread model: posix
+gcc version 9.3.0 (GCC) 
+COMPILER_PATH=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/
+LIBRARY_PATH=/home/tool/GTest/gtest/1.13.0/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64/:/home/tool/gcc/gcc-9.3.0/lib64/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/../lib64/:/home/tool/git/install/2.9.5/libexec/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/tool/GTest/gtest/1.13.0/lib64/:/home/tool/boost/boost_1_81_0/lib/:/home/tool/klayout/install/0.27.1-c8/lib64/klayout/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/:/home/tool/tcl/tcl8.6.6/lib/:/home/tool/gcc/gcc-9.3.0/lib64/:/home/tool/gcc/gcc-9.3.0/lib/:/home/tool/git/install/2.9.5/libexec/:/home/tool/flex/2.6.4/lib/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../:/lib/:/usr/lib/
+Reading specs from /home/tool/gcc/gcc-9.3.0/lib64/../lib64/libgomp.spec
+COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'cmTC_a2f92' '-v' '-mtune=generic' '-march=x86-64' '-pthread'
+ /home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/collect2 -plugin /home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/liblto_plugin.so -plugin-opt=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccEVpZFV.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_a2f92 /lib/../lib64/crt1.o /lib/../lib64/crti.o /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtbegin.o -L/home/tool/GTest/gtest/1.13.0/lib64/../lib64 -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64 -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64 -L/home/tool/gcc/gcc-9.3.0/lib64/../lib64 -L/home/tool/gcc/gcc-9.3.0/lib/../lib64 -L/home/tool/git/install/2.9.5/libexec/../lib64 -L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0 -L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/home/tool/GTest/gtest/1.13.0/lib64 -L/home/tool/boost/boost_1_81_0/lib -L/home/tool/klayout/install/0.27.1-c8/lib64/klayout -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64 -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib -L/home/tool/tcl/tcl8.6.6/lib -L/home/tool/gcc/gcc-9.3.0/lib64 -L/home/tool/gcc/gcc-9.3.0/lib -L/home/tool/git/install/2.9.5/libexec -L/home/tool/flex/2.6.4/lib -L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../.. CMakeFiles/cmTC_a2f92.dir/OpenMPTryFlag.c.o -lgomp -lgcc --as-needed -lgcc_s --no-as-needed -lpthread -lc -lgcc --as-needed -lgcc_s --no-as-needed /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtend.o /lib/../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'cmTC_a2f92' '-v' '-mtune=generic' '-march=x86-64' '-pthread'
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-5lSnao'
+
+
+
+Parsed C OpenMP implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-5lSnao]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_a2f92/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a2f92.dir/build.make CMakeFiles/cmTC_a2f92.dir/build]
+  ignore line: [gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-5lSnao']
+  ignore line: [Building C object CMakeFiles/cmTC_a2f92.dir/OpenMPTryFlag.c.o]
+  ignore line: [/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc   -fopenmp -v -o CMakeFiles/cmTC_a2f92.dir/OpenMPTryFlag.c.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-5lSnao/OpenMPTryFlag.c]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ../gcc-9.3.0/configure --prefix=/home/tool/gcc/gcc-9.3.0]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 9.3.0 (GCC) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_a2f92.dir/OpenMPTryFlag.c.o' '-c' '-mtune=generic' '-march=x86-64' '-pthread']
+  ignore line: [ /home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/cc1 -quiet -v -D_REENTRANT /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-5lSnao/OpenMPTryFlag.c -quiet -dumpbase OpenMPTryFlag.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_a2f92.dir/OpenMPTryFlag.c.o -version -fopenmp -o /tmp/ccozA8ES.s]
+  ignore line: [GNU C17 (GCC) version 9.3.0 (x86_64-pc-linux-gnu)]
+  ignore line: [	compiled by GNU C version 9.3.0  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../x86_64-pc-linux-gnu/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /home/tool/GTest/gtest/1.13.0/include]
+  ignore line: [ /home/tool/tcl/tcl8.6.6/include]
+  ignore line: [ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /home/tool/gcc/gcc-9.3.0/include]
+  ignore line: [ /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/include-fixed]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C17 (GCC) version 9.3.0 (x86_64-pc-linux-gnu)]
+  ignore line: [	compiled by GNU C version 9.3.0  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 2a1dc21a8f6b5cc82f9759ab894b38f9]
+  ignore line: [COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_a2f92.dir/OpenMPTryFlag.c.o' '-c' '-mtune=generic' '-march=x86-64' '-pthread']
+  ignore line: [ as -v --64 -o CMakeFiles/cmTC_a2f92.dir/OpenMPTryFlag.c.o /tmp/ccozA8ES.s]
+  ignore line: [GNU assembler version 2.27 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.27]
+  ignore line: [COMPILER_PATH=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/home/tool/GTest/gtest/1.13.0/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64/:/home/tool/gcc/gcc-9.3.0/lib64/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/../lib64/:/home/tool/git/install/2.9.5/libexec/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/tool/GTest/gtest/1.13.0/lib64/:/home/tool/boost/boost_1_81_0/lib/:/home/tool/klayout/install/0.27.1-c8/lib64/klayout/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/:/home/tool/tcl/tcl8.6.6/lib/:/home/tool/gcc/gcc-9.3.0/lib64/:/home/tool/gcc/gcc-9.3.0/lib/:/home/tool/git/install/2.9.5/libexec/:/home/tool/flex/2.6.4/lib/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_a2f92.dir/OpenMPTryFlag.c.o' '-c' '-mtune=generic' '-march=x86-64' '-pthread']
+  ignore line: [Linking C executable cmTC_a2f92]
+  ignore line: [/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a2f92.dir/link.txt --verbose=1]
+  ignore line: [/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc  -fopenmp -v CMakeFiles/cmTC_a2f92.dir/OpenMPTryFlag.c.o -o cmTC_a2f92  -v ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/lto-wrapper]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ../gcc-9.3.0/configure --prefix=/home/tool/gcc/gcc-9.3.0]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 9.3.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/home/tool/GTest/gtest/1.13.0/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64/:/home/tool/gcc/gcc-9.3.0/lib64/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/../lib64/:/home/tool/git/install/2.9.5/libexec/../lib64/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/tool/GTest/gtest/1.13.0/lib64/:/home/tool/boost/boost_1_81_0/lib/:/home/tool/klayout/install/0.27.1-c8/lib64/klayout/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/:/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/:/home/tool/tcl/tcl8.6.6/lib/:/home/tool/gcc/gcc-9.3.0/lib64/:/home/tool/gcc/gcc-9.3.0/lib/:/home/tool/git/install/2.9.5/libexec/:/home/tool/flex/2.6.4/lib/:/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../:/lib/:/usr/lib/]
+  ignore line: [Reading specs from /home/tool/gcc/gcc-9.3.0/lib64/../lib64/libgomp.spec]
+  ignore line: [COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'cmTC_a2f92' '-v' '-mtune=generic' '-march=x86-64' '-pthread']
+  link line: [ /home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/collect2 -plugin /home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/liblto_plugin.so -plugin-opt=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccEVpZFV.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_a2f92 /lib/../lib64/crt1.o /lib/../lib64/crti.o /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtbegin.o -L/home/tool/GTest/gtest/1.13.0/lib64/../lib64 -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64 -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64 -L/home/tool/gcc/gcc-9.3.0/lib64/../lib64 -L/home/tool/gcc/gcc-9.3.0/lib/../lib64 -L/home/tool/git/install/2.9.5/libexec/../lib64 -L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0 -L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/home/tool/GTest/gtest/1.13.0/lib64 -L/home/tool/boost/boost_1_81_0/lib -L/home/tool/klayout/install/0.27.1-c8/lib64/klayout -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64 -L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib -L/home/tool/tcl/tcl8.6.6/lib -L/home/tool/gcc/gcc-9.3.0/lib64 -L/home/tool/gcc/gcc-9.3.0/lib -L/home/tool/git/install/2.9.5/libexec -L/home/tool/flex/2.6.4/lib -L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../.. CMakeFiles/cmTC_a2f92.dir/OpenMPTryFlag.c.o -lgomp -lgcc --as-needed -lgcc_s --no-as-needed -lpthread -lc -lgcc --as-needed -lgcc_s --no-as-needed /home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtend.o /lib/../lib64/crtn.o]
+    arg [/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/home/tool/gcc/gcc-9.3.0/libexec/gcc/x86_64-pc-linux-gnu/9.3.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccEVpZFV.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_a2f92] ==> ignore
+    arg [-L/home/tool/GTest/gtest/1.13.0/lib64/../lib64] ==> dir [/home/tool/GTest/gtest/1.13.0/lib64/../lib64]
+    arg [-L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64] ==> dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64]
+    arg [-L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64] ==> dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib64/../lib64] ==> dir [/home/tool/gcc/gcc-9.3.0/lib64/../lib64]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib/../lib64] ==> dir [/home/tool/gcc/gcc-9.3.0/lib/../lib64]
+    arg [-L/home/tool/git/install/2.9.5/libexec/../lib64] ==> dir [/home/tool/git/install/2.9.5/libexec/../lib64]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0] ==> dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64] ==> dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/home/tool/GTest/gtest/1.13.0/lib64] ==> dir [/home/tool/GTest/gtest/1.13.0/lib64]
+    arg [-L/home/tool/boost/boost_1_81_0/lib] ==> dir [/home/tool/boost/boost_1_81_0/lib]
+    arg [-L/home/tool/klayout/install/0.27.1-c8/lib64/klayout] ==> dir [/home/tool/klayout/install/0.27.1-c8/lib64/klayout]
+    arg [-L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64] ==> dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64]
+    arg [-L/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib] ==> dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib]
+    arg [-L/home/tool/tcl/tcl8.6.6/lib] ==> dir [/home/tool/tcl/tcl8.6.6/lib]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib64] ==> dir [/home/tool/gcc/gcc-9.3.0/lib64]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib] ==> dir [/home/tool/gcc/gcc-9.3.0/lib]
+    arg [-L/home/tool/git/install/2.9.5/libexec] ==> dir [/home/tool/git/install/2.9.5/libexec]
+    arg [-L/home/tool/flex/2.6.4/lib] ==> dir [/home/tool/flex/2.6.4/lib]
+    arg [-L/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../..] ==> dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../..]
+    arg [CMakeFiles/cmTC_a2f92.dir/OpenMPTryFlag.c.o] ==> ignore
+    arg [-lgomp] ==> lib [gomp]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lpthread] ==> lib [pthread]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+  collapse library dir [/home/tool/GTest/gtest/1.13.0/lib64/../lib64] ==> [/home/tool/GTest/gtest/1.13.0/lib64]
+  collapse library dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64/../lib64] ==> [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64]
+  collapse library dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib/../lib64] ==> [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib64/../lib64] ==> [/home/tool/gcc/gcc-9.3.0/lib64]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib/../lib64] ==> [/home/tool/gcc/gcc-9.3.0/lib64]
+  collapse library dir [/home/tool/git/install/2.9.5/libexec/../lib64] ==> [/home/tool/git/install/2.9.5/lib64]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0] ==> [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64] ==> [/home/tool/gcc/gcc-9.3.0/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/home/tool/GTest/gtest/1.13.0/lib64] ==> [/home/tool/GTest/gtest/1.13.0/lib64]
+  collapse library dir [/home/tool/boost/boost_1_81_0/lib] ==> [/home/tool/boost/boost_1_81_0/lib]
+  collapse library dir [/home/tool/klayout/install/0.27.1-c8/lib64/klayout] ==> [/home/tool/klayout/install/0.27.1-c8/lib64/klayout]
+  collapse library dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64] ==> [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64]
+  collapse library dir [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib] ==> [/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib]
+  collapse library dir [/home/tool/tcl/tcl8.6.6/lib] ==> [/home/tool/tcl/tcl8.6.6/lib]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib64] ==> [/home/tool/gcc/gcc-9.3.0/lib64]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib] ==> [/home/tool/gcc/gcc-9.3.0/lib]
+  collapse library dir [/home/tool/git/install/2.9.5/libexec] ==> [/home/tool/git/install/2.9.5/libexec]
+  collapse library dir [/home/tool/flex/2.6.4/lib] ==> [/home/tool/flex/2.6.4/lib]
+  collapse library dir [/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../..] ==> [/home/tool/gcc/gcc-9.3.0/lib]
+  implicit libs: [gomp;gcc;gcc_s;pthread;c;gcc;gcc_s]
+  implicit objs: []
+  implicit dirs: [/home/tool/GTest/gtest/1.13.0/lib64;/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib64;/home/tool/gcc/gcc-9.3.0/lib64;/home/tool/git/install/2.9.5/lib64;/home/tool/gcc/gcc-9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0;/lib64;/usr/lib64;/home/tool/boost/boost_1_81_0/lib;/home/tool/klayout/install/0.27.1-c8/lib64/klayout;/home/tool/ortools/install/or-tools_cpp_CentOSStream-8-64bit_v9.4.1874/lib;/home/tool/tcl/tcl8.6.6/lib;/home/tool/gcc/gcc-9.3.0/lib;/home/tool/git/install/2.9.5/libexec;/home/tool/flex/2.6.4/lib]
+  implicit fwks: []
+
+
+Performing C SOURCE FILE Test C_COMPILER_SUPPORTS__-Wall succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-MXWrFP
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_bee08/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_bee08.dir/build.make CMakeFiles/cmTC_bee08.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-MXWrFP'
+Building C object CMakeFiles/cmTC_bee08.dir/src.c.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc   -DC_COMPILER_SUPPORTS__-Wall -Wall -o CMakeFiles/cmTC_bee08.dir/src.c.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-MXWrFP/src.c
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+Linking C executable cmTC_bee08
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bee08.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc CMakeFiles/cmTC_bee08.dir/src.c.o -o cmTC_bee08 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-MXWrFP'
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_COMPILER_SUPPORTS__-Wall succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-9lNqFh
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_75d3d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_75d3d.dir/build.make CMakeFiles/cmTC_75d3d.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-9lNqFh'
+Building CXX object CMakeFiles/cmTC_75d3d.dir/src.cxx.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -DCXX_COMPILER_SUPPORTS__-Wall -Wall -o CMakeFiles/cmTC_75d3d.dir/src.cxx.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-9lNqFh/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_75d3d
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_75d3d.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++ CMakeFiles/cmTC_75d3d.dir/src.cxx.o -o cmTC_75d3d 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-9lNqFh'
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C SOURCE FILE Test C_COMPILER_SUPPORTS__-Wno-array-bounds succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-fgQWpD
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_bee3a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_bee3a.dir/build.make CMakeFiles/cmTC_bee3a.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-fgQWpD'
+Building C object CMakeFiles/cmTC_bee3a.dir/src.c.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc   -DC_COMPILER_SUPPORTS__-Wno-array-bounds -Wno-array-bounds -o CMakeFiles/cmTC_bee3a.dir/src.c.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-fgQWpD/src.c
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+Linking C executable cmTC_bee3a
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bee3a.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc CMakeFiles/cmTC_bee3a.dir/src.c.o -o cmTC_bee3a 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-fgQWpD'
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_COMPILER_SUPPORTS__-Wno-array-bounds succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-r7WbqS
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_bc20a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_bc20a.dir/build.make CMakeFiles/cmTC_bc20a.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-r7WbqS'
+Building CXX object CMakeFiles/cmTC_bc20a.dir/src.cxx.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -DCXX_COMPILER_SUPPORTS__-Wno-array-bounds -Wno-array-bounds -o CMakeFiles/cmTC_bc20a.dir/src.cxx.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-r7WbqS/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_bc20a
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bc20a.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++ CMakeFiles/cmTC_bc20a.dir/src.cxx.o -o cmTC_bc20a 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-r7WbqS'
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C SOURCE FILE Test C_COMPILER_SUPPORTS__-Wno-nonnull succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-DvQN5e
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_7d109/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_7d109.dir/build.make CMakeFiles/cmTC_7d109.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-DvQN5e'
+Building C object CMakeFiles/cmTC_7d109.dir/src.c.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc   -DC_COMPILER_SUPPORTS__-Wno-nonnull -Wno-nonnull -o CMakeFiles/cmTC_7d109.dir/src.c.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-DvQN5e/src.c
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+Linking C executable cmTC_7d109
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7d109.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc CMakeFiles/cmTC_7d109.dir/src.c.o -o cmTC_7d109 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-DvQN5e'
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_COMPILER_SUPPORTS__-Wno-nonnull succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-SANRao
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_0b858/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_0b858.dir/build.make CMakeFiles/cmTC_0b858.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-SANRao'
+Building CXX object CMakeFiles/cmTC_0b858.dir/src.cxx.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -DCXX_COMPILER_SUPPORTS__-Wno-nonnull -Wno-nonnull -o CMakeFiles/cmTC_0b858.dir/src.cxx.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-SANRao/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_0b858
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0b858.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++ CMakeFiles/cmTC_0b858.dir/src.cxx.o -o cmTC_0b858 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-SANRao'
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C SOURCE FILE Test C_COMPILER_SUPPORTS__-Wno-maybe-uninitialized succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-yt8Ckq
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_b8137/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_b8137.dir/build.make CMakeFiles/cmTC_b8137.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-yt8Ckq'
+Building C object CMakeFiles/cmTC_b8137.dir/src.c.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc   -DC_COMPILER_SUPPORTS__-Wno-maybe-uninitialized -Wno-maybe-uninitialized -o CMakeFiles/cmTC_b8137.dir/src.c.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-yt8Ckq/src.c
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+Linking C executable cmTC_b8137
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b8137.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc CMakeFiles/cmTC_b8137.dir/src.c.o -o cmTC_b8137 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-yt8Ckq'
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_COMPILER_SUPPORTS__-Wno-maybe-uninitialized succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-tIUJ8Z
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_478fb/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_478fb.dir/build.make CMakeFiles/cmTC_478fb.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-tIUJ8Z'
+Building CXX object CMakeFiles/cmTC_478fb.dir/src.cxx.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -DCXX_COMPILER_SUPPORTS__-Wno-maybe-uninitialized -Wno-maybe-uninitialized -o CMakeFiles/cmTC_478fb.dir/src.cxx.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-tIUJ8Z/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_478fb
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_478fb.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++ CMakeFiles/cmTC_478fb.dir/src.cxx.o -o cmTC_478fb 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-tIUJ8Z'
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C SOURCE FILE Test C_COMPILER_SUPPORTS__-Wno-format-overflow succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-PktTIM
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_3ee79/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3ee79.dir/build.make CMakeFiles/cmTC_3ee79.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-PktTIM'
+Building C object CMakeFiles/cmTC_3ee79.dir/src.c.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc   -DC_COMPILER_SUPPORTS__-Wno-format-overflow -Wno-format-overflow -o CMakeFiles/cmTC_3ee79.dir/src.c.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-PktTIM/src.c
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+Linking C executable cmTC_3ee79
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3ee79.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc CMakeFiles/cmTC_3ee79.dir/src.c.o -o cmTC_3ee79 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-PktTIM'
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_COMPILER_SUPPORTS__-Wno-format-overflow succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-HANb0M
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_4f3a4/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_4f3a4.dir/build.make CMakeFiles/cmTC_4f3a4.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-HANb0M'
+Building CXX object CMakeFiles/cmTC_4f3a4.dir/src.cxx.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -DCXX_COMPILER_SUPPORTS__-Wno-format-overflow -Wno-format-overflow -o CMakeFiles/cmTC_4f3a4.dir/src.cxx.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-HANb0M/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_4f3a4
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4f3a4.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++ CMakeFiles/cmTC_4f3a4.dir/src.cxx.o -o cmTC_4f3a4 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-HANb0M'
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C SOURCE FILE Test C_COMPILER_SUPPORTS__-Wno-unused-variable succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-AQVlkh
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9e38b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9e38b.dir/build.make CMakeFiles/cmTC_9e38b.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-AQVlkh'
+Building C object CMakeFiles/cmTC_9e38b.dir/src.c.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc   -DC_COMPILER_SUPPORTS__-Wno-unused-variable -Wno-unused-variable -o CMakeFiles/cmTC_9e38b.dir/src.c.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-AQVlkh/src.c
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+Linking C executable cmTC_9e38b
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9e38b.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc CMakeFiles/cmTC_9e38b.dir/src.c.o -o cmTC_9e38b 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-AQVlkh'
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_COMPILER_SUPPORTS__-Wno-unused-variable succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-TKNiyJ
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_cebdf/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_cebdf.dir/build.make CMakeFiles/cmTC_cebdf.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-TKNiyJ'
+Building CXX object CMakeFiles/cmTC_cebdf.dir/src.cxx.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -DCXX_COMPILER_SUPPORTS__-Wno-unused-variable -Wno-unused-variable -o CMakeFiles/cmTC_cebdf.dir/src.cxx.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-TKNiyJ/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_cebdf
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cebdf.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++ CMakeFiles/cmTC_cebdf.dir/src.cxx.o -o cmTC_cebdf 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-TKNiyJ'
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C SOURCE FILE Test C_COMPILER_SUPPORTS__-Wno-unused-function succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-TQ3F7o
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_94781/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_94781.dir/build.make CMakeFiles/cmTC_94781.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-TQ3F7o'
+Building C object CMakeFiles/cmTC_94781.dir/src.c.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc   -DC_COMPILER_SUPPORTS__-Wno-unused-function -Wno-unused-function -o CMakeFiles/cmTC_94781.dir/src.c.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-TQ3F7o/src.c
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+Linking C executable cmTC_94781
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_94781.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc CMakeFiles/cmTC_94781.dir/src.c.o -o cmTC_94781 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-TQ3F7o'
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_COMPILER_SUPPORTS__-Wno-unused-function succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-BwAmFc
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_acd95/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_acd95.dir/build.make CMakeFiles/cmTC_acd95.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-BwAmFc'
+Building CXX object CMakeFiles/cmTC_acd95.dir/src.cxx.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -DCXX_COMPILER_SUPPORTS__-Wno-unused-function -Wno-unused-function -o CMakeFiles/cmTC_acd95.dir/src.cxx.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-BwAmFc/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_acd95
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_acd95.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++ CMakeFiles/cmTC_acd95.dir/src.cxx.o -o cmTC_acd95 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-BwAmFc'
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C SOURCE FILE Test C_COMPILER_SUPPORTS__-Wno-write-strings succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-mqMlUC
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_3d455/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3d455.dir/build.make CMakeFiles/cmTC_3d455.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-mqMlUC'
+Building C object CMakeFiles/cmTC_3d455.dir/src.c.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc   -DC_COMPILER_SUPPORTS__-Wno-write-strings -Wno-write-strings -o CMakeFiles/cmTC_3d455.dir/src.c.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-mqMlUC/src.c
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+Linking C executable cmTC_3d455
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3d455.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc CMakeFiles/cmTC_3d455.dir/src.c.o -o cmTC_3d455 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-mqMlUC'
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_COMPILER_SUPPORTS__-Wno-write-strings succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-SL4Enm
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_7f99e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_7f99e.dir/build.make CMakeFiles/cmTC_7f99e.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-SL4Enm'
+Building CXX object CMakeFiles/cmTC_7f99e.dir/src.cxx.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -DCXX_COMPILER_SUPPORTS__-Wno-write-strings -Wno-write-strings -o CMakeFiles/cmTC_7f99e.dir/src.cxx.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-SL4Enm/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_7f99e
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7f99e.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++ CMakeFiles/cmTC_7f99e.dir/src.cxx.o -o cmTC_7f99e 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-SL4Enm'
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C SOURCE FILE Test C_COMPILER_SUPPORTS__-Wno-sign-compare succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-6jhDfB
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e76bb/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e76bb.dir/build.make CMakeFiles/cmTC_e76bb.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-6jhDfB'
+Building C object CMakeFiles/cmTC_e76bb.dir/src.c.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc   -DC_COMPILER_SUPPORTS__-Wno-sign-compare -Wno-sign-compare -o CMakeFiles/cmTC_e76bb.dir/src.c.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-6jhDfB/src.c
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+Linking C executable cmTC_e76bb
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e76bb.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc CMakeFiles/cmTC_e76bb.dir/src.c.o -o cmTC_e76bb 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-6jhDfB'
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_COMPILER_SUPPORTS__-Wno-sign-compare succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-QfRtqd
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_05cc3/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_05cc3.dir/build.make CMakeFiles/cmTC_05cc3.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-QfRtqd'
+Building CXX object CMakeFiles/cmTC_05cc3.dir/src.cxx.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -DCXX_COMPILER_SUPPORTS__-Wno-sign-compare -Wno-sign-compare -o CMakeFiles/cmTC_05cc3.dir/src.cxx.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-QfRtqd/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_05cc3
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_05cc3.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++ CMakeFiles/cmTC_05cc3.dir/src.cxx.o -o cmTC_05cc3 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-QfRtqd'
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C SOURCE FILE Test C_COMPILER_SUPPORTS__-Wno-deprecated succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-05Qf0g
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_b10da/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_b10da.dir/build.make CMakeFiles/cmTC_b10da.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-05Qf0g'
+Building C object CMakeFiles/cmTC_b10da.dir/src.c.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc   -DC_COMPILER_SUPPORTS__-Wno-deprecated -Wno-deprecated -o CMakeFiles/cmTC_b10da.dir/src.c.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-05Qf0g/src.c
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+Linking C executable cmTC_b10da
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b10da.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc CMakeFiles/cmTC_b10da.dir/src.c.o -o cmTC_b10da 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-05Qf0g'
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_COMPILER_SUPPORTS__-Wno-deprecated succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-NJCAHE
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_934a2/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_934a2.dir/build.make CMakeFiles/cmTC_934a2.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-NJCAHE'
+Building CXX object CMakeFiles/cmTC_934a2.dir/src.cxx.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -DCXX_COMPILER_SUPPORTS__-Wno-deprecated -Wno-deprecated -o CMakeFiles/cmTC_934a2.dir/src.cxx.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-NJCAHE/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_934a2
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_934a2.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++ CMakeFiles/cmTC_934a2.dir/src.cxx.o -o cmTC_934a2 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-NJCAHE'
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_COMPILER_SUPPORTS__-Wno-register succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-Rhu4kI
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_48127/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_48127.dir/build.make CMakeFiles/cmTC_48127.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-Rhu4kI'
+Building CXX object CMakeFiles/cmTC_48127.dir/src.cxx.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -DCXX_COMPILER_SUPPORTS__-Wno-register -Wno-register -o CMakeFiles/cmTC_48127.dir/src.cxx.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-Rhu4kI/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_48127
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_48127.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++ CMakeFiles/cmTC_48127.dir/src.cxx.o -o cmTC_48127 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-Rhu4kI'
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C SOURCE FILE Test C_COMPILER_SUPPORTS__-Wno-format succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-ye4Bt3
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_6b05f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_6b05f.dir/build.make CMakeFiles/cmTC_6b05f.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-ye4Bt3'
+Building C object CMakeFiles/cmTC_6b05f.dir/src.c.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc   -DC_COMPILER_SUPPORTS__-Wno-format -Wno-format -o CMakeFiles/cmTC_6b05f.dir/src.c.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-ye4Bt3/src.c
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+Linking C executable cmTC_6b05f
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6b05f.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc CMakeFiles/cmTC_6b05f.dir/src.c.o -o cmTC_6b05f 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-ye4Bt3'
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_COMPILER_SUPPORTS__-Wno-format succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-FnszvL
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f387b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f387b.dir/build.make CMakeFiles/cmTC_f387b.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-FnszvL'
+Building CXX object CMakeFiles/cmTC_f387b.dir/src.cxx.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -DCXX_COMPILER_SUPPORTS__-Wno-format -Wno-format -o CMakeFiles/cmTC_f387b.dir/src.cxx.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-FnszvL/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_f387b
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f387b.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++ CMakeFiles/cmTC_f387b.dir/src.cxx.o -o cmTC_f387b 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-FnszvL'
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_COMPILER_SUPPORTS__-fpermissive succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-3Db52V
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_71bbd/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_71bbd.dir/build.make CMakeFiles/cmTC_71bbd.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-3Db52V'
+Building CXX object CMakeFiles/cmTC_71bbd.dir/src.cxx.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -DCXX_COMPILER_SUPPORTS__-fpermissive -fpermissive -o CMakeFiles/cmTC_71bbd.dir/src.cxx.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-3Db52V/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_71bbd
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_71bbd.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++ CMakeFiles/cmTC_71bbd.dir/src.cxx.o -o cmTC_71bbd 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-3Db52V'
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C SOURCE FILE Test C_COMPILER_SUPPORTS__-Wno-unused-but-set-variable succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-kkgYfu
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_3c225/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3c225.dir/build.make CMakeFiles/cmTC_3c225.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-kkgYfu'
+Building C object CMakeFiles/cmTC_3c225.dir/src.c.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc   -DC_COMPILER_SUPPORTS__-Wno-unused-but-set-variable -Wno-unused-but-set-variable -o CMakeFiles/cmTC_3c225.dir/src.c.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-kkgYfu/src.c
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+Linking C executable cmTC_3c225
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3c225.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc CMakeFiles/cmTC_3c225.dir/src.c.o -o cmTC_3c225 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-kkgYfu'
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_COMPILER_SUPPORTS__-Wno-unused-but-set-variable succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-1m7SGX
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_df513/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_df513.dir/build.make CMakeFiles/cmTC_df513.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-1m7SGX'
+Building CXX object CMakeFiles/cmTC_df513.dir/src.cxx.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -DCXX_COMPILER_SUPPORTS__-Wno-unused-but-set-variable -Wno-unused-but-set-variable -o CMakeFiles/cmTC_df513.dir/src.cxx.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-1m7SGX/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_df513
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_df513.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++ CMakeFiles/cmTC_df513.dir/src.cxx.o -o cmTC_df513 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-1m7SGX'
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_COMPILER_SUPPORTS__-std=c++17 succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-9kD70v
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_0bebc/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_0bebc.dir/build.make CMakeFiles/cmTC_0bebc.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-9kD70v'
+Building CXX object CMakeFiles/cmTC_0bebc.dir/src.cxx.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -DCXX_COMPILER_SUPPORTS__-std=c++17 -std=c++17 -o CMakeFiles/cmTC_0bebc.dir/src.cxx.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-9kD70v/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_0bebc
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0bebc.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++ CMakeFiles/cmTC_0bebc.dir/src.cxx.o -o cmTC_0bebc 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-9kD70v'
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C SOURCE FILE Test C_COMPILER_SUPPORTS__-fno-exceptions succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-pLDupR
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_34560/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_34560.dir/build.make CMakeFiles/cmTC_34560.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-pLDupR'
+Building C object CMakeFiles/cmTC_34560.dir/src.c.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc   -DC_COMPILER_SUPPORTS__-fno-exceptions -fno-exceptions -o CMakeFiles/cmTC_34560.dir/src.c.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-pLDupR/src.c
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+Linking C executable cmTC_34560
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_34560.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-gcc CMakeFiles/cmTC_34560.dir/src.c.o -o cmTC_34560 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-pLDupR'
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_COMPILER_SUPPORTS__-fno-exceptions succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-FOFB3Q
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_bfb66/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_bfb66.dir/build.make CMakeFiles/cmTC_bfb66.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-FOFB3Q'
+Building CXX object CMakeFiles/cmTC_bfb66.dir/src.cxx.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -DCXX_COMPILER_SUPPORTS__-fno-exceptions -fno-exceptions -o CMakeFiles/cmTC_bfb66.dir/src.cxx.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-FOFB3Q/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_bfb66
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bfb66.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++ CMakeFiles/cmTC_bfb66.dir/src.cxx.o -o cmTC_bfb66 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-FOFB3Q'
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_COMPILER_SUPPORTS__-std=c++17 succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-cv0RhR
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_57c8b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_57c8b.dir/build.make CMakeFiles/cmTC_57c8b.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-cv0RhR'
+Building CXX object CMakeFiles/cmTC_57c8b.dir/src.cxx.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -DCXX_COMPILER_SUPPORTS__-std=c++17 -std=c++17 -o CMakeFiles/cmTC_57c8b.dir/src.cxx.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-cv0RhR/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_57c8b
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_57c8b.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++ CMakeFiles/cmTC_57c8b.dir/src.cxx.o -o cmTC_57c8b 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-cv0RhR'
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_COMPILER_SUPPORTS__-std=c++17 succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-GYRrhh
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9ad8a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9ad8a.dir/build.make CMakeFiles/cmTC_9ad8a.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-GYRrhh'
+Building CXX object CMakeFiles/cmTC_9ad8a.dir/src.cxx.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -DCXX_COMPILER_SUPPORTS__-std=c++17 -std=c++17 -o CMakeFiles/cmTC_9ad8a.dir/src.cxx.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-GYRrhh/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_9ad8a
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9ad8a.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++ CMakeFiles/cmTC_9ad8a.dir/src.cxx.o -o cmTC_9ad8a 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-GYRrhh'
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_COMPILER_SUPPORTS__-std=c++17 succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-2vT9g6
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_45ad3/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_45ad3.dir/build.make CMakeFiles/cmTC_45ad3.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-2vT9g6'
+Building CXX object CMakeFiles/cmTC_45ad3.dir/src.cxx.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -DCXX_COMPILER_SUPPORTS__-std=c++17 -std=c++17 -o CMakeFiles/cmTC_45ad3.dir/src.cxx.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-2vT9g6/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_45ad3
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_45ad3.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++ CMakeFiles/cmTC_45ad3.dir/src.cxx.o -o cmTC_45ad3 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-2vT9g6'
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_COMPILER_SUPPORTS__-std=c++17 succeeded with the following output:
+Change Dir: /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-WHqYoO
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_de862/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_de862.dir/build.make CMakeFiles/cmTC_de862.dir/build
+gmake[1]: Entering directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-WHqYoO'
+Building CXX object CMakeFiles/cmTC_de862.dir/src.cxx.o
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++   -DCXX_COMPILER_SUPPORTS__-std=c++17 -std=c++17 -o CMakeFiles/cmTC_de862.dir/src.cxx.o -c /home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-WHqYoO/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_de862
+/home/tool/cmake/cmake-3.25.1-linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_de862.dir/link.txt --verbose=1
+/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++ CMakeFiles/cmTC_de862.dir/src.cxx.o -o cmTC_de862 
+gmake[1]: Leaving directory '/home/jsliang/GPU-DPO/build/CMakeFiles/CMakeScratch/TryCompile-WHqYoO'
+
+
+Source file was:
+int main() { return 0; }
+

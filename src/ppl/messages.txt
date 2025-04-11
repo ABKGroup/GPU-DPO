@@ -1,0 +1,107 @@
+PPL 0001 IOPlacer.cpp:1530         Number of slots           {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1530
+PPL 0002 IOPlacer.cpp:1535         Number of I/O             {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1535
+PPL 0003 IOPlacer.cpp:1537         Number of I/O w/sink      {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1537
+PPL 0004 IOPlacer.cpp:1541         Number of I/O w/o sink    {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1541
+PPL 0005 IOPlacer.cpp:1547         Slots per section         {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1547
+PPL 0006 IOPlacer.cpp:1543         Number of I/O Groups    {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1543
+PPL 0007 IOPlacer.cpp:2216         Random pin placement. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L2216
+PPL 0008 IOPlacer.cpp:1477         Successfully assigned pins to sections. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1477
+PPL 0009 IOPlacer.cpp:1480         Unsuccessfully assigned pins to sections ({} out of {}). INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1480
+PPL 0011 IOPlacer.cpp:1092         Number of IO pins assigned to the top layer ({}) exceeds  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1092
+PPL 0012 IOPlacer.cpp:2496         I/O nets HPWL: {:.2f} um. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L2496
+PPL 0013 IOPlacer.cpp:1468         Internal error, placed more pins than exist ({} out of {}). ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1468
+PPL 0014 IOPlacer.cpp:783          Pin {} does not have layer assignment. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L783
+PPL 0015 IOPlacer.tcl:506          Macro [$inst getName] is not placed. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L506
+PPL 0016 IOPlacer.tcl:169          Both -direction and -pin_names constraints not allowed. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L169
+PPL 0017 IOPlacer.tcl:524          -hor_layers is required. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L524
+PPL 0018 IOPlacer.tcl:530          -ver_layers is required. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L530
+PPL 0019 IOPlacer.tcl:559          Design without pins. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L559
+PPL 0020 IOPlacer.cpp:1591         Manufacturing grid is not defined. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1591
+PPL 0021 IOPlacer.tcl:567          Horizontal routing tracks not found for layer $hor_layer_name. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L567
+PPL 0022 IOPlacer.tcl:405          Routing tracks not found for layer $layer. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L405
+PPL 0023 IOPlacer.tcl:585          Vertical routing tracks not found for layer $ver_layer_name. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L585
+PPL 0024 IOPlacer.cpp:1080         Number of IO pins ({}) exceeds maximum number of available  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1080
+PPL 0025 IOPlacer.tcl:627          -exclude: $interval is an invalid region. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L627
+PPL 0026 IOPlacer.tcl:630          -exclude: invalid syntax in $region.\          Use (top|bottom|left|right):interval. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L630
+PPL 0027 IOPlacer.tcl:670          $cmd: $edge is an invalid edge. Use top, bottom, left or right. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L670
+PPL 0028 IOPlacer.tcl:685          $cmd: Invalid pin direction. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L685
+PPL 0029 IOPlacer.tcl:698          $cmd: Invalid edge ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L698
+PPL 0030 IOPlacer.tcl:706          Invalid edge for command $cmd, should be one of top, bottom, left, right. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L706
+PPL 0031 IOPlacer.tcl:491          No technology found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L491
+PPL 0032 IOPlacer.tcl:496          No block found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L496
+PPL 0033 HungarianMatching.cpp:126 I/O pin {} cannot be placed in the specified region.  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/HungarianMatching.cpp#L126
+PPL 0034 IOPlacer.cpp:2550         Pin {} has dimension {:.2f}u which is less than the min width  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L2550
+PPL 0035 IOPlacer.cpp:734          Cannot open file {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L734
+PPL 0036 SimulatedAnnealing.cpp:878 Constraint cannot have positions in different edges. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/SimulatedAnnealing.cpp#L878
+PPL 0038 IOPlacer.cpp:3005         Pin {} without net. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L3005
+PPL 0039 IOPlacer.cpp:2288         Assigned {} pins out of {} IO pins. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L2288
+PPL 0040 IOPlacer.cpp:1124         Negative number of slots. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1124
+PPL 0042 IOPlacer.cpp:1413         Unsuccessfully assigned I/O groups. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1413
+PPL 0043 IOPlacer.tcl:645          Pin $pin_name not found in group $group_idx. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L645
+PPL 0044 IOPlacer.cpp:2136         Pin group: [ {} ] INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L2136
+PPL 0045 IOPlacer.tcl:571          Layer $hor_layer_name preferred direction is not horizontal. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L571
+PPL 0046 IOPlacer.tcl:589          Layer $ver_layer_name preferred direction is not vertical. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L589
+PPL 0047 IOPlacer.tcl:226          Group pin $pin_name not found in the design. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L226
+PPL 0048 IOPlacer.cpp:1757         Restrict pins [ {} ] to region {:.2f}u-{:.2f}u at the {} edge. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1757
+PPL 0049 IOPlacer.cpp:763          Pin {} is not placed. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L763
+PPL 0050 IOPlacer.tcl:723          No technology has been read. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L723
+PPL 0051 IOPlacer.tcl:728          Layer $layer_name not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L728
+PPL 0052 IOPlacer.tcl:55           Routing layer not found for name $layer_name. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L55
+PPL 0053 IOPlacer.tcl:58           -layer is required. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L58
+PPL 0054 IOPlacer.tcl:65           -x_step and -y_step are required. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L65
+PPL 0055 IOPlacer.tcl:91           -region is required. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L91
+PPL 0056 IOPlacer.tcl:97           -size is not a list of 2 values. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L97
+PPL 0057 IOPlacer.tcl:103          -size is required. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L103
+PPL 0058 IOPlacer.tcl:215          The -pin_names argument is required when using -group flag. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L215
+PPL 0059 IOPlacer.tcl:199          Box at top layer must have 4 values (llx lly urx ury). ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L199
+PPL 0060 IOPlacer.cpp:1803         Restrict pins [ {} ] to region ({:.2f}u, {:.2f}u)-({:.2f}u,  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1803
+PPL 0061 IOPlacer.tcl:760          Pins {$names} for $cmd command were not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L760
+PPL 0062 IOPlacer.cpp:1532         Number of top layer slots {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1532
+PPL 0063 IOPlacer.tcl:87           -region is not a list of 4 values {llx lly urx ury}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L87
+PPL 0064 IOPlacer.tcl:390          -pin_name is required. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L390
+PPL 0065 IOPlacer.tcl:396          -layer is required. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L396
+PPL 0066 IOPlacer.tcl:419          -location is required. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L419
+PPL 0067 IOPlacer.cpp:1786         Restrict {} pins to region {}u-{}u, in the {} edge. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1786
+PPL 0068 IOPlacer.tcl:423          -location is not a list of 2 values. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L423
+PPL 0069 IOPlacer.tcl:436          -pin_size is not a list of 2 values. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L436
+PPL 0070 IOPlacer.cpp:2652         Pin {} placed at ({:.2f}um, {:.2f}um). INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L2652
+PPL 0071 IOPlacer.tcl:444          Command place_pin should receive only one pin name. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L444
+PPL 0072 IOPlacer.cpp:284          The number of pins ({}) exceeds the number of valid  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L284
+PPL 0073 IOPlacer.tcl:207          Constraint with region $region has an invalid edge. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L207
+PPL 0075 IOPlacer.cpp:1894         Pin {} is assigned to more than one constraint,  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1894
+PPL 0076 IOPlacer.cpp:1963         Constraint does not have available slots. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1963
+PPL 0077 IOPlacer.cpp:1599         Layer {} of Pin {} not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1599
+PPL 0078 IOPlacer.cpp:1398         Not enough available positions ({}) in section ({},  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1398
+PPL 0079 IOPlacer.cpp:1670         Pin {} area {:2.4f}um^2 is lesser than the minimum  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1670
+PPL 0081 IOPlacer.tcl:241          List of pins must have an even number of pins. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L241
+PPL 0082 HungarianMatching.cpp:175 Mirrored position ({}, {}) at layer {} is not a  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/HungarianMatching.cpp#L175
+PPL 0083 IOPlacer.tcl:139          Both -region and -mirrored_pins constraints not allowed. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L139
+PPL 0084 IOPlacer.cpp:1878         Pin {} is mirrored with another pin. The constraint for  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1878
+PPL 0085 IOPlacer.cpp:381          Mirrored position ({}, {}) at layer {} is not a  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L381
+PPL 0086 HungarianMatching.cpp:328 Pin group of size {} was not assigned. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/HungarianMatching.cpp#L328
+PPL 0087 IOPlacer.tcl:143          Both -mirrored_pins and -group constraints not allowed. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L143
+PPL 0088 IOPlacer.cpp:2252         Cannot assign {} constrained pins to region {:.2f}u-{:.2f}u  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L2252
+PPL 0089 HungarianMatching.cpp:268 Could not create matrix for groups. Not available slots  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/HungarianMatching.cpp#L268
+PPL 0090 IOPlacer.cpp:423          Group of size {} does not fit in constrained region. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L423
+PPL 0091 IOPlacer.cpp:518          Mirrored position ({}, {}) at layer {} is not a  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L518
+PPL 0092 IOPlacer.cpp:2429         Pin {} is not placed in its constraint edge. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L2429
+PPL 0093 IOPlacer.cpp:449          Pin group of size {} does not fit in the  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L449
+PPL 0094 IOPlacer.cpp:3060         Cannot create group of size {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L3060
+PPL 0095 IOPlacer.tcl:235          -order cannot be used without -group. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L235
+PPL 0096 IOPlacer.cpp:266          Pin group of size {} does not fit constraint region.  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L266
+PPL 0097 IOPlacer.cpp:596          The max contiguous slots ({}) is smaller than the group size ({}). WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L596
+PPL 0098 IOPlacer.cpp:2029         Pins {} are assigned to multiple constraints. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L2029
+PPL 0099 IOPlacer.tcl:743          Constraint up:{$llx $lly $urx $ury} cannot be created.\      Pin placement grid on top layer not created. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L743
+PPL 0100 IOPlacer.cpp:632          Group of size {} placed during fallback mode. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L632
+PPL 0101 IOPlacer.cpp:543          Slot for position ({}, {}) in layer {} not found ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L543
+PPL 0102 IOPlacer.cpp:2445         Pin {} is not placed in its constraint interval. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L2445
+PPL 0103 IOPlacer.cpp:2479         Pins {} and {} are not mirroring each other. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L2479
+PPL 0104 IOPlacer.cpp:2058         Pins {} are assigned to multiple groups. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L2058
+PPL 0105 IOPlacer.cpp:2453         Pin {} is not placed in the upper layer grid region {}. {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L2453
+PPL 0106 IOPlacer.cpp:2398         At least 2 pins in position ({}, {}), layer {}, port {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L2398
+PPL 0107 IOPlacer.cpp:2415         Invalid pin placement. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L2415
+PPL 0108 IOPlacer.tcl:368          The -iters_between_paintings argument is required when using debug. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.tcl#L368
+PPL 0109 IOPlacer.cpp:475          Pin group of size {} does not fit any region in the die  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L475
+PPL 0110 IOPlacer.cpp:1948         Constraint has {} pins, but only {} available slots.\n WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1948
+PPL 0111 IOPlacer.cpp:1981         {} constraint(s) does not have available slots  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/IOPlacer.cpp#L1981
+PPL 0112 SimulatedAnnealing.cpp:858 Mirrored position ({}, {}) at layer {} is not a  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ppl/src/SimulatedAnnealing.cpp#L858

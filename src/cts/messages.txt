@@ -1,0 +1,112 @@
+CTS 0001 TritonCTS.cpp:268         Running TritonCTS with user-specified clock roots: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L268
+CTS 0002 TritonCTS.cpp:2166        No paths found for pin {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L2166
+CTS 0003 TritonCTS.cpp:573         Total number of Clock Roots: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L573
+CTS 0004 TritonCTS.cpp:577         Total number of Buffers Inserted: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L577
+CTS 0005 TritonCTS.cpp:581         Total number of Clock Subnets: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L581
+CTS 0006 TritonCTS.cpp:585         Total number of Sinks: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L585
+CTS 0007 TritonCTS.cpp:972         Net \"{}\" found for clock \"{}\". INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L972
+CTS 0008 TritonCTS.cpp:997         TritonCTS found {} clock nets. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L997
+CTS 0010 TritonCTS.cpp:1118         Clock net \"{}\" has {} sinks. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L1118
+CTS 0011 TritonCTS.cpp:1213         Clock net \"{}\" for {} has {} sinks. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L1213
+CTS 0012 TritonCTS.cpp:1451            Minimum number of buffers in the clock path: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L1451
+CTS 0013 TritonCTS.cpp:1453            Maximum number of buffers in the clock path: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L1453
+CTS 0014 TritonCTS.cpp:1457            {} clock nets were removed/fixed. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L1457
+CTS 0015 TritonCTS.cpp:1461            Created {} clock nets. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L1461
+CTS 0016 TritonCTS.cpp:1470            Fanout distribution for the current clock = {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L1470
+CTS 0017 TritonCTS.cpp:1474            Max level of the clock tree: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L1474
+CTS 0018 TritonCTS.cpp:1624            Created {} clock buffers. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L1624
+CTS 0019 HTreeBuilder.cpp:258       Total number of sinks after clustering: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/HTreeBuilder.cpp#L258
+CTS 0020 HTreeBuilder.cpp:270       Wire segment unit: {}  dbu ({} um). INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/HTreeBuilder.cpp#L270
+CTS 0021 HTreeBuilder.cpp:279       Distance between buffers: {} units ({} um). INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/HTreeBuilder.cpp#L279
+CTS 0022 HTreeBuilder.cpp:287       Branch length for Vertex Buffer: {} units ({} um). INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/HTreeBuilder.cpp#L287
+CTS 0023 HTreeBuilder.cpp:314       Original sink region: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/HTreeBuilder.cpp#L314
+CTS 0024 HTreeBuilder.cpp:331       Normalized sink region: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/HTreeBuilder.cpp#L331
+CTS 0025 HTreeBuilder.cpp:332          Width:  {:.4f}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/HTreeBuilder.cpp#L332
+CTS 0026 HTreeBuilder.cpp:333          Height: {:.4f}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/HTreeBuilder.cpp#L333
+CTS 0027 HTreeBuilder.cpp:1180     Generating H-Tree topology for net {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/HTreeBuilder.cpp#L1180
+CTS 0028 HTreeBuilder.cpp:1182      Total number of sinks: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/HTreeBuilder.cpp#L1182
+CTS 0029 HTreeBuilder.cpp:1188      Sinks will be clustered in groups of up to {} and with  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/HTreeBuilder.cpp#L1188
+CTS 0030 HTreeBuilder.cpp:1196      Number of static layers: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/HTreeBuilder.cpp#L1196
+CTS 0031 HTreeBuilder.cpp:1218      Stop criterion found. Min length of sink region is ({}). INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/HTreeBuilder.cpp#L1218
+CTS 0032 HTreeBuilder.cpp:1230      Stop criterion found. Max number of sinks is {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/HTreeBuilder.cpp#L1230
+CTS 0034 HTreeBuilder.cpp:1393         Segment length (rounded): {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/HTreeBuilder.cpp#L1393
+CTS 0035 HTreeBuilder.cpp:1979      Number of sinks covered: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/HTreeBuilder.cpp#L1979
+CTS 0039 TechChar.cpp:1705         Number of created patterns = {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L1705
+CTS 0040 TritonCTS.cpp:984         Net was not found in the design for {}, please check. Skipping... WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L984
+CTS 0041 TritonCTS.cpp:1111        Net \"{}\" has {} sinks. Skipping... WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L1111
+CTS 0043 TechChar.cpp:138          {} wires are pure wire and no slew degradation.\n WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L138
+CTS 0045 TechChar.cpp:388          Creating fake entries in the LUT. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L388
+CTS 0046 TechChar.cpp:143              Number of wire segments: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L143
+CTS 0047 TechChar.cpp:145              Number of keys in characterization LUT: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L145
+CTS 0048 TechChar.cpp:150              Actual min input cap: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L150
+CTS 0049 TechChar.cpp:517          Characterization buffer is {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L517
+CTS 0050 TechChar.cpp:686          Root buffer is {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L686
+CTS 0051 TechChar.cpp:687          Sink buffer is {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L687
+CTS 0052 TechChar.cpp:759          The following clock buffers will be used for CTS: INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L759
+CTS 0053 TechChar.cpp:689          Max cap limit derate of {:0.3f} was used to infer root or  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L689
+CTS 0056 TritonCTS.tcl:181         Error when finding -clk_nets in DB. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.tcl#L181
+CTS 0058 SinkClustering.cpp:176    Invalid parameters in {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/SinkClustering.cpp#L176
+CTS 0065 TechChar.cpp:183          Normalized values in the LUT should be in the range [1, {}\n ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L183
+CTS 0073 TechChar.cpp:471          Buffer not found. Check your -buf_list input. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L471
+CTS 0074 TechChar.cpp:703          No physical master cell found for buffer {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L703
+CTS 0075 TechChar.cpp:579          Error generating the wirelengths to test.\n ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L579
+CTS 0076 TechChar.cpp:630          No Liberty cell found for {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L630
+CTS 0077 TreeBuilder.cpp:95        No physical master cell found for cell {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TreeBuilder.cpp#L95
+CTS 0078 TechChar.cpp:674          Error generating the wirelengths to test.\n ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L674
+CTS 0079 HTreeBuilder.cpp:200      Sink not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/HTreeBuilder.cpp#L200
+CTS 0080 HTreeBuilder.cpp:1971     Sink not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/HTreeBuilder.cpp#L1971
+CTS 0081 TritonCTS.cpp:253         Buffer {} is not in the loaded DB. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L253
+CTS 0082 TritonCTS.cpp:102         No valid clock nets in the design. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L102
+CTS 0083 TritonCTS.cpp:994         No clock nets have been found. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L994
+CTS 0085 TritonCTS.cpp:1427        Could not find the root of {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L1427
+CTS 0087 TritonCTS.cpp:559         Could not open output metric file {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L559
+CTS 0090 HTreeBuilder.cpp:1185      Sinks will be clustered based on buffer max cap. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/HTreeBuilder.cpp#L1185
+CTS 0093 LevelBalancer.cpp:54      Fixing tree levels for max depth {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/LevelBalancer.cpp#L54
+CTS 0095 TritonCTS.cpp:970         Net \"{}\" found. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L970
+CTS 0096 TechChar.cpp:600          No Liberty cell found for {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L600
+CTS 0097 TritonCTS.cpp:259         Characterization used {} buffer(s) types. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L259
+CTS 0098 TritonCTS.cpp:528         Clock net \"{}\" INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L528
+CTS 0099 TritonCTS.cpp:529          Sinks {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L529
+CTS 0100 TritonCTS.cpp:530          Leaf buffers {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L530
+CTS 0101 TritonCTS.cpp:533          Average sink wire length {:.2f} um INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L533
+CTS 0102 TritonCTS.cpp:535          Path depth {} - {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L535
+CTS 0103 TritonCTS.tcl:236         No design block found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.tcl#L236
+CTS 0104 TechChar.cpp:451          Clock wire resistance/capacitance values are zero.\nUse  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L451
+CTS 0105 TritonCTS.cpp:1174        Net \"{}\" already has clock buffer {}. Skipping... WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L1174
+CTS 0106 TechChar.cpp:708          No liberty cell found for buffer {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L708
+CTS 0107 TechChar.cpp:614          No max slew found for cell {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L614
+CTS 0108 TechChar.cpp:623          No max capacitance found for cell {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L623
+CTS 0109 TritonCTS.tcl:207         sink_buffer_max_cap_derate needs to be between 0 and 1.0. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.tcl#L207
+CTS 0110 TritonCTS.cpp:737         No clock buffer candidates could be found from any libraries. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L737
+CTS 0111 TechChar.cpp:497          No max capacitance found for cell {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L497
+CTS 0112 TritonCTS.cpp:887         Liberty cell could not be found for cell '{}' ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L887
+CTS 0113 TechChar.cpp:511          Characterization buffer is not defined.\n ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L511
+CTS 0114 TritonCTS.cpp:954         Clock {} overlaps a previous clock. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L954
+CTS 0115 TritonCTS.tcl:118         -post_cts_disable is obsolete. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.tcl#L118
+CTS 0116 TritonCTS.cpp:306         Special net \"{}\" skipped. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L306
+CTS 0117 TritonCTS.cpp:881         Physical master could not be found for cell '{}' ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L881
+CTS 0118 TritonCTS.cpp:2040        No phyiscal master cell found for dummy cell {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L2040
+CTS 0119 TritonCTS.cpp:2067        Phyiscal instance {} is not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L2067
+CTS 0120 TritonCTS.cpp:2025        Subnet was not found for clock buffer {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L2025
+CTS 0121 TritonCTS.cpp:449         {} '{}' has unconnected output pin. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L449
+CTS 0122 TritonCTS.cpp:1012        Clock net \"{}\" is skipped for CTS because it is not  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L1012
+CTS 0123 TritonCTS.tcl:215         delay_buffer_derate needs to be greater than or equal to 0. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.tcl#L215
+CTS 0124 TritonCTS.cpp:512         Clock net \"{}\" INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L512
+CTS 0125 TritonCTS.cpp:514          Sinks {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L514
+CTS 0126 TritonCTS.cpp:641         No physical master cell found for buffer {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L641
+CTS 0127 TritonCTS.cpp:780         No physical master cell found for buffer {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L780
+CTS 0128 TritonCTS.tcl:221         -obstruction_aware is obsolete. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.tcl#L221
+CTS 0200 TreeBuilder.cpp:57        {} placement blockages have been identified. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TreeBuilder.cpp#L57
+CTS 0201 TreeBuilder.cpp:72        {} placed hard macros will be treated like blockages. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TreeBuilder.cpp#L72
+CTS 0202 TritonCTS.cpp:1526        Non-default rule {} for double spacing has been applied to {}  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L1526
+CTS 0203 TritonCTS.cpp:1769        Insertion delay cannot be used because unit  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L1769
+CTS 0204 HTreeBuilder.cpp:161      A clustering solution was found from clustering size of {}  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/HTreeBuilder.cpp#L161
+CTS 0205 HTreeBuilder.cpp:168      Better solution may be possible if either  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/HTreeBuilder.cpp#L168
+CTS 0206 HTreeBuilder.cpp:174      Best clustering solution was found from clustering size of {}  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/HTreeBuilder.cpp#L174
+CTS 0207 TritonCTS.cpp:537          Leaf load cells {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L537
+CTS 0209 TritonCTS.cpp:194         Library {} cannot be found because it is not  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L194
+CTS 0210 TritonCTS.cpp:200         Clock buffers will be chosen from library {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TritonCTS.cpp#L200
+CTS 0534 TechChar.cpp:535          Could not find buffer input port for {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L535
+CTS 0541 TechChar.cpp:540          Could not find buffer output port for {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/TechChar.cpp#L540
+CTS 0542 CtsOptions.h:165          Must provide a dbUnit conversion though setDbUnits. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/CtsOptions.h#L165
+CTS 0543 CtsOptions.h:181          Must provide a dbUnit conversion though setDbUnits. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/cts/src/CtsOptions.h#L181

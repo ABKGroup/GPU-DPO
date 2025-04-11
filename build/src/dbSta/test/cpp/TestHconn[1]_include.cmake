@@ -1,0 +1,5 @@
+if(EXISTS "/home/jsliang/GPU-DPO/build/src/dbSta/test/cpp/TestHconn[1]_tests.cmake")
+  include("/home/jsliang/GPU-DPO/build/src/dbSta/test/cpp/TestHconn[1]_tests.cmake")
+else()
+  add_test(TestHconn_NOT_BUILT TestHconn_NOT_BUILT)
+endif()

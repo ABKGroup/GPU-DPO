@@ -1,0 +1,5 @@
+if(EXISTS "/home/jsliang/GPU-DPO/build/src/dft/test/cpp/TestScanArchitect[1]_tests.cmake")
+  include("/home/jsliang/GPU-DPO/build/src/dft/test/cpp/TestScanArchitect[1]_tests.cmake")
+else()
+  add_test(TestScanArchitect_NOT_BUILT TestScanArchitect_NOT_BUILT)
+endif()

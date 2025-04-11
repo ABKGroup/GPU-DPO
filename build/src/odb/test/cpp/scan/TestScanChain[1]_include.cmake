@@ -1,0 +1,5 @@
+if(EXISTS "/home/jsliang/GPU-DPO/build/src/odb/test/cpp/scan/TestScanChain[1]_tests.cmake")
+  include("/home/jsliang/GPU-DPO/build/src/odb/test/cpp/scan/TestScanChain[1]_tests.cmake")
+else()
+  add_test(TestScanChain_NOT_BUILT TestScanChain_NOT_BUILT)
+endif()

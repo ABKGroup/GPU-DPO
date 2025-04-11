@@ -1,0 +1,24 @@
+FLW 0001 logger_redirection.tcl:8  LOGGER REDIRECT: ${args} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/test/logger_redirection.tcl#L8
+FLW 0002 logger_redirection.tcl:31 LOGGER REDIRECT INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/test/logger_redirection.tcl#L31
+FLW 0003 tee.tcl:8                 LOGGER TEE: ${args} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/test/tee.tcl#L8
+FLW 0004 tee.tcl:51                LOGGER REDIRECT INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/test/tee.tcl#L51
+FLW 0005 tee.tcl:52                LOGGER REDIRECT INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/test/tee.tcl#L52
+FLW 0006 tee.tcl:53                LOGGER REDIRECT INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/test/tee.tcl#L53
+FLW 0007 tee.tcl:62                LOGGER REDIRECT INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/test/tee.tcl#L62
+FLW 0008 tee.tcl:63                LOGGER REDIRECT INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/test/tee.tcl#L63
+FLW 0009 tee.tcl:64                LOGGER REDIRECT INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/test/tee.tcl#L64
+UTL 0001 CFileUtils.cpp:8          seeking file to start {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/CFileUtils.cpp#L8
+UTL 0002 CFileUtils.cpp:25         error reading {} bytes from file at offset {}: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/CFileUtils.cpp#L25
+UTL 0003 CFileUtils.cpp:35         read no bytes from file at offset {}, but neither error nor EOF ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/CFileUtils.cpp#L35
+UTL 0004 CFileUtils.cpp:56         error writing {} bytes from file at offset {}: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/CFileUtils.cpp#L56
+UTL 0005 ScopedTemporaryFile.cpp:28 could not create temp file ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/ScopedTemporaryFile.cpp#L28
+UTL 0006 ScopedTemporaryFile.cpp:31 ScopedTemporaryFile; fd: {} path: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/ScopedTemporaryFile.cpp#L31
+UTL 0007 ScopedTemporaryFile.cpp:35 could not open temp descriptor as FILE ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/ScopedTemporaryFile.cpp#L35
+UTL 0008 ScopedTemporaryFile.cpp:43 could not unlink temp file at {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/ScopedTemporaryFile.cpp#L43
+UTL 0009 ScopedTemporaryFile.cpp:47 could not close temp file: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/ScopedTemporaryFile.cpp#L47
+UTL 0010 Logger.cpp:184            Unable to open {} to write metrics WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/Logger.cpp#L184
+UTL 0011 Logger.cpp:89             {} is not a metrics file ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/Logger.cpp#L89
+UTL 0100 Utl.tcl:116               Man page for $name is not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/Utl.tcl#L116
+UTL 0101 Utl.tcl:132               -file or -variable is required ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/Utl.tcl#L132
+UTL 0102 Logger.cpp:300            Unable to start new log redirect while another is active. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/Logger.cpp#L300
+UTL 1234 logger_max_messages.tcl:3 test WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/test/logger_max_messages.tcl#L3

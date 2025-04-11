@@ -1,0 +1,2 @@
+/home/tool/binutils/binutils-2.27/bin/ar qc _openroad_swig_py.a "CMakeFiles/openroad_swig_py.dir/CMakeFiles/openroad_swig_py.dir/OpenRoad-pyPYTHON_wrap.cxx.o" "CMakeFiles/openroad_swig_py.dir/openroad_swig_py-pythonInitVar.cc.o"
+/home/tool/binutils/binutils-2.27/bin/ranlib _openroad_swig_py.a

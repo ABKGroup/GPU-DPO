@@ -1,0 +1,5 @@
+if(EXISTS "/home/jsliang/GPU-DPO/build/src/utl/test/cpp/TestCFileUtils[1]_tests.cmake")
+  include("/home/jsliang/GPU-DPO/build/src/utl/test/cpp/TestCFileUtils[1]_tests.cmake")
+else()
+  add_test(TestCFileUtils_NOT_BUILT TestCFileUtils_NOT_BUILT)
+endif()

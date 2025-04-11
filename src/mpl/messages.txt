@@ -1,0 +1,44 @@
+MPL 0001 mpl.tcl:85                No block found for Macro Placement. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/mpl.tcl#L85
+MPL 0003 hier_rtlmp.cpp:647        There are no valid tilings for mixed cluster: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/hier_rtlmp.cpp#L647
+MPL 0004 hier_rtlmp.cpp:874        No valid tilings for hard macro cluster: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/hier_rtlmp.cpp#L874
+MPL 0005 hier_rtlmp.cpp:1739       Failed on cluster {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/hier_rtlmp.cpp#L1739
+MPL 0006 hier_rtlmp.cpp:1996       Failed on cluster {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/hier_rtlmp.cpp#L1996
+MPL 0007 hier_rtlmp.cpp:3160       Not enough space in cluster: {} for  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/hier_rtlmp.cpp#L3160
+MPL 0008 hier_rtlmp.cpp:3179       Not enough space in cluster: {} for  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/hier_rtlmp.cpp#L3179
+MPL 0009 hier_rtlmp.cpp:3326       Bus planning has failed! ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/hier_rtlmp.cpp#L3326
+MPL 0010 hier_rtlmp.cpp:3501       Macro placement failed for macro cluster: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/hier_rtlmp.cpp#L3501
+MPL 0011 hier_rtlmp.cpp:4140       Cannot open file {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/hier_rtlmp.cpp#L4140
+MPL 0012 mpl.tcl:280               -location is not a list of 2 values. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/mpl.tcl#L280
+MPL 0013 hier_rtlmp.cpp:242        Skipping macro placement. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/hier_rtlmp.cpp#L242
+MPL 0014 clusterEngine.cpp:597     No Liberty data found for std cells. Continuing without dataflow. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/clusterEngine.cpp#L597
+MPL 0015 graphics.cpp:530          Unexpected orientation ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/graphics.cpp#L530
+MPL 0016 clusterEngine.cpp:126     The instance area considering the macros' halos {} exceeds  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/clusterEngine.cpp#L126
+MPL 0017 clusterEngine.cpp:114     No unfixed macros. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/clusterEngine.cpp#L114
+MPL 0018 SimulatedAnnealingCore.cpp:632 Divergence in sequence pair: Macros ID {} or {} (or both)  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/SimulatedAnnealingCore.cpp#L632
+MPL 0019 mpl.tcl:268               -macro_name is required. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/mpl.tcl#L268
+MPL 0020 mpl.tcl:343               Couldn't find a macro named $macro_name. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/mpl.tcl#L343
+MPL 0021 mpl.tcl:345               [$inst getName] is not a macro. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/mpl.tcl#L345
+MPL 0022 mpl.tcl:276               -location is required. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/mpl.tcl#L276
+MPL 0023 clusterEngine.cpp:1674    Merge attempt between siblings {} and {} with same  CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/clusterEngine.cpp#L1674
+MPL 0024 clusterEngine.cpp:1703    Merge attempt between dust siblings {} and {} failed! CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/clusterEngine.cpp#L1703
+MPL 0025 clusterEngine.cpp:75      Design has no standard cells! WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/clusterEngine.cpp#L75
+MPL 0026 clusterEngine.cpp:399     Design has no IO pins! WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/clusterEngine.cpp#L399
+MPL 0027 hier_rtlmp.cpp:347        Design has only macros! WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/hier_rtlmp.cpp#L347
+MPL 0028 clusterEngine.cpp:2139    Merge attempt between interconnected macro  CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/clusterEngine.cpp#L2139
+MPL 0029 clusterEngine.cpp:2159    Merge attempt between macro siblings with  CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/clusterEngine.cpp#L2159
+MPL 0030 mpl.tcl:316               -region is required. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/mpl.tcl#L316
+MPL 0031 mpl.tcl:320               -region must be a list of 4 values. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/mpl.tcl#L320
+MPL 0032 mpl.tcl:329               Invalid region: x1 > x2. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/mpl.tcl#L329
+MPL 0033 mpl.tcl:331               Invalid region: y1 > y2. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/mpl.tcl#L331
+MPL 0034 rtl_mp.cpp:147            Cannot place {} at ({}, {}) ({}, {}), outside of the core  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/rtl_mp.cpp#L147
+MPL 0035 rtl_mp.cpp:198            Macro {} placed. Bounding box ({:.3f}um, {:.3f}um),  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/rtl_mp.cpp#L198
+MPL 0036 rtl_mp.cpp:168            Orientation {} specified for macro {} is a right angle  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/rtl_mp.cpp#L168
+MPL 0038 object.cpp:700            Cannot set pin access for {} boundary. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/object.cpp#L700
+MPL 0039 hier_rtlmp.cpp:4629       No track-grid found for layer {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/hier_rtlmp.cpp#L4629
+MPL 0040 hier_rtlmp.cpp:2981       Failed on cluster {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/hier_rtlmp.cpp#L2981
+MPL 0041 rtl_mp.cpp:188            Couldn't place {}. Found overlap with other macros:{}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/rtl_mp.cpp#L188
+MPL 0042 rtl_mp.cpp:240            Specified guidance region ({}, {}) ({}, {}) for the macro  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/rtl_mp.cpp#L240
+MPL 0043 mpl.tcl:308               -macro_name is required. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/mpl.tcl#L308
+MPL 0044 rtl_mp.cpp:256            Overwriting guidance region for macro {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/rtl_mp.cpp#L256
+MPL 0045 clusterEngine.cpp:1532    Cannot find a balanced partitioning for the clusters. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/clusterEngine.cpp#L1532
+MPL 0050 clusterEngine.cpp:188     Found fixed instance {} inside the floorplan area. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/mpl/src/clusterEngine.cpp#L188

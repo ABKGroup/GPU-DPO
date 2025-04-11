@@ -1,0 +1,5 @@
+if(EXISTS "/home/jsliang/GPU-DPO/build/src/mpl/test/cpp/TestSnapper[1]_tests.cmake")
+  include("/home/jsliang/GPU-DPO/build/src/mpl/test/cpp/TestSnapper[1]_tests.cmake")
+else()
+  add_test(TestSnapper_NOT_BUILT TestSnapper_NOT_BUILT)
+endif()

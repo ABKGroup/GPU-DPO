@@ -164,7 +164,7 @@ if(ENABLE_TESTS)
 
   enable_testing()
   add_custom_target(build_and_test ${CMAKE_CTEST_COMMAND} --parallel --output-on-failure -LE IntegrationTest)
-  include(GoogleTest)
+  #include(GoogleTest)
 endif()
 
 add_subdirectory(src)

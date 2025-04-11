@@ -98,7 +98,7 @@ void Optdp::improvePlacement(const int seed,
                              const bool disallow_one_site_gaps)
 {
   logger_->report("Detailed placement improvement.");
-
+  logger_->report("A CHANGE IS MADE");
   odb::WireLengthEvaluator eval(db_->getChip()->getBlock());
   const int64_t hpwlBefore = eval.hpwl();
 

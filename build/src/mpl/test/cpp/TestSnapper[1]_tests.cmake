@@ -1,0 +1,7 @@
+add_test([=[TestSnapper.ManufacturingGrid]=]  /home/jsliang/GPU-DPO/build/src/mpl/test/cpp/TestSnapper [==[--gtest_filter=TestSnapper.ManufacturingGrid]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[TestSnapper.ManufacturingGrid]=]  PROPERTIES WORKING_DIRECTORY /home/jsliang/GPU-DPO/src/mpl/test/cpp SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test([=[TestSnapper.SingleLayer]=]  /home/jsliang/GPU-DPO/build/src/mpl/test/cpp/TestSnapper [==[--gtest_filter=TestSnapper.SingleLayer]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[TestSnapper.SingleLayer]=]  PROPERTIES WORKING_DIRECTORY /home/jsliang/GPU-DPO/src/mpl/test/cpp SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test([=[TestSnapper.DoubleLayer]=]  /home/jsliang/GPU-DPO/build/src/mpl/test/cpp/TestSnapper [==[--gtest_filter=TestSnapper.DoubleLayer]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[TestSnapper.DoubleLayer]=]  PROPERTIES WORKING_DIRECTORY /home/jsliang/GPU-DPO/src/mpl/test/cpp SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+set(  TestSnapper_TESTS TestSnapper.ManufacturingGrid TestSnapper.SingleLayer TestSnapper.DoubleLayer)
