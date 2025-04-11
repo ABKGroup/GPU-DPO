@@ -36,6 +36,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 #include "detailed_global.h"
+#include "detailed_dp_torch.cuh"
 
 #include <boost/tokenizer.hpp>
 #include <vector>
@@ -119,7 +120,12 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr,
   init_hpwl = curr_hpwl;
   for (int p = 1; p <= passes; p++) {
     last_hpwl = curr_hpwl;
-
+    int num_bins_x = 512;
+    int num_bins_y = 512;
+    int passes = 1;
+    int K = 4;
+    mgr_->getLogger()->info(DPO, 316, "Calling GS CUDA");
+    globalSwapCUDA(num_bins_x, num_bins_y, passes, K);
     // XXX: Actually, global swapping is nothing more than random
     // greedy improvement in which the move generating is done
     // using this object to generate a target which is the optimal

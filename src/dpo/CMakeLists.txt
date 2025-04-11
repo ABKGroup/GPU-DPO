@@ -79,6 +79,7 @@ target_sources(dpo
     src/detailed_abu.cxx
     src/detailed_random.cxx
     src/detailed_orient.cxx
+    src/detailed_global.cu
 )
 
 target_include_directories(dpo
