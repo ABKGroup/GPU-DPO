@@ -31,9 +31,29 @@
 ###########################################################################
 
 include("openroad")
+set(CMAKE_CUDA_STANDARD_REQUIRED TRUE)
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
+set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} --extended-lambda --expt-relaxed-constexpr -Wno-redundant-decls")
+set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} -Xcompiler=-Wno-redundant-decls")
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+set(CUDA_NVCC_FLAGS "${CUDA_NVCC_FLAGS}" --expt-relaxed-constexpr)
+find_package(Eigen3 REQUIRED)
+set(CMAKE_C_COMPILER "g++")
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -ggdb -O3 -DIL_STD -ldl")
+set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -g -ggdb -O3 -DIL_STD -ldl")
+set(CMAKE_THREAD_LIBS_INIT "-lpthread")
+set(CMAKE_HAVE_THREADS_LIBRARY 1)
+set(CMAKE_USE_PTHREADS_INIT 1)
+set(CMAKE_CUDA_SEPARABLE_COMPILATION ON)
 
-swig_lib(NAME         dpo
-         NAMESPACE    dpo
+#HOME Directory
+set(FFTLIB_HOME ${CMAKE_CURRENT_SOURCE_DIR}/extern/fft)
+add_subdirectory(${FFTLIB_HOME})
+
+swig_lib(NAME         dpo2
+         NAMESPACE    dpo2
          I_FILE       src/Optdp.i
          SCRIPTS      src/Optdp.tcl
 )

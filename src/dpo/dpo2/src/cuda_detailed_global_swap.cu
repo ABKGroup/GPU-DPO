@@ -46,10 +46,11 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr, const std::string& command)
   run(mgrPtr, args);
 }
 
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
 void DetailedGlobalSwap::run(DetailedMgr* mgrPtr,
-                             std::vector<std::string>& args)
+                             std::vector<std::string>& args,
+                             int num_bins_x = 512, 
+                             int num_bins_y = 512,
+                             int batch_size = 10)
 {
   // Given the arguments, figure out which routine to run to do the reordering.
 
@@ -57,6 +58,7 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr,
   arch_ = mgr_->getArchitecture();
   network_ = mgr_->getNetwork();
   rt_ = mgr_->getRoutingParams();
+  detailedPlaceDB_ = mgr_->getDetailedPlaceDB();
 
   int passes = 1;
   double tol = 0.01;
@@ -78,6 +80,8 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr,
     last_hpwl = curr_hpwl;
 
     globalSwap();
+    checkCuda(cudaDeviceSynchronize());
+    
 
     curr_hpwl = Utility::hpwl(network_, hpwl_x, hpwl_y);
 

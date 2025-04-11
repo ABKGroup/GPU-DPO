@@ -45,6 +45,7 @@
 #include <vector>
 
 #include "network.h"
+#include "detailed_db.h"
 #include "rectangle.h"
 #include "utility.h"
 
@@ -65,6 +66,7 @@ class Architecture;
 class DetailedSeg;
 class Network;
 class RoutingParams;
+class DetailedPlaceDB;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Classes.
@@ -83,6 +85,7 @@ class DetailedMgr
   Architecture* getArchitecture() const { return arch_; }
   Network* getNetwork() const { return network_; }
   RoutingParams* getRoutingParams() const { return rt_; }
+  DetailedPlaceDB* getDetailedPlaceDB() const { return detailedPlaceDB_; }
 
   void setLogger(utl::Logger* logger) { logger_ = logger; }
   utl::Logger* getLogger() const { return logger_; }
