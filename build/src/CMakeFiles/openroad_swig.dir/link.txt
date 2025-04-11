@@ -1,2 +1,0 @@
-/home/tool/binutils/binutils-2.27/bin/ar qc openroad_swig.a CMakeFiles/openroad_swig.dir/CMakeFiles/openroad_swig.dir/OpenRoadTCL_wrap.cxx.o "CMakeFiles/openroad_swig.dir/openroad_swig-tclInitVar.cc.o"
-/home/tool/binutils/binutils-2.27/bin/ranlib openroad_swig.a

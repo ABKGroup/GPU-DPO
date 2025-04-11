@@ -31,6 +31,23 @@
 ###########################################################################
 
 include("openroad")
+set(CMAKE_CUDA_STANDARD_REQUIRED TRUE)
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
+set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} --extended-lambda --expt-relaxed-constexpr -Wno-redundant-decls")
+set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} -Xcompiler=-Wno-redundant-decls")
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+set(CUDA_NVCC_FLAGS "${CUDA_NVCC_FLAGS}" --expt-relaxed-constexpr)
+find_package(Eigen3 REQUIRED)
+set(CMAKE_C_COMPILER "g++")
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -ggdb -O3 -DIL_STD -ldl")
+set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -g -ggdb -O3 -DIL_STD -ldl")
+set(CMAKE_THREAD_LIBS_INIT "-lpthread")
+set(CMAKE_HAVE_THREADS_LIBRARY 1)
+set(CMAKE_USE_PTHREADS_INIT 1)
+set(CMAKE_CUDA_SEPARABLE_COMPILATION ON)
+
 
 swig_lib(NAME         dpo
          NAMESPACE    dpo
@@ -82,6 +99,36 @@ messages(
   TARGET dpo
 )
 
+set_property(TARGET dpo 
+             PROPERTY CUDA_SEPARABLE_COMPILATION ON)
+set_target_properties(dpo PROPERTIES CUDA_RESOLVE_DEVICE_SYMBOLS ON)
+set_target_properties(dpo PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
+set_target_properties(dpo PROPERTIES POSITION_INDEPENDENT_CODE ON)
+
+
+# Set CUDA host compiler and link executable
+set(CMAKE_CUDA_HOST_COMPILER /home/tool/gcc/gcc-10.3.0/bin/g++) # replace with your host compiler
+set(CMAKE_CUDA_LINK_EXECUTABLE "<CMAKE_CUDA_COMPILER> <FLAGS> <CMAKE_CUDA_LINK_FLAGS> <LINK_FLAGS> <OBJECTS> -o <TARGET> <LINK_LIBRARIES>")
+
+message(STATUS "GPU is enabled")
+# find_package(CUDA) should be replaced by "FindCUDAToolkit" for CMAKE verison >= 3.17. 
+# See https://cmake.org/cmake/help/latest/module/FindCUDAToolkit.html. 
+# find_package(CUDA) or FindCUDA is deprecated since vision 3.10.
+find_package(CUDAToolkit)
+if (CUDAToolkit_FOUND)
+  message(STATUS "CUDA is found")
+  enable_language(CUDA)
+  target_link_libraries(dpo
+    PRIVATE
+      CUDA::cudart
+      CUDA::cublas
+      CUDA::cusparse
+      CUDA::cusolver
+      CUDA::cufft
+  )  
+else()
+  message(STATUS "CUDA is not found")
+endif()
 ################################################################
 
 add_custom_target(optdp_tags etags -o TAGS

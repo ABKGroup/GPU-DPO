@@ -1,5 +1,0 @@
-if(EXISTS "/home/jsliang/GPU-DPO/build/third-party/abc/test/gia/gia_test[1]_tests.cmake")
-  include("/home/jsliang/GPU-DPO/build/third-party/abc/test/gia/gia_test[1]_tests.cmake")
-else()
-  add_test(gia_test_NOT_BUILT gia_test_NOT_BUILT)
-endif()

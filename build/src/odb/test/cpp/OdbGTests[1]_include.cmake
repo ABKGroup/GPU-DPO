@@ -1,5 +1,0 @@
-if(EXISTS "/home/jsliang/GPU-DPO/build/src/odb/test/cpp/OdbGTests[1]_tests.cmake")
-  include("/home/jsliang/GPU-DPO/build/src/odb/test/cpp/OdbGTests[1]_tests.cmake")
-else()
-  add_test(OdbGTests_NOT_BUILT OdbGTests_NOT_BUILT)
-endif()

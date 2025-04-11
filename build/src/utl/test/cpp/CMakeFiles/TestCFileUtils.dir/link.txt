@@ -1,1 +1,0 @@
-/home/tool/gcc/gcc-9.3.0/bin/x86_64-pc-linux-gnu-g++ -O3 -DNDEBUG CMakeFiles/TestCFileUtils.dir/TestCFileUtils.cpp.o -o TestCFileUtils  ../../../../lib/libgtest.a ../../../../lib/libgtest_main.a ../../libutl_lib.a ../../../../lib/libgtest.a /home/tool/spdlog/install/1.8.1/lib64/libspdlog.a -lpthread 

@@ -1,2 +1,0 @@
-/home/tool/binutils/binutils-2.27/bin/ar qc libutl_lib.a CMakeFiles/utl_lib.dir/src/Metrics.cpp.o CMakeFiles/utl_lib.dir/src/CFileUtils.cpp.o CMakeFiles/utl_lib.dir/src/ScopedTemporaryFile.cpp.o CMakeFiles/utl_lib.dir/src/Logger.cpp.o CMakeFiles/utl_lib.dir/src/timer.cpp.o
-/home/tool/binutils/binutils-2.27/bin/ranlib libutl_lib.a

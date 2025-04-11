@@ -1,5 +1,0 @@
-if(EXISTS "/home/jsliang/GPU-DPO/build/src/rsz/test/cpp/TestBufRem1[1]_tests.cmake")
-  include("/home/jsliang/GPU-DPO/build/src/rsz/test/cpp/TestBufRem1[1]_tests.cmake")
-else()
-  add_test(TestBufRem1_NOT_BUILT TestBufRem1_NOT_BUILT)
-endif()

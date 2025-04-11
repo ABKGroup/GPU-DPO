@@ -1,2 +1,0 @@
-/home/tool/binutils/binutils-2.27/bin/ar qc _dpo_py.a "CMakeFiles/dpo_py.dir/CMakeFiles/dpo_py.dir/Optdp-pyPYTHON_wrap.cxx.o" "CMakeFiles/dpo_py.dir/dpo_py-pythonInitVar.cc.o"
-/home/tool/binutils/binutils-2.27/bin/ranlib _dpo_py.a

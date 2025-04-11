@@ -1,2 +1,0 @@
-/home/tool/binutils/binutils-2.27/bin/ar qc librmp_abc_library.a CMakeFiles/rmp_abc_library.dir/abc_library_factory.cpp.o CMakeFiles/rmp_abc_library.dir/logic_extractor.cpp.o CMakeFiles/rmp_abc_library.dir/logic_cut.cpp.o CMakeFiles/rmp_abc_library.dir/delay_optimization_strategy.cpp.o CMakeFiles/rmp_abc_library.dir/zero_slack_strategy.cpp.o
-/home/tool/binutils/binutils-2.27/bin/ranlib librmp_abc_library.a

@@ -1,5 +1,0 @@
-if(EXISTS "/home/jsliang/GPU-DPO/build/src/dpl/test/dpl_test[1]_tests.cmake")
-  include("/home/jsliang/GPU-DPO/build/src/dpl/test/dpl_test[1]_tests.cmake")
-else()
-  add_test(dpl_test_NOT_BUILT dpl_test_NOT_BUILT)
-endif()

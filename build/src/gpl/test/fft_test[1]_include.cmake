@@ -1,5 +1,0 @@
-if(EXISTS "/home/jsliang/GPU-DPO/build/src/gpl/test/fft_test[1]_tests.cmake")
-  include("/home/jsliang/GPU-DPO/build/src/gpl/test/fft_test[1]_tests.cmake")
-else()
-  add_test(fft_test_NOT_BUILT fft_test_NOT_BUILT)
-endif()
