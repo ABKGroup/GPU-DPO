@@ -58,6 +58,7 @@ class Network;
 class Node;
 class Edge;
 class Pin;
+class DetailedPlaceDB;
 
 using dpl::Opendp;
 using odb::dbDatabase;
@@ -105,6 +106,7 @@ class Optdp
   Network* network_ = nullptr;    // The netlist, cells, etc.
   RoutingParams* routeinfo_
       = nullptr;  // Route info we might consider (future).
+  DetailedPlaceDB* detailedPlaceDB_ = nullptr;
 
   // Some maps.
   std::unordered_map<odb::dbInst*, Node*> instMap_;

@@ -1,5 +1,3 @@
-#include <torch/extension.h>
-
 #include <vector>
 #include <iostream>
 #include <tuple>
@@ -10,12 +8,15 @@
 #include "detailed_manager.h"
 #include "network.h"
 #include "orientation.h"
+#include "detailed_global.h"
 
 namespace dpo {
 
 class DetailedPlaceDB {
 public:
-  DetailedPlaceDB(Network* network, Architecture* arch) {}
+  DetailedPlaceDB();
+  
+  DetailedPlaceDB(Network* network, Architecture* arch, DetailedMgr* mgr);
 
   ~DetailedPlaceDB();
 
@@ -25,67 +26,65 @@ public:
   Architecture* arch_;
   DetailedMgr* mgr_;
 
+  /* node info */
+  std::vector<float> init_x;  // original pos (keep it const except committing)
+  std::vector<float> init_y;  // original pos (keep it const except committing)
+  std::vector<float> x;       // mutable/cached pos (current)
+  std::vector<float> y;       // mutable/cached pos (current)
+  std::vector<float> node_size_x;
+  std::vector<float> node_size_y;
+
+  /* pin info */
+  std::vector<float> pin_offset_x;      // same thing as flat_node2pin_map only it stores the pin offsets 
+  std::vector<float> pin_offset_y;      // same thing as flat_node2pin_map only it stores the pin offsets 
+
+  std::vector<int> flat_node2pin_start_map;   // ending index bounding the range of pins for each node
+  std::vector<int> flat_node2pin_map;   // a list of pin IDs indexed by the node (size of num_nodes)
+  std::vector<int> pin2node_map;        // a list of node IDs indexed by the pin (size of num_pins)
+
+  /* net info */
+  std::vector<int> flat_net2pin_start_map;
+  std::vector<int> flat_net2pin_map;
+  std::vector<int> pin2net_map;
+  std::vector<int> net_mask;
+
+  /* fence info */
+  std::vector<int> flat_region_boxes_start;
+  std::vector<float> flat_region_boxes;
+  std::vector<int> node2fence_region_map;
+
   /* chip info */
   float xl;
   float yl;
   float xh;
   float yh;
-  int numNodes;         // number of cells in netlist
-  int numPins;          // number of pins in netlist  
-  int numEdges;         // number of nets in netlist
-  int numRegions;       // number of regions
-  int numMovableNodes;  // number of movable nodes (single height cells)
-
-  float* x;
-  float* y;
-  const float* initX;
-  const float* initY;
-  const float* nodeSizeX;
-  const float* nodeSizeY;
-  //const float* nodeCX;
-  //const float* nodeCY;
-  torch::Tensor nodeSizeTensor;
-
-  const float* pinOffsetX;
-  const float* pinOffsetY;
-
-  const int* flat_node2pin_start_map;
-  const int* flat_node2pin_map;
-  const int* pin2node_map;
-
-  const int* flat_net2pin_start_map;
-  const int* flat_net2pin_map;
-  const int* pin2net_map;
-
-  const int* flat_region_boxes_start;
-  const float* flat_region_boxes;
-  const int* node2fence_region_map;
-
-  const int* net_mask;  // used for HPWL calculation
 
   /* row info */
-  int numSitesX;
-  int numSitesY;
-  float rowHeight;
-  float siteWidth;
+  int num_sites_x;
+  int num_sites_y;
 
-  /* GPU info */
-  int numThreads;               
-  int numBinsX;                 
-  int numBinsY;                 
-  float binSizeX;               
-  float binSizeY;    
+  int num_pins;
+  int num_nets;
+  int num_nodes;
+  int num_movable_nodes;
+  int num_regions;
 
-  /* candidates info (single height cells) */
+  float site_width;
+  float row_height;
+
+  int num_threads;
 
 
 private:
-  void createChipInfo();
-  void createRegionInfo();
   void createNodeInfo();
   void createPinInfo();
-  void createGPUInfo();
   void createNetInfo();
+  void createFenceInfo();
+  void createChipInfo();
+  void createRowInfo();
+
+  // Other
+  int skipNetsLargerThanThis_;
 };
 
 } // namespace dpo

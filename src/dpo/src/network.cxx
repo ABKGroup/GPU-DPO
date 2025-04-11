@@ -220,6 +220,7 @@ Node* Network::createAndAddFillerNode(const int left,
 Pin* Network::createAndAddPin()
 {
   Pin* ptr = new Pin();
+  ptr->setId((int) pins_.size());
   pins_.push_back(ptr);
   return ptr;
 }

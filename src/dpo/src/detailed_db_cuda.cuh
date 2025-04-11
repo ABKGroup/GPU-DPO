@@ -4,6 +4,7 @@
 #include <cuda_runtime.h>
 
 #include "pitch_nested_vector.cuh"
+#include "detailed_db.h"
 
 #include <cassert>
 #include <cfloat>
@@ -13,6 +14,7 @@
 #include <cstdlib>
 #include <csignal>
 #include <cstring>
+#include <iostream>
 
 namespace dpo {
 
@@ -56,9 +58,44 @@ struct BinMapIndex {
     int sub_id;
 };
 
-class DetailedPlaceDB {
+class DetailedPlaceData {
+public:
+    DetailedPlaceData() {}
+    DetailedPlaceData(DetailedPlaceDB& dp_db)
+        : x(dp_db.x.data()),
+          y(dp_db.y.data()),
+          init_x(dp_db.init_x.data()),
+          init_y(dp_db.init_y.data()),
+          node_size_x(dp_db.node_size_x.data()),
+          node_size_y(dp_db.node_size_y.data()),
+          pin_offset_x(dp_db.pin_offset_x.data()),
+          pin_offset_y(dp_db.pin_offset_y.data()),
+          flat_node2pin_start_map(dp_db.flat_node2pin_start_map.data()),
+          flat_node2pin_map(dp_db.flat_node2pin_map.data()),
+          pin2node_map(dp_db.pin2node_map.data()),
+          flat_net2pin_start_map(dp_db.flat_net2pin_start_map.data()),
+          flat_net2pin_map(dp_db.flat_net2pin_map.data()),
+          pin2net_map(dp_db.pin2net_map.data()),
+          flat_region_boxes_start(dp_db.flat_region_boxes_start.data()),
+          flat_region_boxes(dp_db.flat_region_boxes.data()),
+          node2fence_region_map(dp_db.node2fence_region_map.data()),
+          net_mask(dp_db.net_mask.data()),
+          xl(dp_db.xl),
+          xh(dp_db.xh),
+          yl(dp_db.yl),
+          yh(dp_db.yh),
+          row_height(dp_db.row_height),
+          site_width(dp_db.site_width),
+          num_sites_x(dp_db.num_sites_x),
+          num_sites_y(dp_db.num_sites_y),
+          num_threads(dp_db.num_threads),
+          num_nodes(dp_db.num_nodes),
+          num_movable_nodes(dp_db.num_movable_nodes),
+          num_nets(dp_db.num_nets),
+          num_pins(dp_db.num_pins),
+          num_regions(dp_db.num_regions) {}
 
-public: 
+public:
     typedef float type;
 
     float* x;
@@ -84,7 +121,6 @@ public:
     int* node2fence_region_map;
 
     bool* net_mask;
-    float* node_weight;
 
     /* chip info */
     float xl;
@@ -111,7 +147,7 @@ public:
     float bin_size_x;
     float bin_size_y;
 
-    public:
+public:
     void set_num_bins(int num_bins_x_, int num_bins_y_) {
         num_bins_x = num_bins_x_;
         num_bins_y = num_bins_y_;
@@ -200,7 +236,13 @@ public:
         }
         return (box.xh - box.xl) + (box.yh - box.yl);
     }
-
+    // __device__ float compute_total_hpwl() const {
+    //     float total_hpwl = 0;
+    //     for (int net_id = 0; net_id < num_nets; ++net_id) {
+    //         total_hpwl += compute_net_hpwl(net_id, x, y);
+    //     }
+    //     return total_hpwl;
+    // }
     __device__ bool inside_fence(int node_id, float xx, float yy) const {
         float node_xl = xx;
         float node_yl = yy;

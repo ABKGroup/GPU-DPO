@@ -2,7 +2,7 @@
 
 #include <cuda.h>
 #include <cuda_runtime.h>
-#include "utils.cuh"
+#include "cuda_utils.cuh"
 
 template <typename T>
 struct PitchNestedVector {

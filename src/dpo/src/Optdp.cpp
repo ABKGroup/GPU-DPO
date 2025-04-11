@@ -50,6 +50,7 @@
 // My stuff.
 #include "architecture.h"
 #include "detailed.h"
+#include "detailed_db.h"
 #include "detailed_manager.h"
 #include "legalize_shift.h"
 #include "network.h"
@@ -132,6 +133,9 @@ void Optdp::improvePlacement(const int seed,
   // like density, displacement, etc. in addition to wirelength.
   // Everything done through a script string.
 
+  // Create the placement DB for GPU-accelerated DPO
+  detailedPlaceDB_ = new DetailedPlaceDB(Network* network, Architecture* arch, DetailedMgr* mgr)
+
   dpo::DetailedParams dtParams;
   dtParams.script_ = "";
   // Maximum independent set matching.
@@ -164,6 +168,7 @@ void Optdp::improvePlacement(const int seed,
   delete network_;
   delete arch_;
   delete routeinfo_;
+  delete detailedPlaceDB_;
 
   const double dbu_micron = db_->getTech()->getDbUnitsPerMicron();
 

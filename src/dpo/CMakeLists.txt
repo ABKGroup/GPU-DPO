@@ -48,7 +48,6 @@ set(CMAKE_HAVE_THREADS_LIBRARY 1)
 set(CMAKE_USE_PTHREADS_INIT 1)
 set(CMAKE_CUDA_SEPARABLE_COMPILATION ON)
 
-
 swig_lib(NAME         dpo
          NAMESPACE    dpo
          I_FILE       src/Optdp.i
@@ -72,7 +71,7 @@ target_sources(dpo
     src/detailed_manager.cxx
     src/detailed_mis.cxx
     src/detailed_reorder.cxx
-    src/detailed_global.cxx
+    src/detailed_global1.cu
     src/detailed_vertical.cxx
     src/detailed_displacement.cxx
     src/detailed_hpwl.cxx
@@ -80,6 +79,7 @@ target_sources(dpo
     src/detailed_random.cxx
     src/detailed_orient.cxx
     src/detailed_global.cu
+    src/detailed_db.cxx
 )
 
 target_include_directories(dpo
@@ -101,7 +101,7 @@ messages(
 )
 
 set_property(TARGET dpo 
-             PROPERTY CUDA_SEPARABLE_COMPILATION ON)
+             PROPERTY CUDA_SEPARABLE_COMPILATION ON)      
 set_target_properties(dpo PROPERTIES CUDA_RESOLVE_DEVICE_SYMBOLS ON)
 set_target_properties(dpo PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
 set_target_properties(dpo PROPERTIES POSITION_INDEPENDENT_CODE ON)
@@ -110,6 +110,11 @@ set_target_properties(dpo PROPERTIES POSITION_INDEPENDENT_CODE ON)
 # Set CUDA host compiler and link executable
 set(CMAKE_CUDA_HOST_COMPILER /home/tool/gcc/gcc-10.3.0/bin/g++) # replace with your host compiler
 set(CMAKE_CUDA_LINK_EXECUTABLE "<CMAKE_CUDA_COMPILER> <FLAGS> <CMAKE_CUDA_LINK_FLAGS> <LINK_FLAGS> <OBJECTS> -o <TARGET> <LINK_LIBRARIES>")
+
+if (NOT DEFINED CMAKE_CUDA_ARCHITECTURES)
+  set(CMAKE_CUDA_ARCHITECTURES 80 86 CACHE STRING "CUDA architectures" FORCE)
+endif()
+message(STATUS "CMAKE_CUDA_ARCHITECTURES: ${CMAKE_CUDA_ARCHITECTURES}")
 
 message(STATUS "GPU is enabled")
 # find_package(CUDA) should be replaced by "FindCUDAToolkit" for CMAKE verison >= 3.17. 

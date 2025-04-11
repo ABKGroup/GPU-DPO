@@ -220,6 +220,9 @@ class Pin
   void setPinHeight(double height) { pinHeight_ = height; }
   double getPinHeight() const { return pinHeight_; }
 
+  void setId(int id) { id_ = id; }
+  int getId() { return id_; }
+
  private:
   // Pin width and height.
   double pinWidth_ = 0;
@@ -234,6 +237,8 @@ class Pin
   // Offsets from cell center.
   double offsetX_ = 0;
   double offsetY_ = 0;
+  // Pin Id.
+  int id_ = 0;
 
   friend class Network;
 };
@@ -290,6 +295,7 @@ class Network
   const std::string& getEdgeName(int i) const { return edgeNames_.at(i); }
 
   int getNumPins() const { return (int) pins_.size(); }
+  const std::vector<Pin*>& getPins() const { return pins_; }
 
   int getNumBlockages() const { return (int) blockages_.size(); }
   odb::Rect getBlockage(int i) const { return blockages_[i]; }
