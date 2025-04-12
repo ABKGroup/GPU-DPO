@@ -40,6 +40,7 @@
 #include "architecture.h"
 #include "network.h"
 #include "router.h"
+#include "detailed_db.h"
 
 namespace dpo {
 
@@ -62,10 +63,10 @@ class Detailed
  public:
   explicit Detailed(DetailedParams& params) : params_(params) {}
 
-  bool improve(DetailedMgr& mgr);
+  bool improve(DetailedMgr& mgr, DetailedPlaceDB& detailedPlaceDB);
 
  private:
-  void doDetailedCommand(std::vector<std::string>& args);
+  void doDetailedCommand(std::vector<std::string>& args, DetailedPlaceDB& detailedPlaceDB);
 
   DetailedParams& params_;
   DetailedMgr* mgr_ = nullptr;
@@ -73,6 +74,7 @@ class Detailed
   Architecture* arch_ = nullptr;
   Network* network_ = nullptr;
   RoutingParams* rt_ = nullptr;
+  DetailedPlaceDB* detailedPlaceDB_ = nullptr;
 };
 
 }  // namespace dpo

@@ -41,8 +41,8 @@ find_package(Eigen3 REQUIRED)
 set(CMAKE_C_COMPILER "g++")
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_EXTENSIONS OFF)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -ggdb -O3 -DIL_STD -ldl")
-set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -g -ggdb -O3 -DIL_STD -ldl")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -ggdb -O3 -DIL_STD -ldl -fopenmp")
+set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -g -ggdb -O3 -DIL_STD -ldl -fopenmp") 
 set(CMAKE_THREAD_LIBS_INIT "-lpthread")
 set(CMAKE_HAVE_THREADS_LIBRARY 1)
 set(CMAKE_USE_PTHREADS_INIT 1)
@@ -56,6 +56,13 @@ swig_lib(NAME         dpo
 
 # https://github.com/The-OpenROAD-Project/OpenROAD/issues/1186
 find_package(LEMON NAMES LEMON lemon REQUIRED)
+
+find_package(OpenMP REQUIRED)
+target_link_libraries(dpo 
+  PRIVATE
+    OpenMP::OpenMP_CXX
+    pthread
+)
 
 target_sources(dpo
   PRIVATE
@@ -71,7 +78,6 @@ target_sources(dpo
     src/detailed_manager.cxx
     src/detailed_mis.cxx
     src/detailed_reorder.cxx
-    src/detailed_global1.cu
     src/detailed_vertical.cxx
     src/detailed_displacement.cxx
     src/detailed_hpwl.cxx
@@ -80,6 +86,7 @@ target_sources(dpo
     src/detailed_orient.cxx
     src/detailed_global.cu
     src/detailed_db.cxx
+    src/detailed_hpwl.cu
 )
 
 target_include_directories(dpo
@@ -131,11 +138,13 @@ if (CUDAToolkit_FOUND)
       CUDA::cusparse
       CUDA::cusolver
       CUDA::cufft
+      CUDA::curand
   )  
 else()
   message(STATUS "CUDA is not found")
 endif()
 ################################################################
+
 
 add_custom_target(optdp_tags etags -o TAGS
   ${OPTDP_SRC}

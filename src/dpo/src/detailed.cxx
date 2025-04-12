@@ -65,9 +65,10 @@ namespace dpo {
 ////////////////////////////////////////////////////////////////////////////////
 // Detailed::improve:
 ////////////////////////////////////////////////////////////////////////////////
-bool Detailed::improve(DetailedMgr& mgr)
+bool Detailed::improve(DetailedMgr& mgr, DetailedPlaceDB& detailedPlaceDB)
 {
   mgr_ = &mgr;
+  detailedPlaceDB_ = &detailedPlaceDB;
 
   arch_ = mgr.getArchitecture();
   network_ = mgr.getNetwork();
@@ -87,14 +88,14 @@ bool Detailed::improve(DetailedMgr& mgr)
         args.push_back(temp);
       }
       // Command ended by a semi-colon.
-      doDetailedCommand(args);
+      doDetailedCommand(args, *detailedPlaceDB_);
       args.clear();
     } else {
       args.push_back(temp);
     }
   }
   // Last command; possible if no ending semi-colon.
-  doDetailedCommand(args);
+  doDetailedCommand(args, *detailedPlaceDB_);
 
   // Note: If cell orientation was not the last script
   // command run, then we should/need to perform
@@ -141,7 +142,7 @@ bool Detailed::improve(DetailedMgr& mgr)
 
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
-void Detailed::doDetailedCommand(std::vector<std::string>& args)
+void Detailed::doDetailedCommand(std::vector<std::string>& args, DetailedPlaceDB& detailedPlaceDB)
 {
   if (args.empty()) {
     return;
@@ -177,7 +178,7 @@ void Detailed::doDetailedCommand(std::vector<std::string>& args)
     mis.run(mgr_, args);
   } else if (strcmp(args[0].c_str(), "gs") == 0) {
     DetailedGlobalSwap gs(arch_, network_, rt_);
-    gs.run(mgr_, args);
+    gs.run(mgr_, *detailedPlaceDB_, args);
   } else if (strcmp(args[0].c_str(), "vs") == 0) {
     DetailedVerticalSwap vs(arch_, network_, rt_);
     vs.run(mgr_, args);

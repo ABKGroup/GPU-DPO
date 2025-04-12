@@ -1,7 +1,6 @@
 #include <cuda.h>
 #include <cuda_runtime.h>
 
-#include "common/common.h"
 #include "detailed_db_cuda.cuh"
 
 namespace dpo {

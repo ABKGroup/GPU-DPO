@@ -273,8 +273,6 @@ void make_row2node_map(const DetailedPlaceDBType& db,
     }
 }
 
-/// Print all permutations of 0, 1, ..., N - 1, for N > 2
-/// Reference: http://www.quickperm.org/quickperm.html
 std::vector<std::vector<int>> quick_perm(int N) {
     std::vector<int> a(N), p(N, 0);
     std::iota(a.begin(), a.end(), 0);

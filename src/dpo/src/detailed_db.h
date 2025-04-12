@@ -4,18 +4,14 @@
 #include <string>
 
 #include "architecture.h"
-#include "detailed.h"
 #include "detailed_manager.h"
 #include "network.h"
 #include "orientation.h"
-#include "detailed_global.h"
 
 namespace dpo {
 
 class DetailedPlaceDB {
 public:
-  DetailedPlaceDB();
-  
   DetailedPlaceDB(Network* network, Architecture* arch, DetailedMgr* mgr);
 
   ~DetailedPlaceDB();
@@ -82,6 +78,7 @@ private:
   void createFenceInfo();
   void createChipInfo();
   void createRowInfo();
+  void debug();
 
   // Other
   int skipNetsLargerThanThis_;

@@ -295,6 +295,7 @@ class Network
   const std::string& getEdgeName(int i) const { return edgeNames_.at(i); }
 
   int getNumPins() const { return (int) pins_.size(); }
+  Pin* getPin(int i) { return pins_[i]; }
   const std::vector<Pin*>& getPins() const { return pins_; }
 
   int getNumBlockages() const { return (int) blockages_.size(); }

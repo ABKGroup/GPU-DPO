@@ -43,6 +43,7 @@ class DetailedMgr;
 class Edge;
 class Network;
 class RoutingParams;
+class DetailedPlaceDB;
 
 // CLASSES ===================================================================
 class DetailedGlobalSwap : public DetailedGenerator
@@ -52,8 +53,8 @@ class DetailedGlobalSwap : public DetailedGenerator
   DetailedGlobalSwap();
 
   // Interfaces for scripting.
-  void run(DetailedMgr* mgrPtr, const std::string& command);
-  void run(DetailedMgr* mgrPtr, std::vector<std::string>& args);
+  void run(DetailedMgr* mgrPtr, DetailedPlaceDB& detailedPlaceDB, const std::string& command);
+  void run(DetailedMgr* mgrPtr, DetailedPlaceDB& detailedPlaceDB, std::vector<std::string>& args);
 
   // Interface for move generation.
   bool generate(DetailedMgr* mgr, std::vector<Node*>& candidates) override;
@@ -74,6 +75,7 @@ class DetailedGlobalSwap : public DetailedGenerator
   Architecture* arch_;
   Network* network_;
   RoutingParams* rt_;
+  DetailedPlaceDB* detailedPlaceDB_;
 
   // Other.
   int skipNetsLargerThanThis_;
@@ -87,6 +89,7 @@ class DetailedGlobalSwap : public DetailedGenerator
   int attempts_;
   int moves_;
   int swaps_;
+
 };
 
 }  // namespace dpo

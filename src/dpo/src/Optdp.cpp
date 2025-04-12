@@ -50,7 +50,6 @@
 // My stuff.
 #include "architecture.h"
 #include "detailed.h"
-#include "detailed_db.h"
 #include "detailed_manager.h"
 #include "legalize_shift.h"
 #include "network.h"
@@ -134,7 +133,8 @@ void Optdp::improvePlacement(const int seed,
   // Everything done through a script string.
 
   // Create the placement DB for GPU-accelerated DPO
-  detailedPlaceDB_ = new DetailedPlaceDB(Network* network, Architecture* arch, DetailedMgr* mgr)
+  detailedPlaceDB_ = new DetailedPlaceDB(network_, arch_, &mgr);
+  detailedPlaceDB_->createDetailedPlaceDB();
 
   dpo::DetailedParams dtParams;
   dtParams.script_ = "";
@@ -156,7 +156,7 @@ void Optdp::improvePlacement(const int seed,
 
   // Run the script.
   dpo::Detailed dt(dtParams);
-  dt.improve(mgr);
+  dt.improve(mgr, *detailedPlaceDB_);
 
   // Write solution back.
   updateDbInstLocations();
@@ -165,10 +165,10 @@ void Optdp::improvePlacement(const int seed,
   const int64_t hpwlAfter = eval.hpwl();
 
   // Cleanup.
+  delete detailedPlaceDB_;
   delete network_;
   delete arch_;
   delete routeinfo_;
-  delete detailedPlaceDB_;
 
   const double dbu_micron = db_->getTech()->getDbUnitsPerMicron();
 
