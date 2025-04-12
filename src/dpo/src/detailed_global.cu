@@ -918,7 +918,7 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr,
   state.max_num_candidates = max_num_nodes_per_bin * 5;
   state.max_num_candidates_all = state.batch_size * state.max_num_candidates;
   printf("[INFO GPU-DPO] batch_size = %d, max_num_nodes_per_bin = %d, "
-        "max_num_candidates = %d, max_num_candidates_all = %d",
+        "max_num_candidates = %d, max_num_candidates_all = %d\n",
         state.batch_size,
         max_num_nodes_per_bin,
         state.max_num_candidates,
@@ -930,11 +930,11 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr,
       ;
   if (estimate_memory_usage < 4e9) {  // use 4GB as a switch threshold
       printf("[INFO GPU-DPO] estimate_memory_usage = %ld, use fast pair HPWL "
-          "computation strategy requires additional memory",
+          "computation strategy requires additional memory\n",
           estimate_memory_usage);
       state.pair_hpwl_computing_strategy = 1;
   } else {
-      printf("[INFO GPU-DPO] estimate_memory_usage = %ld, use general pair HPWL", estimate_memory_usage);
+      printf("[INFO GPU-DPO] estimate_memory_usage = %ld, use general pair HPWL\n", estimate_memory_usage);
       state.pair_hpwl_computing_strategy = 0;
   }
 
