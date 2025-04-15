@@ -15,6 +15,7 @@
 #include <csignal>
 #include <cstring>
 #include <iostream>
+#include <omp.h>
 
 namespace dpo {
 

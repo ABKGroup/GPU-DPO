@@ -35,14 +35,16 @@ set(CMAKE_CUDA_STANDARD_REQUIRED TRUE)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} --extended-lambda --expt-relaxed-constexpr -Wno-redundant-decls")
 set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} -Xcompiler=-Wno-redundant-decls")
+find_package(OpenMP REQUIRED)
+set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} -Xcompiler=${OpenMP_CXX_FLAGS}")
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 set(CUDA_NVCC_FLAGS "${CUDA_NVCC_FLAGS}" --expt-relaxed-constexpr)
 find_package(Eigen3 REQUIRED)
 set(CMAKE_C_COMPILER "g++")
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_EXTENSIONS OFF)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -ggdb -O3 -DIL_STD -ldl -fopenmp")
-set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -g -ggdb -O3 -DIL_STD -ldl -fopenmp") 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -ggdb -O3 -DIL_STD -ldl")
+set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -g -ggdb -O3 -DIL_STD -ldl") 
 set(CMAKE_THREAD_LIBS_INIT "-lpthread")
 set(CMAKE_HAVE_THREADS_LIBRARY 1)
 set(CMAKE_USE_PTHREADS_INIT 1)
@@ -56,13 +58,6 @@ swig_lib(NAME         dpo
 
 # https://github.com/The-OpenROAD-Project/OpenROAD/issues/1186
 find_package(LEMON NAMES LEMON lemon REQUIRED)
-
-find_package(OpenMP REQUIRED)
-target_link_libraries(dpo 
-  PRIVATE
-    OpenMP::OpenMP_CXX
-    pthread
-)
 
 target_sources(dpo
   PRIVATE
@@ -101,6 +96,7 @@ target_link_libraries(dpo
     OpenSTA
     utl_lib
     dpl_lib
+    OpenMP::OpenMP_CXX
 )
 
 messages(

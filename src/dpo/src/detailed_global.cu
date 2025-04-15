@@ -856,12 +856,24 @@ __global__ void compute_num_nodes_in_bins(DetailedPlaceData db, int* node_count_
     }
 }
 
+__global__ void printNodeCountMap(const int* node_count_map, int num_bins) {
+    int idx = blockIdx.x * blockDim.x + threadIdx.x;
+    printf("IDX is %d", idx);
+    printf("NUM_BINS is %d", num_bins);
+    if (idx < num_bins) {
+        printf("node_count_map[%d] = %d\n", idx, node_count_map[idx]);
+    }
+}
+
 int compute_max_num_nodes_per_bin(const DetailedPlaceData& db) {
     int num_bins = db.num_bins_x * db.num_bins_y;
     int* node_count_map = nullptr;
     allocateCuda(node_count_map, num_bins, int);
     checkCuda(cudaMemset(node_count_map, 0, sizeof(int) * num_bins));
+    
     compute_num_nodes_in_bins<<<ceilDiv(db.num_movable_nodes, 256), 256>>>(db, node_count_map);
+    printNodeCountMap<<<ceilDiv(num_bins, 256), 256>>>(node_count_map, num_bins);
+    
     int* d_out = NULL;
     // Determine temporary device storage requirements
     void* d_temp_storage = NULL;
