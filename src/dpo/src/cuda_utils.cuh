@@ -45,6 +45,15 @@
         checkCuda(cudaMemcpy((void*)var, (void*)rhs, sizeof(T) * (size), cudaMemcpyDeviceToHost)); \
     }
 
+#define freeDevice(ptr)                                   \
+    {                                                     \
+        if (ptr)    cudaFree(ptr);                        \
+    }     
+
+#define allocateCopyBackToCpu(var, rhs, size)                                                            \
+    {                                                                                                    \
+        checkCuda(cudaMemcpy(rhs.data(), var, sizeof(decltype(*rhs)) * (size), cudaMemcpyDeviceToHost)); \
+    }                             
 
 // For cuda::numeric_limits
 namespace cuda {  // namespace cuda

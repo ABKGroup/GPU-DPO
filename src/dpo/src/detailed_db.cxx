@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cmath>
 #include <numeric>
+#include <fstream>
 
 #include "architecture.h"
 #include "detailed_db.h"
@@ -40,7 +41,8 @@ void DetailedPlaceDB::createDetailedPlaceDB() {
   createFenceInfo();
   createChipInfo();
   createRowInfo();
-  // debug();
+  // debugNodePins();
+  // debugNetPins();
 }
 
 void DetailedPlaceDB::createNodeInfo() {
@@ -70,18 +72,20 @@ void DetailedPlaceDB::createPinInfo() {
   pin2net_map.resize(num_pins);
   for (int i = 0; i < num_pins; i++) {
     Pin* pin = network_->getPin(i);
-    pin2node_map[i] = pin->getNode()->getId();
-    pin2net_map[i] = pin->getEdge()->getId();
+    int pin_id = pin->getId();
+    pin2node_map[pin_id] = pin->getNode()->getId();
+    pin2net_map[pin_id] = pin->getEdge()->getId();
   }
 
   // create flattened mapping between node and a list of its pins
   flat_node2pin_map.resize(num_pins);
-  flat_node2pin_start_map.resize(num_nodes);
+  flat_node2pin_start_map.resize(num_nodes + 1);
   pin_offset_x.resize(num_pins);
   pin_offset_y.resize(num_pins);
 
   int ptr = 0;
   int lastIdx = 0;
+  flat_node2pin_start_map[0] = 0;
   for (int i = 0; i < network_->getNumNodes(); i++) {
     Node* node = network_->getNode(i);
     int node_id = node->getId();
@@ -93,13 +97,8 @@ void DetailedPlaceDB::createPinInfo() {
       ptr++;
     }
     lastIdx += node->getPins().size();
-    flat_node2pin_start_map[node_id] = lastIdx;
+    flat_node2pin_start_map[node_id + 1] = lastIdx;
   }
-
-  for (int i = flat_node2pin_start_map.size() - 1; i > 0; --i) {
-      flat_node2pin_start_map[i] = flat_node2pin_start_map[i - 1];
-  }
-  flat_node2pin_start_map[0] = 0; 
   // sort flat_node2pin_map_index by increasing node id, then reorder all pin related arrays accordingly
   // std::vector<int> indices(num_pins);
   // std::iota(indices.begin(), indices.end(), 0);
@@ -141,7 +140,7 @@ void DetailedPlaceDB::createPinInfo() {
   // }
 }
 
-void DetailedPlaceDB::debug() {
+void DetailedPlaceDB::debugNodePins() {
   int nodeSize = network_->getNumNodes();
   int node_id;
   for (int i = 0; i < nodeSize; i++) {
@@ -173,13 +172,46 @@ void DetailedPlaceDB::debug() {
   }
 }
 
+void DetailedPlaceDB::debugNetPins() {
+  // check if we can access the pins by iterating through all the nodes
+  int nodeSize = network_->getNumNodes();
+  int node_id;
+  for (int i = 0; i < nodeSize; i++) {
+    Node* node = network_->getNode(i);
+    if (node->getPins().size() > 0) {
+      node_id = i;
+    }
+    if (node_id == nodeSize - 1) {
+      break;
+    }
+    Node* nd = network_->getNode(node_id);
+    std::vector<Pin*> pins = nd->getPins();
+    for (auto& pin : pins) {
+    }
+    int node2pin_id = flat_node2pin_start_map[node_id];
+    const int node2pin_id_end = flat_node2pin_start_map[node_id + 1];
+    for (; node2pin_id < node2pin_id_end; ++node2pin_id) {
+      int node_pin_id = flat_node2pin_map[node2pin_id];
+      int net_id = pin2net_map[node_pin_id];
+      int net2pin_id = flat_net2pin_start_map[net_id];
+      int flag = net_mask[net_id];
+      const int net2pin_id_end = flat_net2pin_start_map[net_id + 1] * flag;
+      for (; net2pin_id < net2pin_id_end; ++net2pin_id) {
+        int net_pin_id = flat_net2pin_map[net2pin_id];
+        int other_node_id = pin2node_map[net_pin_id];
+      }
+    }
+  }
+}
+
 void DetailedPlaceDB::createNetInfo() {
-  std::vector<int> flat_net2pin_map(num_pins);        // pin IDs, flattened
+  flat_net2pin_map.resize(num_pins);        // pin IDs, flattened
   std::vector<int> flat_net2pin_map_index(num_pins);  // corresponding net IDs
-  std::vector<int> flat_net2pin_start_map(num_nets);  // end offset per net
+  flat_net2pin_start_map.resize(num_nets + 1);  // end offset per net
 
   int ptr = 0;
   int lastIdx = 0;
+  flat_net2pin_start_map[0] = 0;
   for (int i = 0; i < network_->getNumEdges(); i++) {
     Edge* edge = network_->getEdge(i);
     int edge_id = edge->getId();
@@ -189,13 +221,16 @@ void DetailedPlaceDB::createNetInfo() {
       ptr++;
     }
     lastIdx += edge->getPins().size();
-    flat_net2pin_start_map[edge_id] = lastIdx;
+    flat_net2pin_start_map[edge_id + 1] = lastIdx;
+  }
+  std::ofstream out("output.txt");  // Open file
+
+  for (int i = 0; i < num_nets + 1; i++) {
+      out << "I IS: " << i << std::endl;
+      out << "the value is: " << flat_net2pin_start_map[i] << std::endl;
   }
 
-  for (int i = flat_net2pin_start_map.size() - 1; i > 0; --i) {
-      flat_net2pin_start_map[i] = flat_net2pin_start_map[i - 1];
-  }
-  flat_net2pin_start_map[0] = 0; 
+  out.close();
   // sort by pin ID
   // std::vector<int> indices(num_pins);
   // std::iota(indices.begin(), indices.end(), 0);
@@ -250,7 +285,7 @@ void DetailedPlaceDB::createFenceInfo() {
       flat_region_boxes[ptr++] = rect.xmax();
       flat_region_boxes[ptr++] = rect.ymax();
     }
-    lastIdx += ptr;
+    lastIdx += region->getRects().size();
     flat_region_boxes_start[region_id + 1] = lastIdx;
   }
 }

@@ -173,18 +173,28 @@ void Detailed::doDetailedCommand(std::vector<std::string>& args, DetailedPlaceDB
   }
   logger->info(DPO, 303, "Running algorithm for {:s}.", command);
 
+  // once mis, gs, and ro are done, copy the data back to the cpu for the remaining ops
+  // we assume that this happens after ro is done
+  // might be a more organized way to do this
+
   if (strcmp(args[0].c_str(), "mis") == 0) {
     DetailedMis mis(arch_, network_, rt_);
+    // copy data to gpu
     mis.run(mgr_, args);
   } else if (strcmp(args[0].c_str(), "gs") == 0) {
     DetailedGlobalSwap gs(arch_, network_, rt_);
+    // copy it here for now just for testing
+    //dp_db->copy_to_device();
     gs.run(mgr_, *detailedPlaceDB_, args);
+    //gs.run(mgr_, dp_db, args);
   } else if (strcmp(args[0].c_str(), "vs") == 0) {
     DetailedVerticalSwap vs(arch_, network_, rt_);
     vs.run(mgr_, args);
   } else if (strcmp(args[0].c_str(), "ro") == 0) {
     DetailedReorderer ro(arch_, network_);
     ro.run(mgr_, args);
+    // copy data back to cpu
+    //dp_db->copy_data_to_host();
   } else if (strcmp(args[0].c_str(), "orient") == 0) {
     DetailedOrient orienter(arch_, network_);
     orienter.run(mgr_, args);

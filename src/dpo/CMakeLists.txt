@@ -59,6 +59,8 @@ swig_lib(NAME         dpo
 # https://github.com/The-OpenROAD-Project/OpenROAD/issues/1186
 find_package(LEMON NAMES LEMON lemon REQUIRED)
 
+# find_package(Torch REQUIRED)
+
 target_sources(dpo
   PRIVATE
     src/Optdp.cpp
@@ -97,6 +99,7 @@ target_link_libraries(dpo
     utl_lib
     dpl_lib
     OpenMP::OpenMP_CXX
+    "${TORCH_LIBRARIES}"
 )
 
 messages(

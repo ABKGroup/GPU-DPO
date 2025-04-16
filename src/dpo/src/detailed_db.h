@@ -78,7 +78,8 @@ private:
   void createFenceInfo();
   void createChipInfo();
   void createRowInfo();
-  void debug();
+  void debugNodePins();
+  void debugNetPins();
 
   // Other
   int skipNetsLargerThanThis_;

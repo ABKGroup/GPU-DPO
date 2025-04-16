@@ -41,6 +41,7 @@
 #include "network.h"
 #include "router.h"
 #include "detailed_db.h"
+#include "detailed_db_cuda.cuh"
 
 namespace dpo {
 

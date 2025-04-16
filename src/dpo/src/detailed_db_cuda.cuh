@@ -99,6 +99,7 @@ public:
 public:
     typedef float type;
 
+    // host data
     float* x;
     float* y;
     float* init_x;
@@ -148,7 +149,115 @@ public:
     float bin_size_x;
     float bin_size_y;
 
+    // device copies
+    float* d_x = nullptr;
+    float* d_y = nullptr;
+    float* d_init_x = nullptr;
+    float* d_init_y = nullptr;
+    float* d_node_size_x = nullptr;
+    float* d_node_size_y = nullptr;
+
+    float* d_pin_offset_x = nullptr;
+    float* d_pin_offset_y = nullptr;
+
+    int* d_flat_node2pin_start_map = nullptr;
+    int* d_flat_node2pin_map = nullptr;
+    int* d_pin2node_map = nullptr;
+
+    int* d_flat_net2pin_start_map = nullptr;
+    int* d_flat_net2pin_map = nullptr;
+    int* d_pin2net_map = nullptr;
+
+    int* d_flat_region_boxes_start = nullptr;
+    float* d_flat_region_boxes = nullptr;
+    int* d_node2fence_region_map = nullptr;
+
+    int* d_net_mask = nullptr;
+
 public:
+    void copy_to_device() {
+        allocateCopyCuda(d_x, x, num_nodes);
+        allocateCopyCuda(d_y, y, num_nodes);
+        allocateCopyCuda(d_init_x, init_x, num_nodes);
+        allocateCopyCuda(d_init_y, init_y, num_nodes);
+        allocateCopyCuda(d_node_size_x, node_size_x, num_nodes);
+        allocateCopyCuda(d_node_size_y, node_size_y, num_nodes);
+        allocateCopyCuda(d_pin_offset_x, pin_offset_x, num_pins);
+        allocateCopyCuda(d_pin_offset_y, pin_offset_y, num_pins);
+        allocateCopyCuda(d_flat_node2pin_start_map, flat_node2pin_start_map, num_nodes);
+        allocateCopyCuda(d_flat_node2pin_map, flat_node2pin_map, num_pins);
+        allocateCopyCuda(d_pin2node_map, pin2node_map, num_pins);
+        allocateCopyCuda(d_flat_net2pin_start_map, flat_net2pin_start_map, num_nets);
+        allocateCopyCuda(d_flat_net2pin_map, flat_net2pin_map, num_pins);
+        allocateCopyCuda(d_pin2net_map, pin2net_map, num_pins);
+        allocateCopyCuda(d_flat_region_boxes_start, flat_region_boxes_start, num_regions);
+        allocateCopyCuda(d_flat_region_boxes, flat_region_boxes, num_regions * 4);
+        allocateCopyCuda(d_node2fence_region_map, node2fence_region_map, num_nodes);
+        allocateCopyCuda(d_net_mask, net_mask, num_nets);
+    }
+
+    void copy_data_to_host() {
+        // copy the data from device to host and repopulate the network/architecture/mgr data structures
+        allocateCopyBackToCpu(d_x, x, num_nodes);
+        allocateCopyBackToCpu(d_y, y, num_nodes);
+        allocateCopyBackToCpu(d_init_x, init_x, num_nodes);
+        allocateCopyBackToCpu(d_init_y, init_y, num_nodes);
+        allocateCopyBackToCpu(d_node_size_x, node_size_x, num_nodes);
+        allocateCopyBackToCpu(d_node_size_y, node_size_y, num_nodes);
+        allocateCopyBackToCpu(d_pin_offset_x, pin_offset_x, num_pins);
+        allocateCopyBackToCpu(d_pin_offset_y, pin_offset_y, num_pins);
+        allocateCopyBackToCpu(d_flat_node2pin_start_map, flat_node2pin_start_map, num_nodes);
+        allocateCopyBackToCpu(d_flat_node2pin_map, flat_node2pin_map, num_pins);
+        allocateCopyBackToCpu(d_pin2node_map, pin2node_map, num_pins);
+        allocateCopyBackToCpu(d_flat_net2pin_start_map, flat_net2pin_start_map, num_nets);
+        allocateCopyBackToCpu(d_flat_net2pin_map, flat_net2pin_map, num_pins);
+        allocateCopyBackToCpu(d_pin2net_map, pin2net_map, num_pins);
+        allocateCopyBackToCpu(d_flat_region_boxes_start, flat_region_boxes_start, num_regions);
+        allocateCopyBackToCpu(d_flat_region_boxes, flat_region_boxes, num_regions * 4);
+        allocateCopyBackToCpu(d_node2fence_region_map, node2fence_region_map, num_nodes);
+        allocateCopyBackToCpu(d_net_mask, net_mask, num_nets);
+    }
+
+    void free_data() {
+        freeDevice(d_x);
+        freeDevice(d_y);
+        freeDevice(d_init_x);
+        freeDevice(d_init_y);
+        freeDevice(d_node_size_x);
+        freeDevice(d_node_size_y);
+        freeDevice(d_pin_offset_x);
+        freeDevice(d_pin_offset_y);
+        freeDevice(d_flat_node2pin_start_map);
+        freeDevice(d_flat_node2pin_map);
+        freeDevice(d_pin2node_map);
+        freeDevice(d_flat_net2pin_start_map);
+        freeDevice(d_flat_net2pin_map);
+        freeDevice(d_pin2net_map);
+        freeDevice(d_flat_region_boxes_start);
+        freeDevice(d_flat_region_boxes);
+        freeDevice(d_node2fence_region_map);
+        freeDevice(d_net_mask);
+
+        d_x = nullptr;
+        d_y = nullptr;
+        d_init_x = nullptr;
+        d_init_y = nullptr;
+        d_node_size_x = nullptr;
+        d_node_size_y = nullptr;
+        d_pin_offset_x = nullptr;
+        d_pin_offset_y = nullptr;
+        d_flat_node2pin_start_map = nullptr;
+        d_flat_node2pin_map = nullptr;
+        d_pin2node_map = nullptr;
+        d_flat_net2pin_start_map = nullptr;
+        d_flat_net2pin_map = nullptr;
+        d_pin2net_map = nullptr;
+        d_flat_region_boxes_start = nullptr;
+        d_flat_region_boxes = nullptr;
+        d_node2fence_region_map = nullptr;
+        d_net_mask = nullptr;
+    }
+
     void set_num_bins(int num_bins_x_, int num_bins_y_) {
         num_bins_x = num_bins_x_;
         num_bins_y = num_bins_y_;
@@ -486,6 +595,8 @@ public:
             }
         }
     }
+
+    
 };
 
 float compute_total_hpwl(const DetailedPlaceData& db, const float* xx, const float* yy, double* net_hpwls);
