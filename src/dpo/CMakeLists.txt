@@ -63,7 +63,7 @@ find_package(LEMON NAMES LEMON lemon REQUIRED)
 
 target_sources(dpo
   PRIVATE
-    src/Optdp.cpp
+    src/Optdp.cu
     src/MakeOptdp.cpp
     src/architecture.cxx
     src/color.cxx
@@ -71,7 +71,7 @@ target_sources(dpo
     src/router.cxx
     src/utility.cxx
     src/legalize_shift.cxx
-    src/detailed.cxx
+    src/detailed.cu
     src/detailed_manager.cxx
     src/detailed_mis.cxx
     src/detailed_reorder.cxx
@@ -79,10 +79,10 @@ target_sources(dpo
     src/detailed_displacement.cxx
     src/detailed_hpwl.cxx
     src/detailed_abu.cxx
-    src/detailed_random.cxx
+    src/detailed_random.cu
     src/detailed_orient.cxx
     src/detailed_global.cu
-    src/detailed_db.cxx
+    src/detailed_db.cu
     src/detailed_hpwl.cu
 )
 
@@ -99,7 +99,6 @@ target_link_libraries(dpo
     utl_lib
     dpl_lib
     OpenMP::OpenMP_CXX
-    "${TORCH_LIBRARIES}"
 )
 
 messages(

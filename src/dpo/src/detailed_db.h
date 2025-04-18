@@ -64,6 +64,7 @@ public:
   int num_nodes;
   int num_movable_nodes;
   int num_regions;
+  int region_boxes_size;
 
   float site_width;
   float row_height;
@@ -78,8 +79,8 @@ private:
   void createFenceInfo();
   void createChipInfo();
   void createRowInfo();
-  void debugNodePins();
-  void debugNetPins();
+  void check_flattened_arrays();
+  void compareFlattenedAndNetworkHPWL();
 
   // Other
   int skipNetsLargerThanThis_;

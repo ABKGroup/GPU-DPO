@@ -107,7 +107,6 @@ class Optdp
   RoutingParams* routeinfo_
       = nullptr;  // Route info we might consider (future).
   DetailedPlaceDB* detailedPlaceDB_ = nullptr;  // The architecture and network flattened
-  DetailedPlaceData* dp_data = nullptr;     // copy of the detailedPlaceDB to be use on device
 
   // Some maps.
   std::unordered_map<odb::dbInst*, Node*> instMap_;

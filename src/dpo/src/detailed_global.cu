@@ -1,5 +1,4 @@
 #include "detailed_global.h"
-#include "detailed_db_cuda.cuh"
 
 #include <boost/tokenizer.hpp>
 #include <vector>
@@ -39,7 +38,7 @@ DetailedGlobalSwap::DetailedGlobalSwap()
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-void DetailedGlobalSwap::run(DetailedMgr* mgrPtr, DetailedPlaceDB& detailedPlaceDB, const std::string& command)
+void DetailedGlobalSwap::run(DetailedMgr* mgrPtr, DetailedPlaceData& db, const std::string& command)
 {
   // A temporary interface to allow for a string which we will decode to create
   // the arguments.
@@ -49,7 +48,7 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr, DetailedPlaceDB& detailedPlace
   for (const auto& token : tokens) {
     args.push_back(token);
   }
-  run(mgrPtr, detailedPlaceDB, args);
+  run(mgrPtr, db, args);
 }
 
 template <typename T1, typename T2>
@@ -887,7 +886,7 @@ int compute_max_num_nodes_per_bin(const DetailedPlaceData& db) {
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 void DetailedGlobalSwap::run(DetailedMgr* mgrPtr,
-                             DetailedPlaceDB& detailedPlaceDB, 
+                             DetailedPlaceData& db, 
                              std::vector<std::string>& args)
 {
   // Given the arguments, figure out which routine to run to do the reordering.
@@ -901,7 +900,6 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr,
   int num_bins_y = 128; 
   int batch_size = 10;   
 
-  DetailedPlaceData db(detailedPlaceDB);
   db.set_num_bins(num_bins_x, num_bins_y);
   printf("[INFO GPU-DPO] bins %dx%d, bin sizes %gx%g, die size %g, %g, %g, %g\n",
        db.num_bins_x,
@@ -1020,7 +1018,7 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr,
       initNet2NodePinMap(state.net2nodepin_map, db);
   }
 
-  int passes = 1;
+  int passes = 10;
   double tol = 0.1 / 100;  // 0.1/100 maybe
   for (size_t i = 1; i < args.size(); i++) {
     if (args[i] == "-p" && i + 1 < args.size()) {
@@ -1035,14 +1033,14 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr,
 
   double hpwls[passes + 1];
   hpwls[0] = compute_total_hpwl(db, db.x, db.y, state.net_hpwls);
-  printf("[INFO GPU-DPO] initial hpwl = %.3f", hpwls[0]);
+  printf("[INFO GPU-DPO] initial hpwl = %.3f\n", hpwls[0]);
 
   for (int p = 1; p <= passes; p++) {
     global_swap(db, state);
     checkCuda(cudaDeviceSynchronize());
 
     hpwls[p] = compute_total_hpwl(db, db.x, db.y, state.net_hpwls);
-    printf("[INFO GPU-DPO] Pass %3d of global swaps; hpwl %.3f => %.3f (imp. %g%%)", 
+    printf("[INFO GPU-DPO] Pass %3d of global swaps; hpwl %.3f => %.3f (imp. %g%%)\n", 
             p, 
             hpwls[0],
             hpwls[p],

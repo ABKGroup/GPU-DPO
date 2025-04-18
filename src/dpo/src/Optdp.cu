@@ -98,7 +98,6 @@ void Optdp::improvePlacement(const int seed,
                              const bool disallow_one_site_gaps)
 {
   logger_->report("Detailed placement improvement.");
-  logger_->report("A CHANGE IS MADE");
   odb::WireLengthEvaluator eval(db_->getChip()->getBlock());
   const int64_t hpwlBefore = eval.hpwl();
 
@@ -139,7 +138,7 @@ void Optdp::improvePlacement(const int seed,
   dpo::DetailedParams dtParams;
   dtParams.script_ = "";
   // Maximum independent set matching.
-  dtParams.script_ += "mis -p 10 -t 0.005;";
+  //dtParams.script_ += "mis -p 10 -t 0.005;";
   // Global swaps.
   dtParams.script_ += "gs -p 10 -t 0.005;";
   // Vertical swaps.

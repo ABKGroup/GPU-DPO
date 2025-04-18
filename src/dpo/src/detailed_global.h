@@ -36,6 +36,7 @@
 
 #include "detailed_generator.h"
 #include "rectangle.h"
+#include "detailed_db_cuda.cuh"
 
 namespace dpo {
 class Architecture;
@@ -53,8 +54,8 @@ class DetailedGlobalSwap : public DetailedGenerator
   DetailedGlobalSwap();
 
   // Interfaces for scripting.
-  void run(DetailedMgr* mgrPtr, DetailedPlaceDB& detailedPlaceDB, const std::string& command);
-  void run(DetailedMgr* mgrPtr, DetailedPlaceDB& detailedPlaceDB, std::vector<std::string>& args);
+  void run(DetailedMgr* mgrPtr, DetailedPlaceData& db, const std::string& command);
+  void run(DetailedMgr* mgrPtr, DetailedPlaceData& db, std::vector<std::string>& args);
 
   // Interface for move generation.
   bool generate(DetailedMgr* mgr, std::vector<Node*>& candidates) override;

@@ -1,25 +1,11 @@
-DPO 0001 detailed.cxx:172          Unknown algorithm {:s}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed.cxx#L172
 DPO 0002 Optdp.tcl:44              No design block found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/Optdp.tcl#L44
 DPO 0031 Optdp.tcl:63              -max_displacement disp|{disp_x disp_y} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/Optdp.tcl#L63
-DPO 0100 Optdp.cpp:441             Creating network with {:d} cells, {:d} terminals,  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/Optdp.cpp#L441
-DPO 0101 Optdp.cpp:574             Unexpected total node count.  Expected {:d}, but got {:d} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/Optdp.cpp#L574
-DPO 0102 Optdp.cpp:608             Improper node indexing while connecting pins. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/Optdp.cpp#L608
-DPO 0103 Optdp.cpp:636             Could not find node for instance while connecting pins. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/Optdp.cpp#L636
-DPO 0104 Optdp.cpp:649             Improper terminal indexing while connecting pins. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/Optdp.cpp#L649
-DPO 0105 Optdp.cpp:665             Could not find node for terminal while connecting pins. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/Optdp.cpp#L665
-DPO 0106 Optdp.cpp:675             Unexpected total edge count.  Expected {:d}, but got {:d} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/Optdp.cpp#L675
-DPO 0107 Optdp.cpp:682             Unexpected total pin count.  Expected {:d}, but got {:d} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/Optdp.cpp#L682
-DPO 0108 Optdp.cpp:762             Skipping all the rows with sites {} as their height is {}  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/Optdp.cpp#L762
-DPO 0109 Optdp.cpp:689             Network stats: inst {}, edges {}, pins {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/Optdp.cpp#L689
-DPO 0110 Optdp.cpp:941             Number of regions is {:d} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/Optdp.cpp#L941
 DPO 0200 legalize_shift.cxx:200    Unexpected displacement during legalization. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/legalize_shift.cxx#L200
 DPO 0201 legalize_shift.cxx:216    Placement check failure during legalization. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/legalize_shift.cxx#L216
 DPO 0202 detailed_mis.cxx:168      No movable cells found INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_mis.cxx#L168
-DPO 0203 detailed_random.cxx:392   No movable cells found INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_random.cxx#L392
 DPO 0300 detailed_mis.cxx:147      Set matching objective is {:s}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_mis.cxx#L147
 DPO 0301 detailed_mis.cxx:177      Pass {:3d} of matching; objective is {:.6e}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_mis.cxx#L177
 DPO 0302 detailed_mis.cxx:209      End of matching; objective is {:.6e}, improvement is {:.2f} percent. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_mis.cxx#L209
-DPO 0303 detailed.cxx:174          Running algorithm for {:s}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed.cxx#L174
 DPO 0304 detailed_reorder.cxx:109  Pass {:3d} of reordering; objective is {:.6e}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_reorder.cxx#L109
 DPO 0305 detailed_reorder.cxx:123  End of reordering; objective is {:.6e}, improvement is {:.2f} percent. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_reorder.cxx#L123
 DPO 0308 detailed_vertical.cxx:133 Pass {:3d} of vertical swaps; hpwl is {:.6e}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_vertical.cxx#L133
@@ -36,20 +22,7 @@ DPO 0319 detailed_manager.cxx:1242 Collected {:d} multi-height cells spanning {:
 DPO 0320 detailed_manager.cxx:1269 Collected {:d} fixed cells. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_manager.cxx#L1269
 DPO 0321 detailed_manager.cxx:1298 Collected {:d} wide cells. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_manager.cxx#L1298
 DPO 0322 detailed_manager.cxx:324  Image ({:d}, {:d}) - ({:d}, {:d}) INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_manager.cxx#L324
-DPO 0323 detailed.cxx:129          One site gap violation in segment {:d} nodes: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed.cxx#L129
-DPO 0324 detailed_random.cxx:186   Random improver is using {:s} generator. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_random.cxx#L186
-DPO 0325 detailed_random.cxx:236   Random improver is using {:s} objective. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_random.cxx#L236
-DPO 0326 detailed_random.cxx:258   Random improver cost string is {:s}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_random.cxx#L258
-DPO 0327 detailed_random.cxx:296   Pass {:3d} of random improver; improvement in cost is {:.2f} percent. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_random.cxx#L296
-DPO 0328 detailed_random.cxx:315   End of random improver; improvement is {:.6f} percent. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_random.cxx#L315
-DPO 0329 detailed_random.cxx:384   Random improver requires at least one generator. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_random.cxx#L384
-DPO 0330 detailed_random.cxx:421   Test objective function failed, possibly due  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_random.cxx#L421
-DPO 0332 detailed_random.cxx:494   End of pass, Generator {:s} called {:d} times. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_random.cxx#L494
-DPO 0333 detailed_random.cxx:508   End of pass, Objective {:s}, Initial cost {:.6e}, Scratch cost  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_random.cxx#L508
-DPO 0335 detailed_random.cxx:664   Generator {:s},  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_random.cxx#L664
 DPO 0336 detailed_vertical.cxx:533 Generator {:s},  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_vertical.cxx#L533
-DPO 0337 detailed_random.cxx:836   Generator {:s},  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_random.cxx#L836
-DPO 0338 detailed_random.cxx:527   End of pass, Total cost is {:.6e}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_random.cxx#L527
 DPO 0339 detailed_manager.cxx:1466 One-site gap violation detected with a  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_manager.cxx#L1466
 DPO 0340 detailed_manager.cxx:1476 One-site gap violation detected with a  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_manager.cxx#L1476
 DPO 0380 detailed_orient.cxx:99    Cell flipping. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_orient.cxx#L99
@@ -57,7 +30,6 @@ DPO 0381 detailed_orient.cxx:107   Encountered {:d} issues when orienting cells 
 DPO 0382 detailed_orient.cxx:113   Changed {:d} cell orientations for row compatibility. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_orient.cxx#L113
 DPO 0383 detailed_orient.cxx:122   Performed {:d} cell flips. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_orient.cxx#L122
 DPO 0384 detailed_orient.cxx:127   End of flipping; objective is {:.6e}, improvement is {:.2f} percent. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_orient.cxx#L127
-DPO 0385 detailed_random.cxx:582   Only working with single height cells currently. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_random.cxx#L582
 DPO 0400 detailed_manager.cxx:172  Detailed improvement internal error: {:s}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_manager.cxx#L172
 DPO 0401 detailed_manager.cxx:135  Setting random seed to {:d}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_manager.cxx#L135
 DPO 0402 detailed_manager.cxx:153  Setting maximum displacement {:d} {:d} to  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_manager.cxx#L153
