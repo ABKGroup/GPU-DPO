@@ -595,7 +595,7 @@ public:
     
 };
 
-double compute_total_hpwl(const DetailedPlaceData& db, const float* xx, const float* yy, double* net_hpwls);
+float compute_total_hpwl(const DetailedPlaceData& db, const float* xx, const float* yy, double* net_hpwls);
 
 //void kReorderCUDA(/*DPTorchRawDB& at_db,*/ int num_bins_x, int num_bins_y, int K, int max_iters);
 //void globalSwapCUDA(/*DPTorchRawDB& at_db,*/ int num_bins_x, int num_bins_y, int batch_size, int max_iters);

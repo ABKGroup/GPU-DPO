@@ -221,7 +221,7 @@ class Pin
   double getPinHeight() const { return pinHeight_; }
 
   void setId(int id) { id_ = id; }
-  int getId() { return id_; }
+  int getId() const { return id_; }
 
  private:
   // Pin width and height.

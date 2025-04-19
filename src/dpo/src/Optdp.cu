@@ -138,7 +138,7 @@ void Optdp::improvePlacement(const int seed,
   dpo::DetailedParams dtParams;
   dtParams.script_ = "";
   // Maximum independent set matching.
-  //dtParams.script_ += "mis -p 10 -t 0.005;";
+  dtParams.script_ += "mis -p 10 -t 0.005;";
   // Global swaps.
   dtParams.script_ += "gs -p 10 -t 0.005;";
   // Vertical swaps.

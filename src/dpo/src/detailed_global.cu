@@ -1031,7 +1031,7 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr,
   passes = std::max(passes, 1);   // number of iterations
   tol = std::max(tol, 0.01);      // tolerance (i.e. hpwl stops improving after a certain amount)
 
-  double hpwls[passes + 1];
+  float hpwls[passes + 1];
   hpwls[0] = compute_total_hpwl(db, db.x, db.y, state.net_hpwls);
   printf("[INFO GPU-DPO] initial hpwl = %.3f\n", hpwls[0]);
 

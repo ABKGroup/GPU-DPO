@@ -79,7 +79,6 @@ private:
   void createFenceInfo();
   void createChipInfo();
   void createRowInfo();
-  void check_flattened_arrays();
   void compareFlattenedAndNetworkHPWL();
 
   // Other

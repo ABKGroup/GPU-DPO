@@ -43,7 +43,6 @@ void DetailedPlaceDB::createDetailedPlaceDB() {
   createFenceInfo();
   createChipInfo();
   createRowInfo();
-  check_flattened_arrays();
   //compareFlattenedAndNetworkHPWL();
 }
 
@@ -85,6 +84,12 @@ void DetailedPlaceDB::createPinInfo() {
   pin_offset_x.resize(num_pins);
   pin_offset_y.resize(num_pins);
 
+  for (int pin_id = 0; pin_id < num_pins; ++pin_id) {
+    const Pin* pin = network_->getPin(pin_id);
+    pin_offset_x[pin_id] = static_cast<float>(pin->getOffsetX());
+    pin_offset_y[pin_id] = static_cast<float>(pin->getOffsetY());
+  }
+
   int ptr = 0;
   int lastIdx = 0;
   flat_node2pin_start_map[0] = 0;
@@ -94,8 +99,6 @@ void DetailedPlaceDB::createPinInfo() {
     for (auto& pin : node->getPins()) {
       flat_node2pin_map[ptr] = pin->getId();
       flat_node2pin_map_index[ptr] = node_id;
-      pin_offset_x[ptr] = pin->getOffsetX();
-      pin_offset_y[ptr] = pin->getOffsetY();
       ptr++;
     }
     lastIdx += node->getPins().size();
@@ -142,224 +145,205 @@ void DetailedPlaceDB::createPinInfo() {
   // }
 }
 
-void DetailedPlaceDB::check_flattened_arrays() {
-    bool passed = true;
-
-    // Check node2pin mapping
-    for (int node_id = 0; node_id < network_->getNumNodes(); ++node_id) {
-        const Node* node = network_->getNode(node_id);
-        const std::vector<Pin*>& pins = node->getPins();
-        int start = flat_node2pin_start_map[node_id];
-        int end = flat_node2pin_start_map[node_id + 1];
-
-        if (end - start != (int)pins.size()) {
-            std::cerr << "[INFO GPU-DPO] Mismatch in pin count for node " << node_id << std::endl;
-            passed = false;
-            continue;
-        }
-
-        for (int i = 0; i < (int)pins.size(); ++i) {
-            int pin_id = flat_node2pin_map[start + i];
-            int mapped_node = pin2node_map[pin_id];
-            if (mapped_node != node_id) {
-                std::cerr << "[INFO GPU-DPO] Incorrect pin2node mapping for pin " << pin_id << " at node " << node_id << std::endl;
-                passed = false;
-            }
-        }
-    }
-
-    // Check net2pin mapping
-    for (int net_id = 0; net_id < network_->getNumEdges(); ++net_id) {
-        const Edge* net = network_->getEdge(net_id);
-        const std::vector<Pin*>& pins = net->getPins();
-        int start = flat_net2pin_start_map[net_id];
-        int end = flat_net2pin_start_map[net_id + 1];
-
-        if (end - start != (int)pins.size()) {
-            std::cerr << "[INFO GPU-DPO] Mismatch in pin count for net " << net_id << std::endl;
-            passed = false;
-            continue;
-        }
-
-        for (int i = 0; i < (int)pins.size(); ++i) {
-            int pin_id = flat_net2pin_map[start + i];
-            const Pin* pin = pins[i];
-            const Node* expected_node = pin->getNode();
-            int expected_node_id = expected_node->getId();
-            int actual_node_id = pin2node_map[pin_id];
-
-            if (actual_node_id != expected_node_id) {
-                std::cerr << "[INFO GPU-DPO] Incorrect pin2node mapping in net " << net_id
-                          << " for pin " << pin_id << ": expected " << expected_node_id
-                          << ", got " << actual_node_id << std::endl;
-                passed = false;
-            }
-        }
-    }
-
-    // Check node coordinates
-    for (int node_id = 0; node_id < network_->getNumNodes(); ++node_id) {
-        const Node* node = network_->getNode(node_id);
-        double expected_x = node->getLeft();
-        double expected_y = node->getBottom();
-
-        float actual_x = x[node_id];
-        float actual_y = y[node_id];
-
-        if (std::abs(actual_x - expected_x) > 1e-3 || std::abs(actual_y - expected_y) > 1e-3) {
-            std::cerr << "[INFO GPU-DPO] Mismatch in node location for node " << node_id
-                      << ": expected (" << expected_x << ", " << expected_y << ")"
-                      << ", got (" << actual_x << ", " << actual_y << ")" << std::endl;
-            passed = false;
-        }
-    }
-
-    if (passed) {
-        std::cout << "[INFO GPU-DPO] CHECK PASSED: Flattened arrays are consistent with the original data.\n";
-    } else {
-        std::cerr << "[INFO GPU-DPO] CHECK FAILED: See messages above for details.\n";
-    }
-}
-
-/*double DetailedPlaceDB::compare_flattened_hpwl_vs_network()
-{
-  assert(network_ != nullptr);
-  assert(flat_net2pin_start_map.size() == network_->getNumEdges() + 1);
-
-  double hpwlx_flat = 0.0, hpwly_flat = 0.0;
-
-  for (unsigned net_id = 0; net_id < network_->getNumEdges(); ++net_id) {
-      int pin_start = flat_net2pin_start_map[net_id];
-      int pin_end = flat_net2pin_start_map[net_id + 1];
-      int num_pins = pin_end - pin_start;
-
-      if (num_pins <= 1) continue;
-
-      double min_x = std::numeric_limits<double>::max();
-      double max_x = std::numeric_limits<double>::lowest();
-      double min_y = std::numeric_limits<double>::max();
-      double max_y = std::numeric_limits<double>::lowest();
-
-      for (int i = pin_start; i < pin_end; ++i) {
-          int pin_id = flat_net2pin_map[i];
-          int node_id = pin2node_map[pin_id];
-          double px = x[node_id] + 0.5 * node_size_x[node_id] + pin_offset_x[pin_id];
-          double py = y[node_id] + 0.5 * node_size_y[node_id] + pin_offset_y[pin_id];
-
-          min_x = std::min(min_x, px);
-          max_x = std::max(max_x, px);
-          min_y = std::min(min_y, py);
-          max_y = std::max(max_y, py);
-      }
-
-      hpwlx_flat += (max_x - min_x);
-      hpwly_flat += (max_y - min_y);
-  }
-
-  double flat_hpwl = hpwlx_flat + hpwly_flat;
-
-  // Reference HPWL from network
-  double hpwlx_ref = 0.0, hpwly_ref = 0.0;
-  double ref_hpwl = Utility::hpwl(network_, hpwlx_ref, hpwly_ref);
-
-  std::cout << "[INFO GPU-DPO] Original HPWL : " << ref_hpwl << " (x = " << hpwlx_ref << ", y = " << hpwly_ref << ")\n";
-  std::cout << "[INFO GPU-DPO] Flattened HPWL: " << flat_hpwl << " (x = " << hpwlx_flat << ", y = " << hpwly_flat << ")\n";
-
-  double relative_diff = std::abs(flat_hpwl - ref_hpwl) / std::max(1.0, ref_hpwl);
-  std::cout << "[INFO GPU-DPO] Relative difference: " << relative_diff * 100.0 << "%\n";
-
-  return relative_diff;
-}*/
-
 void DetailedPlaceDB::compareFlattenedAndNetworkHPWL()
 {
-    double total_original_hpwl = 0.0;
-    double total_flattened_hpwl = 0.0;
+  std::ofstream log("net_pin_detailed_comparison_log.txt");
+  if (!log) {
+      std::cerr << "Failed to open output file.\n";
+      return;
+  }
 
-    for (int net_id = 0; net_id < num_nets; ++net_id) {
-        const Edge* edge = network_->getEdge(net_id);
-        int num_pins = edge->getNumPins();
-        if (num_pins <= 1) continue;
+  double total_original_hpwl = 0.0;
+  double total_flattened_hpwl = 0.0;
 
-        // HPWL using Network
-        Rectangle box1;
-        float net_xl = std::numeric_limits<float>::max();
-        float net_xh = std::numeric_limits<float>::lowest();
-        float net_yl = std::numeric_limits<float>::max();
-        float net_yh = std::numeric_limits<float>::lowest();
+  for (int net_id = 0; net_id < num_nets; ++net_id) {
+      const Edge* edge = network_->getEdge(net_id);
+      int num_pins = edge->getNumPins();
+      if (num_pins <= 1) continue;
 
-        for (const Pin* pin : edge->getPins()) {
-            const Node* node = pin->getNode();
-            double px = node->getLeft() + 0.5 * node->getWidth() + pin->getOffsetX();
-            double py = node->getBottom() + 0.5 * node->getHeight() + pin->getOffsetY();
-            box1.addPt(px, py);
+      log << "Net ID: " << net_id << "\n";
 
-            net_xl = std::min(net_xl, static_cast<float>(px));
-            net_xh = std::max(net_xh, static_cast<float>(px));
-            net_yl = std::min(net_yl, static_cast<float>(py));
-            net_yh = std::max(net_yh, static_cast<float>(py));
-        }
+      // --- Network pins ---
+      std::vector<int> network_pin_ids;
+      std::vector<int> network_node_ids;
+      std::vector<std::pair<double, double>> network_offsets;
 
-        double hpwl1 = box1.getWidth() + box1.getHeight();
-        total_original_hpwl += hpwl1;
+      log << "Network pins:\n";
+      for (const Pin* pin : edge->getPins()) {
+          int pin_id = pin->getId();
+          int node_id = pin->getNode()->getId();
+          double offset_x = pin->getOffsetX();
+          double offset_y = pin->getOffsetY();
 
-        // HPWL using flattened data
-        float flat_xl = std::numeric_limits<float>::max();
-        float flat_xh = std::numeric_limits<float>::lowest();
-        float flat_yl = std::numeric_limits<float>::max();
-        float flat_yh = std::numeric_limits<float>::lowest();
+          network_pin_ids.push_back(pin_id);
+          network_node_ids.push_back(node_id);
+          network_offsets.emplace_back(offset_x, offset_y);
 
-        for (int i = flat_net2pin_start_map[net_id]; i < flat_net2pin_start_map[net_id + 1]; ++i) {
-            int pin_id = flat_net2pin_map[i];
-            int node_id = pin2node_map[pin_id];
+          log << "  Pin " << pin_id
+              << " — Node: " << node_id
+              << ", Offset: (" << offset_x << ", " << offset_y << ")\n";
+      }
 
-            float x_loc = x[node_id] + 0.5f * node_size_x[node_id] + pin_offset_x[pin_id];
-            float y_loc = y[node_id] + 0.5f * node_size_y[node_id] + pin_offset_y[pin_id];
+      // --- Flattened pins ---
+      std::vector<int> flat_pin_ids;
+      std::vector<int> flat_node_ids;
+      std::vector<std::pair<float, float>> flat_offsets;
 
-            flat_xl = std::min(flat_xl, x_loc);
-            flat_xh = std::max(flat_xh, x_loc);
-            flat_yl = std::min(flat_yl, y_loc);
-            flat_yh = std::max(flat_yh, y_loc);
+      log << "Flattened pins:\n";
+      for (int i = flat_net2pin_start_map[net_id]; i < flat_net2pin_start_map[net_id + 1]; ++i) {
+          int pin_id = flat_net2pin_map[i];
+          int node_id = pin2node_map[pin_id];
+          float offset_x = pin_offset_x[pin_id];
+          float offset_y = pin_offset_y[pin_id];
 
-            // Only validate raw left/bottom and pin offset
-            const Pin* pin = network_->getPin(pin_id);
-            const Node* node = pin->getNode();
+          flat_pin_ids.push_back(pin_id);
+          flat_node_ids.push_back(node_id);
+          flat_offsets.emplace_back(offset_x, offset_y);
 
-            float expected_left = node->getLeft();
-            float expected_bottom = node->getBottom();
-            float expected_offset_x = pin->getOffsetX();
-            float expected_offset_y = pin->getOffsetY();
+          log << "  Pin " << pin_id
+              << " — Node: " << node_id
+              << ", Offset: (" << offset_x << ", " << offset_y << ")\n";
+      }
 
-            float dx = std::abs(expected_left - x[node_id]);
-            float dy = std::abs(expected_bottom - y[node_id]);
-            float dox = std::abs(expected_offset_x - pin_offset_x[pin_id]);
-            float doy = std::abs(expected_offset_y - pin_offset_y[pin_id]);
+      // --- Consistency check ---
+      bool mismatch = false;
 
-            if (dx > 1e-3 || dy > 1e-3 || dox > 1e-4 || doy > 1e-4) {
-                printf("[Mismatch] pin_id %d node_id %d\n", pin_id, node_id);
-                printf("  Expected pos: (%.6f, %.6f), Actual: (%.6f, %.6f), Δx=%.6f, Δy=%.6f\n",
-                       expected_left, expected_bottom, x[node_id], y[node_id], dx, dy);
-                printf("  Expected offset: (%.6f, %.6f), Actual: (%.6f, %.6f), Δx=%.6f, Δy=%.6f\n",
-                       expected_offset_x, expected_offset_y, pin_offset_x[pin_id], pin_offset_y[pin_id], dox, doy);
-            }
-        }
+      if (network_pin_ids.size() != flat_pin_ids.size()) {
+          log << "[Mismatch] Pin count mismatch!\n";
+          mismatch = true;
+      } else {
+          for (size_t i = 0; i < network_pin_ids.size(); ++i) {
+              int npid = network_pin_ids[i];
+              int fpid = flat_pin_ids[i];
+              int nnid = network_node_ids[i];
+              int fnid = flat_node_ids[i];
+              double nox = network_offsets[i].first;
+              double noy = network_offsets[i].second;
+              float fox = flat_offsets[i].first;
+              float foy = flat_offsets[i].second;
 
-        float hpwl2 = (flat_xh - flat_xl) + (flat_yh - flat_yl);
-        total_flattened_hpwl += hpwl2;
+              float dox = std::abs(nox - fox);
+              float doy = std::abs(noy - foy);
 
-        float diff = std::abs(hpwl1 - hpwl2);
-        if (diff > 1e-2) {
-            printf("Net %d: HPWL mismatch — Original: %.6f, Flattened: %.6f, Δ = %.6f\n",
-                   net_id, hpwl1, hpwl2, diff);
-            printf("  Network BBox : [%.3f, %.3f] x [%.3f, %.3f]\n", net_xl, net_xh, net_yl, net_yh);
-            printf("  Flattened BBox: [%.3f, %.3f] x [%.3f, %.3f]\n", flat_xl, flat_xh, flat_yl, flat_yh);
-        }
+              if (npid != fpid || nnid != fnid || dox > 1e-4 || doy > 1e-4) {
+                  log << "[Mismatch] Pin " << i << " — "
+                      << "NetPinID=" << npid << ", FlatPinID=" << fpid << " | "
+                      << "NetNodeID=" << nnid << ", FlatNodeID=" << fnid << " | "
+                      << "NetOffset=(" << nox << ", " << noy << "), "
+                      << "FlatOffset=(" << fox << ", " << foy << ")\n";
+                  mismatch = true;
+              }
+          }
+      }
+
+      if (!mismatch) {
+          log << "[OK] All pin details match.\n";
+      }
+
+      log << "--------------------------\n";
+  }
+
+  log.close();
+
+    FILE* log_file = fopen("net_pin_mapping_debug.txt", "w");
+    if (!log_file) {
+        perror("Failed to open log file");
+        return;
     }
+    
+    for (int net_id = 0; net_id < num_nets; ++net_id) {
+      const Edge* edge = network_->getEdge(net_id);
+      int num_pins = edge->getNumPins();
+      if (num_pins <= 1) continue;
 
-    double rel_diff = std::abs(total_original_hpwl - total_flattened_hpwl) / total_original_hpwl * 100.0;
-    printf("Total Original HPWL : %.6f\n", total_original_hpwl);
-    printf("Total Flattened HPWL: %.6f\n", total_flattened_hpwl);
-    printf("Relative difference : %.6f%%\n", rel_diff);
+      // Log Network pins
+      fprintf(log_file, "Net ID %d (Network pins): ", net_id);
+      for (const Pin* pin : edge->getPins()) {
+          fprintf(log_file, "%d ", pin->getId());
+      }
+      fprintf(log_file, "\n");
+
+      // Log Flattened pins
+      fprintf(log_file, "Net ID %d (Flattened pins): ", net_id);
+      for (int i = flat_net2pin_start_map[net_id]; i < flat_net2pin_start_map[net_id + 1]; ++i) {
+          int pin_id = flat_net2pin_map[i];
+          fprintf(log_file, "%d ", pin_id);
+      }
+      fprintf(log_file, "\n");
+
+      // --- HPWL computation continues below as before ---
+
+      // HPWL using Network
+      Rectangle box1;
+      float net_xl = std::numeric_limits<float>::max();
+      float net_xh = std::numeric_limits<float>::lowest();
+      float net_yl = std::numeric_limits<float>::max();
+      float net_yh = std::numeric_limits<float>::lowest();
+
+      for (const Pin* pin : edge->getPins()) {
+          const Node* node = pin->getNode();
+          double px = node->getLeft() + 0.5 * node->getWidth() + pin->getOffsetX();
+          double py = node->getBottom() + 0.5 * node->getHeight() + pin->getOffsetY();
+          box1.addPt(px, py);
+
+          net_xl = std::min(net_xl, static_cast<float>(px));
+          net_xh = std::max(net_xh, static_cast<float>(px));
+          net_yl = std::min(net_yl, static_cast<float>(py));
+          net_yh = std::max(net_yh, static_cast<float>(py));
+      }
+
+      double hpwl1 = box1.getWidth() + box1.getHeight();
+      total_original_hpwl += hpwl1;
+
+      // HPWL using flattened data
+      float flat_xl = std::numeric_limits<float>::max();
+      float flat_xh = std::numeric_limits<float>::lowest();
+      float flat_yl = std::numeric_limits<float>::max();
+      float flat_yh = std::numeric_limits<float>::lowest();
+
+      for (int i = flat_net2pin_start_map[net_id]; i < flat_net2pin_start_map[net_id + 1]; ++i) {
+          int pin_id = flat_net2pin_map[i];
+          int node_id = pin2node_map[pin_id];
+
+          float x_loc = x[node_id] + 0.5f * node_size_x[node_id] + pin_offset_x[pin_id];
+          float y_loc = y[node_id] + 0.5f * node_size_y[node_id] + pin_offset_y[pin_id];
+
+          flat_xl = std::min(flat_xl, x_loc);
+          flat_xh = std::max(flat_xh, x_loc);
+          flat_yl = std::min(flat_yl, y_loc);
+          flat_yh = std::max(flat_yh, y_loc);
+
+          // Only validate raw left/bottom and pin offset
+          Pin* pin = network_->getPin(pin_id);
+          Node* node = pin->getNode();
+
+          int expected_left = node->getLeft();
+          int expected_bottom = node->getBottom();
+          double expected_offset_x = pin->getOffsetX();
+          double expected_offset_y = pin->getOffsetY();
+
+          float dx = std::abs(expected_left - (int)x[node_id]);
+          float dy = std::abs(expected_bottom - (int)y[node_id]);
+          float dox = std::abs(expected_offset_x - (double)pin_offset_x[pin_id]);
+          float doy = std::abs(expected_offset_y - (double)pin_offset_y[pin_id]);
+
+          if (dox > 1e-3) {
+              fprintf(log_file, "[Offset Mismatch] pin_id %d node_id %d\n", pin_id, node_id);
+              fprintf(log_file, "  Expected offset: (%.6f, %.6f), Actual: (%.6f, %.6f), Δx=%.6f, Δy=%.6f\n",
+                      expected_offset_x, expected_offset_y, pin_offset_x[pin_id], pin_offset_y[pin_id], dox, doy);
+          }
+      }
+
+      float hpwl2 = (flat_xh - flat_xl) + (flat_yh - flat_yl);
+      total_flattened_hpwl += hpwl2;
+  }
+
+  double rel_diff = std::abs(total_original_hpwl - total_flattened_hpwl) / total_original_hpwl * 100.0;
+  fprintf(log_file, "Total Original HPWL : %.6f\n", total_original_hpwl);
+  fprintf(log_file, "Total Flattened HPWL: %.6f\n", total_flattened_hpwl);
+  fprintf(log_file, "Relative difference : %.6f%%\n", rel_diff);
+
+  fclose(log_file);
 }
 
 void DetailedPlaceDB::createNetInfo() {
