@@ -235,5 +235,111 @@ Pin* Network::createAndAddPin(Node* nd, Edge* ed)
   ptr->edge_->pins_.push_back(ptr);
   return ptr;
 }
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+void Network::reorderAndReindexNodes() 
+{
+  // do this to ensure that when iterating through nodes,
+  // map the first group to movable_nodes
+  // map the second group to terminal nodes (and misc fixed nodes)
+  // map the last group to filler nodes
+  std::vector<Node*> movable_nodes;
+  std::vector<Node*> terminal_nodes;
+  std::vector<Node*> filler_nodes;
+
+  // Save mapping from old node ID to Node*
+  std::unordered_map<int, Node*> old_id_to_node;
+  for (Node* node : nodes_) {
+    old_id_to_node[node->getId()] = node;
+  }
+
+  for (Node* node : nodes_) {
+    if (node->getType() == Node::CELL && !node->isFixed()) {
+      movable_nodes.push_back(node);
+    } else if (node->getType() == Node::TERMINAL) {
+      terminal_nodes.push_back(node);
+    } else if (node->getType() == Node::FILLER) {
+      filler_nodes.push_back(node);
+    } else {
+      terminal_nodes.push_back(node); // add all other nodes to terminal (general fixed nodes) for now
+    }
+  }
+
+  setNumMovableNodes(movable_nodes.size());
+  setNumTerminalNodes(terminal_nodes.size());
+  setNumFillerNodes(filler_nodes.size());
+
+  nodes_.clear();
+  nodes_.insert(nodes_.end(), movable_nodes.begin(), movable_nodes.end());
+  nodes_.insert(nodes_.end(), terminal_nodes.begin(), terminal_nodes.end());
+  nodes_.insert(nodes_.end(), filler_nodes.begin(), filler_nodes.end());
+
+  std::unordered_map<int, std::string> new_nodeNames;
+  for (int new_id = 0; new_id < static_cast<int>(nodes_.size()); ++new_id) {
+    Node* node = nodes_[new_id];
+    int old_id = node->getId();  // current ID before reassignment is still old ID
+    node->setId(new_id);         // assign new ID
+    auto it = nodeNames_.find(old_id);
+    if (it != nodeNames_.end()) {
+      new_nodeNames[new_id] = it->second;
+    }
+  }
+
+  nodeNames_ = std::move(new_nodeNames);
+}
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+void Network::sanityCheckAndPrintStats() {
+  int num_movable = 0;
+  int num_terminals = 0;
+  int num_fillers = 0;
+
+  // Count types and verify IDs match index
+  for (size_t i = 0; i < nodes_.size(); ++i) {
+    const Node* node = nodes_[i];
+    if (node->getId() != static_cast<int>(i)) {
+      std::cerr << "[INFO GPU-DPO] Error: Node ID mismatch: expected " << i << ", found " << node->getId() << "\n";
+    }
+
+    if (node->getType() == Node::CELL) {
+      ++num_movable;
+    } else if (node->getType() == Node::TERMINAL) {
+      ++num_terminals;
+    } else if (node->getType() == Node::FILLER) {
+      ++num_fillers;
+    } else {
+      std::cerr << "[INFO GPU-DPO] Error: Unknown node type in node " << i << "\n";
+    }
+  }
+
+  std::cout << "[INFO GPU-DPO] === Network Node Summary ===\n";
+  std::cout << "Total Nodes     : " << nodes_.size() << "\n";
+  std::cout << "Movable Nodes   : " << getNumMovableNodes() << "\n";
+  std::cout << "Terminal Nodes  : " << getNumTerminalNodes() << "\n";
+  std::cout << "Filler Nodes    : " << getNumFillerNodes() << "\n";
+  assert(nodes_.size() == num_movable + num_terminals + num_fillers);
+
+  // Check pins
+  for (int i = 0; i < pins_.size(); ++i) {
+    const Pin* pin = pins_[i];
+    const Node* node = pin->getNode();
+    if (node != nodes_[node->getId()]) {
+      std::cerr << "[INFO GPU-DPO] Error: Pin " << i << " points to node with ID " << node->getId()
+                << ", but nodes_[" << node->getId() << "] != pin->getNode()\n";
+    }
+  }
+
+  // Check nets
+  for (int i = 0; i < edges_.size(); ++i) {
+    const Edge* edge = edges_[i];
+    for (const Pin* pin : edge->getPins()) {
+      if (pin == nullptr || pin->getNode() == nullptr) {
+        std::cerr << "[INFO GPU-DPO] Error: Null pin or node in edge " << i << "\n";
+      }
+    }
+  }
+
+  std::cout << "[INFO GPU-DPO] Error: Sanity check completed.\n";
+}
 
 }  // namespace dpo

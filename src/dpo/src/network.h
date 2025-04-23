@@ -42,6 +42,8 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
+#include <iostream>
+#include <cassert>
 
 #include "architecture.h"
 #include "odb/geom.h"
@@ -301,6 +303,14 @@ class Network
   int getNumBlockages() const { return (int) blockages_.size(); }
   odb::Rect getBlockage(int i) const { return blockages_[i]; }
 
+  int getNumMovableNodes() { return num_movable_nodes_; }
+  int getNumTerminalNodes() { return num_terminal_NIs_; }
+  int getNumFillerNodes() { return num_filler_nodes_; }
+
+  void setNumMovableNodes(int num) { num_movable_nodes_ = num; }
+  void setNumTerminalNodes(int num) { num_terminal_NIs_ = num; }
+  void setNumFillerNodes(int num) { num_filler_nodes_ = num; }
+
   // For creating and adding pins.
   Pin* createAndAddPin(Node* nd, Edge* ed);
 
@@ -316,6 +326,9 @@ class Network
 
   void createAndAddBlockage(const odb::Rect& bounds);
 
+  void reorderAndReindexNodes();
+  void sanityCheckAndPrintStats();
+
  private:
   Pin* createAndAddPin();
 
@@ -325,6 +338,11 @@ class Network
   std::unordered_map<int, std::string> nodeNames_;  // Names of nodes...
   std::vector<Pin*> pins_;            // The pins in the network...
   std::vector<odb::Rect> blockages_;  // The placement blockages ...
+
+  // for GPU database indexing
+  int num_movable_nodes_;
+  int num_terminal_NIs_;
+  int num_filler_nodes_;
 };
 
 }  // namespace dpo

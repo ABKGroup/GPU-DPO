@@ -187,7 +187,7 @@ void Detailed::doDetailedCommand(std::vector<std::string>& args, DetailedPlaceDB
 
   if (strcmp(args[0].c_str(), "mis") == 0) {
     DetailedMis mis(arch_, network_, rt_);
-    mis.run(mgr_, args);
+    mis.run(mgr_, dp_db, args);
   } else if (strcmp(args[0].c_str(), "gs") == 0) {
     DetailedGlobalSwap gs(arch_, network_, rt_);
     gs.run(mgr_, dp_db, args);
@@ -196,7 +196,7 @@ void Detailed::doDetailedCommand(std::vector<std::string>& args, DetailedPlaceDB
     vs.run(mgr_, args);
   } else if (strcmp(args[0].c_str(), "ro") == 0) {
     DetailedReorderer ro(arch_, network_);
-    ro.run(mgr_, args);
+    ro.run(mgr_, dp_db, args);
   } else if (strcmp(args[0].c_str(), "orient") == 0) {
     DetailedOrient orienter(arch_, network_);
     orienter.run(mgr_, args);

@@ -73,8 +73,8 @@ target_sources(dpo
     src/legalize_shift.cxx
     src/detailed.cu
     src/detailed_manager.cxx
-    src/detailed_mis.cxx
-    src/detailed_reorder.cxx
+    src/detailed_mis.cu
+    src/detailed_reorder.cu
     src/detailed_vertical.cxx
     src/detailed_displacement.cxx
     src/detailed_hpwl.cxx

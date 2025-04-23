@@ -1,0 +1,3826 @@
+Net ID: 0
+Network pins:
+  Pin 0 — Node: 260, Offset: (0, 0)
+  Pin 1 — Node: 261, Offset: (0, 0)
+  Pin 2 — Node: 262, Offset: (0, 0)
+  Pin 3 — Node: 263, Offset: (0, 0)
+  Pin 4 — Node: 264, Offset: (0, 0)
+  Pin 5 — Node: 265, Offset: (0, 0)
+  Pin 6 — Node: 266, Offset: (0, 0)
+  Pin 7 — Node: 267, Offset: (0, 0)
+  Pin 8 — Node: 268, Offset: (0, 0)
+  Pin 9 — Node: 269, Offset: (0, 0)
+  Pin 10 — Node: 270, Offset: (0, 0)
+  Pin 11 — Node: 271, Offset: (0, 0)
+  Pin 12 — Node: 272, Offset: (0, 0)
+  Pin 13 — Node: 273, Offset: (0, 0)
+  Pin 14 — Node: 274, Offset: (0, 0)
+  Pin 15 — Node: 275, Offset: (0, 0)
+  Pin 16 — Node: 276, Offset: (0, 0)
+  Pin 17 — Node: 277, Offset: (0, 0)
+  Pin 18 — Node: 278, Offset: (0, 0)
+  Pin 19 — Node: 279, Offset: (0, 0)
+  Pin 20 — Node: 280, Offset: (0, 0)
+  Pin 21 — Node: 281, Offset: (0, 0)
+  Pin 22 — Node: 282, Offset: (0, 0)
+  Pin 23 — Node: 283, Offset: (0, 0)
+  Pin 24 — Node: 284, Offset: (0, 0)
+  Pin 25 — Node: 285, Offset: (0, 0)
+  Pin 26 — Node: 286, Offset: (0, 0)
+  Pin 27 — Node: 287, Offset: (0, 0)
+  Pin 28 — Node: 288, Offset: (0, 0)
+  Pin 29 — Node: 289, Offset: (0, 0)
+  Pin 30 — Node: 290, Offset: (0, 0)
+  Pin 31 — Node: 291, Offset: (0, 0)
+  Pin 32 — Node: 292, Offset: (0, 0)
+  Pin 33 — Node: 293, Offset: (0, 0)
+  Pin 34 — Node: 549, Offset: (0, 0)
+Flattened pins:
+  Pin 0 — Node: 260, Offset: (0, 0)
+  Pin 1 — Node: 261, Offset: (0, 0)
+  Pin 2 — Node: 262, Offset: (0, 0)
+  Pin 3 — Node: 263, Offset: (0, 0)
+  Pin 4 — Node: 264, Offset: (0, 0)
+  Pin 5 — Node: 265, Offset: (0, 0)
+  Pin 6 — Node: 266, Offset: (0, 0)
+  Pin 7 — Node: 267, Offset: (0, 0)
+  Pin 8 — Node: 268, Offset: (0, 0)
+  Pin 9 — Node: 269, Offset: (0, 0)
+  Pin 10 — Node: 270, Offset: (0, 0)
+  Pin 11 — Node: 271, Offset: (0, 0)
+  Pin 12 — Node: 272, Offset: (0, 0)
+  Pin 13 — Node: 273, Offset: (0, 0)
+  Pin 14 — Node: 274, Offset: (0, 0)
+  Pin 15 — Node: 275, Offset: (0, 0)
+  Pin 16 — Node: 276, Offset: (0, 0)
+  Pin 17 — Node: 277, Offset: (0, 0)
+  Pin 18 — Node: 278, Offset: (0, 0)
+  Pin 19 — Node: 279, Offset: (0, 0)
+  Pin 20 — Node: 280, Offset: (0, 0)
+  Pin 21 — Node: 281, Offset: (0, 0)
+  Pin 22 — Node: 282, Offset: (0, 0)
+  Pin 23 — Node: 283, Offset: (0, 0)
+  Pin 24 — Node: 284, Offset: (0, 0)
+  Pin 25 — Node: 285, Offset: (0, 0)
+  Pin 26 — Node: 286, Offset: (0, 0)
+  Pin 27 — Node: 287, Offset: (0, 0)
+  Pin 28 — Node: 288, Offset: (0, 0)
+  Pin 29 — Node: 289, Offset: (0, 0)
+  Pin 30 — Node: 290, Offset: (0, 0)
+  Pin 31 — Node: 291, Offset: (0, 0)
+  Pin 32 — Node: 292, Offset: (0, 0)
+  Pin 33 — Node: 293, Offset: (0, 0)
+  Pin 34 — Node: 549, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 1
+Network pins:
+  Pin 35 — Node: 251, Offset: (440, 0)
+  Pin 36 — Node: 550, Offset: (0, 0)
+Flattened pins:
+  Pin 35 — Node: 251, Offset: (440, 0)
+  Pin 36 — Node: 550, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 2
+Network pins:
+  Pin 37 — Node: 231, Offset: (440, 0)
+  Pin 38 — Node: 551, Offset: (0, 0)
+Flattened pins:
+  Pin 37 — Node: 231, Offset: (440, 0)
+  Pin 38 — Node: 551, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 3
+Network pins:
+  Pin 39 — Node: 229, Offset: (440, 0)
+  Pin 40 — Node: 552, Offset: (0, 0)
+Flattened pins:
+  Pin 39 — Node: 229, Offset: (440, 0)
+  Pin 40 — Node: 552, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 4
+Network pins:
+  Pin 41 — Node: 227, Offset: (440, 0)
+  Pin 42 — Node: 553, Offset: (0, 0)
+Flattened pins:
+  Pin 41 — Node: 227, Offset: (440, 0)
+  Pin 42 — Node: 553, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 5
+Network pins:
+  Pin 43 — Node: 219, Offset: (440, 0)
+  Pin 44 — Node: 554, Offset: (0, 0)
+Flattened pins:
+  Pin 43 — Node: 219, Offset: (440, 0)
+  Pin 44 — Node: 554, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 6
+Network pins:
+  Pin 45 — Node: 225, Offset: (440, 0)
+  Pin 46 — Node: 555, Offset: (0, 0)
+Flattened pins:
+  Pin 45 — Node: 225, Offset: (440, 0)
+  Pin 46 — Node: 555, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 7
+Network pins:
+  Pin 47 — Node: 223, Offset: (440, 0)
+  Pin 48 — Node: 556, Offset: (0, 0)
+Flattened pins:
+  Pin 47 — Node: 223, Offset: (440, 0)
+  Pin 48 — Node: 556, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 8
+Network pins:
+  Pin 49 — Node: 203, Offset: (-280, 0)
+  Pin 50 — Node: 557, Offset: (0, 0)
+Flattened pins:
+  Pin 49 — Node: 203, Offset: (-280, 0)
+  Pin 50 — Node: 557, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 9
+Network pins:
+  Pin 51 — Node: 199, Offset: (-280, 0)
+  Pin 52 — Node: 558, Offset: (0, 0)
+Flattened pins:
+  Pin 51 — Node: 199, Offset: (-280, 0)
+  Pin 52 — Node: 558, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 10
+Network pins:
+  Pin 53 — Node: 192, Offset: (-280, 0)
+  Pin 54 — Node: 559, Offset: (0, 0)
+Flattened pins:
+  Pin 53 — Node: 192, Offset: (-280, 0)
+  Pin 54 — Node: 559, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 11
+Network pins:
+  Pin 55 — Node: 187, Offset: (-895, 0)
+  Pin 56 — Node: 560, Offset: (0, 0)
+Flattened pins:
+  Pin 55 — Node: 187, Offset: (-895, 0)
+  Pin 56 — Node: 560, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 12
+Network pins:
+  Pin 57 — Node: 249, Offset: (440, 0)
+  Pin 58 — Node: 561, Offset: (0, 0)
+Flattened pins:
+  Pin 57 — Node: 249, Offset: (440, 0)
+  Pin 58 — Node: 561, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 13
+Network pins:
+  Pin 59 — Node: 179, Offset: (-780, 0)
+  Pin 60 — Node: 562, Offset: (0, 0)
+Flattened pins:
+  Pin 59 — Node: 179, Offset: (-780, 0)
+  Pin 60 — Node: 562, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 14
+Network pins:
+  Pin 61 — Node: 174, Offset: (-895, 0)
+  Pin 62 — Node: 563, Offset: (0, 0)
+Flattened pins:
+  Pin 61 — Node: 174, Offset: (-895, 0)
+  Pin 62 — Node: 563, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 15
+Network pins:
+  Pin 63 — Node: 166, Offset: (-780, 0)
+  Pin 64 — Node: 564, Offset: (0, 0)
+Flattened pins:
+  Pin 63 — Node: 166, Offset: (-780, 0)
+  Pin 64 — Node: 564, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 16
+Network pins:
+  Pin 65 — Node: 257, Offset: (-780, 0)
+  Pin 66 — Node: 565, Offset: (0, 0)
+Flattened pins:
+  Pin 65 — Node: 257, Offset: (-780, 0)
+  Pin 66 — Node: 565, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 17
+Network pins:
+  Pin 67 — Node: 158, Offset: (-780, 0)
+  Pin 68 — Node: 566, Offset: (0, 0)
+Flattened pins:
+  Pin 67 — Node: 158, Offset: (-780, 0)
+  Pin 68 — Node: 566, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 18
+Network pins:
+  Pin 69 — Node: 153, Offset: (-780, 0)
+  Pin 70 — Node: 567, Offset: (0, 0)
+Flattened pins:
+  Pin 69 — Node: 153, Offset: (-780, 0)
+  Pin 70 — Node: 567, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 19
+Network pins:
+  Pin 71 — Node: 144, Offset: (-280, 0)
+  Pin 72 — Node: 568, Offset: (0, 0)
+Flattened pins:
+  Pin 71 — Node: 144, Offset: (-280, 0)
+  Pin 72 — Node: 568, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 20
+Network pins:
+  Pin 73 — Node: 135, Offset: (-895, 0)
+  Pin 74 — Node: 569, Offset: (0, 0)
+Flattened pins:
+  Pin 73 — Node: 135, Offset: (-895, 0)
+  Pin 74 — Node: 569, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 21
+Network pins:
+  Pin 75 — Node: 123, Offset: (-895, 0)
+  Pin 76 — Node: 570, Offset: (0, 0)
+Flattened pins:
+  Pin 75 — Node: 123, Offset: (-895, 0)
+  Pin 76 — Node: 570, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 22
+Network pins:
+  Pin 77 — Node: 117, Offset: (-280, 0)
+  Pin 78 — Node: 571, Offset: (0, 0)
+Flattened pins:
+  Pin 77 — Node: 117, Offset: (-280, 0)
+  Pin 78 — Node: 571, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 23
+Network pins:
+  Pin 79 — Node: 247, Offset: (440, 0)
+  Pin 80 — Node: 572, Offset: (0, 0)
+Flattened pins:
+  Pin 79 — Node: 247, Offset: (440, 0)
+  Pin 80 — Node: 572, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 24
+Network pins:
+  Pin 81 — Node: 106, Offset: (-280, 0)
+  Pin 82 — Node: 573, Offset: (0, 0)
+Flattened pins:
+  Pin 81 — Node: 106, Offset: (-280, 0)
+  Pin 82 — Node: 573, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 25
+Network pins:
+  Pin 83 — Node: 89, Offset: (-280, 0)
+  Pin 84 — Node: 574, Offset: (0, 0)
+Flattened pins:
+  Pin 83 — Node: 89, Offset: (-280, 0)
+  Pin 84 — Node: 574, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 26
+Network pins:
+  Pin 85 — Node: 245, Offset: (440, 0)
+  Pin 86 — Node: 575, Offset: (0, 0)
+Flattened pins:
+  Pin 85 — Node: 245, Offset: (440, 0)
+  Pin 86 — Node: 575, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 27
+Network pins:
+  Pin 87 — Node: 243, Offset: (440, 0)
+  Pin 88 — Node: 576, Offset: (0, 0)
+Flattened pins:
+  Pin 87 — Node: 243, Offset: (440, 0)
+  Pin 88 — Node: 576, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 28
+Network pins:
+  Pin 89 — Node: 241, Offset: (440, 0)
+  Pin 90 — Node: 577, Offset: (0, 0)
+Flattened pins:
+  Pin 89 — Node: 241, Offset: (440, 0)
+  Pin 90 — Node: 577, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 29
+Network pins:
+  Pin 91 — Node: 239, Offset: (440, 0)
+  Pin 92 — Node: 578, Offset: (0, 0)
+Flattened pins:
+  Pin 91 — Node: 239, Offset: (440, 0)
+  Pin 92 — Node: 578, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 30
+Network pins:
+  Pin 93 — Node: 237, Offset: (440, 0)
+  Pin 94 — Node: 579, Offset: (0, 0)
+Flattened pins:
+  Pin 93 — Node: 237, Offset: (440, 0)
+  Pin 94 — Node: 579, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 31
+Network pins:
+  Pin 95 — Node: 235, Offset: (440, 0)
+  Pin 96 — Node: 580, Offset: (0, 0)
+Flattened pins:
+  Pin 95 — Node: 235, Offset: (440, 0)
+  Pin 96 — Node: 580, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 32
+Network pins:
+  Pin 97 — Node: 233, Offset: (440, 0)
+  Pin 98 — Node: 581, Offset: (0, 0)
+Flattened pins:
+  Pin 97 — Node: 233, Offset: (440, 0)
+  Pin 98 — Node: 581, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 33
+Network pins:
+  Pin 99 — Node: 1, Offset: (350, 1100)
+  Pin 100 — Node: 219, Offset: (-675, 270)
+  Pin 101 — Node: 223, Offset: (-675, 270)
+  Pin 102 — Node: 225, Offset: (-675, 270)
+  Pin 103 — Node: 227, Offset: (-675, 270)
+  Pin 104 — Node: 229, Offset: (-675, 270)
+  Pin 105 — Node: 231, Offset: (-675, 270)
+  Pin 106 — Node: 233, Offset: (-675, 270)
+  Pin 107 — Node: 235, Offset: (-675, 270)
+  Pin 108 — Node: 237, Offset: (-675, 270)
+  Pin 109 — Node: 582, Offset: (0, 0)
+Flattened pins:
+  Pin 99 — Node: 1, Offset: (350, 1100)
+  Pin 100 — Node: 219, Offset: (-675, 270)
+  Pin 101 — Node: 223, Offset: (-675, 270)
+  Pin 102 — Node: 225, Offset: (-675, 270)
+  Pin 103 — Node: 227, Offset: (-675, 270)
+  Pin 104 — Node: 229, Offset: (-675, 270)
+  Pin 105 — Node: 231, Offset: (-675, 270)
+  Pin 106 — Node: 233, Offset: (-675, 270)
+  Pin 107 — Node: 235, Offset: (-675, 270)
+  Pin 108 — Node: 237, Offset: (-675, 270)
+  Pin 109 — Node: 582, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 34
+Network pins:
+  Pin 110 — Node: 217, Offset: (-515, 0)
+  Pin 111 — Node: 583, Offset: (0, 0)
+Flattened pins:
+  Pin 110 — Node: 217, Offset: (-515, 0)
+  Pin 111 — Node: 583, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 35
+Network pins:
+  Pin 112 — Node: 216, Offset: (-1160, 0)
+  Pin 113 — Node: 218, Offset: (-135, 0)
+  Pin 114 — Node: 584, Offset: (0, 0)
+Flattened pins:
+  Pin 112 — Node: 216, Offset: (-1160, 0)
+  Pin 113 — Node: 218, Offset: (-135, 0)
+  Pin 114 — Node: 584, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 36
+Network pins:
+  Pin 115 — Node: 202, Offset: (560, 820)
+  Pin 116 — Node: 204, Offset: (-515, 0)
+  Pin 117 — Node: 585, Offset: (0, 0)
+Flattened pins:
+  Pin 115 — Node: 202, Offset: (560, 820)
+  Pin 116 — Node: 204, Offset: (-515, 0)
+  Pin 117 — Node: 585, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 37
+Network pins:
+  Pin 118 — Node: 142, Offset: (550, 1080)
+  Pin 119 — Node: 586, Offset: (0, 0)
+Flattened pins:
+  Pin 118 — Node: 142, Offset: (550, 1080)
+  Pin 119 — Node: 586, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 38
+Network pins:
+  Pin 120 — Node: 133, Offset: (590, 1100)
+  Pin 121 — Node: 135, Offset: (895, 0)
+  Pin 122 — Node: 587, Offset: (0, 0)
+Flattened pins:
+  Pin 120 — Node: 133, Offset: (590, 1100)
+  Pin 121 — Node: 135, Offset: (895, 0)
+  Pin 122 — Node: 587, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 39
+Network pins:
+  Pin 123 — Node: 121, Offset: (590, 1100)
+  Pin 124 — Node: 123, Offset: (895, 0)
+  Pin 125 — Node: 588, Offset: (0, 0)
+Flattened pins:
+  Pin 123 — Node: 121, Offset: (590, 1100)
+  Pin 124 — Node: 123, Offset: (895, 0)
+  Pin 125 — Node: 588, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 40
+Network pins:
+  Pin 126 — Node: 114, Offset: (180, 1100)
+  Pin 127 — Node: 116, Offset: (325, 0)
+  Pin 128 — Node: 589, Offset: (0, 0)
+Flattened pins:
+  Pin 126 — Node: 114, Offset: (180, 1100)
+  Pin 127 — Node: 116, Offset: (325, 0)
+  Pin 128 — Node: 589, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 41
+Network pins:
+  Pin 129 — Node: 101, Offset: (590, 1100)
+  Pin 130 — Node: 105, Offset: (325, 0)
+  Pin 131 — Node: 590, Offset: (0, 0)
+Flattened pins:
+  Pin 129 — Node: 101, Offset: (590, 1100)
+  Pin 130 — Node: 105, Offset: (325, 0)
+  Pin 131 — Node: 590, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 42
+Network pins:
+  Pin 132 — Node: 77, Offset: (550, 1080)
+  Pin 133 — Node: 591, Offset: (0, 0)
+Flattened pins:
+  Pin 132 — Node: 77, Offset: (550, 1080)
+  Pin 133 — Node: 591, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 43
+Network pins:
+  Pin 134 — Node: 198, Offset: (590, 1100)
+  Pin 135 — Node: 200, Offset: (-515, 0)
+  Pin 136 — Node: 592, Offset: (0, 0)
+Flattened pins:
+  Pin 134 — Node: 198, Offset: (590, 1100)
+  Pin 135 — Node: 200, Offset: (-515, 0)
+  Pin 136 — Node: 592, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 44
+Network pins:
+  Pin 137 — Node: 191, Offset: (590, 1100)
+  Pin 138 — Node: 192, Offset: (-1540, 0)
+  Pin 139 — Node: 593, Offset: (0, 0)
+Flattened pins:
+  Pin 137 — Node: 191, Offset: (590, 1100)
+  Pin 138 — Node: 192, Offset: (-1540, 0)
+  Pin 139 — Node: 593, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 45
+Network pins:
+  Pin 140 — Node: 185, Offset: (590, 1100)
+  Pin 141 — Node: 187, Offset: (230, 0)
+  Pin 142 — Node: 594, Offset: (0, 0)
+Flattened pins:
+  Pin 140 — Node: 185, Offset: (590, 1100)
+  Pin 141 — Node: 187, Offset: (230, 0)
+  Pin 142 — Node: 594, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 46
+Network pins:
+  Pin 143 — Node: 178, Offset: (590, 1100)
+  Pin 144 — Node: 179, Offset: (1160, 270)
+  Pin 145 — Node: 595, Offset: (0, 0)
+Flattened pins:
+  Pin 143 — Node: 178, Offset: (590, 1100)
+  Pin 144 — Node: 179, Offset: (1160, 270)
+  Pin 145 — Node: 595, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 47
+Network pins:
+  Pin 146 — Node: 172, Offset: (590, 1100)
+  Pin 147 — Node: 174, Offset: (230, 0)
+  Pin 148 — Node: 596, Offset: (0, 0)
+Flattened pins:
+  Pin 146 — Node: 172, Offset: (590, 1100)
+  Pin 147 — Node: 174, Offset: (230, 0)
+  Pin 148 — Node: 596, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 48
+Network pins:
+  Pin 149 — Node: 165, Offset: (590, 1100)
+  Pin 150 — Node: 166, Offset: (1160, 270)
+  Pin 151 — Node: 597, Offset: (0, 0)
+Flattened pins:
+  Pin 149 — Node: 165, Offset: (590, 1100)
+  Pin 150 — Node: 166, Offset: (1160, 270)
+  Pin 151 — Node: 597, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 49
+Network pins:
+  Pin 152 — Node: 256, Offset: (590, 1100)
+  Pin 153 — Node: 257, Offset: (1140, 0)
+  Pin 154 — Node: 598, Offset: (0, 0)
+Flattened pins:
+  Pin 152 — Node: 256, Offset: (590, 1100)
+  Pin 153 — Node: 257, Offset: (1140, 0)
+  Pin 154 — Node: 598, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 50
+Network pins:
+  Pin 155 — Node: 157, Offset: (590, 1100)
+  Pin 156 — Node: 158, Offset: (1160, 270)
+  Pin 157 — Node: 599, Offset: (0, 0)
+Flattened pins:
+  Pin 155 — Node: 157, Offset: (590, 1100)
+  Pin 156 — Node: 158, Offset: (1160, 270)
+  Pin 157 — Node: 599, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 51
+Network pins:
+  Pin 158 — Node: 151, Offset: (590, 1100)
+  Pin 159 — Node: 153, Offset: (1140, 0)
+  Pin 160 — Node: 600, Offset: (0, 0)
+Flattened pins:
+  Pin 158 — Node: 151, Offset: (590, 1100)
+  Pin 159 — Node: 153, Offset: (1140, 0)
+  Pin 160 — Node: 600, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 52
+Network pins:
+  Pin 161 — Node: 216, Offset: (-780, 0)
+  Pin 162 — Node: 601, Offset: (0, 0)
+Flattened pins:
+  Pin 161 — Node: 216, Offset: (-780, 0)
+  Pin 162 — Node: 601, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 53
+Network pins:
+  Pin 163 — Node: 206, Offset: (180, 1100)
+  Pin 164 — Node: 216, Offset: (-280, 0)
+  Pin 165 — Node: 602, Offset: (0, 0)
+Flattened pins:
+  Pin 163 — Node: 206, Offset: (180, 1100)
+  Pin 164 — Node: 216, Offset: (-280, 0)
+  Pin 165 — Node: 602, Offset: (0, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 54
+Network pins:
+  Pin 166 — Node: 218, Offset: (340, 830)
+  Pin 167 — Node: 276, Offset: (-1450, 0)
+Flattened pins:
+  Pin 166 — Node: 218, Offset: (340, 830)
+  Pin 167 — Node: 276, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 55
+Network pins:
+  Pin 168 — Node: 216, Offset: (1565, 1100)
+  Pin 169 — Node: 275, Offset: (-1450, 0)
+Flattened pins:
+  Pin 168 — Node: 216, Offset: (1565, 1100)
+  Pin 169 — Node: 275, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 56
+Network pins:
+  Pin 170 — Node: 205, Offset: (180, 610)
+  Pin 171 — Node: 274, Offset: (-1450, 0)
+Flattened pins:
+  Pin 170 — Node: 205, Offset: (180, 610)
+  Pin 171 — Node: 274, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 57
+Network pins:
+  Pin 172 — Node: 146, Offset: (30, 830)
+  Pin 173 — Node: 265, Offset: (-1450, 0)
+Flattened pins:
+  Pin 172 — Node: 146, Offset: (30, 830)
+  Pin 173 — Node: 265, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 58
+Network pins:
+  Pin 174 — Node: 137, Offset: (30, 830)
+  Pin 175 — Node: 264, Offset: (-1450, 0)
+Flattened pins:
+  Pin 174 — Node: 137, Offset: (30, 830)
+  Pin 175 — Node: 264, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 59
+Network pins:
+  Pin 176 — Node: 126, Offset: (30, 830)
+  Pin 177 — Node: 263, Offset: (-1450, 0)
+Flattened pins:
+  Pin 176 — Node: 126, Offset: (30, 830)
+  Pin 177 — Node: 263, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 60
+Network pins:
+  Pin 178 — Node: 118, Offset: (30, 830)
+  Pin 179 — Node: 262, Offset: (-1450, 0)
+Flattened pins:
+  Pin 178 — Node: 118, Offset: (30, 830)
+  Pin 179 — Node: 262, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 61
+Network pins:
+  Pin 180 — Node: 107, Offset: (30, 830)
+  Pin 181 — Node: 261, Offset: (-1450, 0)
+Flattened pins:
+  Pin 180 — Node: 107, Offset: (30, 830)
+  Pin 181 — Node: 261, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 62
+Network pins:
+  Pin 182 — Node: 94, Offset: (180, 610)
+  Pin 183 — Node: 260, Offset: (-1450, 0)
+Flattened pins:
+  Pin 182 — Node: 94, Offset: (180, 610)
+  Pin 183 — Node: 260, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 63
+Network pins:
+  Pin 184 — Node: 201, Offset: (180, 610)
+  Pin 185 — Node: 273, Offset: (-1450, 0)
+Flattened pins:
+  Pin 184 — Node: 201, Offset: (180, 610)
+  Pin 185 — Node: 273, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 64
+Network pins:
+  Pin 186 — Node: 194, Offset: (180, 610)
+  Pin 187 — Node: 272, Offset: (-1450, 0)
+Flattened pins:
+  Pin 186 — Node: 194, Offset: (180, 610)
+  Pin 187 — Node: 272, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 65
+Network pins:
+  Pin 188 — Node: 189, Offset: (30, 830)
+  Pin 189 — Node: 271, Offset: (-1450, 0)
+Flattened pins:
+  Pin 188 — Node: 189, Offset: (30, 830)
+  Pin 189 — Node: 271, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 66
+Network pins:
+  Pin 190 — Node: 181, Offset: (180, 610)
+  Pin 191 — Node: 270, Offset: (-1450, 0)
+Flattened pins:
+  Pin 190 — Node: 181, Offset: (180, 610)
+  Pin 191 — Node: 270, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 67
+Network pins:
+  Pin 192 — Node: 176, Offset: (30, 830)
+  Pin 193 — Node: 269, Offset: (-1450, 0)
+Flattened pins:
+  Pin 192 — Node: 176, Offset: (30, 830)
+  Pin 193 — Node: 269, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 68
+Network pins:
+  Pin 194 — Node: 168, Offset: (180, 610)
+  Pin 195 — Node: 268, Offset: (-1450, 0)
+Flattened pins:
+  Pin 194 — Node: 168, Offset: (180, 610)
+  Pin 195 — Node: 268, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 69
+Network pins:
+  Pin 196 — Node: 259, Offset: (180, 610)
+  Pin 197 — Node: 293, Offset: (-1450, 0)
+Flattened pins:
+  Pin 196 — Node: 259, Offset: (180, 610)
+  Pin 197 — Node: 293, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 70
+Network pins:
+  Pin 198 — Node: 160, Offset: (180, 610)
+  Pin 199 — Node: 267, Offset: (-1450, 0)
+Flattened pins:
+  Pin 198 — Node: 160, Offset: (180, 610)
+  Pin 199 — Node: 267, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 71
+Network pins:
+  Pin 200 — Node: 155, Offset: (30, 830)
+  Pin 201 — Node: 266, Offset: (-1450, 0)
+Flattened pins:
+  Pin 200 — Node: 155, Offset: (30, 830)
+  Pin 201 — Node: 266, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 72
+Network pins:
+  Pin 202 — Node: 252, Offset: (1120, 1060)
+  Pin 203 — Node: 292, Offset: (-1450, 0)
+Flattened pins:
+  Pin 202 — Node: 252, Offset: (1120, 1060)
+  Pin 203 — Node: 292, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 73
+Network pins:
+  Pin 204 — Node: 232, Offset: (1120, 1060)
+  Pin 205 — Node: 282, Offset: (-1450, 0)
+Flattened pins:
+  Pin 204 — Node: 232, Offset: (1120, 1060)
+  Pin 205 — Node: 282, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 74
+Network pins:
+  Pin 206 — Node: 230, Offset: (1120, 1060)
+  Pin 207 — Node: 281, Offset: (-1450, 0)
+Flattened pins:
+  Pin 206 — Node: 230, Offset: (1120, 1060)
+  Pin 207 — Node: 281, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 75
+Network pins:
+  Pin 208 — Node: 228, Offset: (1120, 1060)
+  Pin 209 — Node: 280, Offset: (-1450, 0)
+Flattened pins:
+  Pin 208 — Node: 228, Offset: (1120, 1060)
+  Pin 209 — Node: 280, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 76
+Network pins:
+  Pin 210 — Node: 222, Offset: (1120, 1060)
+  Pin 211 — Node: 277, Offset: (-1450, 0)
+Flattened pins:
+  Pin 210 — Node: 222, Offset: (1120, 1060)
+  Pin 211 — Node: 277, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 77
+Network pins:
+  Pin 212 — Node: 226, Offset: (1120, 1060)
+  Pin 213 — Node: 279, Offset: (-1450, 0)
+Flattened pins:
+  Pin 212 — Node: 226, Offset: (1120, 1060)
+  Pin 213 — Node: 279, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 78
+Network pins:
+  Pin 214 — Node: 224, Offset: (1120, 1060)
+  Pin 215 — Node: 278, Offset: (-1450, 0)
+Flattened pins:
+  Pin 214 — Node: 224, Offset: (1120, 1060)
+  Pin 215 — Node: 278, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 79
+Network pins:
+  Pin 216 — Node: 250, Offset: (1120, 1060)
+  Pin 217 — Node: 291, Offset: (-1450, 0)
+Flattened pins:
+  Pin 216 — Node: 250, Offset: (1120, 1060)
+  Pin 217 — Node: 291, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 80
+Network pins:
+  Pin 218 — Node: 248, Offset: (1120, 1060)
+  Pin 219 — Node: 290, Offset: (-1450, 0)
+Flattened pins:
+  Pin 218 — Node: 248, Offset: (1120, 1060)
+  Pin 219 — Node: 290, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 81
+Network pins:
+  Pin 220 — Node: 246, Offset: (1120, 1060)
+  Pin 221 — Node: 289, Offset: (-1450, 0)
+Flattened pins:
+  Pin 220 — Node: 246, Offset: (1120, 1060)
+  Pin 221 — Node: 289, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 82
+Network pins:
+  Pin 222 — Node: 244, Offset: (1120, 1060)
+  Pin 223 — Node: 288, Offset: (-1450, 0)
+Flattened pins:
+  Pin 222 — Node: 244, Offset: (1120, 1060)
+  Pin 223 — Node: 288, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 83
+Network pins:
+  Pin 224 — Node: 242, Offset: (1120, 1060)
+  Pin 225 — Node: 287, Offset: (-1450, 0)
+Flattened pins:
+  Pin 224 — Node: 242, Offset: (1120, 1060)
+  Pin 225 — Node: 287, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 84
+Network pins:
+  Pin 226 — Node: 240, Offset: (1120, 1060)
+  Pin 227 — Node: 286, Offset: (-1450, 0)
+Flattened pins:
+  Pin 226 — Node: 240, Offset: (1120, 1060)
+  Pin 227 — Node: 286, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 85
+Network pins:
+  Pin 228 — Node: 238, Offset: (1120, 1060)
+  Pin 229 — Node: 285, Offset: (-1450, 0)
+Flattened pins:
+  Pin 228 — Node: 238, Offset: (1120, 1060)
+  Pin 229 — Node: 285, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 86
+Network pins:
+  Pin 230 — Node: 236, Offset: (1120, 1060)
+  Pin 231 — Node: 284, Offset: (-1450, 0)
+Flattened pins:
+  Pin 230 — Node: 236, Offset: (1120, 1060)
+  Pin 231 — Node: 284, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 87
+Network pins:
+  Pin 232 — Node: 234, Offset: (1120, 1060)
+  Pin 233 — Node: 283, Offset: (-1450, 0)
+Flattened pins:
+  Pin 232 — Node: 234, Offset: (1120, 1060)
+  Pin 233 — Node: 283, Offset: (-1450, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 88
+Network pins:
+  Pin 234 — Node: 0, Offset: (-140, 1100)
+  Pin 235 — Node: 1, Offset: (-1100, 0)
+  Pin 236 — Node: 220, Offset: (40, 560)
+  Pin 237 — Node: 239, Offset: (-675, 270)
+  Pin 238 — Node: 241, Offset: (-675, 270)
+  Pin 239 — Node: 243, Offset: (-675, 270)
+  Pin 240 — Node: 245, Offset: (-675, 270)
+  Pin 241 — Node: 247, Offset: (-675, 270)
+  Pin 242 — Node: 249, Offset: (-675, 270)
+  Pin 243 — Node: 251, Offset: (-675, 270)
+Flattened pins:
+  Pin 234 — Node: 0, Offset: (-140, 1100)
+  Pin 235 — Node: 1, Offset: (-1100, 0)
+  Pin 236 — Node: 220, Offset: (40, 560)
+  Pin 237 — Node: 239, Offset: (-675, 270)
+  Pin 238 — Node: 241, Offset: (-675, 270)
+  Pin 239 — Node: 243, Offset: (-675, 270)
+  Pin 240 — Node: 245, Offset: (-675, 270)
+  Pin 241 — Node: 247, Offset: (-675, 270)
+  Pin 242 — Node: 249, Offset: (-675, 270)
+  Pin 243 — Node: 251, Offset: (-675, 270)
+[OK] All pin details match.
+--------------------------
+Net ID: 89
+Network pins:
+  Pin 244 — Node: 2, Offset: (175, 1100)
+  Pin 245 — Node: 3, Offset: (325, 0)
+  Pin 246 — Node: 57, Offset: (-515, 0)
+  Pin 247 — Node: 94, Offset: (-705, 0)
+Flattened pins:
+  Pin 244 — Node: 2, Offset: (175, 1100)
+  Pin 245 — Node: 3, Offset: (325, 0)
+  Pin 246 — Node: 57, Offset: (-515, 0)
+  Pin 247 — Node: 94, Offset: (-705, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 90
+Network pins:
+  Pin 248 — Node: 3, Offset: (180, 1100)
+  Pin 249 — Node: 4, Offset: (-155, 0)
+  Pin 250 — Node: 83, Offset: (-515, 0)
+Flattened pins:
+  Pin 248 — Node: 3, Offset: (180, 1100)
+  Pin 249 — Node: 4, Offset: (-155, 0)
+  Pin 250 — Node: 83, Offset: (-515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 91
+Network pins:
+  Pin 251 — Node: 4, Offset: (175, 1100)
+  Pin 252 — Node: 75, Offset: (-895, 0)
+  Pin 253 — Node: 76, Offset: (-325, 0)
+Flattened pins:
+  Pin 251 — Node: 4, Offset: (175, 1100)
+  Pin 252 — Node: 75, Offset: (-895, 0)
+  Pin 253 — Node: 76, Offset: (-325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 92
+Network pins:
+  Pin 254 — Node: 5, Offset: (175, 1100)
+  Pin 255 — Node: 6, Offset: (325, 0)
+  Pin 256 — Node: 59, Offset: (325, 0)
+  Pin 257 — Node: 213, Offset: (-135, 0)
+Flattened pins:
+  Pin 254 — Node: 5, Offset: (175, 1100)
+  Pin 255 — Node: 6, Offset: (325, 0)
+  Pin 256 — Node: 59, Offset: (325, 0)
+  Pin 257 — Node: 213, Offset: (-135, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 93
+Network pins:
+  Pin 258 — Node: 6, Offset: (180, 1100)
+  Pin 259 — Node: 9, Offset: (325, 0)
+  Pin 260 — Node: 62, Offset: (-155, 0)
+Flattened pins:
+  Pin 258 — Node: 6, Offset: (180, 1100)
+  Pin 259 — Node: 9, Offset: (325, 0)
+  Pin 260 — Node: 62, Offset: (-155, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 94
+Network pins:
+  Pin 261 — Node: 7, Offset: (175, 1100)
+  Pin 262 — Node: 8, Offset: (325, 0)
+  Pin 263 — Node: 60, Offset: (325, 0)
+  Pin 264 — Node: 125, Offset: (-325, 0)
+Flattened pins:
+  Pin 261 — Node: 7, Offset: (175, 1100)
+  Pin 262 — Node: 8, Offset: (325, 0)
+  Pin 263 — Node: 60, Offset: (325, 0)
+  Pin 264 — Node: 125, Offset: (-325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 95
+Network pins:
+  Pin 265 — Node: 8, Offset: (180, 1100)
+  Pin 266 — Node: 9, Offset: (-325, 0)
+  Pin 267 — Node: 111, Offset: (-155, 0)
+Flattened pins:
+  Pin 265 — Node: 8, Offset: (180, 1100)
+  Pin 266 — Node: 9, Offset: (-325, 0)
+  Pin 267 — Node: 111, Offset: (-155, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 96
+Network pins:
+  Pin 268 — Node: 9, Offset: (180, 1100)
+  Pin 269 — Node: 13, Offset: (-515, 0)
+  Pin 270 — Node: 81, Offset: (-705, 0)
+  Pin 271 — Node: 96, Offset: (-135, 0)
+  Pin 272 — Node: 98, Offset: (705, -80)
+Flattened pins:
+  Pin 268 — Node: 9, Offset: (180, 1100)
+  Pin 269 — Node: 13, Offset: (-515, 0)
+  Pin 270 — Node: 81, Offset: (-705, 0)
+  Pin 271 — Node: 96, Offset: (-135, 0)
+  Pin 272 — Node: 98, Offset: (705, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 97
+Network pins:
+  Pin 273 — Node: 10, Offset: (175, 1100)
+  Pin 274 — Node: 11, Offset: (325, 0)
+  Pin 275 — Node: 64, Offset: (325, 0)
+  Pin 276 — Node: 213, Offset: (-515, 0)
+Flattened pins:
+  Pin 273 — Node: 10, Offset: (175, 1100)
+  Pin 274 — Node: 11, Offset: (325, 0)
+  Pin 275 — Node: 64, Offset: (325, 0)
+  Pin 276 — Node: 213, Offset: (-515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 98
+Network pins:
+  Pin 277 — Node: 11, Offset: (180, 1100)
+  Pin 278 — Node: 12, Offset: (-155, 0)
+Flattened pins:
+  Pin 277 — Node: 11, Offset: (180, 1100)
+  Pin 278 — Node: 12, Offset: (-155, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 99
+Network pins:
+  Pin 279 — Node: 12, Offset: (175, 1100)
+  Pin 280 — Node: 13, Offset: (-130, 0)
+  Pin 281 — Node: 63, Offset: (-135, 0)
+  Pin 282 — Node: 81, Offset: (60, 0)
+Flattened pins:
+  Pin 279 — Node: 12, Offset: (175, 1100)
+  Pin 280 — Node: 13, Offset: (-130, 0)
+  Pin 281 — Node: 63, Offset: (-135, 0)
+  Pin 282 — Node: 81, Offset: (60, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 100
+Network pins:
+  Pin 283 — Node: 13, Offset: (550, 1100)
+  Pin 284 — Node: 56, Offset: (325, 0)
+  Pin 285 — Node: 74, Offset: (-500, 0)
+Flattened pins:
+  Pin 283 — Node: 13, Offset: (550, 1100)
+  Pin 284 — Node: 56, Offset: (325, 0)
+  Pin 285 — Node: 74, Offset: (-500, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 101
+Network pins:
+  Pin 286 — Node: 14, Offset: (175, 1100)
+  Pin 287 — Node: 15, Offset: (325, 0)
+  Pin 288 — Node: 67, Offset: (-40, 0)
+  Pin 289 — Node: 68, Offset: (325, 0)
+  Pin 290 — Node: 154, Offset: (-325, 0)
+Flattened pins:
+  Pin 286 — Node: 14, Offset: (175, 1100)
+  Pin 287 — Node: 15, Offset: (325, 0)
+  Pin 288 — Node: 67, Offset: (-40, 0)
+  Pin 289 — Node: 68, Offset: (325, 0)
+  Pin 290 — Node: 154, Offset: (-325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 102
+Network pins:
+  Pin 291 — Node: 15, Offset: (180, 1100)
+  Pin 292 — Node: 17, Offset: (515, 0)
+Flattened pins:
+  Pin 291 — Node: 15, Offset: (180, 1100)
+  Pin 292 — Node: 17, Offset: (515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 103
+Network pins:
+  Pin 293 — Node: 16, Offset: (175, 1100)
+  Pin 294 — Node: 17, Offset: (-500, 0)
+  Pin 295 — Node: 147, Offset: (-500, 0)
+  Pin 296 — Node: 148, Offset: (325, 0)
+  Pin 297 — Node: 160, Offset: (-705, 0)
+Flattened pins:
+  Pin 293 — Node: 16, Offset: (175, 1100)
+  Pin 294 — Node: 17, Offset: (-500, 0)
+  Pin 295 — Node: 147, Offset: (-500, 0)
+  Pin 296 — Node: 148, Offset: (325, 0)
+  Pin 297 — Node: 160, Offset: (-705, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 104
+Network pins:
+  Pin 298 — Node: 17, Offset: (30, 830)
+  Pin 299 — Node: 23, Offset: (-515, 0)
+  Pin 300 — Node: 96, Offset: (220, 0)
+  Pin 301 — Node: 128, Offset: (325, 0)
+  Pin 302 — Node: 138, Offset: (515, 0)
+Flattened pins:
+  Pin 298 — Node: 17, Offset: (30, 830)
+  Pin 299 — Node: 23, Offset: (-515, 0)
+  Pin 300 — Node: 96, Offset: (220, 0)
+  Pin 301 — Node: 128, Offset: (325, 0)
+  Pin 302 — Node: 138, Offset: (515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 105
+Network pins:
+  Pin 303 — Node: 18, Offset: (175, 1100)
+  Pin 304 — Node: 19, Offset: (325, 0)
+  Pin 305 — Node: 70, Offset: (325, 0)
+  Pin 306 — Node: 136, Offset: (-325, 0)
+Flattened pins:
+  Pin 303 — Node: 18, Offset: (175, 1100)
+  Pin 304 — Node: 19, Offset: (325, 0)
+  Pin 305 — Node: 70, Offset: (325, 0)
+  Pin 306 — Node: 136, Offset: (-325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 106
+Network pins:
+  Pin 307 — Node: 19, Offset: (180, 1100)
+  Pin 308 — Node: 22, Offset: (325, 0)
+  Pin 309 — Node: 69, Offset: (705, 0)
+  Pin 310 — Node: 72, Offset: (135, 0)
+Flattened pins:
+  Pin 307 — Node: 19, Offset: (180, 1100)
+  Pin 308 — Node: 22, Offset: (325, 0)
+  Pin 309 — Node: 69, Offset: (705, 0)
+  Pin 310 — Node: 72, Offset: (135, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 107
+Network pins:
+  Pin 311 — Node: 20, Offset: (175, 1100)
+  Pin 312 — Node: 21, Offset: (325, 0)
+  Pin 313 — Node: 71, Offset: (325, 0)
+  Pin 314 — Node: 130, Offset: (-500, 0)
+Flattened pins:
+  Pin 311 — Node: 20, Offset: (175, 1100)
+  Pin 312 — Node: 21, Offset: (325, 0)
+  Pin 313 — Node: 71, Offset: (325, 0)
+  Pin 314 — Node: 130, Offset: (-500, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 108
+Network pins:
+  Pin 315 — Node: 21, Offset: (180, 1100)
+  Pin 316 — Node: 22, Offset: (-325, 0)
+  Pin 317 — Node: 69, Offset: (325, 0)
+  Pin 318 — Node: 127, Offset: (-155, 0)
+  Pin 319 — Node: 129, Offset: (515, 0)
+Flattened pins:
+  Pin 315 — Node: 21, Offset: (180, 1100)
+  Pin 316 — Node: 22, Offset: (-325, 0)
+  Pin 317 — Node: 69, Offset: (325, 0)
+  Pin 318 — Node: 127, Offset: (-155, 0)
+  Pin 319 — Node: 129, Offset: (515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 109
+Network pins:
+  Pin 320 — Node: 22, Offset: (180, 1100)
+  Pin 321 — Node: 23, Offset: (-130, 0)
+  Pin 322 — Node: 96, Offset: (-515, 0)
+Flattened pins:
+  Pin 320 — Node: 22, Offset: (180, 1100)
+  Pin 321 — Node: 23, Offset: (-130, 0)
+  Pin 322 — Node: 96, Offset: (-515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 110
+Network pins:
+  Pin 323 — Node: 23, Offset: (550, 1100)
+  Pin 324 — Node: 56, Offset: (730, 0)
+  Pin 325 — Node: 82, Offset: (-1585, -80)
+  Pin 326 — Node: 109, Offset: (-155, 0)
+Flattened pins:
+  Pin 323 — Node: 23, Offset: (550, 1100)
+  Pin 324 — Node: 56, Offset: (730, 0)
+  Pin 325 — Node: 82, Offset: (-1585, -80)
+  Pin 326 — Node: 109, Offset: (-155, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 111
+Network pins:
+  Pin 327 — Node: 24, Offset: (-40, 570)
+  Pin 328 — Node: 25, Offset: (40, -80)
+  Pin 329 — Node: 28, Offset: (150, 0)
+  Pin 330 — Node: 188, Offset: (-325, 0)
+Flattened pins:
+  Pin 327 — Node: 24, Offset: (-40, 570)
+  Pin 328 — Node: 25, Offset: (40, -80)
+  Pin 329 — Node: 28, Offset: (150, 0)
+  Pin 330 — Node: 188, Offset: (-325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 112
+Network pins:
+  Pin 331 — Node: 25, Offset: (40, 290)
+  Pin 332 — Node: 27, Offset: (45, 0)
+  Pin 333 — Node: 38, Offset: (-205, 0)
+Flattened pins:
+  Pin 331 — Node: 25, Offset: (40, 290)
+  Pin 332 — Node: 27, Offset: (45, 0)
+  Pin 333 — Node: 38, Offset: (-205, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 113
+Network pins:
+  Pin 334 — Node: 26, Offset: (-40, 570)
+  Pin 335 — Node: 27, Offset: (135, 280)
+  Pin 336 — Node: 194, Offset: (-705, 0)
+Flattened pins:
+  Pin 334 — Node: 26, Offset: (-40, 570)
+  Pin 335 — Node: 27, Offset: (135, 280)
+  Pin 336 — Node: 194, Offset: (-705, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 114
+Network pins:
+  Pin 337 — Node: 27, Offset: (-140, 960)
+  Pin 338 — Node: 28, Offset: (515, 0)
+Flattened pins:
+  Pin 337 — Node: 27, Offset: (-140, 960)
+  Pin 338 — Node: 28, Offset: (515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 115
+Network pins:
+  Pin 339 — Node: 28, Offset: (30, 830)
+  Pin 340 — Node: 29, Offset: (-155, 0)
+Flattened pins:
+  Pin 339 — Node: 28, Offset: (30, 830)
+  Pin 340 — Node: 29, Offset: (-155, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 116
+Network pins:
+  Pin 341 — Node: 29, Offset: (175, 1100)
+  Pin 342 — Node: 39, Offset: (0, -80)
+  Pin 343 — Node: 162, Offset: (230, 0)
+Flattened pins:
+  Pin 341 — Node: 29, Offset: (175, 1100)
+  Pin 342 — Node: 39, Offset: (0, -80)
+  Pin 343 — Node: 162, Offset: (230, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 117
+Network pins:
+  Pin 344 — Node: 30, Offset: (-5, 610)
+  Pin 345 — Node: 31, Offset: (-1080, -80)
+  Pin 346 — Node: 34, Offset: (1480, 280)
+  Pin 347 — Node: 201, Offset: (-705, 0)
+Flattened pins:
+  Pin 344 — Node: 30, Offset: (-5, 610)
+  Pin 345 — Node: 31, Offset: (-1080, -80)
+  Pin 346 — Node: 34, Offset: (1480, 280)
+  Pin 347 — Node: 201, Offset: (-705, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 118
+Network pins:
+  Pin 348 — Node: 31, Offset: (720, 1100)
+  Pin 349 — Node: 32, Offset: (-720, 0)
+Flattened pins:
+  Pin 348 — Node: 31, Offset: (720, 1100)
+  Pin 349 — Node: 32, Offset: (-720, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 119
+Network pins:
+  Pin 350 — Node: 32, Offset: (-30, 680)
+  Pin 351 — Node: 35, Offset: (440, 0)
+  Pin 352 — Node: 182, Offset: (325, -80)
+Flattened pins:
+  Pin 350 — Node: 32, Offset: (-30, 680)
+  Pin 351 — Node: 35, Offset: (440, 0)
+  Pin 352 — Node: 182, Offset: (325, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 120
+Network pins:
+  Pin 353 — Node: 33, Offset: (-5, 610)
+  Pin 354 — Node: 34, Offset: (-1565, 280)
+  Pin 355 — Node: 205, Offset: (-705, 0)
+Flattened pins:
+  Pin 353 — Node: 33, Offset: (-5, 610)
+  Pin 354 — Node: 34, Offset: (-1565, 280)
+  Pin 355 — Node: 205, Offset: (-705, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 121
+Network pins:
+  Pin 356 — Node: 34, Offset: (175, 1100)
+  Pin 357 — Node: 35, Offset: (-820, 0)
+  Pin 358 — Node: 182, Offset: (705, -80)
+Flattened pins:
+  Pin 356 — Node: 34, Offset: (175, 1100)
+  Pin 357 — Node: 35, Offset: (-820, 0)
+  Pin 358 — Node: 182, Offset: (705, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 122
+Network pins:
+  Pin 359 — Node: 35, Offset: (40, 740)
+  Pin 360 — Node: 38, Offset: (-1725, 0)
+  Pin 361 — Node: 191, Offset: (-145, -150)
+Flattened pins:
+  Pin 359 — Node: 35, Offset: (40, 740)
+  Pin 360 — Node: 38, Offset: (-1725, 0)
+  Pin 361 — Node: 191, Offset: (-145, -150)
+[OK] All pin details match.
+--------------------------
+Net ID: 123
+Network pins:
+  Pin 362 — Node: 36, Offset: (-40, 570)
+  Pin 363 — Node: 37, Offset: (325, 0)
+  Pin 364 — Node: 182, Offset: (-325, 0)
+  Pin 365 — Node: 193, Offset: (-325, 0)
+  Pin 366 — Node: 208, Offset: (-325, 0)
+Flattened pins:
+  Pin 362 — Node: 36, Offset: (-40, 570)
+  Pin 363 — Node: 37, Offset: (325, 0)
+  Pin 364 — Node: 182, Offset: (-325, 0)
+  Pin 365 — Node: 193, Offset: (-325, 0)
+  Pin 366 — Node: 208, Offset: (-325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 124
+Network pins:
+  Pin 367 — Node: 37, Offset: (180, 1100)
+  Pin 368 — Node: 38, Offset: (1700, 0)
+  Pin 369 — Node: 183, Offset: (-325, 0)
+Flattened pins:
+  Pin 367 — Node: 37, Offset: (180, 1100)
+  Pin 368 — Node: 38, Offset: (1700, 0)
+  Pin 369 — Node: 183, Offset: (-325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 125
+Network pins:
+  Pin 370 — Node: 38, Offset: (-45, 830)
+  Pin 371 — Node: 39, Offset: (135, 190)
+  Pin 372 — Node: 162, Offset: (895, 0)
+Flattened pins:
+  Pin 370 — Node: 38, Offset: (-45, 830)
+  Pin 371 — Node: 39, Offset: (135, 190)
+  Pin 372 — Node: 162, Offset: (895, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 126
+Network pins:
+  Pin 373 — Node: 39, Offset: (-140, 1100)
+  Pin 374 — Node: 48, Offset: (-2485, 0)
+  Pin 375 — Node: 169, Offset: (515, 0)
+  Pin 376 — Node: 178, Offset: (-145, -150)
+Flattened pins:
+  Pin 373 — Node: 39, Offset: (-140, 1100)
+  Pin 374 — Node: 48, Offset: (-2485, 0)
+  Pin 375 — Node: 169, Offset: (515, 0)
+  Pin 376 — Node: 178, Offset: (-145, -150)
+[OK] All pin details match.
+--------------------------
+Net ID: 127
+Network pins:
+  Pin 377 — Node: 40, Offset: (175, 1100)
+  Pin 378 — Node: 41, Offset: (325, 0)
+  Pin 379 — Node: 180, Offset: (-325, 0)
+  Pin 380 — Node: 209, Offset: (-135, 0)
+Flattened pins:
+  Pin 377 — Node: 40, Offset: (175, 1100)
+  Pin 378 — Node: 41, Offset: (325, 0)
+  Pin 379 — Node: 180, Offset: (-325, 0)
+  Pin 380 — Node: 209, Offset: (-135, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 128
+Network pins:
+  Pin 381 — Node: 41, Offset: (180, 1100)
+  Pin 382 — Node: 48, Offset: (-970, 0)
+Flattened pins:
+  Pin 381 — Node: 41, Offset: (180, 1100)
+  Pin 382 — Node: 48, Offset: (-970, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 129
+Network pins:
+  Pin 383 — Node: 42, Offset: (-5, 610)
+  Pin 384 — Node: 43, Offset: (40, -80)
+  Pin 385 — Node: 54, Offset: (755, 120)
+  Pin 386 — Node: 162, Offset: (-515, 0)
+  Pin 387 — Node: 175, Offset: (-325, 0)
+Flattened pins:
+  Pin 383 — Node: 42, Offset: (-5, 610)
+  Pin 384 — Node: 43, Offset: (40, -80)
+  Pin 385 — Node: 54, Offset: (755, 120)
+  Pin 386 — Node: 162, Offset: (-515, 0)
+  Pin 387 — Node: 175, Offset: (-325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 130
+Network pins:
+  Pin 388 — Node: 43, Offset: (40, 290)
+  Pin 389 — Node: 48, Offset: (975, 0)
+  Pin 390 — Node: 53, Offset: (45, 0)
+Flattened pins:
+  Pin 388 — Node: 43, Offset: (40, 290)
+  Pin 389 — Node: 48, Offset: (975, 0)
+  Pin 390 — Node: 53, Offset: (45, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 131
+Network pins:
+  Pin 391 — Node: 44, Offset: (-30, 680)
+  Pin 392 — Node: 45, Offset: (325, 0)
+  Pin 393 — Node: 49, Offset: (325, 0)
+  Pin 394 — Node: 168, Offset: (-705, 0)
+  Pin 395 — Node: 253, Offset: (-325, 0)
+Flattened pins:
+  Pin 391 — Node: 44, Offset: (-30, 680)
+  Pin 392 — Node: 45, Offset: (325, 0)
+  Pin 393 — Node: 49, Offset: (325, 0)
+  Pin 394 — Node: 168, Offset: (-705, 0)
+  Pin 395 — Node: 253, Offset: (-325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 132
+Network pins:
+  Pin 396 — Node: 45, Offset: (180, 1100)
+  Pin 397 — Node: 47, Offset: (-1525, 0)
+Flattened pins:
+  Pin 396 — Node: 45, Offset: (180, 1100)
+  Pin 397 — Node: 47, Offset: (-1525, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 133
+Network pins:
+  Pin 398 — Node: 46, Offset: (175, 1100)
+  Pin 399 — Node: 47, Offset: (720, 120)
+  Pin 400 — Node: 50, Offset: (135, 0)
+  Pin 401 — Node: 209, Offset: (-515, 0)
+  Pin 402 — Node: 258, Offset: (-325, 0)
+Flattened pins:
+  Pin 398 — Node: 46, Offset: (175, 1100)
+  Pin 399 — Node: 47, Offset: (720, 120)
+  Pin 400 — Node: 50, Offset: (135, 0)
+  Pin 401 — Node: 209, Offset: (-515, 0)
+  Pin 402 — Node: 258, Offset: (-325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 134
+Network pins:
+  Pin 403 — Node: 47, Offset: (175, 980)
+  Pin 404 — Node: 48, Offset: (2490, 0)
+  Pin 405 — Node: 55, Offset: (-1565, 0)
+Flattened pins:
+  Pin 403 — Node: 47, Offset: (175, 980)
+  Pin 404 — Node: 48, Offset: (2490, 0)
+  Pin 405 — Node: 55, Offset: (-1565, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 135
+Network pins:
+  Pin 406 — Node: 48, Offset: (190, 830)
+  Pin 407 — Node: 56, Offset: (-40, 0)
+  Pin 408 — Node: 82, Offset: (1480, 280)
+  Pin 409 — Node: 95, Offset: (0, -80)
+  Pin 410 — Node: 128, Offset: (-40, 0)
+  Pin 411 — Node: 138, Offset: (135, 0)
+Flattened pins:
+  Pin 406 — Node: 48, Offset: (190, 830)
+  Pin 407 — Node: 56, Offset: (-40, 0)
+  Pin 408 — Node: 82, Offset: (1480, 280)
+  Pin 409 — Node: 95, Offset: (0, -80)
+  Pin 410 — Node: 128, Offset: (-40, 0)
+  Pin 411 — Node: 138, Offset: (135, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 136
+Network pins:
+  Pin 412 — Node: 49, Offset: (180, 1100)
+  Pin 413 — Node: 50, Offset: (515, 0)
+  Pin 414 — Node: 254, Offset: (-325, 0)
+Flattened pins:
+  Pin 412 — Node: 49, Offset: (180, 1100)
+  Pin 413 — Node: 50, Offset: (515, 0)
+  Pin 414 — Node: 254, Offset: (-325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 137
+Network pins:
+  Pin 415 — Node: 50, Offset: (0, 1100)
+  Pin 416 — Node: 55, Offset: (-1185, 0)
+Flattened pins:
+  Pin 415 — Node: 50, Offset: (0, 1100)
+  Pin 416 — Node: 55, Offset: (-1185, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 138
+Network pins:
+  Pin 417 — Node: 51, Offset: (175, 1100)
+  Pin 418 — Node: 55, Offset: (-305, 0)
+  Pin 419 — Node: 259, Offset: (-705, 0)
+Flattened pins:
+  Pin 417 — Node: 51, Offset: (175, 1100)
+  Pin 418 — Node: 55, Offset: (-305, 0)
+  Pin 419 — Node: 259, Offset: (-705, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 139
+Network pins:
+  Pin 420 — Node: 52, Offset: (-5, 610)
+  Pin 421 — Node: 53, Offset: (135, 280)
+  Pin 422 — Node: 161, Offset: (325, 0)
+  Pin 423 — Node: 169, Offset: (-515, 0)
+  Pin 424 — Node: 181, Offset: (-705, 0)
+Flattened pins:
+  Pin 420 — Node: 52, Offset: (-5, 610)
+  Pin 421 — Node: 53, Offset: (135, 280)
+  Pin 422 — Node: 161, Offset: (325, 0)
+  Pin 423 — Node: 169, Offset: (-515, 0)
+  Pin 424 — Node: 181, Offset: (-705, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 140
+Network pins:
+  Pin 425 — Node: 53, Offset: (-140, 960)
+  Pin 426 — Node: 54, Offset: (-1535, 0)
+Flattened pins:
+  Pin 425 — Node: 53, Offset: (-140, 960)
+  Pin 426 — Node: 54, Offset: (-1535, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 141
+Network pins:
+  Pin 427 — Node: 54, Offset: (-10, 830)
+  Pin 428 — Node: 55, Offset: (-2165, 0)
+  Pin 429 — Node: 163, Offset: (-325, 0)
+  Pin 430 — Node: 253, Offset: (705, -80)
+Flattened pins:
+  Pin 427 — Node: 54, Offset: (-10, 830)
+  Pin 428 — Node: 55, Offset: (-2165, 0)
+  Pin 429 — Node: 163, Offset: (-325, 0)
+  Pin 430 — Node: 253, Offset: (705, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 142
+Network pins:
+  Pin 431 — Node: 55, Offset: (1560, 1100)
+  Pin 432 — Node: 56, Offset: (-705, 0)
+  Pin 433 — Node: 82, Offset: (1475, 0)
+  Pin 434 — Node: 95, Offset: (135, 190)
+  Pin 435 — Node: 128, Offset: (-705, 0)
+  Pin 436 — Node: 138, Offset: (-515, 0)
+Flattened pins:
+  Pin 431 — Node: 55, Offset: (1560, 1100)
+  Pin 432 — Node: 56, Offset: (-705, 0)
+  Pin 433 — Node: 82, Offset: (1475, 0)
+  Pin 434 — Node: 95, Offset: (135, 190)
+  Pin 435 — Node: 128, Offset: (-705, 0)
+  Pin 436 — Node: 138, Offset: (-515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 143
+Network pins:
+  Pin 437 — Node: 56, Offset: (205, 710)
+  Pin 438 — Node: 75, Offset: (-515, 0)
+  Pin 439 — Node: 76, Offset: (325, -80)
+Flattened pins:
+  Pin 437 — Node: 56, Offset: (205, 710)
+  Pin 438 — Node: 75, Offset: (-515, 0)
+  Pin 439 — Node: 76, Offset: (325, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 144
+Network pins:
+  Pin 440 — Node: 57, Offset: (550, 1100)
+  Pin 441 — Node: 58, Offset: (-155, 0)
+Flattened pins:
+  Pin 440 — Node: 57, Offset: (550, 1100)
+  Pin 441 — Node: 58, Offset: (-155, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 145
+Network pins:
+  Pin 442 — Node: 58, Offset: (175, 1100)
+  Pin 443 — Node: 75, Offset: (-135, 0)
+  Pin 444 — Node: 76, Offset: (-705, 0)
+  Pin 445 — Node: 81, Offset: (-325, 0)
+  Pin 446 — Node: 83, Offset: (515, 0)
+Flattened pins:
+  Pin 442 — Node: 58, Offset: (175, 1100)
+  Pin 443 — Node: 75, Offset: (-135, 0)
+  Pin 444 — Node: 76, Offset: (-705, 0)
+  Pin 445 — Node: 81, Offset: (-325, 0)
+  Pin 446 — Node: 83, Offset: (515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 146
+Network pins:
+  Pin 447 — Node: 59, Offset: (180, 1100)
+  Pin 448 — Node: 61, Offset: (325, 0)
+  Pin 449 — Node: 112, Offset: (250, 0)
+  Pin 450 — Node: 113, Offset: (-705, 0)
+Flattened pins:
+  Pin 447 — Node: 59, Offset: (180, 1100)
+  Pin 448 — Node: 61, Offset: (325, 0)
+  Pin 449 — Node: 112, Offset: (250, 0)
+  Pin 450 — Node: 113, Offset: (-705, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 147
+Network pins:
+  Pin 451 — Node: 60, Offset: (180, 1100)
+  Pin 452 — Node: 61, Offset: (-325, 0)
+  Pin 453 — Node: 110, Offset: (325, 0)
+Flattened pins:
+  Pin 451 — Node: 60, Offset: (180, 1100)
+  Pin 452 — Node: 61, Offset: (-325, 0)
+  Pin 453 — Node: 110, Offset: (325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 148
+Network pins:
+  Pin 454 — Node: 61, Offset: (180, 1100)
+  Pin 455 — Node: 63, Offset: (220, 0)
+  Pin 456 — Node: 98, Offset: (-705, 0)
+Flattened pins:
+  Pin 454 — Node: 61, Offset: (180, 1100)
+  Pin 455 — Node: 63, Offset: (220, 0)
+  Pin 456 — Node: 98, Offset: (-705, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 149
+Network pins:
+  Pin 457 — Node: 62, Offset: (175, 1100)
+  Pin 458 — Node: 63, Offset: (-515, 0)
+  Pin 459 — Node: 98, Offset: (-325, 0)
+  Pin 460 — Node: 112, Offset: (-895, 0)
+  Pin 461 — Node: 113, Offset: (-325, 0)
+Flattened pins:
+  Pin 457 — Node: 62, Offset: (175, 1100)
+  Pin 458 — Node: 63, Offset: (-515, 0)
+  Pin 459 — Node: 98, Offset: (-325, 0)
+  Pin 460 — Node: 112, Offset: (-895, 0)
+  Pin 461 — Node: 113, Offset: (-325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 150
+Network pins:
+  Pin 462 — Node: 63, Offset: (150, 1100)
+  Pin 463 — Node: 65, Offset: (325, 0)
+Flattened pins:
+  Pin 462 — Node: 63, Offset: (150, 1100)
+  Pin 463 — Node: 65, Offset: (325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 151
+Network pins:
+  Pin 464 — Node: 64, Offset: (180, 1100)
+  Pin 465 — Node: 65, Offset: (-325, 0)
+Flattened pins:
+  Pin 464 — Node: 64, Offset: (180, 1100)
+  Pin 465 — Node: 65, Offset: (-325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 152
+Network pins:
+  Pin 466 — Node: 65, Offset: (180, 1100)
+  Pin 467 — Node: 74, Offset: (515, 0)
+  Pin 468 — Node: 83, Offset: (135, 0)
+Flattened pins:
+  Pin 466 — Node: 65, Offset: (180, 1100)
+  Pin 467 — Node: 74, Offset: (515, 0)
+  Pin 468 — Node: 83, Offset: (135, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 153
+Network pins:
+  Pin 469 — Node: 66, Offset: (175, 1100)
+  Pin 470 — Node: 67, Offset: (325, 0)
+  Pin 471 — Node: 159, Offset: (-325, 0)
+  Pin 472 — Node: 211, Offset: (-325, 0)
+Flattened pins:
+  Pin 469 — Node: 66, Offset: (175, 1100)
+  Pin 470 — Node: 67, Offset: (325, 0)
+  Pin 471 — Node: 159, Offset: (-325, 0)
+  Pin 472 — Node: 211, Offset: (-325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 154
+Network pins:
+  Pin 473 — Node: 67, Offset: (205, 710)
+  Pin 474 — Node: 69, Offset: (-30, 0)
+  Pin 475 — Node: 129, Offset: (150, 0)
+  Pin 476 — Node: 139, Offset: (-515, 0)
+Flattened pins:
+  Pin 473 — Node: 67, Offset: (205, 710)
+  Pin 474 — Node: 69, Offset: (-30, 0)
+  Pin 475 — Node: 129, Offset: (150, 0)
+  Pin 476 — Node: 139, Offset: (-515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 155
+Network pins:
+  Pin 477 — Node: 68, Offset: (180, 1100)
+  Pin 478 — Node: 69, Offset: (-680, 0)
+  Pin 479 — Node: 129, Offset: (-500, 0)
+  Pin 480 — Node: 139, Offset: (-130, 0)
+Flattened pins:
+  Pin 477 — Node: 68, Offset: (180, 1100)
+  Pin 478 — Node: 69, Offset: (-680, 0)
+  Pin 479 — Node: 129, Offset: (-500, 0)
+  Pin 480 — Node: 139, Offset: (-130, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 156
+Network pins:
+  Pin 481 — Node: 69, Offset: (230, 830)
+  Pin 482 — Node: 73, Offset: (-515, 0)
+  Pin 483 — Node: 84, Offset: (135, 0)
+Flattened pins:
+  Pin 481 — Node: 69, Offset: (230, 830)
+  Pin 482 — Node: 73, Offset: (-515, 0)
+  Pin 483 — Node: 84, Offset: (135, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 157
+Network pins:
+  Pin 484 — Node: 70, Offset: (180, 1100)
+  Pin 485 — Node: 72, Offset: (515, 0)
+Flattened pins:
+  Pin 484 — Node: 70, Offset: (180, 1100)
+  Pin 485 — Node: 72, Offset: (515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 158
+Network pins:
+  Pin 486 — Node: 71, Offset: (180, 1100)
+  Pin 487 — Node: 72, Offset: (-515, 0)
+  Pin 488 — Node: 140, Offset: (-135, 0)
+  Pin 489 — Node: 141, Offset: (-705, 0)
+Flattened pins:
+  Pin 486 — Node: 71, Offset: (180, 1100)
+  Pin 487 — Node: 72, Offset: (-515, 0)
+  Pin 488 — Node: 140, Offset: (-135, 0)
+  Pin 489 — Node: 141, Offset: (-705, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 159
+Network pins:
+  Pin 490 — Node: 72, Offset: (0, 1100)
+  Pin 491 — Node: 73, Offset: (-130, 0)
+  Pin 492 — Node: 84, Offset: (-515, 0)
+Flattened pins:
+  Pin 490 — Node: 72, Offset: (0, 1100)
+  Pin 491 — Node: 73, Offset: (-130, 0)
+  Pin 492 — Node: 84, Offset: (-515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 160
+Network pins:
+  Pin 493 — Node: 73, Offset: (550, 1080)
+  Pin 494 — Node: 74, Offset: (150, 0)
+  Pin 495 — Node: 98, Offset: (325, -80)
+  Pin 496 — Node: 108, Offset: (-155, 0)
+Flattened pins:
+  Pin 493 — Node: 73, Offset: (550, 1080)
+  Pin 494 — Node: 74, Offset: (150, 0)
+  Pin 495 — Node: 98, Offset: (325, -80)
+  Pin 496 — Node: 108, Offset: (-155, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 161
+Network pins:
+  Pin 497 — Node: 74, Offset: (30, 830)
+  Pin 498 — Node: 75, Offset: (250, 0)
+  Pin 499 — Node: 76, Offset: (705, -80)
+Flattened pins:
+  Pin 497 — Node: 74, Offset: (30, 830)
+  Pin 498 — Node: 75, Offset: (250, 0)
+  Pin 499 — Node: 76, Offset: (705, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 162
+Network pins:
+  Pin 500 — Node: 75, Offset: (930, 1100)
+  Pin 501 — Node: 77, Offset: (-515, 0)
+  Pin 502 — Node: 92, Offset: (-515, 0)
+Flattened pins:
+  Pin 500 — Node: 75, Offset: (930, 1100)
+  Pin 501 — Node: 77, Offset: (-515, 0)
+  Pin 502 — Node: 92, Offset: (-515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 163
+Network pins:
+  Pin 503 — Node: 76, Offset: (180, 610)
+  Pin 504 — Node: 77, Offset: (-130, 0)
+  Pin 505 — Node: 92, Offset: (135, 0)
+Flattened pins:
+  Pin 503 — Node: 76, Offset: (180, 610)
+  Pin 504 — Node: 77, Offset: (-130, 0)
+  Pin 505 — Node: 92, Offset: (135, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 164
+Network pins:
+  Pin 506 — Node: 78, Offset: (350, 1100)
+  Pin 507 — Node: 89, Offset: (-1160, 0)
+  Pin 508 — Node: 144, Offset: (-1160, 0)
+  Pin 509 — Node: 153, Offset: (-900, 320)
+  Pin 510 — Node: 158, Offset: (-900, 320)
+  Pin 511 — Node: 166, Offset: (-900, 320)
+  Pin 512 — Node: 174, Offset: (-135, 0)
+  Pin 513 — Node: 179, Offset: (-900, 320)
+  Pin 514 — Node: 187, Offset: (-135, 0)
+  Pin 515 — Node: 192, Offset: (-1160, 0)
+  Pin 516 — Node: 199, Offset: (-1160, 0)
+Flattened pins:
+  Pin 506 — Node: 78, Offset: (350, 1100)
+  Pin 507 — Node: 89, Offset: (-1160, 0)
+  Pin 508 — Node: 144, Offset: (-1160, 0)
+  Pin 509 — Node: 153, Offset: (-900, 320)
+  Pin 510 — Node: 158, Offset: (-900, 320)
+  Pin 511 — Node: 166, Offset: (-900, 320)
+  Pin 512 — Node: 174, Offset: (-135, 0)
+  Pin 513 — Node: 179, Offset: (-900, 320)
+  Pin 514 — Node: 187, Offset: (-135, 0)
+  Pin 515 — Node: 192, Offset: (-1160, 0)
+  Pin 516 — Node: 199, Offset: (-1160, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 165
+Network pins:
+  Pin 517 — Node: 79, Offset: (0, 1100)
+  Pin 518 — Node: 80, Offset: (-1100, 0)
+  Pin 519 — Node: 86, Offset: (325, 0)
+  Pin 520 — Node: 106, Offset: (-780, 0)
+  Pin 521 — Node: 117, Offset: (-780, 0)
+  Pin 522 — Node: 179, Offset: (-805, 0)
+  Pin 523 — Node: 192, Offset: (-780, 0)
+  Pin 524 — Node: 199, Offset: (-780, 0)
+  Pin 525 — Node: 203, Offset: (-780, 0)
+  Pin 526 — Node: 217, Offset: (-135, 0)
+  Pin 527 — Node: 257, Offset: (-805, 0)
+Flattened pins:
+  Pin 517 — Node: 79, Offset: (0, 1100)
+  Pin 518 — Node: 80, Offset: (-1100, 0)
+  Pin 519 — Node: 86, Offset: (325, 0)
+  Pin 520 — Node: 106, Offset: (-780, 0)
+  Pin 521 — Node: 117, Offset: (-780, 0)
+  Pin 522 — Node: 179, Offset: (-805, 0)
+  Pin 523 — Node: 192, Offset: (-780, 0)
+  Pin 524 — Node: 199, Offset: (-780, 0)
+  Pin 525 — Node: 203, Offset: (-780, 0)
+  Pin 526 — Node: 217, Offset: (-135, 0)
+  Pin 527 — Node: 257, Offset: (-805, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 166
+Network pins:
+  Pin 528 — Node: 80, Offset: (350, 1100)
+  Pin 529 — Node: 89, Offset: (-780, 0)
+  Pin 530 — Node: 123, Offset: (-515, 0)
+  Pin 531 — Node: 135, Offset: (-515, 0)
+  Pin 532 — Node: 144, Offset: (-780, 0)
+  Pin 533 — Node: 153, Offset: (-805, 0)
+  Pin 534 — Node: 158, Offset: (-805, 0)
+  Pin 535 — Node: 166, Offset: (-805, 0)
+  Pin 536 — Node: 174, Offset: (-515, 0)
+  Pin 537 — Node: 187, Offset: (-515, 0)
+  Pin 538 — Node: 218, Offset: (-515, 0)
+Flattened pins:
+  Pin 528 — Node: 80, Offset: (350, 1100)
+  Pin 529 — Node: 89, Offset: (-780, 0)
+  Pin 530 — Node: 123, Offset: (-515, 0)
+  Pin 531 — Node: 135, Offset: (-515, 0)
+  Pin 532 — Node: 144, Offset: (-780, 0)
+  Pin 533 — Node: 153, Offset: (-805, 0)
+  Pin 534 — Node: 158, Offset: (-805, 0)
+  Pin 535 — Node: 166, Offset: (-805, 0)
+  Pin 536 — Node: 174, Offset: (-515, 0)
+  Pin 537 — Node: 187, Offset: (-515, 0)
+  Pin 538 — Node: 218, Offset: (-515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 167
+Network pins:
+  Pin 539 — Node: 81, Offset: (740, 1100)
+  Pin 540 — Node: 82, Offset: (-1565, 280)
+  Pin 541 — Node: 84, Offset: (515, 0)
+Flattened pins:
+  Pin 539 — Node: 81, Offset: (740, 1100)
+  Pin 540 — Node: 82, Offset: (-1565, 280)
+  Pin 541 — Node: 84, Offset: (515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 168
+Network pins:
+  Pin 542 — Node: 82, Offset: (175, 1100)
+  Pin 543 — Node: 85, Offset: (45, -150)
+Flattened pins:
+  Pin 542 — Node: 82, Offset: (175, 1100)
+  Pin 543 — Node: 85, Offset: (45, -150)
+[OK] All pin details match.
+--------------------------
+Net ID: 169
+Network pins:
+  Pin 544 — Node: 83, Offset: (0, 1100)
+  Pin 545 — Node: 85, Offset: (40, 120)
+Flattened pins:
+  Pin 544 — Node: 83, Offset: (0, 1100)
+  Pin 545 — Node: 85, Offset: (40, 120)
+[OK] All pin details match.
+--------------------------
+Net ID: 170
+Network pins:
+  Pin 546 — Node: 84, Offset: (0, 1100)
+  Pin 547 — Node: 85, Offset: (20, 390)
+Flattened pins:
+  Pin 546 — Node: 84, Offset: (0, 1100)
+  Pin 547 — Node: 85, Offset: (20, 390)
+[OK] All pin details match.
+--------------------------
+Net ID: 171
+Network pins:
+  Pin 548 — Node: 85, Offset: (20, 1040)
+  Pin 549 — Node: 88, Offset: (40, -80)
+  Pin 550 — Node: 90, Offset: (-1080, -80)
+  Pin 551 — Node: 124, Offset: (-1100, 0)
+  Pin 552 — Node: 215, Offset: (220, 0)
+  Pin 553 — Node: 258, Offset: (-705, 0)
+Flattened pins:
+  Pin 548 — Node: 85, Offset: (20, 1040)
+  Pin 549 — Node: 88, Offset: (40, -80)
+  Pin 550 — Node: 90, Offset: (-1080, -80)
+  Pin 551 — Node: 124, Offset: (-1100, 0)
+  Pin 552 — Node: 215, Offset: (220, 0)
+  Pin 553 — Node: 258, Offset: (-705, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 172
+Network pins:
+  Pin 554 — Node: 86, Offset: (180, 1100)
+  Pin 555 — Node: 87, Offset: (-155, 0)
+  Pin 556 — Node: 90, Offset: (-890, 190)
+  Pin 557 — Node: 200, Offset: (-135, 0)
+  Pin 558 — Node: 204, Offset: (-135, 0)
+  Pin 559 — Node: 215, Offset: (-135, 0)
+Flattened pins:
+  Pin 554 — Node: 86, Offset: (180, 1100)
+  Pin 555 — Node: 87, Offset: (-155, 0)
+  Pin 556 — Node: 90, Offset: (-890, 190)
+  Pin 557 — Node: 200, Offset: (-135, 0)
+  Pin 558 — Node: 204, Offset: (-135, 0)
+  Pin 559 — Node: 215, Offset: (-135, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 173
+Network pins:
+  Pin 560 — Node: 87, Offset: (175, 1100)
+  Pin 561 — Node: 88, Offset: (40, 560)
+  Pin 562 — Node: 125, Offset: (60, 0)
+  Pin 563 — Node: 136, Offset: (60, 0)
+  Pin 564 — Node: 154, Offset: (60, 0)
+  Pin 565 — Node: 159, Offset: (60, 0)
+  Pin 566 — Node: 175, Offset: (60, 0)
+  Pin 567 — Node: 180, Offset: (60, 0)
+  Pin 568 — Node: 188, Offset: (60, 0)
+  Pin 569 — Node: 193, Offset: (60, 0)
+  Pin 570 — Node: 258, Offset: (60, 0)
+Flattened pins:
+  Pin 560 — Node: 87, Offset: (175, 1100)
+  Pin 561 — Node: 88, Offset: (40, 560)
+  Pin 562 — Node: 125, Offset: (60, 0)
+  Pin 563 — Node: 136, Offset: (60, 0)
+  Pin 564 — Node: 154, Offset: (60, 0)
+  Pin 565 — Node: 159, Offset: (60, 0)
+  Pin 566 — Node: 175, Offset: (60, 0)
+  Pin 567 — Node: 180, Offset: (60, 0)
+  Pin 568 — Node: 188, Offset: (60, 0)
+  Pin 569 — Node: 193, Offset: (60, 0)
+  Pin 570 — Node: 258, Offset: (60, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 174
+Network pins:
+  Pin 571 — Node: 88, Offset: (40, 290)
+  Pin 572 — Node: 89, Offset: (-2140, 0)
+  Pin 573 — Node: 106, Offset: (-2140, 0)
+  Pin 574 — Node: 117, Offset: (-2140, 0)
+  Pin 575 — Node: 144, Offset: (-2140, 0)
+  Pin 576 — Node: 167, Offset: (325, 0)
+  Pin 577 — Node: 199, Offset: (-2140, 0)
+  Pin 578 — Node: 203, Offset: (-2140, 0)
+  Pin 579 — Node: 220, Offset: (40, -80)
+Flattened pins:
+  Pin 571 — Node: 88, Offset: (40, 290)
+  Pin 572 — Node: 89, Offset: (-2140, 0)
+  Pin 573 — Node: 106, Offset: (-2140, 0)
+  Pin 574 — Node: 117, Offset: (-2140, 0)
+  Pin 575 — Node: 144, Offset: (-2140, 0)
+  Pin 576 — Node: 167, Offset: (325, 0)
+  Pin 577 — Node: 199, Offset: (-2140, 0)
+  Pin 578 — Node: 203, Offset: (-2140, 0)
+  Pin 579 — Node: 220, Offset: (40, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 175
+Network pins:
+  Pin 580 — Node: 89, Offset: (1565, 1100)
+  Pin 581 — Node: 94, Offset: (325, -80)
+Flattened pins:
+  Pin 580 — Node: 89, Offset: (1565, 1100)
+  Pin 581 — Node: 94, Offset: (325, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 176
+Network pins:
+  Pin 582 — Node: 90, Offset: (720, 1100)
+  Pin 583 — Node: 91, Offset: (-1100, 0)
+  Pin 584 — Node: 123, Offset: (230, 0)
+  Pin 585 — Node: 135, Offset: (230, 0)
+  Pin 586 — Node: 153, Offset: (1160, 270)
+  Pin 587 — Node: 192, Offset: (-2140, 0)
+  Pin 588 — Node: 257, Offset: (1160, 270)
+Flattened pins:
+  Pin 582 — Node: 90, Offset: (720, 1100)
+  Pin 583 — Node: 91, Offset: (-1100, 0)
+  Pin 584 — Node: 123, Offset: (230, 0)
+  Pin 585 — Node: 135, Offset: (230, 0)
+  Pin 586 — Node: 153, Offset: (1160, 270)
+  Pin 587 — Node: 192, Offset: (-2140, 0)
+  Pin 588 — Node: 257, Offset: (1160, 270)
+[OK] All pin details match.
+--------------------------
+Net ID: 177
+Network pins:
+  Pin 589 — Node: 91, Offset: (350, 1100)
+  Pin 590 — Node: 92, Offset: (515, 0)
+  Pin 591 — Node: 105, Offset: (-325, 0)
+  Pin 592 — Node: 116, Offset: (-325, 0)
+  Pin 593 — Node: 145, Offset: (515, 0)
+  Pin 594 — Node: 158, Offset: (1140, 0)
+  Pin 595 — Node: 166, Offset: (1140, 0)
+  Pin 596 — Node: 174, Offset: (895, 0)
+  Pin 597 — Node: 179, Offset: (1140, 0)
+  Pin 598 — Node: 187, Offset: (895, 0)
+  Pin 599 — Node: 218, Offset: (895, 0)
+Flattened pins:
+  Pin 589 — Node: 91, Offset: (350, 1100)
+  Pin 590 — Node: 92, Offset: (515, 0)
+  Pin 591 — Node: 105, Offset: (-325, 0)
+  Pin 592 — Node: 116, Offset: (-325, 0)
+  Pin 593 — Node: 145, Offset: (515, 0)
+  Pin 594 — Node: 158, Offset: (1140, 0)
+  Pin 595 — Node: 166, Offset: (1140, 0)
+  Pin 596 — Node: 174, Offset: (895, 0)
+  Pin 597 — Node: 179, Offset: (1140, 0)
+  Pin 598 — Node: 187, Offset: (895, 0)
+  Pin 599 — Node: 218, Offset: (895, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 178
+Network pins:
+  Pin 600 — Node: 92, Offset: (0, 1100)
+  Pin 601 — Node: 94, Offset: (705, -80)
+Flattened pins:
+  Pin 600 — Node: 92, Offset: (0, 1100)
+  Pin 601 — Node: 94, Offset: (705, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 179
+Network pins:
+  Pin 602 — Node: 93, Offset: (350, 1100)
+  Pin 603 — Node: 94, Offset: (-325, 0)
+  Pin 604 — Node: 123, Offset: (-135, 0)
+  Pin 605 — Node: 135, Offset: (-135, 0)
+  Pin 606 — Node: 160, Offset: (-325, 0)
+  Pin 607 — Node: 168, Offset: (-325, 0)
+  Pin 608 — Node: 181, Offset: (-325, 0)
+  Pin 609 — Node: 194, Offset: (-325, 0)
+  Pin 610 — Node: 201, Offset: (-325, 0)
+  Pin 611 — Node: 205, Offset: (-325, 0)
+  Pin 612 — Node: 259, Offset: (-325, 0)
+Flattened pins:
+  Pin 602 — Node: 93, Offset: (350, 1100)
+  Pin 603 — Node: 94, Offset: (-325, 0)
+  Pin 604 — Node: 123, Offset: (-135, 0)
+  Pin 605 — Node: 135, Offset: (-135, 0)
+  Pin 606 — Node: 160, Offset: (-325, 0)
+  Pin 607 — Node: 168, Offset: (-325, 0)
+  Pin 608 — Node: 181, Offset: (-325, 0)
+  Pin 609 — Node: 194, Offset: (-325, 0)
+  Pin 610 — Node: 201, Offset: (-325, 0)
+  Pin 611 — Node: 205, Offset: (-325, 0)
+  Pin 612 — Node: 259, Offset: (-325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 180
+Network pins:
+  Pin 613 — Node: 95, Offset: (-140, 1100)
+  Pin 614 — Node: 97, Offset: (-515, 0)
+  Pin 615 — Node: 110, Offset: (-40, 0)
+  Pin 616 — Node: 119, Offset: (135, 0)
+  Pin 617 — Node: 147, Offset: (515, 0)
+  Pin 618 — Node: 157, Offset: (-145, -150)
+Flattened pins:
+  Pin 613 — Node: 95, Offset: (-140, 1100)
+  Pin 614 — Node: 97, Offset: (-515, 0)
+  Pin 615 — Node: 110, Offset: (-40, 0)
+  Pin 616 — Node: 119, Offset: (135, 0)
+  Pin 617 — Node: 147, Offset: (515, 0)
+  Pin 618 — Node: 157, Offset: (-145, -150)
+[OK] All pin details match.
+--------------------------
+Net ID: 181
+Network pins:
+  Pin 619 — Node: 96, Offset: (150, 1100)
+  Pin 620 — Node: 97, Offset: (-130, 0)
+Flattened pins:
+  Pin 619 — Node: 96, Offset: (150, 1100)
+  Pin 620 — Node: 97, Offset: (-130, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 182
+Network pins:
+  Pin 621 — Node: 97, Offset: (550, 1080)
+  Pin 622 — Node: 99, Offset: (325, 0)
+Flattened pins:
+  Pin 621 — Node: 97, Offset: (550, 1080)
+  Pin 622 — Node: 99, Offset: (325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 183
+Network pins:
+  Pin 623 — Node: 98, Offset: (180, 610)
+  Pin 624 — Node: 99, Offset: (-325, 0)
+Flattened pins:
+  Pin 623 — Node: 98, Offset: (180, 610)
+  Pin 624 — Node: 99, Offset: (-325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 184
+Network pins:
+  Pin 625 — Node: 99, Offset: (180, 1100)
+  Pin 626 — Node: 101, Offset: (-145, -150)
+Flattened pins:
+  Pin 625 — Node: 99, Offset: (180, 1100)
+  Pin 626 — Node: 101, Offset: (-145, -150)
+[OK] All pin details match.
+--------------------------
+Net ID: 185
+Network pins:
+  Pin 627 — Node: 100, Offset: (560, 820)
+  Pin 628 — Node: 101, Offset: (175, 560)
+Flattened pins:
+  Pin 627 — Node: 100, Offset: (560, 820)
+  Pin 628 — Node: 101, Offset: (175, 560)
+[OK] All pin details match.
+--------------------------
+Net ID: 186
+Network pins:
+  Pin 629 — Node: 102, Offset: (175, 1100)
+  Pin 630 — Node: 103, Offset: (-1100, 0)
+  Pin 631 — Node: 217, Offset: (220, 0)
+Flattened pins:
+  Pin 629 — Node: 102, Offset: (175, 1100)
+  Pin 630 — Node: 103, Offset: (-1100, 0)
+  Pin 631 — Node: 217, Offset: (220, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 187
+Network pins:
+  Pin 632 — Node: 103, Offset: (350, 1100)
+  Pin 633 — Node: 104, Offset: (325, 0)
+  Pin 634 — Node: 115, Offset: (325, 0)
+  Pin 635 — Node: 122, Offset: (325, 0)
+  Pin 636 — Node: 134, Offset: (325, 0)
+  Pin 637 — Node: 143, Offset: (325, 0)
+  Pin 638 — Node: 152, Offset: (325, 0)
+  Pin 639 — Node: 173, Offset: (325, 0)
+  Pin 640 — Node: 186, Offset: (325, 0)
+  Pin 641 — Node: 206, Offset: (325, 0)
+  Pin 642 — Node: 216, Offset: (-1540, 0)
+Flattened pins:
+  Pin 632 — Node: 103, Offset: (350, 1100)
+  Pin 633 — Node: 104, Offset: (325, 0)
+  Pin 634 — Node: 115, Offset: (325, 0)
+  Pin 635 — Node: 122, Offset: (325, 0)
+  Pin 636 — Node: 134, Offset: (325, 0)
+  Pin 637 — Node: 143, Offset: (325, 0)
+  Pin 638 — Node: 152, Offset: (325, 0)
+  Pin 639 — Node: 173, Offset: (325, 0)
+  Pin 640 — Node: 186, Offset: (325, 0)
+  Pin 641 — Node: 206, Offset: (325, 0)
+  Pin 642 — Node: 216, Offset: (-1540, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 188
+Network pins:
+  Pin 643 — Node: 104, Offset: (180, 1100)
+  Pin 644 — Node: 107, Offset: (515, 0)
+Flattened pins:
+  Pin 643 — Node: 104, Offset: (180, 1100)
+  Pin 644 — Node: 107, Offset: (515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 189
+Network pins:
+  Pin 645 — Node: 105, Offset: (180, 1100)
+  Pin 646 — Node: 107, Offset: (150, 0)
+Flattened pins:
+  Pin 645 — Node: 105, Offset: (180, 1100)
+  Pin 646 — Node: 107, Offset: (150, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 190
+Network pins:
+  Pin 647 — Node: 106, Offset: (1565, 1100)
+  Pin 648 — Node: 107, Offset: (-500, 0)
+Flattened pins:
+  Pin 647 — Node: 106, Offset: (1565, 1100)
+  Pin 648 — Node: 107, Offset: (-500, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 191
+Network pins:
+  Pin 649 — Node: 108, Offset: (175, 1100)
+  Pin 650 — Node: 110, Offset: (730, 0)
+  Pin 651 — Node: 119, Offset: (515, 0)
+Flattened pins:
+  Pin 649 — Node: 108, Offset: (175, 1100)
+  Pin 650 — Node: 110, Offset: (730, 0)
+  Pin 651 — Node: 119, Offset: (515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 192
+Network pins:
+  Pin 652 — Node: 109, Offset: (175, 1100)
+  Pin 653 — Node: 110, Offset: (-705, 0)
+  Pin 654 — Node: 119, Offset: (-515, 0)
+Flattened pins:
+  Pin 652 — Node: 109, Offset: (175, 1100)
+  Pin 653 — Node: 110, Offset: (-705, 0)
+  Pin 654 — Node: 119, Offset: (-515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 193
+Network pins:
+  Pin 655 — Node: 110, Offset: (205, 710)
+  Pin 656 — Node: 112, Offset: (-515, 0)
+  Pin 657 — Node: 113, Offset: (325, -80)
+Flattened pins:
+  Pin 655 — Node: 110, Offset: (205, 710)
+  Pin 656 — Node: 112, Offset: (-515, 0)
+  Pin 657 — Node: 113, Offset: (325, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 194
+Network pins:
+  Pin 658 — Node: 111, Offset: (175, 1100)
+  Pin 659 — Node: 112, Offset: (-135, 0)
+  Pin 660 — Node: 113, Offset: (705, -80)
+Flattened pins:
+  Pin 658 — Node: 111, Offset: (175, 1100)
+  Pin 659 — Node: 112, Offset: (-135, 0)
+  Pin 660 — Node: 113, Offset: (705, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 195
+Network pins:
+  Pin 661 — Node: 112, Offset: (930, 1100)
+  Pin 662 — Node: 114, Offset: (325, 0)
+Flattened pins:
+  Pin 661 — Node: 112, Offset: (930, 1100)
+  Pin 662 — Node: 114, Offset: (325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 196
+Network pins:
+  Pin 663 — Node: 113, Offset: (180, 610)
+  Pin 664 — Node: 114, Offset: (-325, 0)
+Flattened pins:
+  Pin 663 — Node: 113, Offset: (180, 610)
+  Pin 664 — Node: 114, Offset: (-325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 197
+Network pins:
+  Pin 665 — Node: 115, Offset: (180, 1100)
+  Pin 666 — Node: 118, Offset: (515, 0)
+Flattened pins:
+  Pin 665 — Node: 115, Offset: (180, 1100)
+  Pin 666 — Node: 118, Offset: (515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 198
+Network pins:
+  Pin 667 — Node: 116, Offset: (180, 1100)
+  Pin 668 — Node: 118, Offset: (150, 0)
+Flattened pins:
+  Pin 667 — Node: 116, Offset: (180, 1100)
+  Pin 668 — Node: 118, Offset: (150, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 199
+Network pins:
+  Pin 669 — Node: 117, Offset: (1565, 1100)
+  Pin 670 — Node: 118, Offset: (-500, 0)
+Flattened pins:
+  Pin 669 — Node: 117, Offset: (1565, 1100)
+  Pin 670 — Node: 118, Offset: (-500, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 200
+Network pins:
+  Pin 671 — Node: 119, Offset: (0, 1100)
+  Pin 672 — Node: 121, Offset: (-145, -150)
+Flattened pins:
+  Pin 671 — Node: 119, Offset: (0, 1100)
+  Pin 672 — Node: 121, Offset: (-145, -150)
+[OK] All pin details match.
+--------------------------
+Net ID: 201
+Network pins:
+  Pin 673 — Node: 120, Offset: (560, 820)
+  Pin 674 — Node: 121, Offset: (175, 560)
+Flattened pins:
+  Pin 673 — Node: 120, Offset: (560, 820)
+  Pin 674 — Node: 121, Offset: (175, 560)
+[OK] All pin details match.
+--------------------------
+Net ID: 202
+Network pins:
+  Pin 675 — Node: 122, Offset: (180, 1100)
+  Pin 676 — Node: 126, Offset: (515, 0)
+Flattened pins:
+  Pin 675 — Node: 122, Offset: (180, 1100)
+  Pin 676 — Node: 126, Offset: (515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 203
+Network pins:
+  Pin 677 — Node: 123, Offset: (340, 830)
+  Pin 678 — Node: 126, Offset: (150, 0)
+Flattened pins:
+  Pin 677 — Node: 123, Offset: (340, 830)
+  Pin 678 — Node: 126, Offset: (150, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 204
+Network pins:
+  Pin 679 — Node: 124, Offset: (350, 1100)
+  Pin 680 — Node: 125, Offset: (-705, 0)
+  Pin 681 — Node: 136, Offset: (-705, 0)
+  Pin 682 — Node: 154, Offset: (-705, 0)
+  Pin 683 — Node: 159, Offset: (-705, 0)
+  Pin 684 — Node: 175, Offset: (-705, 0)
+  Pin 685 — Node: 180, Offset: (-705, 0)
+  Pin 686 — Node: 188, Offset: (-705, 0)
+  Pin 687 — Node: 193, Offset: (-705, 0)
+  Pin 688 — Node: 200, Offset: (220, 0)
+  Pin 689 — Node: 204, Offset: (220, 0)
+Flattened pins:
+  Pin 679 — Node: 124, Offset: (350, 1100)
+  Pin 680 — Node: 125, Offset: (-705, 0)
+  Pin 681 — Node: 136, Offset: (-705, 0)
+  Pin 682 — Node: 154, Offset: (-705, 0)
+  Pin 683 — Node: 159, Offset: (-705, 0)
+  Pin 684 — Node: 175, Offset: (-705, 0)
+  Pin 685 — Node: 180, Offset: (-705, 0)
+  Pin 686 — Node: 188, Offset: (-705, 0)
+  Pin 687 — Node: 193, Offset: (-705, 0)
+  Pin 688 — Node: 200, Offset: (220, 0)
+  Pin 689 — Node: 204, Offset: (220, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 205
+Network pins:
+  Pin 690 — Node: 125, Offset: (740, 1080)
+  Pin 691 — Node: 126, Offset: (-500, 0)
+Flattened pins:
+  Pin 690 — Node: 125, Offset: (740, 1080)
+  Pin 691 — Node: 126, Offset: (-500, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 206
+Network pins:
+  Pin 692 — Node: 127, Offset: (175, 1100)
+  Pin 693 — Node: 128, Offset: (730, 0)
+  Pin 694 — Node: 140, Offset: (-895, 0)
+  Pin 695 — Node: 141, Offset: (-325, 0)
+Flattened pins:
+  Pin 692 — Node: 127, Offset: (175, 1100)
+  Pin 693 — Node: 128, Offset: (730, 0)
+  Pin 694 — Node: 140, Offset: (-895, 0)
+  Pin 695 — Node: 141, Offset: (-325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 207
+Network pins:
+  Pin 696 — Node: 128, Offset: (205, 710)
+  Pin 697 — Node: 131, Offset: (-515, 0)
+Flattened pins:
+  Pin 696 — Node: 128, Offset: (205, 710)
+  Pin 697 — Node: 131, Offset: (-515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 208
+Network pins:
+  Pin 698 — Node: 129, Offset: (30, 830)
+  Pin 699 — Node: 130, Offset: (515, 0)
+Flattened pins:
+  Pin 698 — Node: 129, Offset: (30, 830)
+  Pin 699 — Node: 130, Offset: (515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 209
+Network pins:
+  Pin 700 — Node: 130, Offset: (30, 830)
+  Pin 701 — Node: 131, Offset: (-130, 0)
+Flattened pins:
+  Pin 700 — Node: 130, Offset: (30, 830)
+  Pin 701 — Node: 131, Offset: (-130, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 210
+Network pins:
+  Pin 702 — Node: 131, Offset: (550, 1100)
+  Pin 703 — Node: 133, Offset: (-145, -150)
+Flattened pins:
+  Pin 702 — Node: 131, Offset: (550, 1100)
+  Pin 703 — Node: 133, Offset: (-145, -150)
+[OK] All pin details match.
+--------------------------
+Net ID: 211
+Network pins:
+  Pin 704 — Node: 132, Offset: (590, 1100)
+  Pin 705 — Node: 133, Offset: (175, 560)
+Flattened pins:
+  Pin 704 — Node: 132, Offset: (590, 1100)
+  Pin 705 — Node: 133, Offset: (175, 560)
+[OK] All pin details match.
+--------------------------
+Net ID: 212
+Network pins:
+  Pin 706 — Node: 134, Offset: (180, 1100)
+  Pin 707 — Node: 137, Offset: (515, 0)
+Flattened pins:
+  Pin 706 — Node: 134, Offset: (180, 1100)
+  Pin 707 — Node: 137, Offset: (515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 213
+Network pins:
+  Pin 708 — Node: 135, Offset: (340, 830)
+  Pin 709 — Node: 137, Offset: (150, 0)
+Flattened pins:
+  Pin 708 — Node: 135, Offset: (340, 830)
+  Pin 709 — Node: 137, Offset: (150, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 214
+Network pins:
+  Pin 710 — Node: 136, Offset: (740, 1080)
+  Pin 711 — Node: 137, Offset: (-500, 0)
+Flattened pins:
+  Pin 710 — Node: 136, Offset: (740, 1080)
+  Pin 711 — Node: 137, Offset: (-500, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 215
+Network pins:
+  Pin 712 — Node: 138, Offset: (0, 1100)
+  Pin 713 — Node: 140, Offset: (-515, 0)
+  Pin 714 — Node: 141, Offset: (325, -80)
+Flattened pins:
+  Pin 712 — Node: 138, Offset: (0, 1100)
+  Pin 713 — Node: 140, Offset: (-515, 0)
+  Pin 714 — Node: 141, Offset: (325, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 216
+Network pins:
+  Pin 715 — Node: 139, Offset: (550, 1100)
+  Pin 716 — Node: 140, Offset: (250, 0)
+  Pin 717 — Node: 141, Offset: (705, -80)
+Flattened pins:
+  Pin 715 — Node: 139, Offset: (550, 1100)
+  Pin 716 — Node: 140, Offset: (250, 0)
+  Pin 717 — Node: 141, Offset: (705, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 217
+Network pins:
+  Pin 718 — Node: 140, Offset: (930, 1100)
+  Pin 719 — Node: 142, Offset: (-515, 0)
+  Pin 720 — Node: 145, Offset: (-515, 0)
+Flattened pins:
+  Pin 718 — Node: 140, Offset: (930, 1100)
+  Pin 719 — Node: 142, Offset: (-515, 0)
+  Pin 720 — Node: 145, Offset: (-515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 218
+Network pins:
+  Pin 721 — Node: 141, Offset: (180, 610)
+  Pin 722 — Node: 142, Offset: (-130, 0)
+  Pin 723 — Node: 145, Offset: (135, 0)
+Flattened pins:
+  Pin 721 — Node: 141, Offset: (180, 610)
+  Pin 722 — Node: 142, Offset: (-130, 0)
+  Pin 723 — Node: 145, Offset: (135, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 219
+Network pins:
+  Pin 724 — Node: 143, Offset: (180, 1100)
+  Pin 725 — Node: 146, Offset: (515, 0)
+Flattened pins:
+  Pin 724 — Node: 143, Offset: (180, 1100)
+  Pin 725 — Node: 146, Offset: (515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 220
+Network pins:
+  Pin 726 — Node: 144, Offset: (1565, 1100)
+  Pin 727 — Node: 146, Offset: (150, 0)
+Flattened pins:
+  Pin 726 — Node: 144, Offset: (1565, 1100)
+  Pin 727 — Node: 146, Offset: (150, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 221
+Network pins:
+  Pin 728 — Node: 145, Offset: (0, 1100)
+  Pin 729 — Node: 146, Offset: (-500, 0)
+Flattened pins:
+  Pin 728 — Node: 145, Offset: (0, 1100)
+  Pin 729 — Node: 146, Offset: (-500, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 222
+Network pins:
+  Pin 730 — Node: 147, Offset: (30, 830)
+  Pin 731 — Node: 149, Offset: (325, 0)
+Flattened pins:
+  Pin 730 — Node: 147, Offset: (30, 830)
+  Pin 731 — Node: 149, Offset: (325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 223
+Network pins:
+  Pin 732 — Node: 148, Offset: (180, 1100)
+  Pin 733 — Node: 149, Offset: (-325, 0)
+Flattened pins:
+  Pin 732 — Node: 148, Offset: (180, 1100)
+  Pin 733 — Node: 149, Offset: (-325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 224
+Network pins:
+  Pin 734 — Node: 149, Offset: (180, 1100)
+  Pin 735 — Node: 151, Offset: (-145, -150)
+Flattened pins:
+  Pin 734 — Node: 149, Offset: (180, 1100)
+  Pin 735 — Node: 151, Offset: (-145, -150)
+[OK] All pin details match.
+--------------------------
+Net ID: 225
+Network pins:
+  Pin 736 — Node: 150, Offset: (590, 1100)
+  Pin 737 — Node: 151, Offset: (175, 560)
+Flattened pins:
+  Pin 736 — Node: 150, Offset: (590, 1100)
+  Pin 737 — Node: 151, Offset: (175, 560)
+[OK] All pin details match.
+--------------------------
+Net ID: 226
+Network pins:
+  Pin 738 — Node: 152, Offset: (180, 1100)
+  Pin 739 — Node: 155, Offset: (515, 0)
+Flattened pins:
+  Pin 738 — Node: 152, Offset: (180, 1100)
+  Pin 739 — Node: 155, Offset: (515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 227
+Network pins:
+  Pin 740 — Node: 153, Offset: (-30, 540)
+  Pin 741 — Node: 155, Offset: (150, 0)
+Flattened pins:
+  Pin 740 — Node: 153, Offset: (-30, 540)
+  Pin 741 — Node: 155, Offset: (150, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 228
+Network pins:
+  Pin 742 — Node: 154, Offset: (740, 1080)
+  Pin 743 — Node: 155, Offset: (-500, 0)
+Flattened pins:
+  Pin 742 — Node: 154, Offset: (740, 1080)
+  Pin 743 — Node: 155, Offset: (-500, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 229
+Network pins:
+  Pin 744 — Node: 156, Offset: (590, 1100)
+  Pin 745 — Node: 157, Offset: (175, 560)
+Flattened pins:
+  Pin 744 — Node: 156, Offset: (590, 1100)
+  Pin 745 — Node: 157, Offset: (175, 560)
+[OK] All pin details match.
+--------------------------
+Net ID: 230
+Network pins:
+  Pin 746 — Node: 158, Offset: (-30, 540)
+  Pin 747 — Node: 160, Offset: (325, -80)
+Flattened pins:
+  Pin 746 — Node: 158, Offset: (-30, 540)
+  Pin 747 — Node: 160, Offset: (325, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 231
+Network pins:
+  Pin 748 — Node: 159, Offset: (740, 1080)
+  Pin 749 — Node: 160, Offset: (705, -80)
+Flattened pins:
+  Pin 748 — Node: 159, Offset: (740, 1080)
+  Pin 749 — Node: 160, Offset: (705, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 232
+Network pins:
+  Pin 750 — Node: 161, Offset: (180, 1100)
+  Pin 751 — Node: 162, Offset: (-135, 0)
+  Pin 752 — Node: 170, Offset: (-325, 0)
+Flattened pins:
+  Pin 750 — Node: 161, Offset: (180, 1100)
+  Pin 751 — Node: 162, Offset: (-135, 0)
+  Pin 752 — Node: 170, Offset: (-325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 233
+Network pins:
+  Pin 753 — Node: 162, Offset: (340, 1100)
+  Pin 754 — Node: 163, Offset: (325, 0)
+  Pin 755 — Node: 253, Offset: (325, -80)
+Flattened pins:
+  Pin 753 — Node: 162, Offset: (340, 1100)
+  Pin 754 — Node: 163, Offset: (325, 0)
+  Pin 755 — Node: 253, Offset: (325, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 234
+Network pins:
+  Pin 756 — Node: 163, Offset: (180, 1100)
+  Pin 757 — Node: 165, Offset: (-145, -150)
+Flattened pins:
+  Pin 756 — Node: 163, Offset: (180, 1100)
+  Pin 757 — Node: 165, Offset: (-145, -150)
+[OK] All pin details match.
+--------------------------
+Net ID: 235
+Network pins:
+  Pin 758 — Node: 164, Offset: (560, 820)
+  Pin 759 — Node: 165, Offset: (175, 560)
+Flattened pins:
+  Pin 758 — Node: 164, Offset: (560, 820)
+  Pin 759 — Node: 165, Offset: (175, 560)
+[OK] All pin details match.
+--------------------------
+Net ID: 236
+Network pins:
+  Pin 760 — Node: 166, Offset: (-30, 540)
+  Pin 761 — Node: 168, Offset: (325, -80)
+Flattened pins:
+  Pin 760 — Node: 166, Offset: (-30, 540)
+  Pin 761 — Node: 168, Offset: (325, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 237
+Network pins:
+  Pin 762 — Node: 167, Offset: (180, 1100)
+  Pin 763 — Node: 168, Offset: (705, -80)
+Flattened pins:
+  Pin 762 — Node: 167, Offset: (180, 1100)
+  Pin 763 — Node: 168, Offset: (705, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 238
+Network pins:
+  Pin 764 — Node: 169, Offset: (0, 1100)
+  Pin 765 — Node: 170, Offset: (325, 0)
+Flattened pins:
+  Pin 764 — Node: 169, Offset: (0, 1100)
+  Pin 765 — Node: 170, Offset: (325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 239
+Network pins:
+  Pin 766 — Node: 170, Offset: (180, 1100)
+  Pin 767 — Node: 172, Offset: (-145, -150)
+Flattened pins:
+  Pin 766 — Node: 170, Offset: (180, 1100)
+  Pin 767 — Node: 172, Offset: (-145, -150)
+[OK] All pin details match.
+--------------------------
+Net ID: 240
+Network pins:
+  Pin 768 — Node: 171, Offset: (590, 1100)
+  Pin 769 — Node: 172, Offset: (175, 560)
+Flattened pins:
+  Pin 768 — Node: 171, Offset: (590, 1100)
+  Pin 769 — Node: 172, Offset: (175, 560)
+[OK] All pin details match.
+--------------------------
+Net ID: 241
+Network pins:
+  Pin 770 — Node: 173, Offset: (180, 1100)
+  Pin 771 — Node: 176, Offset: (515, 0)
+Flattened pins:
+  Pin 770 — Node: 173, Offset: (180, 1100)
+  Pin 771 — Node: 176, Offset: (515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 242
+Network pins:
+  Pin 772 — Node: 174, Offset: (340, 830)
+  Pin 773 — Node: 176, Offset: (150, 0)
+Flattened pins:
+  Pin 772 — Node: 174, Offset: (340, 830)
+  Pin 773 — Node: 176, Offset: (150, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 243
+Network pins:
+  Pin 774 — Node: 175, Offset: (740, 1080)
+  Pin 775 — Node: 176, Offset: (-500, 0)
+Flattened pins:
+  Pin 774 — Node: 175, Offset: (740, 1080)
+  Pin 775 — Node: 176, Offset: (-500, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 244
+Network pins:
+  Pin 776 — Node: 177, Offset: (590, 1100)
+  Pin 777 — Node: 178, Offset: (175, 560)
+Flattened pins:
+  Pin 776 — Node: 177, Offset: (590, 1100)
+  Pin 777 — Node: 178, Offset: (175, 560)
+[OK] All pin details match.
+--------------------------
+Net ID: 245
+Network pins:
+  Pin 778 — Node: 179, Offset: (-30, 540)
+  Pin 779 — Node: 181, Offset: (325, -80)
+Flattened pins:
+  Pin 778 — Node: 179, Offset: (-30, 540)
+  Pin 779 — Node: 181, Offset: (325, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 246
+Network pins:
+  Pin 780 — Node: 180, Offset: (740, 1080)
+  Pin 781 — Node: 181, Offset: (705, -80)
+Flattened pins:
+  Pin 780 — Node: 180, Offset: (740, 1080)
+  Pin 781 — Node: 181, Offset: (705, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 247
+Network pins:
+  Pin 782 — Node: 182, Offset: (180, 610)
+  Pin 783 — Node: 183, Offset: (325, 0)
+Flattened pins:
+  Pin 782 — Node: 182, Offset: (180, 610)
+  Pin 783 — Node: 183, Offset: (325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 248
+Network pins:
+  Pin 784 — Node: 183, Offset: (180, 1100)
+  Pin 785 — Node: 185, Offset: (-145, -150)
+Flattened pins:
+  Pin 784 — Node: 183, Offset: (180, 1100)
+  Pin 785 — Node: 185, Offset: (-145, -150)
+[OK] All pin details match.
+--------------------------
+Net ID: 249
+Network pins:
+  Pin 786 — Node: 184, Offset: (560, 820)
+  Pin 787 — Node: 185, Offset: (175, 560)
+Flattened pins:
+  Pin 786 — Node: 184, Offset: (560, 820)
+  Pin 787 — Node: 185, Offset: (175, 560)
+[OK] All pin details match.
+--------------------------
+Net ID: 250
+Network pins:
+  Pin 788 — Node: 186, Offset: (180, 1100)
+  Pin 789 — Node: 189, Offset: (515, 0)
+Flattened pins:
+  Pin 788 — Node: 186, Offset: (180, 1100)
+  Pin 789 — Node: 189, Offset: (515, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 251
+Network pins:
+  Pin 790 — Node: 187, Offset: (340, 830)
+  Pin 791 — Node: 189, Offset: (150, 0)
+Flattened pins:
+  Pin 790 — Node: 187, Offset: (340, 830)
+  Pin 791 — Node: 189, Offset: (150, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 252
+Network pins:
+  Pin 792 — Node: 188, Offset: (740, 1080)
+  Pin 793 — Node: 189, Offset: (-500, 0)
+Flattened pins:
+  Pin 792 — Node: 188, Offset: (740, 1080)
+  Pin 793 — Node: 189, Offset: (-500, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 253
+Network pins:
+  Pin 794 — Node: 190, Offset: (590, 1100)
+  Pin 795 — Node: 191, Offset: (175, 560)
+Flattened pins:
+  Pin 794 — Node: 190, Offset: (590, 1100)
+  Pin 795 — Node: 191, Offset: (175, 560)
+[OK] All pin details match.
+--------------------------
+Net ID: 254
+Network pins:
+  Pin 796 — Node: 192, Offset: (1565, 1100)
+  Pin 797 — Node: 194, Offset: (325, -80)
+Flattened pins:
+  Pin 796 — Node: 192, Offset: (1565, 1100)
+  Pin 797 — Node: 194, Offset: (325, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 255
+Network pins:
+  Pin 798 — Node: 193, Offset: (740, 1080)
+  Pin 799 — Node: 194, Offset: (705, -80)
+Flattened pins:
+  Pin 798 — Node: 193, Offset: (740, 1080)
+  Pin 799 — Node: 194, Offset: (705, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 256
+Network pins:
+  Pin 800 — Node: 195, Offset: (590, 1100)
+  Pin 801 — Node: 198, Offset: (-145, -150)
+Flattened pins:
+  Pin 800 — Node: 195, Offset: (590, 1100)
+  Pin 801 — Node: 198, Offset: (-145, -150)
+[OK] All pin details match.
+--------------------------
+Net ID: 257
+Network pins:
+  Pin 802 — Node: 196, Offset: (175, 1100)
+  Pin 803 — Node: 197, Offset: (325, 0)
+  Pin 804 — Node: 208, Offset: (60, 0)
+Flattened pins:
+  Pin 802 — Node: 196, Offset: (175, 1100)
+  Pin 803 — Node: 197, Offset: (325, 0)
+  Pin 804 — Node: 208, Offset: (60, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 258
+Network pins:
+  Pin 805 — Node: 197, Offset: (180, 1100)
+  Pin 806 — Node: 198, Offset: (175, 560)
+Flattened pins:
+  Pin 805 — Node: 197, Offset: (180, 1100)
+  Pin 806 — Node: 198, Offset: (175, 560)
+[OK] All pin details match.
+--------------------------
+Net ID: 259
+Network pins:
+  Pin 807 — Node: 199, Offset: (1565, 1100)
+  Pin 808 — Node: 201, Offset: (325, -80)
+Flattened pins:
+  Pin 807 — Node: 199, Offset: (1565, 1100)
+  Pin 808 — Node: 201, Offset: (325, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 260
+Network pins:
+  Pin 809 — Node: 200, Offset: (150, 1100)
+  Pin 810 — Node: 201, Offset: (705, -80)
+Flattened pins:
+  Pin 809 — Node: 200, Offset: (150, 1100)
+  Pin 810 — Node: 201, Offset: (705, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 261
+Network pins:
+  Pin 811 — Node: 203, Offset: (1565, 1100)
+  Pin 812 — Node: 205, Offset: (325, -80)
+Flattened pins:
+  Pin 811 — Node: 203, Offset: (1565, 1100)
+  Pin 812 — Node: 205, Offset: (325, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 262
+Network pins:
+  Pin 813 — Node: 204, Offset: (150, 1100)
+  Pin 814 — Node: 205, Offset: (705, -80)
+Flattened pins:
+  Pin 813 — Node: 204, Offset: (150, 1100)
+  Pin 814 — Node: 205, Offset: (705, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 263
+Network pins:
+  Pin 815 — Node: 207, Offset: (180, 1100)
+  Pin 816 — Node: 208, Offset: (-705, 0)
+Flattened pins:
+  Pin 815 — Node: 207, Offset: (180, 1100)
+  Pin 816 — Node: 208, Offset: (-705, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 264
+Network pins:
+  Pin 817 — Node: 208, Offset: (740, 1100)
+  Pin 818 — Node: 209, Offset: (220, 0)
+Flattened pins:
+  Pin 817 — Node: 208, Offset: (740, 1100)
+  Pin 818 — Node: 209, Offset: (220, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 265
+Network pins:
+  Pin 819 — Node: 209, Offset: (150, 1100)
+  Pin 820 — Node: 212, Offset: (705, 0)
+Flattened pins:
+  Pin 819 — Node: 209, Offset: (150, 1100)
+  Pin 820 — Node: 212, Offset: (705, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 266
+Network pins:
+  Pin 821 — Node: 210, Offset: (175, 600)
+  Pin 822 — Node: 211, Offset: (325, 0)
+Flattened pins:
+  Pin 821 — Node: 210, Offset: (175, 600)
+  Pin 822 — Node: 211, Offset: (325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 267
+Network pins:
+  Pin 823 — Node: 211, Offset: (180, 1100)
+  Pin 824 — Node: 212, Offset: (-705, 0)
+Flattened pins:
+  Pin 823 — Node: 211, Offset: (180, 1100)
+  Pin 824 — Node: 212, Offset: (-705, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 268
+Network pins:
+  Pin 825 — Node: 212, Offset: (150, 1100)
+  Pin 826 — Node: 213, Offset: (220, 0)
+Flattened pins:
+  Pin 825 — Node: 212, Offset: (150, 1100)
+  Pin 826 — Node: 213, Offset: (220, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 269
+Network pins:
+  Pin 827 — Node: 213, Offset: (150, 1100)
+  Pin 828 — Node: 214, Offset: (225, 0)
+Flattened pins:
+  Pin 827 — Node: 213, Offset: (150, 1100)
+  Pin 828 — Node: 214, Offset: (225, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 270
+Network pins:
+  Pin 829 — Node: 214, Offset: (175, 600)
+  Pin 830 — Node: 215, Offset: (-515, 0)
+  Pin 831 — Node: 218, Offset: (230, 0)
+Flattened pins:
+  Pin 829 — Node: 214, Offset: (175, 600)
+  Pin 830 — Node: 215, Offset: (-515, 0)
+  Pin 831 — Node: 218, Offset: (230, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 271
+Network pins:
+  Pin 832 — Node: 215, Offset: (150, 1100)
+  Pin 833 — Node: 216, Offset: (-2140, 0)
+Flattened pins:
+  Pin 832 — Node: 215, Offset: (150, 1100)
+  Pin 833 — Node: 216, Offset: (-2140, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 272
+Network pins:
+  Pin 834 — Node: 217, Offset: (150, 1100)
+  Pin 835 — Node: 218, Offset: (-895, 0)
+Flattened pins:
+  Pin 834 — Node: 217, Offset: (150, 1100)
+  Pin 835 — Node: 218, Offset: (-895, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 273
+Network pins:
+  Pin 836 — Node: 219, Offset: (1120, 1060)
+  Pin 837 — Node: 222, Offset: (-700, 0)
+Flattened pins:
+  Pin 836 — Node: 219, Offset: (1120, 1060)
+  Pin 837 — Node: 222, Offset: (-700, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 274
+Network pins:
+  Pin 838 — Node: 220, Offset: (40, 290)
+  Pin 839 — Node: 221, Offset: (-2240, 0)
+  Pin 840 — Node: 242, Offset: (-675, 270)
+  Pin 841 — Node: 244, Offset: (-675, 270)
+  Pin 842 — Node: 246, Offset: (-675, 270)
+  Pin 843 — Node: 248, Offset: (-675, 270)
+  Pin 844 — Node: 250, Offset: (-675, 270)
+  Pin 845 — Node: 252, Offset: (-675, 270)
+Flattened pins:
+  Pin 838 — Node: 220, Offset: (40, 290)
+  Pin 839 — Node: 221, Offset: (-2240, 0)
+  Pin 840 — Node: 242, Offset: (-675, 270)
+  Pin 841 — Node: 244, Offset: (-675, 270)
+  Pin 842 — Node: 246, Offset: (-675, 270)
+  Pin 843 — Node: 248, Offset: (-675, 270)
+  Pin 844 — Node: 250, Offset: (-675, 270)
+  Pin 845 — Node: 252, Offset: (-675, 270)
+[OK] All pin details match.
+--------------------------
+Net ID: 275
+Network pins:
+  Pin 846 — Node: 221, Offset: (720, 1100)
+  Pin 847 — Node: 222, Offset: (-675, 270)
+  Pin 848 — Node: 224, Offset: (-675, 270)
+  Pin 849 — Node: 226, Offset: (-675, 270)
+  Pin 850 — Node: 228, Offset: (-675, 270)
+  Pin 851 — Node: 230, Offset: (-675, 270)
+  Pin 852 — Node: 232, Offset: (-675, 270)
+  Pin 853 — Node: 234, Offset: (-675, 270)
+  Pin 854 — Node: 236, Offset: (-675, 270)
+  Pin 855 — Node: 238, Offset: (-675, 270)
+  Pin 856 — Node: 240, Offset: (-675, 270)
+Flattened pins:
+  Pin 846 — Node: 221, Offset: (720, 1100)
+  Pin 847 — Node: 222, Offset: (-675, 270)
+  Pin 848 — Node: 224, Offset: (-675, 270)
+  Pin 849 — Node: 226, Offset: (-675, 270)
+  Pin 850 — Node: 228, Offset: (-675, 270)
+  Pin 851 — Node: 230, Offset: (-675, 270)
+  Pin 852 — Node: 232, Offset: (-675, 270)
+  Pin 853 — Node: 234, Offset: (-675, 270)
+  Pin 854 — Node: 236, Offset: (-675, 270)
+  Pin 855 — Node: 238, Offset: (-675, 270)
+  Pin 856 — Node: 240, Offset: (-675, 270)
+[OK] All pin details match.
+--------------------------
+Net ID: 276
+Network pins:
+  Pin 857 — Node: 223, Offset: (1120, 1060)
+  Pin 858 — Node: 224, Offset: (-700, 0)
+Flattened pins:
+  Pin 857 — Node: 223, Offset: (1120, 1060)
+  Pin 858 — Node: 224, Offset: (-700, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 277
+Network pins:
+  Pin 859 — Node: 225, Offset: (1120, 1060)
+  Pin 860 — Node: 226, Offset: (-700, 0)
+Flattened pins:
+  Pin 859 — Node: 225, Offset: (1120, 1060)
+  Pin 860 — Node: 226, Offset: (-700, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 278
+Network pins:
+  Pin 861 — Node: 227, Offset: (1120, 1060)
+  Pin 862 — Node: 228, Offset: (-700, 0)
+Flattened pins:
+  Pin 861 — Node: 227, Offset: (1120, 1060)
+  Pin 862 — Node: 228, Offset: (-700, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 279
+Network pins:
+  Pin 863 — Node: 229, Offset: (1120, 1060)
+  Pin 864 — Node: 230, Offset: (-700, 0)
+Flattened pins:
+  Pin 863 — Node: 229, Offset: (1120, 1060)
+  Pin 864 — Node: 230, Offset: (-700, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 280
+Network pins:
+  Pin 865 — Node: 231, Offset: (1120, 1060)
+  Pin 866 — Node: 232, Offset: (-700, 0)
+Flattened pins:
+  Pin 865 — Node: 231, Offset: (1120, 1060)
+  Pin 866 — Node: 232, Offset: (-700, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 281
+Network pins:
+  Pin 867 — Node: 233, Offset: (1120, 1060)
+  Pin 868 — Node: 234, Offset: (-700, 0)
+Flattened pins:
+  Pin 867 — Node: 233, Offset: (1120, 1060)
+  Pin 868 — Node: 234, Offset: (-700, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 282
+Network pins:
+  Pin 869 — Node: 235, Offset: (1120, 1060)
+  Pin 870 — Node: 236, Offset: (-700, 0)
+Flattened pins:
+  Pin 869 — Node: 235, Offset: (1120, 1060)
+  Pin 870 — Node: 236, Offset: (-700, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 283
+Network pins:
+  Pin 871 — Node: 237, Offset: (1120, 1060)
+  Pin 872 — Node: 238, Offset: (-700, 0)
+Flattened pins:
+  Pin 871 — Node: 237, Offset: (1120, 1060)
+  Pin 872 — Node: 238, Offset: (-700, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 284
+Network pins:
+  Pin 873 — Node: 239, Offset: (1120, 1060)
+  Pin 874 — Node: 240, Offset: (-700, 0)
+Flattened pins:
+  Pin 873 — Node: 239, Offset: (1120, 1060)
+  Pin 874 — Node: 240, Offset: (-700, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 285
+Network pins:
+  Pin 875 — Node: 241, Offset: (1120, 1060)
+  Pin 876 — Node: 242, Offset: (-700, 0)
+Flattened pins:
+  Pin 875 — Node: 241, Offset: (1120, 1060)
+  Pin 876 — Node: 242, Offset: (-700, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 286
+Network pins:
+  Pin 877 — Node: 243, Offset: (1120, 1060)
+  Pin 878 — Node: 244, Offset: (-700, 0)
+Flattened pins:
+  Pin 877 — Node: 243, Offset: (1120, 1060)
+  Pin 878 — Node: 244, Offset: (-700, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 287
+Network pins:
+  Pin 879 — Node: 245, Offset: (1120, 1060)
+  Pin 880 — Node: 246, Offset: (-700, 0)
+Flattened pins:
+  Pin 879 — Node: 245, Offset: (1120, 1060)
+  Pin 880 — Node: 246, Offset: (-700, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 288
+Network pins:
+  Pin 881 — Node: 247, Offset: (1120, 1060)
+  Pin 882 — Node: 248, Offset: (-700, 0)
+Flattened pins:
+  Pin 881 — Node: 247, Offset: (1120, 1060)
+  Pin 882 — Node: 248, Offset: (-700, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 289
+Network pins:
+  Pin 883 — Node: 249, Offset: (1120, 1060)
+  Pin 884 — Node: 250, Offset: (-700, 0)
+Flattened pins:
+  Pin 883 — Node: 249, Offset: (1120, 1060)
+  Pin 884 — Node: 250, Offset: (-700, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 290
+Network pins:
+  Pin 885 — Node: 251, Offset: (1120, 1060)
+  Pin 886 — Node: 252, Offset: (-700, 0)
+Flattened pins:
+  Pin 885 — Node: 251, Offset: (1120, 1060)
+  Pin 886 — Node: 252, Offset: (-700, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 291
+Network pins:
+  Pin 887 — Node: 253, Offset: (180, 610)
+  Pin 888 — Node: 254, Offset: (325, 0)
+Flattened pins:
+  Pin 887 — Node: 253, Offset: (180, 610)
+  Pin 888 — Node: 254, Offset: (325, 0)
+[OK] All pin details match.
+--------------------------
+Net ID: 292
+Network pins:
+  Pin 889 — Node: 254, Offset: (180, 1100)
+  Pin 890 — Node: 256, Offset: (-145, -150)
+Flattened pins:
+  Pin 889 — Node: 254, Offset: (180, 1100)
+  Pin 890 — Node: 256, Offset: (-145, -150)
+[OK] All pin details match.
+--------------------------
+Net ID: 293
+Network pins:
+  Pin 891 — Node: 255, Offset: (590, 1100)
+  Pin 892 — Node: 256, Offset: (175, 560)
+Flattened pins:
+  Pin 891 — Node: 255, Offset: (590, 1100)
+  Pin 892 — Node: 256, Offset: (175, 560)
+[OK] All pin details match.
+--------------------------
+Net ID: 294
+Network pins:
+  Pin 893 — Node: 257, Offset: (-30, 540)
+  Pin 894 — Node: 259, Offset: (325, -80)
+Flattened pins:
+  Pin 893 — Node: 257, Offset: (-30, 540)
+  Pin 894 — Node: 259, Offset: (325, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 295
+Network pins:
+  Pin 895 — Node: 258, Offset: (740, 1080)
+  Pin 896 — Node: 259, Offset: (705, -80)
+Flattened pins:
+  Pin 895 — Node: 258, Offset: (740, 1080)
+  Pin 896 — Node: 259, Offset: (705, -80)
+[OK] All pin details match.
+--------------------------
+Net ID: 330
+Network pins:
+  Pin 931 — Node: 0, Offset: (135, 190)
+  Pin 932 — Node: 79, Offset: (-325, 0)
+  Pin 933 — Node: 206, Offset: (-325, 0)
+  Pin 934 — Node: 276, Offset: (3040, 860)
+Flattened pins:
+  Pin 931 — Node: 0, Offset: (135, 190)
+  Pin 932 — Node: 79, Offset: (-325, 0)
+  Pin 933 — Node: 206, Offset: (-325, 0)
+  Pin 934 — Node: 276, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 331
+Network pins:
+  Pin 935 — Node: 0, Offset: (0, -80)
+  Pin 936 — Node: 78, Offset: (-1100, 0)
+  Pin 937 — Node: 86, Offset: (-325, 0)
+  Pin 938 — Node: 93, Offset: (-1100, 0)
+  Pin 939 — Node: 102, Offset: (-155, 0)
+  Pin 940 — Node: 106, Offset: (-1160, 0)
+  Pin 941 — Node: 117, Offset: (-1160, 0)
+  Pin 942 — Node: 203, Offset: (-1160, 0)
+  Pin 943 — Node: 257, Offset: (-900, 320)
+  Pin 944 — Node: 275, Offset: (3040, 860)
+Flattened pins:
+  Pin 935 — Node: 0, Offset: (0, -80)
+  Pin 936 — Node: 78, Offset: (-1100, 0)
+  Pin 937 — Node: 86, Offset: (-325, 0)
+  Pin 938 — Node: 93, Offset: (-1100, 0)
+  Pin 939 — Node: 102, Offset: (-155, 0)
+  Pin 940 — Node: 106, Offset: (-1160, 0)
+  Pin 941 — Node: 117, Offset: (-1160, 0)
+  Pin 942 — Node: 203, Offset: (-1160, 0)
+  Pin 943 — Node: 257, Offset: (-900, 320)
+  Pin 944 — Node: 275, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 332
+Network pins:
+  Pin 945 — Node: 33, Offset: (-305, 600)
+  Pin 946 — Node: 197, Offset: (-325, 0)
+  Pin 947 — Node: 202, Offset: (110, 490)
+  Pin 948 — Node: 251, Offset: (-700, 0)
+  Pin 949 — Node: 274, Offset: (3040, 860)
+Flattened pins:
+  Pin 945 — Node: 33, Offset: (-305, 600)
+  Pin 946 — Node: 197, Offset: (-325, 0)
+  Pin 947 — Node: 202, Offset: (110, 490)
+  Pin 948 — Node: 251, Offset: (-700, 0)
+  Pin 949 — Node: 274, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 333
+Network pins:
+  Pin 950 — Node: 21, Offset: (-325, 0)
+  Pin 951 — Node: 71, Offset: (-325, 0)
+  Pin 952 — Node: 130, Offset: (150, 0)
+  Pin 953 — Node: 143, Offset: (-325, 0)
+  Pin 954 — Node: 231, Offset: (-700, 0)
+  Pin 955 — Node: 265, Offset: (3040, 860)
+Flattened pins:
+  Pin 950 — Node: 21, Offset: (-325, 0)
+  Pin 951 — Node: 71, Offset: (-325, 0)
+  Pin 952 — Node: 130, Offset: (150, 0)
+  Pin 953 — Node: 143, Offset: (-325, 0)
+  Pin 954 — Node: 231, Offset: (-700, 0)
+  Pin 955 — Node: 265, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 334
+Network pins:
+  Pin 956 — Node: 19, Offset: (-325, 0)
+  Pin 957 — Node: 70, Offset: (-325, 0)
+  Pin 958 — Node: 132, Offset: (175, 560)
+  Pin 959 — Node: 134, Offset: (-325, 0)
+  Pin 960 — Node: 229, Offset: (-700, 0)
+  Pin 961 — Node: 264, Offset: (3040, 860)
+Flattened pins:
+  Pin 956 — Node: 19, Offset: (-325, 0)
+  Pin 957 — Node: 70, Offset: (-325, 0)
+  Pin 958 — Node: 132, Offset: (175, 560)
+  Pin 959 — Node: 134, Offset: (-325, 0)
+  Pin 960 — Node: 229, Offset: (-700, 0)
+  Pin 961 — Node: 264, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 335
+Network pins:
+  Pin 962 — Node: 8, Offset: (-325, 0)
+  Pin 963 — Node: 60, Offset: (-325, 0)
+  Pin 964 — Node: 120, Offset: (110, 490)
+  Pin 965 — Node: 122, Offset: (-325, 0)
+  Pin 966 — Node: 227, Offset: (-700, 0)
+  Pin 967 — Node: 263, Offset: (3040, 860)
+Flattened pins:
+  Pin 962 — Node: 8, Offset: (-325, 0)
+  Pin 963 — Node: 60, Offset: (-325, 0)
+  Pin 964 — Node: 120, Offset: (110, 490)
+  Pin 965 — Node: 122, Offset: (-325, 0)
+  Pin 966 — Node: 227, Offset: (-700, 0)
+  Pin 967 — Node: 263, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 336
+Network pins:
+  Pin 968 — Node: 6, Offset: (-325, 0)
+  Pin 969 — Node: 59, Offset: (-325, 0)
+  Pin 970 — Node: 115, Offset: (-325, 0)
+  Pin 971 — Node: 219, Offset: (-700, 0)
+  Pin 972 — Node: 262, Offset: (3040, 860)
+Flattened pins:
+  Pin 968 — Node: 6, Offset: (-325, 0)
+  Pin 969 — Node: 59, Offset: (-325, 0)
+  Pin 970 — Node: 115, Offset: (-325, 0)
+  Pin 971 — Node: 219, Offset: (-700, 0)
+  Pin 972 — Node: 262, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 337
+Network pins:
+  Pin 973 — Node: 11, Offset: (-325, 0)
+  Pin 974 — Node: 64, Offset: (-325, 0)
+  Pin 975 — Node: 100, Offset: (110, 490)
+  Pin 976 — Node: 104, Offset: (-325, 0)
+  Pin 977 — Node: 225, Offset: (-700, 0)
+  Pin 978 — Node: 261, Offset: (3040, 860)
+Flattened pins:
+  Pin 973 — Node: 11, Offset: (-325, 0)
+  Pin 974 — Node: 64, Offset: (-325, 0)
+  Pin 975 — Node: 100, Offset: (110, 490)
+  Pin 976 — Node: 104, Offset: (-325, 0)
+  Pin 977 — Node: 225, Offset: (-700, 0)
+  Pin 978 — Node: 261, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 338
+Network pins:
+  Pin 979 — Node: 2, Offset: (-155, 0)
+  Pin 980 — Node: 223, Offset: (-700, 0)
+  Pin 981 — Node: 260, Offset: (3040, 860)
+Flattened pins:
+  Pin 979 — Node: 2, Offset: (-155, 0)
+  Pin 980 — Node: 223, Offset: (-700, 0)
+  Pin 981 — Node: 260, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 339
+Network pins:
+  Pin 982 — Node: 30, Offset: (-305, 600)
+  Pin 983 — Node: 195, Offset: (175, 560)
+  Pin 984 — Node: 249, Offset: (-700, 0)
+  Pin 985 — Node: 273, Offset: (3040, 860)
+Flattened pins:
+  Pin 982 — Node: 30, Offset: (-305, 600)
+  Pin 983 — Node: 195, Offset: (175, 560)
+  Pin 984 — Node: 249, Offset: (-700, 0)
+  Pin 985 — Node: 273, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 340
+Network pins:
+  Pin 986 — Node: 26, Offset: (-40, 840)
+  Pin 987 — Node: 37, Offset: (-325, 0)
+  Pin 988 — Node: 182, Offset: (-705, 0)
+  Pin 989 — Node: 190, Offset: (175, 560)
+  Pin 990 — Node: 247, Offset: (-700, 0)
+  Pin 991 — Node: 272, Offset: (3040, 860)
+Flattened pins:
+  Pin 986 — Node: 26, Offset: (-40, 840)
+  Pin 987 — Node: 37, Offset: (-325, 0)
+  Pin 988 — Node: 182, Offset: (-705, 0)
+  Pin 989 — Node: 190, Offset: (175, 560)
+  Pin 990 — Node: 247, Offset: (-700, 0)
+  Pin 991 — Node: 272, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 341
+Network pins:
+  Pin 992 — Node: 25, Offset: (40, 560)
+  Pin 993 — Node: 28, Offset: (-500, 0)
+  Pin 994 — Node: 184, Offset: (110, 490)
+  Pin 995 — Node: 186, Offset: (-325, 0)
+  Pin 996 — Node: 245, Offset: (-700, 0)
+  Pin 997 — Node: 271, Offset: (3040, 860)
+Flattened pins:
+  Pin 992 — Node: 25, Offset: (40, 560)
+  Pin 993 — Node: 28, Offset: (-500, 0)
+  Pin 994 — Node: 184, Offset: (110, 490)
+  Pin 995 — Node: 186, Offset: (-325, 0)
+  Pin 996 — Node: 245, Offset: (-700, 0)
+  Pin 997 — Node: 271, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 342
+Network pins:
+  Pin 998 — Node: 41, Offset: (-325, 0)
+  Pin 999 — Node: 52, Offset: (-305, 600)
+  Pin 1000 — Node: 177, Offset: (175, 560)
+  Pin 1001 — Node: 243, Offset: (-700, 0)
+  Pin 1002 — Node: 270, Offset: (3040, 860)
+Flattened pins:
+  Pin 998 — Node: 41, Offset: (-325, 0)
+  Pin 999 — Node: 52, Offset: (-305, 600)
+  Pin 1000 — Node: 177, Offset: (175, 560)
+  Pin 1001 — Node: 243, Offset: (-700, 0)
+  Pin 1002 — Node: 270, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 343
+Network pins:
+  Pin 1003 — Node: 43, Offset: (40, 560)
+  Pin 1004 — Node: 54, Offset: (775, -80)
+  Pin 1005 — Node: 162, Offset: (-895, 0)
+  Pin 1006 — Node: 171, Offset: (175, 560)
+  Pin 1007 — Node: 173, Offset: (-325, 0)
+  Pin 1008 — Node: 241, Offset: (-700, 0)
+  Pin 1009 — Node: 269, Offset: (3040, 860)
+Flattened pins:
+  Pin 1003 — Node: 43, Offset: (40, 560)
+  Pin 1004 — Node: 54, Offset: (775, -80)
+  Pin 1005 — Node: 162, Offset: (-895, 0)
+  Pin 1006 — Node: 171, Offset: (175, 560)
+  Pin 1007 — Node: 173, Offset: (-325, 0)
+  Pin 1008 — Node: 241, Offset: (-700, 0)
+  Pin 1009 — Node: 269, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 344
+Network pins:
+  Pin 1010 — Node: 44, Offset: (-720, 0)
+  Pin 1011 — Node: 164, Offset: (-210, 200)
+  Pin 1012 — Node: 239, Offset: (-700, 0)
+  Pin 1013 — Node: 268, Offset: (3040, 860)
+Flattened pins:
+  Pin 1010 — Node: 44, Offset: (-720, 0)
+  Pin 1011 — Node: 164, Offset: (-210, 200)
+  Pin 1012 — Node: 239, Offset: (-700, 0)
+  Pin 1013 — Node: 268, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 345
+Network pins:
+  Pin 1014 — Node: 47, Offset: (715, -80)
+  Pin 1015 — Node: 50, Offset: (-515, 0)
+  Pin 1016 — Node: 51, Offset: (-155, 0)
+  Pin 1017 — Node: 237, Offset: (-700, 0)
+  Pin 1018 — Node: 255, Offset: (175, 560)
+  Pin 1019 — Node: 293, Offset: (3040, 860)
+Flattened pins:
+  Pin 1014 — Node: 47, Offset: (715, -80)
+  Pin 1015 — Node: 50, Offset: (-515, 0)
+  Pin 1016 — Node: 51, Offset: (-155, 0)
+  Pin 1017 — Node: 237, Offset: (-700, 0)
+  Pin 1018 — Node: 255, Offset: (175, 560)
+  Pin 1019 — Node: 293, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 346
+Network pins:
+  Pin 1020 — Node: 16, Offset: (-155, 0)
+  Pin 1021 — Node: 67, Offset: (730, 0)
+  Pin 1022 — Node: 156, Offset: (175, 560)
+  Pin 1023 — Node: 235, Offset: (-700, 0)
+  Pin 1024 — Node: 267, Offset: (3040, 860)
+Flattened pins:
+  Pin 1020 — Node: 16, Offset: (-155, 0)
+  Pin 1021 — Node: 67, Offset: (730, 0)
+  Pin 1022 — Node: 156, Offset: (175, 560)
+  Pin 1023 — Node: 235, Offset: (-700, 0)
+  Pin 1024 — Node: 267, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 347
+Network pins:
+  Pin 1025 — Node: 15, Offset: (-325, 0)
+  Pin 1026 — Node: 67, Offset: (-705, 0)
+  Pin 1027 — Node: 68, Offset: (-325, 0)
+  Pin 1028 — Node: 150, Offset: (175, 560)
+  Pin 1029 — Node: 152, Offset: (-325, 0)
+  Pin 1030 — Node: 233, Offset: (-700, 0)
+  Pin 1031 — Node: 266, Offset: (3040, 860)
+Flattened pins:
+  Pin 1025 — Node: 15, Offset: (-325, 0)
+  Pin 1026 — Node: 67, Offset: (-705, 0)
+  Pin 1027 — Node: 68, Offset: (-325, 0)
+  Pin 1028 — Node: 150, Offset: (175, 560)
+  Pin 1029 — Node: 152, Offset: (-325, 0)
+  Pin 1030 — Node: 233, Offset: (-700, 0)
+  Pin 1031 — Node: 266, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 348
+Network pins:
+  Pin 1032 — Node: 34, Offset: (-1585, -80)
+  Pin 1033 — Node: 196, Offset: (-155, 0)
+  Pin 1034 — Node: 202, Offset: (-210, 200)
+  Pin 1035 — Node: 203, Offset: (-1540, 0)
+  Pin 1036 — Node: 252, Offset: (440, 0)
+  Pin 1037 — Node: 292, Offset: (3040, 860)
+Flattened pins:
+  Pin 1032 — Node: 34, Offset: (-1585, -80)
+  Pin 1033 — Node: 196, Offset: (-155, 0)
+  Pin 1034 — Node: 202, Offset: (-210, 200)
+  Pin 1035 — Node: 203, Offset: (-1540, 0)
+  Pin 1036 — Node: 252, Offset: (440, 0)
+  Pin 1037 — Node: 292, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 349
+Network pins:
+  Pin 1038 — Node: 20, Offset: (-155, 0)
+  Pin 1039 — Node: 144, Offset: (-1540, 0)
+  Pin 1040 — Node: 210, Offset: (-135, 0)
+  Pin 1041 — Node: 232, Offset: (440, 0)
+  Pin 1042 — Node: 282, Offset: (3040, 860)
+Flattened pins:
+  Pin 1038 — Node: 20, Offset: (-155, 0)
+  Pin 1039 — Node: 144, Offset: (-1540, 0)
+  Pin 1040 — Node: 210, Offset: (-135, 0)
+  Pin 1041 — Node: 232, Offset: (440, 0)
+  Pin 1042 — Node: 282, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 350
+Network pins:
+  Pin 1043 — Node: 18, Offset: (-155, 0)
+  Pin 1044 — Node: 132, Offset: (-145, -150)
+  Pin 1045 — Node: 210, Offset: (-525, 0)
+  Pin 1046 — Node: 230, Offset: (440, 0)
+  Pin 1047 — Node: 281, Offset: (3040, 860)
+Flattened pins:
+  Pin 1043 — Node: 18, Offset: (-155, 0)
+  Pin 1044 — Node: 132, Offset: (-145, -150)
+  Pin 1045 — Node: 210, Offset: (-525, 0)
+  Pin 1046 — Node: 230, Offset: (440, 0)
+  Pin 1047 — Node: 281, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 351
+Network pins:
+  Pin 1048 — Node: 7, Offset: (-155, 0)
+  Pin 1049 — Node: 120, Offset: (-210, 200)
+  Pin 1050 — Node: 212, Offset: (55, 0)
+  Pin 1051 — Node: 228, Offset: (440, 0)
+  Pin 1052 — Node: 280, Offset: (3040, 860)
+Flattened pins:
+  Pin 1048 — Node: 7, Offset: (-155, 0)
+  Pin 1049 — Node: 120, Offset: (-210, 200)
+  Pin 1050 — Node: 212, Offset: (55, 0)
+  Pin 1051 — Node: 228, Offset: (440, 0)
+  Pin 1052 — Node: 280, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 352
+Network pins:
+  Pin 1053 — Node: 5, Offset: (-155, 0)
+  Pin 1054 — Node: 117, Offset: (-1540, 0)
+  Pin 1055 — Node: 222, Offset: (440, 0)
+  Pin 1056 — Node: 277, Offset: (3040, 860)
+Flattened pins:
+  Pin 1053 — Node: 5, Offset: (-155, 0)
+  Pin 1054 — Node: 117, Offset: (-1540, 0)
+  Pin 1055 — Node: 222, Offset: (440, 0)
+  Pin 1056 — Node: 277, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 353
+Network pins:
+  Pin 1057 — Node: 10, Offset: (-155, 0)
+  Pin 1058 — Node: 100, Offset: (-210, 200)
+  Pin 1059 — Node: 106, Offset: (-1540, 0)
+  Pin 1060 — Node: 226, Offset: (440, 0)
+  Pin 1061 — Node: 279, Offset: (3040, 860)
+Flattened pins:
+  Pin 1057 — Node: 10, Offset: (-155, 0)
+  Pin 1058 — Node: 100, Offset: (-210, 200)
+  Pin 1059 — Node: 106, Offset: (-1540, 0)
+  Pin 1060 — Node: 226, Offset: (440, 0)
+  Pin 1061 — Node: 279, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 354
+Network pins:
+  Pin 1062 — Node: 3, Offset: (-325, 0)
+  Pin 1063 — Node: 57, Offset: (-130, 0)
+  Pin 1064 — Node: 89, Offset: (-1540, 0)
+  Pin 1065 — Node: 212, Offset: (-325, 0)
+  Pin 1066 — Node: 224, Offset: (440, 0)
+  Pin 1067 — Node: 278, Offset: (3040, 860)
+Flattened pins:
+  Pin 1062 — Node: 3, Offset: (-325, 0)
+  Pin 1063 — Node: 57, Offset: (-130, 0)
+  Pin 1064 — Node: 89, Offset: (-1540, 0)
+  Pin 1065 — Node: 212, Offset: (-325, 0)
+  Pin 1066 — Node: 224, Offset: (440, 0)
+  Pin 1067 — Node: 278, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 355
+Network pins:
+  Pin 1068 — Node: 31, Offset: (-890, 190)
+  Pin 1069 — Node: 34, Offset: (1475, 0)
+  Pin 1070 — Node: 195, Offset: (-145, -150)
+  Pin 1071 — Node: 199, Offset: (-1540, 0)
+  Pin 1072 — Node: 207, Offset: (-325, 0)
+  Pin 1073 — Node: 250, Offset: (440, 0)
+  Pin 1074 — Node: 291, Offset: (3040, 860)
+Flattened pins:
+  Pin 1068 — Node: 31, Offset: (-890, 190)
+  Pin 1069 — Node: 34, Offset: (1475, 0)
+  Pin 1070 — Node: 195, Offset: (-145, -150)
+  Pin 1071 — Node: 199, Offset: (-1540, 0)
+  Pin 1072 — Node: 207, Offset: (-325, 0)
+  Pin 1073 — Node: 250, Offset: (440, 0)
+  Pin 1074 — Node: 291, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 356
+Network pins:
+  Pin 1075 — Node: 27, Offset: (50, 0)
+  Pin 1076 — Node: 36, Offset: (-40, 840)
+  Pin 1077 — Node: 190, Offset: (-145, -150)
+  Pin 1078 — Node: 248, Offset: (440, 0)
+  Pin 1079 — Node: 290, Offset: (3040, 860)
+Flattened pins:
+  Pin 1075 — Node: 27, Offset: (50, 0)
+  Pin 1076 — Node: 36, Offset: (-40, 840)
+  Pin 1077 — Node: 190, Offset: (-145, -150)
+  Pin 1078 — Node: 248, Offset: (440, 0)
+  Pin 1079 — Node: 290, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 357
+Network pins:
+  Pin 1080 — Node: 24, Offset: (-40, 840)
+  Pin 1081 — Node: 184, Offset: (-210, 200)
+  Pin 1082 — Node: 207, Offset: (325, 0)
+  Pin 1083 — Node: 246, Offset: (440, 0)
+  Pin 1084 — Node: 289, Offset: (3040, 860)
+Flattened pins:
+  Pin 1080 — Node: 24, Offset: (-40, 840)
+  Pin 1081 — Node: 184, Offset: (-210, 200)
+  Pin 1082 — Node: 207, Offset: (325, 0)
+  Pin 1083 — Node: 246, Offset: (440, 0)
+  Pin 1084 — Node: 289, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 358
+Network pins:
+  Pin 1085 — Node: 40, Offset: (-155, 0)
+  Pin 1086 — Node: 53, Offset: (50, 0)
+  Pin 1087 — Node: 161, Offset: (-325, 0)
+  Pin 1088 — Node: 169, Offset: (135, 0)
+  Pin 1089 — Node: 177, Offset: (-145, -150)
+  Pin 1090 — Node: 244, Offset: (440, 0)
+  Pin 1091 — Node: 288, Offset: (3040, 860)
+Flattened pins:
+  Pin 1085 — Node: 40, Offset: (-155, 0)
+  Pin 1086 — Node: 53, Offset: (50, 0)
+  Pin 1087 — Node: 161, Offset: (-325, 0)
+  Pin 1088 — Node: 169, Offset: (135, 0)
+  Pin 1089 — Node: 177, Offset: (-145, -150)
+  Pin 1090 — Node: 244, Offset: (440, 0)
+  Pin 1091 — Node: 288, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 359
+Network pins:
+  Pin 1092 — Node: 42, Offset: (-305, 600)
+  Pin 1093 — Node: 171, Offset: (-145, -150)
+  Pin 1094 — Node: 214, Offset: (-135, 0)
+  Pin 1095 — Node: 242, Offset: (440, 0)
+  Pin 1096 — Node: 287, Offset: (3040, 860)
+Flattened pins:
+  Pin 1092 — Node: 42, Offset: (-305, 600)
+  Pin 1093 — Node: 171, Offset: (-145, -150)
+  Pin 1094 — Node: 214, Offset: (-135, 0)
+  Pin 1095 — Node: 242, Offset: (440, 0)
+  Pin 1096 — Node: 287, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 360
+Network pins:
+  Pin 1097 — Node: 45, Offset: (-325, 0)
+  Pin 1098 — Node: 49, Offset: (-325, 0)
+  Pin 1099 — Node: 164, Offset: (110, 490)
+  Pin 1100 — Node: 167, Offset: (-325, 0)
+  Pin 1101 — Node: 214, Offset: (-525, 0)
+  Pin 1102 — Node: 240, Offset: (440, 0)
+  Pin 1103 — Node: 253, Offset: (-705, 0)
+  Pin 1104 — Node: 286, Offset: (3040, 860)
+Flattened pins:
+  Pin 1097 — Node: 45, Offset: (-325, 0)
+  Pin 1098 — Node: 49, Offset: (-325, 0)
+  Pin 1099 — Node: 164, Offset: (110, 490)
+  Pin 1100 — Node: 167, Offset: (-325, 0)
+  Pin 1101 — Node: 214, Offset: (-525, 0)
+  Pin 1102 — Node: 240, Offset: (440, 0)
+  Pin 1103 — Node: 253, Offset: (-705, 0)
+  Pin 1104 — Node: 286, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 361
+Network pins:
+  Pin 1105 — Node: 46, Offset: (-155, 0)
+  Pin 1106 — Node: 55, Offset: (-795, 0)
+  Pin 1107 — Node: 238, Offset: (440, 0)
+  Pin 1108 — Node: 255, Offset: (-145, -150)
+  Pin 1109 — Node: 285, Offset: (3040, 860)
+Flattened pins:
+  Pin 1105 — Node: 46, Offset: (-155, 0)
+  Pin 1106 — Node: 55, Offset: (-795, 0)
+  Pin 1107 — Node: 238, Offset: (440, 0)
+  Pin 1108 — Node: 255, Offset: (-145, -150)
+  Pin 1109 — Node: 285, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 362
+Network pins:
+  Pin 1110 — Node: 17, Offset: (150, 0)
+  Pin 1111 — Node: 66, Offset: (-155, 0)
+  Pin 1112 — Node: 147, Offset: (150, 0)
+  Pin 1113 — Node: 148, Offset: (-325, 0)
+  Pin 1114 — Node: 156, Offset: (-145, -150)
+  Pin 1115 — Node: 236, Offset: (440, 0)
+  Pin 1116 — Node: 284, Offset: (3040, 860)
+Flattened pins:
+  Pin 1110 — Node: 17, Offset: (150, 0)
+  Pin 1111 — Node: 66, Offset: (-155, 0)
+  Pin 1112 — Node: 147, Offset: (150, 0)
+  Pin 1113 — Node: 148, Offset: (-325, 0)
+  Pin 1114 — Node: 156, Offset: (-145, -150)
+  Pin 1115 — Node: 236, Offset: (440, 0)
+  Pin 1116 — Node: 284, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------
+Net ID: 363
+Network pins:
+  Pin 1117 — Node: 14, Offset: (-155, 0)
+  Pin 1118 — Node: 150, Offset: (-145, -150)
+  Pin 1119 — Node: 210, Offset: (225, 0)
+  Pin 1120 — Node: 234, Offset: (440, 0)
+  Pin 1121 — Node: 283, Offset: (3040, 860)
+Flattened pins:
+  Pin 1117 — Node: 14, Offset: (-155, 0)
+  Pin 1118 — Node: 150, Offset: (-145, -150)
+  Pin 1119 — Node: 210, Offset: (225, 0)
+  Pin 1120 — Node: 234, Offset: (440, 0)
+  Pin 1121 — Node: 283, Offset: (3040, 860)
+[OK] All pin details match.
+--------------------------

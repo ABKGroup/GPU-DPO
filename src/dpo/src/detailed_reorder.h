@@ -35,6 +35,8 @@
 #include <string>
 #include <vector>
 
+#include "detailed_db_cuda.cuh"
+
 namespace dpo {
 
 class Architecture;
@@ -48,8 +50,8 @@ class DetailedReorderer
  public:
   DetailedReorderer(Architecture* arch, Network* network);
 
-  void run(DetailedMgr* mgrPtr, const std::string& command);
-  void run(DetailedMgr* mgrPtr, const std::vector<std::string>& args);
+  void run(DetailedMgr* mgrPtr, DetailedPlaceData& db, const std::string& command);
+  void run(DetailedMgr* mgrPtr, DetailedPlaceData& db, const std::vector<std::string>& args);
 
  private:
   void reorder();
@@ -74,6 +76,7 @@ class DetailedReorderer
   std::vector<int> edgeMask_;
   int traversal_ = 0;
   int windowSize_ = 3;
+  int K = 3;  // same as the window size
 };
 
 }  // namespace dpo

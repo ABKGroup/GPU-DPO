@@ -1,6 +1,6 @@
 #pragma once
 
-#include "gpudp/dp/detailed_place_db.cuh"
+#include "detailed_place_db.cuh"
 
 namespace dpo {
 

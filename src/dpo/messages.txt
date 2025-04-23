@@ -6,8 +6,6 @@ DPO 0202 detailed_mis.cxx:168      No movable cells found INFO https://github.co
 DPO 0300 detailed_mis.cxx:147      Set matching objective is {:s}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_mis.cxx#L147
 DPO 0301 detailed_mis.cxx:177      Pass {:3d} of matching; objective is {:.6e}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_mis.cxx#L177
 DPO 0302 detailed_mis.cxx:209      End of matching; objective is {:.6e}, improvement is {:.2f} percent. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_mis.cxx#L209
-DPO 0304 detailed_reorder.cxx:109  Pass {:3d} of reordering; objective is {:.6e}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_reorder.cxx#L109
-DPO 0305 detailed_reorder.cxx:123  End of reordering; objective is {:.6e}, improvement is {:.2f} percent. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_reorder.cxx#L123
 DPO 0308 detailed_vertical.cxx:133 Pass {:3d} of vertical swaps; hpwl is {:.6e}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_vertical.cxx#L133
 DPO 0309 detailed_vertical.cxx:145 End of vertical swaps; objective is {:.6e},  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_vertical.cxx#L145
 DPO 0310 detailed_manager.cxx:962  Assigned {:d} cells into segments.  Movement in X-direction  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_manager.cxx#L962

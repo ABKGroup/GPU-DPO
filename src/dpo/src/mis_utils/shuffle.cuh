@@ -3,7 +3,7 @@
 #include <curand.h>
 #include <curand_kernel.h>
 
-#include "gpudp/dp/utils.cuh"
+#include "cuda_utils.cuh"
 
 namespace dpo {
 
@@ -77,7 +77,7 @@ public:
                 m_temp_storage = NULL;
             }
             m_temp_storage_bytes = temp_storage_bytes;
-            logger.debug("allocate %lu bytes in shuffler for length %d*(%d+%d)",
+            printf("[INFO GPU-DPO] allocate %lu bytes in shuffler for length %d*(%d+%d)",
                          m_temp_storage_bytes,
                          m_num_items,
                          sizeof(T),

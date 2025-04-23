@@ -27,578 +27,518 @@ inline __host__ __device__ int roundDiv(float a, float b) { return round(a / b);
 
 template <typename T>
 struct Space {
-    T xl;
-    T xh;
+  T xl;
+  T xh;
 };
 
 template <typename T>
 struct Box {
-    T xl;
-    T yl;
-    T xh;
-    T yh;
-    __host__ __device__ Box() {
-        xl = cuda::numeric_limits<T>::max();
-        yl = cuda::numeric_limits<T>::max();
-        xh = cuda::numeric_limits<T>::lowest();
-        yh = cuda::numeric_limits<T>::lowest();
-    }
-    __host__ __device__ Box(T xxl, T yyl, T xxh, T yyh) : xl(xxl), yl(yyl), xh(xxh), yh(yyh) {}
+  T xl;
+  T yl;
+  T xh;
+  T yh;
+  __host__ __device__ Box() {
+    xl = cuda::numeric_limits<T>::max();
+    yl = cuda::numeric_limits<T>::max();
+    xh = cuda::numeric_limits<T>::lowest();
+    yh = cuda::numeric_limits<T>::lowest();
+  }
+  __host__ __device__ Box(T xxl, T yyl, T xxh, T yyh) : xl(xxl), yl(yyl), xh(xxh), yh(yyh) {}
 
-    __host__ __device__ T center_x() const { return (xl + xh) / 2; }
-    __host__ __device__ T center_y() const { return (yl + yh) / 2; }
+  __host__ __device__ T center_x() const { return (xl + xh) / 2; }
+  __host__ __device__ T center_y() const { return (yl + yh) / 2; }
 };
 
 struct RowMapIndex {
-    int row_id;
-    int sub_id;
+  int row_id;
+  int sub_id;
 };
 
 struct BinMapIndex {
-    int bin_id;
-    int sub_id;
+  int bin_id;
+  int sub_id;
 };
 
 class DetailedPlaceData {
-    // DetailedPlaceData() {}
-    // DetailedPlaceData(DetailedPlaceDB& dp_db)
-    //     : x(dp_db.x.data()),
-    //       y(dp_db.y.data()),
-    //       init_x(dp_db.init_x.data()),
-    //       init_y(dp_db.init_y.data()),
-    //       node_size_x(dp_db.node_size_x.data()),
-    //       node_size_y(dp_db.node_size_y.data()),
-    //       pin_offset_x(dp_db.pin_offset_x.data()),
-    //       pin_offset_y(dp_db.pin_offset_y.data()),
-    //       flat_node2pin_start_map(dp_db.flat_node2pin_start_map.data()),
-    //       flat_node2pin_map(dp_db.flat_node2pin_map.data()),
-    //       pin2node_map(dp_db.pin2node_map.data()),
-    //       flat_net2pin_start_map(dp_db.flat_net2pin_start_map.data()),
-    //       flat_net2pin_map(dp_db.flat_net2pin_map.data()),
-    //       pin2net_map(dp_db.pin2net_map.data()),
-    //       flat_region_boxes_start(dp_db.flat_region_boxes_start.data()),
-    //       flat_region_boxes(dp_db.flat_region_boxes.data()),
-    //       node2fence_region_map(dp_db.node2fence_region_map.data()),
-    //       net_mask(dp_db.net_mask.data()),
-    //       xl(dp_db.xl),
-    //       xh(dp_db.xh),
-    //       yl(dp_db.yl),
-    //       yh(dp_db.yh),
-    //       row_height(dp_db.row_height),
-    //       site_width(dp_db.site_width),
-    //       num_sites_x(dp_db.num_sites_x),
-    //       num_sites_y(dp_db.num_sites_y),
-    //       num_threads(dp_db.num_threads),
-    //       num_nodes(dp_db.num_nodes),
-    //       num_movable_nodes(dp_db.num_movable_nodes),
-    //       num_nets(dp_db.num_nets),
-    //       num_pins(dp_db.num_pins),
-    //       num_regions(dp_db.num_regions) {}
 public:
-    typedef float type;
+  typedef float type;
 
-    // pointers to device memory
-    float* x = nullptr;
-    float* y = nullptr;
-    float* init_x = nullptr;
-    float* init_y = nullptr;
-    float* node_size_x = nullptr;
-    float* node_size_y = nullptr;
+  float* x = nullptr;
+  float* y = nullptr;
+  float* init_x = nullptr;
+  float* init_y = nullptr;
+  float* node_size_x = nullptr;
+  float* node_size_y = nullptr;
 
-    float* pin_offset_x = nullptr;
-    float* pin_offset_y = nullptr;
+  float* pin_offset_x = nullptr;
+  float* pin_offset_y = nullptr;
 
-    int* flat_node2pin_start_map = nullptr;
-    int* flat_node2pin_map = nullptr;
-    int* pin2node_map = nullptr;
+  int* flat_node2pin_start_map = nullptr;
+  int* flat_node2pin_map = nullptr;
+  int* pin2node_map = nullptr;
 
-    int* flat_net2pin_start_map = nullptr;
-    int* flat_net2pin_map = nullptr;
-    int* pin2net_map = nullptr;
+  int* flat_net2pin_start_map = nullptr;
+  int* flat_net2pin_map = nullptr;
+  int* pin2net_map = nullptr;
 
-    int* flat_region_boxes_start = nullptr;
-    float* flat_region_boxes = nullptr;
-    int* node2fence_region_map = nullptr;
+  int* flat_region_boxes_start = nullptr;
+  float* flat_region_boxes = nullptr;
+  int* node2fence_region_map = nullptr;
 
-    int* net_mask = nullptr;
+  int* net_mask = nullptr;
 
-    /* chip info */
-    float xl;
-    float yl;
-    float xh;
-    float yh;
+  float xl;
+  float yl;
+  float xh;
+  float yh;
 
-    /* row info */
-    int num_sites_x;
-    int num_sites_y;
-    float row_height;
-    float site_width;
+  int num_sites_x;
+  int num_sites_y;
+  float row_height;
+  float site_width;
 
-    int num_nets;
-    int num_movable_nodes;
-    int num_nodes;
-    int num_pins;
-    int num_regions;
-    int region_boxes_size;
+  int num_nets;
+  int num_movable_nodes;
+  int num_nodes;
+  int num_pins;
+  int num_regions;
+  int region_boxes_size;
 
-    int num_threads;
+  int num_threads;
 
-    // density binning
-    int num_bins_x;
-    int num_bins_y;
-    float bin_size_x;
-    float bin_size_y;
+  int num_bins_x;
+  int num_bins_y;
+  float bin_size_x;
+  float bin_size_y;
 
-    DetailedPlaceData() = default;
+  DetailedPlaceData() = default;
 
-    void copy_from_host(const DetailedPlaceDB& db) {
-        allocateCopyCuda(x, db.x.data(), db.num_nodes);
-        allocateCopyCuda(y, db.y.data(), db.num_nodes);
-        allocateCopyCuda(init_x, db.init_x.data(), db.num_nodes);
-        allocateCopyCuda(init_y, db.init_y.data(), db.num_nodes);
-        allocateCopyCuda(node_size_x, db.node_size_x.data(), db.num_nodes);
-        allocateCopyCuda(node_size_y, db.node_size_y.data(), db.num_nodes);
-        allocateCopyCuda(pin_offset_x, db.pin_offset_x.data(), db.num_pins);
-        allocateCopyCuda(pin_offset_y, db.pin_offset_y.data(), db.num_pins);
-        allocateCopyCuda(flat_node2pin_start_map, db.flat_node2pin_start_map.data(), db.num_nodes + 1);
-        allocateCopyCuda(flat_node2pin_map, db.flat_node2pin_map.data(), db.num_pins);
-        allocateCopyCuda(pin2node_map, db.pin2node_map.data(), db.num_pins);
-        allocateCopyCuda(flat_net2pin_start_map, db.flat_net2pin_start_map.data(), db.num_nets + 1);
-        allocateCopyCuda(flat_net2pin_map, db.flat_net2pin_map.data(), db.num_pins);
-        allocateCopyCuda(pin2net_map, db.pin2net_map.data(), db.num_pins);
-        allocateCopyCuda(net_mask, db.net_mask.data(), db.num_nets);
-        allocateCopyCuda(flat_region_boxes_start, db.flat_region_boxes_start.data(), db.num_regions + 1);
-        allocateCopyCuda(flat_region_boxes, db.flat_region_boxes.data(), db.region_boxes_size);
-        allocateCopyCuda(node2fence_region_map, db.node2fence_region_map.data(), db.num_nodes);
+  void copy_from_host(const DetailedPlaceDB& db) {
+    allocateCopyCuda(x, db.x.data(), db.num_nodes);
+    allocateCopyCuda(y, db.y.data(), db.num_nodes);
+    allocateCopyCuda(init_x, db.init_x.data(), db.num_nodes);
+    allocateCopyCuda(init_y, db.init_y.data(), db.num_nodes);
+    allocateCopyCuda(node_size_x, db.node_size_x.data(), db.num_nodes);
+    allocateCopyCuda(node_size_y, db.node_size_y.data(), db.num_nodes);
+    allocateCopyCuda(pin_offset_x, db.pin_offset_x.data(), db.num_pins);
+    allocateCopyCuda(pin_offset_y, db.pin_offset_y.data(), db.num_pins);
+    allocateCopyCuda(flat_node2pin_start_map, db.flat_node2pin_start_map.data(), db.num_nodes + 1);
+    allocateCopyCuda(flat_node2pin_map, db.flat_node2pin_map.data(), db.num_pins);
+    allocateCopyCuda(pin2node_map, db.pin2node_map.data(), db.num_pins);
+    allocateCopyCuda(flat_net2pin_start_map, db.flat_net2pin_start_map.data(), db.num_nets + 1);
+    allocateCopyCuda(flat_net2pin_map, db.flat_net2pin_map.data(), db.num_pins);
+    allocateCopyCuda(pin2net_map, db.pin2net_map.data(), db.num_pins);
+    allocateCopyCuda(net_mask, db.net_mask.data(), db.num_nets);
+    allocateCopyCuda(flat_region_boxes_start, db.flat_region_boxes_start.data(), db.num_regions + 1);
+    allocateCopyCuda(flat_region_boxes, db.flat_region_boxes.data(), db.region_boxes_size);
+    allocateCopyCuda(node2fence_region_map, db.node2fence_region_map.data(), db.num_nodes);
 
-        xl = db.xl;
-        xh = db.xh;
-        yl = db.yl;
-        yh = db.yh;
-        row_height = db.row_height;
-        site_width = db.site_width;
+    xl = db.xl;
+    xh = db.xh;
+    yl = db.yl;
+    yh = db.yh;
+    row_height = db.row_height;
+    site_width = db.site_width;
 
-        num_sites_x = db.num_sites_x;
-        num_sites_y = db.num_sites_y;
-        num_threads = db.num_threads;
+    num_sites_x = db.num_sites_x;
+    num_sites_y = db.num_sites_y;
+    num_threads = db.num_threads;
 
-        num_nodes = db.num_nodes;
-        num_movable_nodes = db.num_movable_nodes;
-        num_nets = db.num_nets;
-        num_pins = db.num_pins;
-        num_regions = db.num_regions;
-        region_boxes_size = db.region_boxes_size;
-    }
+    num_nodes = db.num_nodes;
+    num_movable_nodes = db.num_movable_nodes;
+    num_nets = db.num_nets;
+    num_pins = db.num_pins;
+    num_regions = db.num_regions;
+    region_boxes_size = db.region_boxes_size;
+  }
 
-    void copy_to_host(DetailedPlaceDB& db) {
-        copyBackToCpu(x, db.x.data(), num_nodes);
-        copyBackToCpu(y, db.y.data(), num_nodes);
-        copyBackToCpu(init_x, db.init_x.data(), num_nodes);
-        copyBackToCpu(init_y, db.init_y.data(), num_nodes);
-        copyBackToCpu(node_size_x, db.node_size_x.data(), num_nodes);
-        copyBackToCpu(node_size_y, db.node_size_y.data(), num_nodes);
-        copyBackToCpu(pin_offset_x, db.pin_offset_x.data(), num_pins);
-        copyBackToCpu(pin_offset_y, db.pin_offset_y.data(), num_pins);
-        copyBackToCpu(flat_node2pin_start_map, db.flat_node2pin_start_map.data(), num_nodes + 1);
-        copyBackToCpu(flat_node2pin_map, db.flat_node2pin_map.data(), num_pins);
-        copyBackToCpu(pin2node_map, db.pin2node_map.data(), num_pins);
-        copyBackToCpu(flat_net2pin_start_map, db.flat_net2pin_start_map.data(), num_nets + 1);
-        copyBackToCpu(flat_net2pin_map, db.flat_net2pin_map.data(), num_pins);
-        copyBackToCpu(pin2net_map, db.pin2net_map.data(), num_pins);
-        copyBackToCpu(net_mask, db.net_mask.data(), num_nets);
-        copyBackToCpu(flat_region_boxes_start, db.flat_region_boxes_start.data(), num_regions + 1);
-        copyBackToCpu(flat_region_boxes, db.flat_region_boxes.data(), region_boxes_size);
-        copyBackToCpu(node2fence_region_map, db.node2fence_region_map.data(), num_nodes);
+  void copy_to_host(DetailedPlaceDB& db) {
+    copyBackToCpu(x, db.x.data(), num_nodes);
+    copyBackToCpu(y, db.y.data(), num_nodes);
+    copyBackToCpu(init_x, db.init_x.data(), num_nodes);
+    copyBackToCpu(init_y, db.init_y.data(), num_nodes);
+    copyBackToCpu(node_size_x, db.node_size_x.data(), num_nodes);
+    copyBackToCpu(node_size_y, db.node_size_y.data(), num_nodes);
+    copyBackToCpu(pin_offset_x, db.pin_offset_x.data(), num_pins);
+    copyBackToCpu(pin_offset_y, db.pin_offset_y.data(), num_pins);
+    copyBackToCpu(flat_node2pin_start_map, db.flat_node2pin_start_map.data(), num_nodes + 1);
+    copyBackToCpu(flat_node2pin_map, db.flat_node2pin_map.data(), num_pins);
+    copyBackToCpu(pin2node_map, db.pin2node_map.data(), num_pins);
+    copyBackToCpu(flat_net2pin_start_map, db.flat_net2pin_start_map.data(), num_nets + 1);
+    copyBackToCpu(flat_net2pin_map, db.flat_net2pin_map.data(), num_pins);
+    copyBackToCpu(pin2net_map, db.pin2net_map.data(), num_pins);
+    copyBackToCpu(net_mask, db.net_mask.data(), num_nets);
+    copyBackToCpu(flat_region_boxes_start, db.flat_region_boxes_start.data(), num_regions + 1);
+    copyBackToCpu(flat_region_boxes, db.flat_region_boxes.data(), region_boxes_size);
+    copyBackToCpu(node2fence_region_map, db.node2fence_region_map.data(), num_nodes);
 
-        db.xl = xl;
-        db.xh = xh;
-        db.yl = yl;
-        db.yh = yh;
-        db.row_height = row_height;
-        db.site_width = site_width;
+    db.xl = xl;
+    db.xh = xh;
+    db.yl = yl;
+    db.yh = yh;
+    db.row_height = row_height;
+    db.site_width = site_width;
 
-        db.num_sites_x = num_sites_x;
-        db.num_sites_y = num_sites_y;
-        db.num_threads = num_threads;
+    db.num_sites_x = num_sites_x;
+    db.num_sites_y = num_sites_y;
+    db.num_threads = num_threads;
 
-        db.num_nodes = num_nodes;
-        db.num_movable_nodes = num_movable_nodes;
-        db.num_nets = num_nets;
-        db.num_pins = num_pins;
-        db.num_regions = num_regions;
-        db.region_boxes_size = region_boxes_size;
-    }
+    db.num_nodes = num_nodes;
+    db.num_movable_nodes = num_movable_nodes;
+    db.num_nets = num_nets;
+    db.num_pins = num_pins;
+    db.num_regions = num_regions;
+    db.region_boxes_size = region_boxes_size;
+  }
 
-    void free_data() {
-        cudaFree(x);
-        cudaFree(y);
-        cudaFree(init_x);
-        cudaFree(init_y);
-        cudaFree(node_size_x);
-        cudaFree(node_size_y);
-        cudaFree(pin_offset_x);
-        cudaFree(pin_offset_y);
-        cudaFree(flat_node2pin_start_map);
-        cudaFree(flat_node2pin_map);
-        cudaFree(pin2node_map);
-        cudaFree(flat_net2pin_start_map);
-        cudaFree(flat_net2pin_map);
-        cudaFree(pin2net_map);
-        cudaFree(net_mask);
-        cudaFree(flat_region_boxes_start);
-        cudaFree(flat_region_boxes);
-        cudaFree(node2fence_region_map);
-    }
+  void free_data() {
+    cudaFree(x);
+    cudaFree(y);
+    cudaFree(init_x);
+    cudaFree(init_y);
+    cudaFree(node_size_x);
+    cudaFree(node_size_y);
+    cudaFree(pin_offset_x);
+    cudaFree(pin_offset_y);
+    cudaFree(flat_node2pin_start_map);
+    cudaFree(flat_node2pin_map);
+    cudaFree(pin2node_map);
+    cudaFree(flat_net2pin_start_map);
+    cudaFree(flat_net2pin_map);
+    cudaFree(pin2net_map);
+    cudaFree(net_mask);
+    cudaFree(flat_region_boxes_start);
+    cudaFree(flat_region_boxes);
+    cudaFree(node2fence_region_map);
+  }
 
-    void set_num_bins(int num_bins_x_, int num_bins_y_) {
-        num_bins_x = num_bins_x_;
-        num_bins_y = num_bins_y_;
-        bin_size_x = (xh - xl) / num_bins_x_;
-        bin_size_y = (yh - yl) / num_bins_y_;
-    }
-    inline __device__ int pos2site_x(float xx) const {
-        return min(max((int)floorDiv((xx - xl), site_width), 0), num_sites_x - 1);
-    }
-    inline __device__ int pos2site_y(float yy) const {
-        return min(max((int)floorDiv((yy - yl), row_height), 0), num_sites_y - 1);
-    }
-    inline __device__ int pos2site_ub_x(float xx) const {
-        return min(max(ceilDiv((xx - xl), site_width), 1), num_sites_x);
-    }
-    inline __device__ int pos2site_ub_y(float yy) const {
-        return min(max(ceilDiv((yy - yl), row_height), 1), num_sites_y);
-    }
-    inline __device__ int pos2bin_x(float xx) const {
-        int bx = floorDiv((xx - xl), bin_size_x);
-        bx = max(bx, 0);
-        bx = min(bx, num_bins_x - 1);
-        return bx;
-    }
-    inline __device__ int pos2bin_y(float yy) const {
-        int by = floorDiv((yy - yl), bin_size_y);
-        by = max(by, 0);
-        by = min(by, num_bins_y - 1);
-        return by;
-    }
-    inline __device__ void shift_box_to_layout(Box<float>& box) const {
-        box.xl = max(box.xl, xl);
-        box.xl = min(box.xl, xh);
-        box.xh = max(box.xh, xl);
-        box.xh = min(box.xh, xh);
-        box.yl = max(box.yl, yl);
-        box.yl = min(box.yl, yh);
-        box.yh = max(box.yh, yl);
-        box.yh = min(box.yh, yh);
-    }
-    inline __device__ float align2site(float xx) const {
-        return (int)floorDiv((xx - xl), site_width) * site_width + xl;
-    }
-    inline __device__ Space<float> align2site(Space<float> space) const {
-        space.xl = ceilDiv((space.xl - xl), site_width) * site_width + xl;
-        space.xh = floorDiv((space.xh - xl), site_width) * site_width + xl;
-        return space;
-    }
-    __device__ Box<float> compute_optimal_region(int node_id, const float* xx, const float* yy) const {
-        Box<float> box(xh, yh, xl, yl);
-        for (int node2pin_id = flat_node2pin_start_map[node_id]; node2pin_id < flat_node2pin_start_map[node_id + 1];
-             ++node2pin_id) {
-            int node_pin_id = flat_node2pin_map[node2pin_id];
-            int net_id = pin2net_map[node_pin_id];
-            if (net_mask[net_id]) {
-                for (int net2pin_id = flat_net2pin_start_map[net_id]; net2pin_id < flat_net2pin_start_map[net_id + 1];
-                     ++net2pin_id) {
-                    int net_pin_id = flat_net2pin_map[net2pin_id];
-                    int other_node_id = pin2node_map[net_pin_id];
-                    if (node_id != other_node_id) {
-                        box.xl = min(box.xl, xx[other_node_id] + pin_offset_x[net_pin_id]);
-                        box.xh = max(box.xh, xx[other_node_id] + pin_offset_x[net_pin_id]);
-                        box.yl = min(box.yl, yy[other_node_id] + pin_offset_y[net_pin_id]);
-                        box.yh = max(box.yh, yy[other_node_id] + pin_offset_y[net_pin_id]);
-                    }
-                }
-            }
+  void set_num_bins(int num_bins_x_, int num_bins_y_) {
+    num_bins_x = num_bins_x_;
+    num_bins_y = num_bins_y_;
+    bin_size_x = (xh - xl) / num_bins_x_;
+    bin_size_y = (yh - yl) / num_bins_y_;
+  }
+
+  inline __device__ int pos2site_x(float xx) const {
+    return min(max((int)floorDiv((xx - xl), site_width), 0), num_sites_x - 1);
+  }
+
+  inline __device__ int pos2site_y(float yy) const {
+    return min(max((int)floorDiv((yy - yl), row_height), 0), num_sites_y - 1);
+  }
+
+  inline __device__ int pos2site_ub_x(float xx) const {
+    return min(max(ceilDiv((xx - xl), site_width), 1), num_sites_x);
+  }
+
+  inline __device__ int pos2site_ub_y(float yy) const {
+    return min(max(ceilDiv((yy - yl), row_height), 1), num_sites_y);
+  }
+
+  inline __device__ int pos2bin_x(float xx) const {
+    int bx = floorDiv((xx - xl), bin_size_x);
+    bx = max(bx, 0);
+    bx = min(bx, num_bins_x - 1);
+    return bx;
+  }
+
+  inline __device__ int pos2bin_y(float yy) const {
+    int by = floorDiv((yy - yl), bin_size_y);
+    by = max(by, 0);
+    by = min(by, num_bins_y - 1);
+    return by;
+  }
+
+  inline __device__ void shift_box_to_layout(Box<float>& box) const {
+    box.xl = max(box.xl, xl);
+    box.xl = min(box.xl, xh);
+    box.xh = max(box.xh, xl);
+    box.xh = min(box.xh, xh);
+    box.yl = max(box.yl, yl);
+    box.yl = min(box.yl, yh);
+    box.yh = max(box.yh, yl);
+    box.yh = min(box.yh, yh);
+  }
+
+  inline __device__ float align2site(float xx) const {
+    return (int)floorDiv((xx - xl), site_width) * site_width + xl;
+  }
+
+  inline __device__ Space<float> align2site(Space<float> space) const {
+    space.xl = ceilDiv((space.xl - xl), site_width) * site_width + xl;
+    space.xh = floorDiv((space.xh - xl), site_width) * site_width + xl;
+    return space;
+  }
+
+  __device__ Box<float> compute_optimal_region(int node_id, const float* xx, const float* yy) const {
+    Box<float> box(xh, yh, xl, yl);
+    for (int node2pin_id = flat_node2pin_start_map[node_id]; node2pin_id < flat_node2pin_start_map[node_id + 1]; ++node2pin_id) {
+      int node_pin_id = flat_node2pin_map[node2pin_id];
+      int net_id = pin2net_map[node_pin_id];
+      if (net_mask[net_id]) {
+        for (int net2pin_id = flat_net2pin_start_map[net_id]; net2pin_id < flat_net2pin_start_map[net_id + 1]; ++net2pin_id) {
+          int net_pin_id = flat_net2pin_map[net2pin_id];
+          int other_node_id = pin2node_map[net_pin_id];
+          if (node_id != other_node_id) {
+            box.xl = min(box.xl, xx[other_node_id] + pin_offset_x[net_pin_id]);
+            box.xh = max(box.xh, xx[other_node_id] + pin_offset_x[net_pin_id]);
+            box.yl = min(box.yl, yy[other_node_id] + pin_offset_y[net_pin_id]);
+            box.yh = max(box.yh, yy[other_node_id] + pin_offset_y[net_pin_id]);
+          }
         }
-        shift_box_to_layout(box);
-
-        return box;
+      }
     }
-    __device__ double compute_net_hpwl(int net_id, const float* xx, const float* yy) const {
-        // skip computation if num_pins is less than 2
-        if (flat_net2pin_start_map[net_id + 1] - flat_net2pin_start_map[net_id] <= 1) {
-            return (double)0;
-        }
-        Box<double> box(xh, yh, xl, yl);
-        for (int net2pin_id = flat_net2pin_start_map[net_id]; net2pin_id < flat_net2pin_start_map[net_id + 1];
-             ++net2pin_id) {
-            int net_pin_id = flat_net2pin_map[net2pin_id];
-            int other_node_id = pin2node_map[net_pin_id];
-            box.xl = min(box.xl, xx[other_node_id] + 0.5 * node_size_x[other_node_id] + pin_offset_x[net_pin_id]);
-            box.xh = max(box.xh, xx[other_node_id] + 0.5 * node_size_x[other_node_id] + pin_offset_x[net_pin_id]);
-            box.yl = min(box.yl, yy[other_node_id] + 0.5 * node_size_y[other_node_id] + pin_offset_y[net_pin_id]);
-            box.yh = max(box.yh, yy[other_node_id] + 0.5 * node_size_y[other_node_id] + pin_offset_y[net_pin_id]);
-        }
-        if (box.xl == xh || box.yl == yh) {
-            return (double)0;
-        }
-        return (box.xh - box.xl) + (box.yh - box.yl);
+    shift_box_to_layout(box);
+    /*printf("Node %d bounding box: [xl=%.3f, xh=%.3f, yl=%.3f, yh=%.3f]\n",
+           node_id, box.xl, box.xh, box.yl, box.yh);*/
+    return box;
+  }
+
+  __device__ double compute_net_hpwl(int net_id, const float* xx, const float* yy) const {
+    if (flat_net2pin_start_map[net_id + 1] - flat_net2pin_start_map[net_id] <= 1) {
+      return (double)0;
     }
-    // __device__ float compute_total_hpwl() const {
-    //     float total_hpwl = 0;
-    //     for (int net_id = 0; net_id < num_nets; ++net_id) {
-    //         total_hpwl += compute_net_hpwl(net_id, x, y);
-    //     }
-    //     return total_hpwl;
-    // }
-    __device__ bool inside_fence(int node_id, float xx, float yy) const {
-        float node_xl = xx;
-        float node_yl = yy;
-        float node_xh = node_xl + node_size_x[node_id];
-        float node_yh = node_yl + node_size_y[node_id];
-
-        bool legal_flag = true;
-        int region_id = node2fence_region_map[node_id];
-        if (region_id < num_regions) {
-            int box_bgn = flat_region_boxes_start[region_id];
-            int box_end = flat_region_boxes_start[region_id + 1];
-            float node_area = (node_xh - node_xl) * (node_yh - node_yl);
-            // assume there is no overlap between boxes of a region
-            // otherwise, preprocessing is required
-            for (int box_id = box_bgn; box_id < box_end; ++box_id) {
-                int box_offset = box_id * 4;
-                float box_xl = flat_region_boxes[box_offset];
-                float box_xh = flat_region_boxes[box_offset + 1];
-                float box_yl = flat_region_boxes[box_offset + 2];
-                float box_yh = flat_region_boxes[box_offset + 3];
-
-                float dx = max(min(node_xh, box_xh) - max(node_xl, box_xl), (float)0);
-                float dy = max(min(node_yh, box_yh) - max(node_yl, box_yl), (float)0);
-                float overlap = dx * dy;
-                if (overlap > 0) {
-                    node_area -= overlap;
-                }
-            }
-            if (node_area > 0) {
-                // not consumed by boxes within a region
-                legal_flag = false;
-            }
-        }
-        return legal_flag;
+    Box<double> box(xh, yh, xl, yl);
+    for (int net2pin_id = flat_net2pin_start_map[net_id]; net2pin_id < flat_net2pin_start_map[net_id + 1]; ++net2pin_id) {
+      int net_pin_id = flat_net2pin_map[net2pin_id];
+      int other_node_id = pin2node_map[net_pin_id];
+      box.xl = min(box.xl, xx[other_node_id] + 0.5 * node_size_x[other_node_id] + pin_offset_x[net_pin_id]);
+      box.xh = max(box.xh, xx[other_node_id] + 0.5 * node_size_x[other_node_id] + pin_offset_x[net_pin_id]);
+      box.yl = min(box.yl, yy[other_node_id] + 0.5 * node_size_y[other_node_id] + pin_offset_y[net_pin_id]);
+      box.yh = max(box.yh, yy[other_node_id] + 0.5 * node_size_y[other_node_id] + pin_offset_y[net_pin_id]);
     }
+    if (box.xl == xh || box.yl == yh) {
+      return (double)0;
+    }
+    return (box.xh - box.xl) + (box.yh - box.yl);
+  }
 
-    std::vector<std::vector<int>> reorder_row_map(
-        const float* host_x, const float* host_y, const float* host_node_size_x, const float* host_node_size_y, std::vector<std::vector<int>>& row2node_map, int sort_coord) {
-        if (sort_coord < 0 || sort_coord > 2) sort_coord = 0;
+  __device__ bool inside_fence(int node_id, float xx, float yy) const {
+    float node_xl = xx;
+    float node_yl = yy;
+    float node_xh = node_xl + node_size_x[node_id];
+    float node_yh = node_yl + node_size_y[node_id];
 
-        std::vector<std::vector<int>> row2node_map_helper;
-        // copy row2node_map to row2node_map_helper
-        row2node_map_helper.resize(row2node_map.size());
-        for (int i = 0; i < row2node_map.size(); ++i) {
-            row2node_map_helper[i] = row2node_map[i];
+    bool legal_flag = true;
+    int region_id = node2fence_region_map[node_id];
+    if (region_id < num_regions) {
+      int box_bgn = flat_region_boxes_start[region_id];
+      int box_end = flat_region_boxes_start[region_id + 1];
+      float node_area = (node_xh - node_xl) * (node_yh - node_yl);
+      for (int box_id = box_bgn; box_id < box_end; ++box_id) {
+        int box_offset = box_id * 4;
+        float box_xl = flat_region_boxes[box_offset];
+        float box_xh = flat_region_boxes[box_offset + 1];
+        float box_yl = flat_region_boxes[box_offset + 2];
+        float box_yh = flat_region_boxes[box_offset + 3];
+
+        float dx = max(min(node_xh, box_xh) - max(node_xl, box_xl), (float)0);
+        float dy = max(min(node_yh, box_yh) - max(node_yl, box_yl), (float)0);
+        float overlap = dx * dy;
+        if (overlap > 0) {
+          node_area -= overlap;
         }
+      }
+      if (node_area > 0) {
+        legal_flag = false;
+      }
+    }
+    return legal_flag;
+  }
 
-        // sort according to right
-        for (int i = 0; i < row2node_map.size(); ++i) {
-            auto& row2nodes = row2node_map_helper[i];
-            if (!row2nodes.empty()) {
-                switch (sort_coord) {
-                    case 0:  // center
-                        std::sort(row2nodes.begin(), row2nodes.end(), [&](int node_id1, int node_id2) {
-                            float x1 = host_x[node_id1] + host_node_size_x[node_id1] / 2;
-                            float x2 = host_x[node_id2] + host_node_size_x[node_id2] / 2;
-                            return x1 < x2 || (x1 == x2 && node_id1 < node_id2);
-                        });
-                        break;
-                    case 1:  // left
-                        std::sort(row2nodes.begin(), row2nodes.end(), [&](int node_id1, int node_id2) {
-                            float x1 = host_x[node_id1];
-                            float x2 = host_x[node_id2];
-                            return x1 < x2 || (x1 == x2 && node_id1 < node_id2);
-                        });
-                        break;
-                    case 2:  // right
-                        std::sort(row2nodes.begin(), row2nodes.end(), [&](int node_id1, int node_id2) {
-                            float x1 = host_x[node_id1] + host_node_size_x[node_id1];
-                            float x2 = host_x[node_id2] + host_node_size_x[node_id2];
-                            return x1 < x2 || (x1 == x2 && node_id1 < node_id2);
-                        });
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
+  std::vector<std::vector<int>> reorder_row_map(
+    const float* host_x, const float* host_y, const float* host_node_size_x, const float* host_node_size_y, std::vector<std::vector<int>>& row2node_map, int sort_coord) {
+    if (sort_coord < 0 || sort_coord > 2) sort_coord = 0;
 
-        return row2node_map_helper;
+    std::vector<std::vector<int>> row2node_map_helper;
+    row2node_map_helper.resize(row2node_map.size());
+    for (int i = 0; i < row2node_map.size(); ++i) {
+      row2node_map_helper[i] = row2node_map[i];
     }
 
-    void make_row2node_map(const float* host_x,
-                           const float* host_y,
-                           const float* host_node_size_x,
-                           const float* host_node_size_y,
-                           int host_num_nodes,
-                           std::vector<std::vector<int>>& row2node_map,
-                           int sort_coord = 0) {
-        if (sort_coord < 0 || sort_coord > 2) sort_coord = 0;
-        // distribute cells to rows
-        for (int i = 0; i < host_num_nodes; ++i) {
-            float node_yl = host_y[i];
-            float node_yh = node_yl + host_node_size_y[i];
-
-            int row_idxl = floorDiv(node_yl - yl, row_height);
-            int row_idxh = ceilDiv(node_yh - yl, row_height);
-            row_idxl = max(row_idxl, 0);
-            row_idxh = min(row_idxh, num_sites_y);
-
-            for (int row_id = row_idxl; row_id < row_idxh; ++row_id) {
-                float row_yl = yl + row_id * row_height;
-                float row_yh = row_yl + row_height;
-
-                if (node_yl < row_yh && node_yh > row_yl)  // overlap with row
-                {
-                    row2node_map[row_id].push_back(i);
-                }
-            }
-        }
-
-        // sort cells within rows
-#pragma omp parallel for num_threads(num_threads) schedule(dynamic, 1)
-        for (int i = 0; i < num_sites_y; ++i) {
-            auto& row2nodes = row2node_map[i];
-            // sort cells within rows according to left edges
+    for (int i = 0; i < row2node_map.size(); ++i) {
+      auto& row2nodes = row2node_map_helper[i];
+      if (!row2nodes.empty()) {
+        switch (sort_coord) {
+          case 0:
             std::sort(row2nodes.begin(), row2nodes.end(), [&](int node_id1, int node_id2) {
-                float x1 = host_x[node_id1];
-                float x2 = host_x[node_id2];
-                return x1 < x2 || (x1 == x2 && node_id1 < node_id2);
+              float x1 = host_x[node_id1] + host_node_size_x[node_id1] / 2;
+              float x2 = host_x[node_id2] + host_node_size_x[node_id2] / 2;
+              return x1 < x2 || (x1 == x2 && node_id1 < node_id2);
             });
-            if (!row2nodes.empty()) {
-                for (int j = 1; j < row2nodes.size(); ++j) {
-                    int node_id1 = row2nodes.at(j - 1);
-                    int node_id2 = row2nodes.at(j);
-                    // two fixed cells
-                    if (node_id1 >= num_movable_nodes && node_id2 >= num_movable_nodes) {
-                        float xl1 = host_x[node_id1];
-                        float xl2 = host_x[node_id2];
-                        float width1 = host_node_size_x[node_id1];
-                        float width2 = host_node_size_x[node_id2];
-                        float xh1 = xl1 + width1;
-                        float xh2 = xl2 + width2;
-                        // only collect node_id2 if its right edge is righter than node_id1
-                        if (xh1 >= xh2 && !row2nodes.empty()) {
-                            row2nodes.erase(row2nodes.begin() + j);
-                            --j;
-                        }
-                    }
-                }
-
-                // sort according to center
-                switch (sort_coord) {
-                    case 0:  // center
-                        std::sort(row2nodes.begin(), row2nodes.end(), [&](int node_id1, int node_id2) {
-                            float x1 = host_x[node_id1] + host_node_size_x[node_id1] / 2;
-                            float x2 = host_x[node_id2] + host_node_size_x[node_id2] / 2;
-                            return x1 < x2 || (x1 == x2 && node_id1 < node_id2);
-                        });
-                        break;
-                    case 1:  // left
-                        std::sort(row2nodes.begin(), row2nodes.end(), [&](int node_id1, int node_id2) {
-                            float x1 = host_x[node_id1];
-                            float x2 = host_x[node_id2];
-                            return x1 < x2 || (x1 == x2 && node_id1 < node_id2);
-                        });
-                        break;
-                    case 2:  // right
-                        std::sort(row2nodes.begin(), row2nodes.end(), [&](int node_id1, int node_id2) {
-                            float x1 = host_x[node_id1] + host_node_size_x[node_id1];
-                            float x2 = host_x[node_id2] + host_node_size_x[node_id2];
-                            return x1 < x2 || (x1 == x2 && node_id1 < node_id2);
-                        });
-                        break;
-                    default:
-                        break;
-                }
-            }
+            break;
+          case 1:
+            std::sort(row2nodes.begin(), row2nodes.end(), [&](int node_id1, int node_id2) {
+              float x1 = host_x[node_id1];
+              float x2 = host_x[node_id2];
+              return x1 < x2 || (x1 == x2 && node_id1 < node_id2);
+            });
+            break;
+          case 2:
+            std::sort(row2nodes.begin(), row2nodes.end(), [&](int node_id1, int node_id2) {
+              float x1 = host_x[node_id1] + host_node_size_x[node_id1];
+              float x2 = host_x[node_id2] + host_node_size_x[node_id2];
+              return x1 < x2 || (x1 == x2 && node_id1 < node_id2);
+            });
+            break;
+          default:
+            break;
         }
+      }
+    }
+    return row2node_map_helper;
+  }
+
+  void make_row2node_map(const float* host_x,
+                         const float* host_y,
+                         const float* host_node_size_x,
+                         const float* host_node_size_y,
+                         int host_num_nodes,
+                         std::vector<std::vector<int>>& row2node_map,
+                         int sort_coord = 0) {
+    if (sort_coord < 0 || sort_coord > 2) sort_coord = 0;
+    for (int i = 0; i < host_num_nodes; ++i) {
+      float node_yl = host_y[i];
+      float node_yh = node_yl + host_node_size_y[i];
+
+      int row_idxl = floorDiv(node_yl - yl, row_height);
+      int row_idxh = ceilDiv(node_yh - yl, row_height);
+      row_idxl = max(row_idxl, 0);
+      row_idxh = min(row_idxh, num_sites_y);
+
+      for (int row_id = row_idxl; row_id < row_idxh; ++row_id) {
+        float row_yl = yl + row_id * row_height;
+        float row_yh = row_yl + row_height;
+
+        if (node_yl < row_yh && node_yh > row_yl) {
+          row2node_map[row_id].push_back(i);
+        }
+      }
     }
 
-    void make_row2node_map_with_spaces(const float* host_x,
-                                       const float* host_y,
-                                       const float* host_node_size_x,
-                                       const float* host_node_size_y,
-                                       std::vector<std::vector<int>>& row2node_map,
-                                       std::vector<RowMapIndex>& node2row_map,
-                                       std::vector<Space<float>>& spaces,
-                                       int sort_coord = 0) {
-        make_row2node_map(host_x, host_y, host_node_size_x, host_node_size_y, num_nodes + 2, row2node_map, sort_coord);
-
-        // copy row2node_map to row2node_map_helper
-        std::vector<std::vector<int>> row2node_map_helper = reorder_row_map(host_x, host_y, host_node_size_x, host_node_size_y, row2node_map, sort_coord);
-
-        // construct node2row_map
-        for (int i = 0; i < num_sites_y; ++i) {
-            for (unsigned int j = 0; j < row2node_map[i].size(); ++j) {
-                int node_id = row2node_map[i][j];
-                if (node_id < num_movable_nodes) {
-                    RowMapIndex& row_id = node2row_map[node_id];
-                    row_id.row_id = i;
-                    row_id.sub_id = j;
-                }
+#pragma omp parallel for num_threads(num_threads) schedule(dynamic, 1)
+    for (int i = 0; i < num_sites_y; ++i) {
+      auto& row2nodes = row2node_map[i];
+      std::sort(row2nodes.begin(), row2nodes.end(), [&](int node_id1, int node_id2) {
+        float x1 = host_x[node_id1];
+        float x2 = host_x[node_id2];
+        return x1 < x2 || (x1 == x2 && node_id1 < node_id2);
+      });
+      if (!row2nodes.empty()) {
+        for (int j = 1; j < row2nodes.size(); ++j) {
+          int node_id1 = row2nodes.at(j - 1);
+          int node_id2 = row2nodes.at(j);
+          if (node_id1 >= num_movable_nodes && node_id2 >= num_movable_nodes) {
+            float xl1 = host_x[node_id1];
+            float xl2 = host_x[node_id2];
+            float width1 = host_node_size_x[node_id1];
+            float width2 = host_node_size_x[node_id2];
+            float xh1 = xl1 + width1;
+            float xh2 = xl2 + width2;
+            if (xh1 >= xh2 && !row2nodes.empty()) {
+              row2nodes.erase(row2nodes.begin() + j);
+              --j;
             }
+          }
         }
 
-        // construct spaces
-        for (int i = 0; i < num_sites_y; ++i) {
-            for (unsigned int j = 0; j < row2node_map[i].size(); ++j) {
-                int node_id = row2node_map[i][j];
-                if (node_id < num_movable_nodes) {
-                    assert(j);
-                    // int left_node_id = row2node_map[i][j - 1];
-                    int j_helper = std::find(row2node_map_helper[i].begin(), row2node_map_helper[i].end(), node_id) - row2node_map_helper[i].begin();
-                    int left_node_id = row2node_map[i][j_helper - 1];
-
-                    spaces[node_id].xl = host_x[left_node_id] + host_node_size_x[left_node_id];
-                    assert(j + 1 < row2node_map[i].size());
-                    int right_node_id = row2node_map[i][j + 1];
-                    spaces[node_id].xh = host_x[right_node_id];
-                }
-            }
+        switch (sort_coord) {
+          case 0:
+            std::sort(row2nodes.begin(), row2nodes.end(), [&](int node_id1, int node_id2) {
+              float x1 = host_x[node_id1] + host_node_size_x[node_id1] / 2;
+              float x2 = host_x[node_id2] + host_node_size_x[node_id2] / 2;
+              return x1 < x2 || (x1 == x2 && node_id1 < node_id2);
+            });
+            break;
+          case 1:
+            std::sort(row2nodes.begin(), row2nodes.end(), [&](int node_id1, int node_id2) {
+              float x1 = host_x[node_id1];
+              float x2 = host_x[node_id2];
+              return x1 < x2 || (x1 == x2 && node_id1 < node_id2);
+            });
+            break;
+          case 2:
+            std::sort(row2nodes.begin(), row2nodes.end(), [&](int node_id1, int node_id2) {
+              float x1 = host_x[node_id1] + host_node_size_x[node_id1];
+              float x2 = host_x[node_id2] + host_node_size_x[node_id2];
+              return x1 < x2 || (x1 == x2 && node_id1 < node_id2);
+            });
+            break;
+          default:
+            break;
         }
+      }
+    }
+  }
+
+  void make_row2node_map_with_spaces(const float* host_x,
+                                     const float* host_y,
+                                     const float* host_node_size_x,
+                                     const float* host_node_size_y,
+                                     std::vector<std::vector<int>>& row2node_map,
+                                     std::vector<RowMapIndex>& node2row_map,
+                                     std::vector<Space<float>>& spaces,
+                                     int sort_coord = 0) {
+    make_row2node_map(host_x, host_y, host_node_size_x, host_node_size_y, num_nodes + 2, row2node_map, sort_coord);
+
+    std::vector<std::vector<int>> row2node_map_helper = reorder_row_map(host_x, host_y, host_node_size_x, host_node_size_y, row2node_map, sort_coord);
+
+    for (int i = 0; i < num_sites_y; ++i) {
+      for (unsigned int j = 0; j < row2node_map[i].size(); ++j) {
+        int node_id = row2node_map[i][j];
+        if (node_id < num_movable_nodes) {
+          RowMapIndex& row_id = node2row_map[node_id];
+          row_id.row_id = i;
+          row_id.sub_id = j;
+        }
+      }
     }
 
-    void make_bin2node_map(const float* host_x,
-                           const float* host_y,
-                           const float* host_node_size_x,
-                           const float* host_node_size_y,
-                           std::vector<std::vector<int>>& bin2node_map,
-                           std::vector<BinMapIndex>& node2bin_map) {
-        // construct bin2node_map
-        for (int i = 0; i < num_movable_nodes; ++i) {
-            int node_id = i;
-            float node_x = host_x[node_id] + host_node_size_x[node_id] / 2;
-            float node_y = host_y[node_id] + host_node_size_y[node_id] / 2;
+    for (int i = 0; i < num_sites_y; ++i) {
+      for (unsigned int j = 0; j < row2node_map[i].size(); ++j) {
+        int node_id = row2node_map[i][j];
+        if (node_id < num_movable_nodes) {
+          assert(j);
+          int j_helper = std::find(row2node_map_helper[i].begin(), row2node_map_helper[i].end(), node_id) - row2node_map_helper[i].begin();
+          int left_node_id = row2node_map[i][j_helper - 1];
 
-            int bx = min(max((int)floorDiv(node_x - xl, bin_size_x), 0), num_bins_x - 1);
-            int by = min(max((int)floorDiv(node_y - yl, bin_size_y), 0), num_bins_y - 1);
-            int bin_id = bx * num_bins_y + by;
-            int sub_id = bin2node_map.at(bin_id).size();
-            bin2node_map.at(bin_id).push_back(node_id);
+          spaces[node_id].xl = host_x[left_node_id] + host_node_size_x[left_node_id];
+          assert(j + 1 < row2node_map[i].size());
+          int right_node_id = row2node_map[i][j + 1];
+          spaces[node_id].xh = host_x[right_node_id];
         }
-        for (int bin_id = 0; bin_id < bin2node_map.size(); ++bin_id) {
-            for (int sub_id = 0; sub_id < bin2node_map[bin_id].size(); ++sub_id) {
-                int node_id = bin2node_map[bin_id][sub_id];
-                BinMapIndex& bm_idx = node2bin_map.at(node_id);
-                bm_idx.bin_id = bin_id;
-                bm_idx.sub_id = sub_id;
-            }
-        }
+      }
     }
+  }
 
-    
+  void make_bin2node_map(const float* host_x,
+                         const float* host_y,
+                         const float* host_node_size_x,
+                         const float* host_node_size_y,
+                         std::vector<std::vector<int>>& bin2node_map,
+                         std::vector<BinMapIndex>& node2bin_map) {
+    for (int i = 0; i < num_movable_nodes; ++i) {
+      int node_id = i;
+      float node_x = host_x[node_id] + host_node_size_x[node_id] / 2;
+      float node_y = host_y[node_id] + host_node_size_y[node_id] / 2;
+
+      int bx = min(max((int)floorDiv(node_x - xl, bin_size_x), 0), num_bins_x - 1);
+      int by = min(max((int)floorDiv(node_y - yl, bin_size_y), 0), num_bins_y - 1);
+      int bin_id = bx * num_bins_y + by;
+      int sub_id = bin2node_map.at(bin_id).size();
+      bin2node_map.at(bin_id).push_back(node_id);
+    }
+    for (int bin_id = 0; bin_id < bin2node_map.size(); ++bin_id) {
+      for (int sub_id = 0; sub_id < bin2node_map[bin_id].size(); ++sub_id) {
+        int node_id = bin2node_map[bin_id][sub_id];
+        BinMapIndex& bm_idx = node2bin_map.at(node_id);
+        bm_idx.bin_id = bin_id;
+        bm_idx.sub_id = sub_id;
+      }
+    }
+  }
 };
 
 float compute_total_hpwl(const DetailedPlaceData& db, const float* xx, const float* yy, double* net_hpwls);
 
-//void kReorderCUDA(/*DPTorchRawDB& at_db,*/ int num_bins_x, int num_bins_y, int K, int max_iters);
-//void globalSwapCUDA(/*DPTorchRawDB& at_db,*/ int num_bins_x, int num_bins_y, int batch_size, int max_iters);
-//void independentSetMatchingCUDA(/*DPTorchRawDB& at_db,*/ int num_bins_x, int num_bins_y, int batch_size, int set_size, int max_iters);
-
-}   // namespace dpo
+} // namespace dpo

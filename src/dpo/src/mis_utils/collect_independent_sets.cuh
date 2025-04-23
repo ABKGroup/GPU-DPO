@@ -1,6 +1,6 @@
 #pragma once
 
-#include "gpudp/dp/detailed_place_db.cuh"
+#include "detailed_place_db.cuh"
 #include "cpu_state.cuh"
 
 namespace dpo {
@@ -55,18 +55,15 @@ inline void fill_array(T* array, int n, T v) {
   fill_array_kernel<<<ceilDiv(n, 512), 512>>>(array, n, v);
 }
 
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType>
-void init_kmeans(const DetailedPlaceDBType& db,
-                 const IndependentSetMatchingStateType& state,
-                 KMeansState<typename DetailedPlaceDBType::type>& kmeans_state) {
-    typedef typename DetailedPlaceDBType::type T;
-
+void init_kmeans(const DetailedPlaceData& db,
+                 const IndependentSetMatchingState<float>& state,
+                 KMeansState<float>& kmeans_state) {
     allocateCuda(kmeans_state.centers_x,
                  state.batch_size,
-                 typename KMeansState<typename DetailedPlaceDBType::type>::coordinate_type);
+                 float);
     allocateCuda(kmeans_state.centers_y,
                  state.batch_size,
-                 typename KMeansState<typename DetailedPlaceDBType::type>::coordinate_type);
+                 float);
     allocateCuda(kmeans_state.weights, state.batch_size, T);
     allocateCuda(kmeans_state.partition_sizes, state.batch_size, int);
     allocateCuda(kmeans_state.node2centers_map, db.num_movable_nodes, int);
@@ -81,14 +78,13 @@ void destroy_kmeans(KMeansState<T>& kmeans_state) {
     cudaFree(kmeans_state.node2centers_map);
 }
 
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType>
-void prepare_kmeans(const DetailedPlaceDBType& db,
-                    const IndependentSetMatchingStateType& state,
-                    KMeansState<typename DetailedPlaceDBType::type>& kmeans_state) {
+void prepare_kmeans(const DetailedPlaceData& db,
+                    const IndependentSetMatchingState<float>& state,
+                    KMeansState<float>& kmeans_state) {
     // need at least 1 seed; otherwise, it will cause problem in later kernels
     kmeans_state.num_seeds = max(min(state.num_selected / state.set_size, state.batch_size), 1);
     // set weights to 1.0
-    fill_array(kmeans_state.weights, kmeans_state.num_seeds, (typename DetailedPlaceDBType::type)1.0);
+    fill_array(kmeans_state.weights, kmeans_state.num_seeds, (float)1.0);
 }
 
 template <typename T>

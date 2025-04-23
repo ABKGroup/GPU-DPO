@@ -1,15 +1,15 @@
 #include <curand.h>
 #include <curand_kernel.h>
 
-#include "detailed_place_db.cuh"
+#include "detailed_mis.h"
 
-#include "gpudp/dp/ism/apply_solution.cuh"
-#include "gpudp/dp/ism/auction.cuh"
-#include "gpudp/dp/ism/collect_independent_sets.cuh"
-#include "gpudp/dp/ism/cost_matrix_construction.cuh"
-#include "gpudp/dp/ism/cpu_state.cuh"
-#include "gpudp/dp/ism/maximal_independent_set.cuh"
-#include "gpudp/dp/ism/shuffle.cuh"
+#include "mis_utils/apply_solution.cuh"
+#include "mis_utils/auction.cuh"
+#include "mis_utils/collect_independent_sets.cuh"
+#include "mis_utils/cost_matrix_construction.cuh"
+#include "mis_utils/cpu_state.cuh"
+#include "mis_utils/maximal_independent_set.cuh"
+#include "mis_utils/shuffle.cuh"
 
 namespace dpo {
 
@@ -91,7 +91,7 @@ __global__ void print_global(T* a, int n) {
     unsigned int tid = threadIdx.x;
     unsigned int bid = blockIdx.x;
     if (tid == 0 && bid == 0) {
-        printf("[%d]\n", n);
+        printf("[INFO GPU-DPO] [%d]\n", n);
         for (int i = 0; i < n; ++i) {
             printf("%g ", (double)a[i]);
         }
@@ -104,7 +104,7 @@ __global__ void print_cost_matrix(const T* cost_matrix, int set_size, bool major
     unsigned int tid = threadIdx.x;
     unsigned int bid = blockIdx.x;
     if (tid == 0 && bid == 0) {
-        printf("[%dx%d]\n", set_size, set_size);
+        printf("[INFO GPU-DPO] [%dx%d]\n", set_size, set_size);
         for (int r = 0; r < set_size; ++r) {
             for (int c = 0; c < set_size; ++c) {
                 if (major)  // column major
@@ -125,7 +125,7 @@ __global__ void print_solution(const T* solution, int n) {
     unsigned int tid = threadIdx.x;
     unsigned int bid = blockIdx.x;
     if (tid == 0 && bid == 0) {
-        printf("[%d]\n", n);
+        printf("[INFO GPU-DPO] [%d]\n", n);
         for (int i = 0; i < n; ++i) {
             printf("%g ", (double)solution[i]);
         }
@@ -252,10 +252,10 @@ void independentSetMatchingCUDA(DPTorchRawDB& at_db, int num_bins_x, int num_bin
     KMeansState<float> kmeans_state;
     init_kmeans(db, state, kmeans_state);
 
-    std::vector<float> hpwls(max_iters + 1);
+    std::vector<float> hpwls(passes + 1);
     hpwls[0] = compute_total_hpwl(db, db.x, db.y, state.net_hpwls);
     logger.info("initial hpwl %g", hpwls[0]);
-    for (int iter = 0; iter < max_iters; ++iter) {
+    for (int p = 1; p <= passes; ++p) {
         shuffler();
         checkCuda(cudaDeviceSynchronize());
 
@@ -287,7 +287,7 @@ void independentSetMatchingCUDA(DPTorchRawDB& at_db, int num_bins_x, int num_bin
         apply_solution(db, state);
         checkCuda(cudaDeviceSynchronize());
 
-        hpwls[iter + 1] = compute_total_hpwl(db, db.x, db.y, state.net_hpwls);
+        hpwls[p] = compute_total_hpwl(db, db.x, db.y, state.net_hpwls);
         if ((iter % (max(max_iters / 10, 1))) == 0 || iter + 1 == max_iters) {
             logger.info("iteration %d, target hpwl %g, delta %g(%g%%), %d independent sets, moved %g%% cells",
                         iter,

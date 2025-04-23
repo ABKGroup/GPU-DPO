@@ -41,6 +41,7 @@
 #include <limits>
 #include <map>
 #include <vector>
+#include <fstream>
 
 #include "dpl/Opendp.h"
 #include "odb/util.h"
@@ -865,6 +866,11 @@ void Optdp::createArchitecture()
     }
   }
   arch_->postProcess(network_);
+  
+  // Reorder and reindex
+  std::cout << "[INFO GPU-DPO] Reordering and re-indexing nodes" << std::endl;
+  network_->reorderAndReindexNodes();
+  network_->sanityCheckAndPrintStats();
 }
 ////////////////////////////////////////////////////////////////
 void Optdp::setUpPlacementRegions()

@@ -42,6 +42,8 @@
 #include <string>
 #include <vector>
 
+#include "detailed_place_db.cuh"
+
 namespace dpo {
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -93,8 +95,8 @@ class DetailedMis
   DetailedMis(Architecture* arch, Network* network, RoutingParams* rt);
   virtual ~DetailedMis();
 
-  void run(DetailedMgr* mgrPtr, const std::string& command);
-  void run(DetailedMgr* mgrPtr, std::vector<std::string>& args);
+  void run(DetailedMgr* mgrPtr, DetailedPlaceData& db, const std::string& command);
+  void run(DetailedMgr* mgrPtr, DetailedPlaceData& db, std::vector<std::string>& args);
 
  private:
   struct Bucket;
