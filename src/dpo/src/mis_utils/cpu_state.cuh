@@ -1,7 +1,8 @@
 #pragma once
 
-#include "detailed_place_db.cuh"
+#include "../detailed_db_cuda.cuh"
 #include "diamond_search.h"
+#include "../detailed_mis.h"
 
 namespace dpo {
 
@@ -42,7 +43,7 @@ struct IndependentSetMatchingCPUState {
 
 inline int ceil_power2(int v) { return (1 << (int)ceil(log2((float)v))); }
 
-void init_cpu_db(const DetailedPlaceData& db, DetailedPlaceCPUDB<float>& host_db) {
+void init_cpu_db(const DetailedPlaceData& db, DetailedPlaceCPUDB<DetailedPlaceData::type>& host_db) {
     host_db.num_movable_nodes = db.num_movable_nodes;
     host_db.num_bins_x = db.num_bins_x;
     host_db.num_bins_y = db.num_bins_y;
@@ -55,25 +56,25 @@ void init_cpu_db(const DetailedPlaceData& db, DetailedPlaceCPUDB<float>& host_db
     host_db.node_size_x.resize(db.num_nodes);
     checkCuda(cudaMemcpy(host_db.node_size_x.data(),
                          db.node_size_x,
-                         sizeof(float) * db.num_nodes,
+                         sizeof(DetailedPlaceData::type) * db.num_nodes,
                          cudaMemcpyDeviceToHost));
     host_db.node_size_y.resize(db.num_nodes);
     checkCuda(cudaMemcpy(host_db.node_size_y.data(),
                          db.node_size_y,
-                         sizeof(float) * db.num_nodes,
+                         sizeof(DetailedPlaceData::type) * db.num_nodes,
                          cudaMemcpyDeviceToHost));
     host_db.x.resize(db.num_nodes);
     host_db.y.resize(db.num_nodes);
 }
 
 void init_cpu_state(const DetailedPlaceData& db,
-                    const IndependentSetMatchingState<float>& state,
-                    IndependentSetMatchingCPUState<float>& host_state) {
+                    const IndependentSetMatchingState<DetailedPlaceData::type>& state,
+                    IndependentSetMatchingCPUState<DetailedPlaceData::type>& host_state) {
     host_state.batch_size = state.batch_size;
     host_state.set_size = state.set_size;
     host_state.grid_size = ceil_power2(std::max(db.num_bins_x, db.num_bins_y) / 8);
     host_state.max_diamond_search_sequence = host_state.grid_size * host_state.grid_size / 2;
-    printf("[INFO GPU-DPO] diamond search grid size %d, sequence length %d",
+    printf("[INFO GPU-DPO] diamond search grid size %d, sequence length %d\n",
                 host_state.grid_size,
                 host_state.max_diamond_search_sequence);
     host_state.selected_nodes.reserve(db.num_movable_nodes);

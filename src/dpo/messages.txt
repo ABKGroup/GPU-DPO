@@ -2,10 +2,6 @@ DPO 0002 Optdp.tcl:44              No design block found. ERROR https://github.c
 DPO 0031 Optdp.tcl:63              -max_displacement disp|{disp_x disp_y} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/Optdp.tcl#L63
 DPO 0200 legalize_shift.cxx:200    Unexpected displacement during legalization. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/legalize_shift.cxx#L200
 DPO 0201 legalize_shift.cxx:216    Placement check failure during legalization. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/legalize_shift.cxx#L216
-DPO 0202 detailed_mis.cxx:168      No movable cells found INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_mis.cxx#L168
-DPO 0300 detailed_mis.cxx:147      Set matching objective is {:s}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_mis.cxx#L147
-DPO 0301 detailed_mis.cxx:177      Pass {:3d} of matching; objective is {:.6e}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_mis.cxx#L177
-DPO 0302 detailed_mis.cxx:209      End of matching; objective is {:.6e}, improvement is {:.2f} percent. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_mis.cxx#L209
 DPO 0308 detailed_vertical.cxx:133 Pass {:3d} of vertical swaps; hpwl is {:.6e}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_vertical.cxx#L133
 DPO 0309 detailed_vertical.cxx:145 End of vertical swaps; objective is {:.6e},  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_vertical.cxx#L145
 DPO 0310 detailed_manager.cxx:962  Assigned {:d} cells into segments.  Movement in X-direction  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpo/src/detailed_manager.cxx#L962

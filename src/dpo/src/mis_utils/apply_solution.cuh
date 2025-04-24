@@ -1,7 +1,9 @@
 #pragma once
 
 #include "adjust_pos.cuh"
-#include "gpudp/dp/detailed_place_db.cuh"
+#include "../detailed_db_cuda.cuh"
+#include <cassert>
+#include <cstdio>
 
 namespace dpo {
 
@@ -96,7 +98,7 @@ void compute_costs(const char* stop_flags, const int batch_size, const int set_s
             block_reduce_sum<T, 1024><<<batch_size, 1024>>>(costs, stop_flags, batch_size, set_size);
             break;
         default:
-            assert_msg(0, "unsupported set size %d", set_size);
+            printf("unsupported set size %d\n", set_size);
     }
 }
 
@@ -132,8 +134,7 @@ void compute_solution_cost(const T* cost_matrices,
     compute_costs(stop_flags, batch_size, set_size, costs);
 }
 
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType>
-__global__ void store_orig_pos_kernel(DetailedPlaceDBType db, IndependentSetMatchingStateType state) {
+__global__ void store_orig_pos_kernel(DetailedPlaceData db, IndependentSetMatchingState<float> state) {
     int i = blockIdx.x;  // set
     const int* __restrict__ independent_set = state.independent_sets + i * state.set_size;
     auto orig_x = state.orig_x + i * state.set_size;
@@ -150,8 +151,7 @@ __global__ void store_orig_pos_kernel(DetailedPlaceDBType db, IndependentSetMatc
     }
 }
 
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType>
-__global__ void move_nodes_kernel(DetailedPlaceDBType db, IndependentSetMatchingStateType state) {
+__global__ void move_nodes_kernel(DetailedPlaceData db, IndependentSetMatchingState<DetailedPlaceData::type> state) {
     int i = blockIdx.x;  // set
     int idx = i * state.set_size;
 
@@ -160,11 +160,11 @@ __global__ void move_nodes_kernel(DetailedPlaceDBType db, IndependentSetMatching
         if (state.orig_costs[idx] <= state.solution_costs[idx]) {
             const int* __restrict__ independent_set = state.independent_sets + i * state.set_size;
             const int* __restrict__ solution = state.solutions + i * state.set_size;
-            const typename IndependentSetMatchingStateType::type* __restrict__ orig_x =
+            const float* __restrict__ orig_x =
                 state.orig_x + i * state.set_size;
-            const typename IndependentSetMatchingStateType::type* __restrict__ orig_y =
+            const float* __restrict__ orig_y =
                 state.orig_y + i * state.set_size;
-            const Space<typename IndependentSetMatchingStateType::type>* __restrict__ orig_spaces =
+            const Space<float>* __restrict__ orig_spaces =
                 state.orig_spaces + i * state.set_size;
             for (int j = threadIdx.x; j < state.set_size; j += blockDim.x) {
                 int node_id = independent_set[j];
@@ -197,7 +197,7 @@ __global__ void move_nodes_kernel(DetailedPlaceDBType db, IndependentSetMatching
                         x = orig_x[sol_k];
                         bool ret = adjust_pos(x, node_width, orig_space);
                         if (!ret) {
-                            printf("ERROR: ism adjust_pos, node_width: %g, orig_space(%g, %g)\n",
+                            printf("[INFO GPU-DPO] ERROR: ism adjust_pos, node_width: %g, orig_space(%g, %g)\n",
                                    node_width,
                                    orig_space.xl,
                                    orig_space.xh);
@@ -212,12 +212,11 @@ __global__ void move_nodes_kernel(DetailedPlaceDBType db, IndependentSetMatching
     }
 }
 
-template <typename IndependentSetMatchingStateType>
-__global__ void print_orig_and_solution_costs_kernel(IndependentSetMatchingStateType state) {
+__global__ void print_orig_and_solution_costs_kernel(IndependentSetMatchingState<float> state) {
     if (blockIdx.x == 0 && threadIdx.x == 0) {
         for (int i = 0; i < state.num_independent_sets; ++i) {
             int stop = state.stop_flags[i];
-            printf("[%d] orig_costs %g, solution_costs %g, delta %g, stop_flag %d\n",
+            printf("[INFO GPU-DPO] [%d] orig_costs %g, solution_costs %g, delta %g, stop_flag %d\n",
                    i,
                    (float)state.orig_costs[i * state.set_size],
                    (float)state.solution_costs[i * state.set_size],
@@ -227,16 +226,15 @@ __global__ void print_orig_and_solution_costs_kernel(IndependentSetMatchingState
     }
 }
 
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType>
-__global__ void check_hpwl_kernel(DetailedPlaceDBType db,
-                                  IndependentSetMatchingStateType state,
+/*__global__ void check_hpwl_kernel(DetailedPlaceData db,
+                                  IndependentSetMatchingState<DetailedPlaceData::type> state,
                                   const int* independent_set) {
     if (blockIdx.x == 0 && threadIdx.x == 0) {
         for (int i = 0; i < state.set_size; ++i) {
             int node_id = independent_set[i];
             if (node_id < db.num_movable_nodes) {
                 printf("node %d (%g, %g)", node_id, db.x[node_id], db.y[node_id]);
-                typename DetailedPlaceDBType::type target_hpwl = 0;
+                DetailedPlaceData::type target_hpwl = 0;
                 for (int node2pin_id = db.flat_node2pin_start_map[node_id];
                      node2pin_id < db.flat_node2pin_start_map[node_id + 1];
                      ++node2pin_id) {
@@ -244,7 +242,7 @@ __global__ void check_hpwl_kernel(DetailedPlaceDBType db,
                     int net_id = db.pin2net_map[node_pin_id];
                     if (db.net_mask[net_id]) {
                         {
-                            Box<typename DetailedPlaceDBType::type> box;
+                            Box<DetailedPlaceData::type> box;
                             box.xl = db.xh;
                             box.yl = db.yh;
                             box.xh = db.xl;
@@ -261,19 +259,19 @@ __global__ void check_hpwl_kernel(DetailedPlaceDBType db,
                                 box.yl = min(box.yl, yyl);
                                 box.yh = max(box.yh, yyl);
                             }
-                            typename DetailedPlaceDBType::type hpwl = box.xh - box.xl + box.yh - box.yl;
+                            DetailedPlaceData::type hpwl = box.xh - box.xl + box.yh - box.yl;
                             target_hpwl += hpwl;
                             printf(", net %d hpwl %g", net_id, (double)hpwl);
                         }
                         {
                             auto const& box = state.net_boxes[net_id];
-                            typename DetailedPlaceDBType::type xxl = db.x[node_id] + db.pin_offset_x[node_pin_id];
-                            typename DetailedPlaceDBType::type yyl = db.y[node_id] + db.pin_offset_y[node_pin_id];
-                            typename DetailedPlaceDBType::type bxl = min(box.xl, xxl);
-                            typename DetailedPlaceDBType::type bxh = max(box.xh, xxl);
-                            typename DetailedPlaceDBType::type byl = min(box.yl, yyl);
-                            typename DetailedPlaceDBType::type byh = max(box.yh, yyl);
-                            typename DetailedPlaceDBType::type hpwl = (bxh - bxl) + (byh - byl);
+                            DetailedPlaceData::type xxl = db.x[node_id] + db.pin_offset_x[node_pin_id];
+                            DetailedPlaceData::type yyl = db.y[node_id] + db.pin_offset_y[node_pin_id];
+                            DetailedPlaceData::type bxl = min(box.xl, xxl);
+                            DetailedPlaceData::type bxh = max(box.xh, xxl);
+                            DetailedPlaceData::type byl = min(box.yl, yyl);
+                            DetailedPlaceData::type byh = max(box.yh, yyl);
+                            DetailedPlaceData::type hpwl = (bxh - bxl) + (byh - byl);
                             printf(" (%g)", hpwl);
                         }
                     }
@@ -282,10 +280,9 @@ __global__ void check_hpwl_kernel(DetailedPlaceDBType db,
             }
         }
     }
-}
+}*/
 
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType>
-void apply_solution(DetailedPlaceDBType& db, IndependentSetMatchingStateType& state) {
+void apply_solution(DetailedPlaceData& db, IndependentSetMatchingState<DetailedPlaceData::type>& state) {
     compute_orig_cost(
         state.cost_matrices, state.stop_flags, state.num_independent_sets, state.set_size, state.orig_costs);
     compute_solution_cost(state.cost_matrices,

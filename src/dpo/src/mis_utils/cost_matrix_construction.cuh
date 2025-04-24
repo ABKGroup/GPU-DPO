@@ -1,8 +1,9 @@
 #pragma once
 
 #include "adjust_pos.cuh"
-#include "detailed_place_db.cuh"
+#include "../detailed_db_cuda.cuh"
 #include "reduce_min.cuh"
+#include "../detailed_mis.h"
 
 namespace dpo {
 
@@ -16,7 +17,7 @@ struct SharedBox {
     T yh;
 };
 
-__global__ void print_net_boxes_kernel(DetailedPlaceData db, IndependentSetMatchingState<float> state) {
+/*__global__ void print_net_boxes_kernel(DetailedPlaceData db, IndependentSetMatchingState<DetailedPlaceData::type> state) {
     if (blockIdx.x == 0 && threadIdx.x == 0) {
         for (int node_id = 0; node_id < db.num_movable_nodes; ++node_id) {
             if (state.selected_markers[node_id]) {
@@ -26,26 +27,26 @@ __global__ void print_net_boxes_kernel(DetailedPlaceData db, IndependentSetMatch
                     int node_pin_id = db.flat_node2pin_map[node2pin_id];
                     int net_id = db.pin2net_map[node_pin_id];
                     auto const& box = state.net_boxes[net_id];
-                    printf("[INFO GPU-DPO] node %d: net %d (%g, %g, %g, %g)\n", node_id, net_id, box.xl, box.yl, box.xh, box.yh);
+                    printf("node %d: net %d (%g, %g, %g, %g)\n", node_id, net_id, box.xl, box.yl, box.xh, box.yh);
                 }
             }
         }
     }
-}
+}*/
 
-__global__ void compute_cost_matrix_kernel(DetailedPlaceData db, IndependentSetMatchingState<float> state) {
+__global__ void compute_cost_matrix_kernel(DetailedPlaceData db, IndependentSetMatchingState<DetailedPlaceData::type> state) {
     int i = blockIdx.y;  // set
     int j = blockIdx.x;  // node in set
     const int* __restrict__ independent_set = state.independent_sets + i * state.set_size;
     auto cost_matrix = state.cost_matrices + i * state.cost_matrix_size + j * state.set_size;
     __shared__ int node_id;
-    __shared__ float node_width;
-    __shared__ SharedBox<float> net_boxes[MAX_NODE_DEGREE];
+    __shared__ DetailedPlaceData::type node_width;
+    __shared__ SharedBox<DetailedPlaceData::type> net_boxes[MAX_NODE_DEGREE];
     __shared__ int node2pin_id_bgn;
     __shared__ int node2pin_id_end;
     if (threadIdx.x == 0) {
         node_id = independent_set[j];
-        node_width = cuda::numeric_limits<float>::max();
+        node_width = cuda::numeric_limits<DetailedPlaceData::type>::max();
         if (node_id < db.num_movable_nodes) {
             node_width = db.node_size_x[node_id];
 
@@ -69,8 +70,8 @@ __global__ void compute_cost_matrix_kernel(DetailedPlaceData db, IndependentSetM
                         int net_pin_id = db.flat_net2pin_map[net2pin_id];
                         int other_node_id = db.pin2node_map[net_pin_id];
                         if (other_node_id != node_id) {
-                            float xxl = db.x[other_node_id] + db.pin_offset_x[net_pin_id];
-                            float yyl = db.y[other_node_id] + db.pin_offset_y[net_pin_id];
+                            DetailedPlaceData::type xxl = db.x[other_node_id] + db.pin_offset_x[net_pin_id];
+                            DetailedPlaceData::type yyl = db.y[other_node_id] + db.pin_offset_y[net_pin_id];
                             box.xl = min(box.xl, xxl);
                             box.xh = max(box.xh, xxl);
                             box.yl = min(box.yl, yyl);
@@ -89,8 +90,8 @@ __global__ void compute_cost_matrix_kernel(DetailedPlaceData db, IndependentSetM
         int pos_id = independent_set[k];
         auto& cost = cost_matrix[k];  // row major
         if (node_id < db.num_movable_nodes && pos_id < db.num_movable_nodes) {
-            float target_x = db.x[pos_id];
-            float target_y = db.y[pos_id];
+            DetailedPlaceData::type target_x = db.x[pos_id];
+            DetailedPlaceData::type target_y = db.y[pos_id];
             auto const& target_space = state.spaces[pos_id];
             int target_hpwl = 0;
             if (adjust_pos(target_x, node_width, target_space)) {
@@ -104,12 +105,12 @@ __global__ void compute_cost_matrix_kernel(DetailedPlaceData db, IndependentSetM
                         int net_id = db.pin2net_map[node_pin_id];
                         auto const& box = net_boxes[idx];
                         if (db.net_mask[net_id]) {
-                            float xxl = target_x + db.pin_offset_x[node_pin_id];
-                            float yyl = target_y + db.pin_offset_y[node_pin_id];
-                            float bxl = min(box.xl, xxl);
-                            float bxh = max(box.xh, xxl);
-                            float byl = min(box.yl, yyl);
-                            float byh = max(box.yh, yyl);
+                            DetailedPlaceData::type xxl = target_x + db.pin_offset_x[node_pin_id];
+                            DetailedPlaceData::type yyl = target_y + db.pin_offset_y[node_pin_id];
+                            DetailedPlaceData::type bxl = min(box.xl, xxl);
+                            DetailedPlaceData::type bxh = max(box.xh, xxl);
+                            DetailedPlaceData::type byl = min(box.yl, yyl);
+                            DetailedPlaceData::type byh = max(box.yh, yyl);
                             target_hpwl += (bxh - bxl) + (byh - byl);
                         }
                     }
@@ -128,7 +129,7 @@ __global__ void compute_cost_matrix_kernel(DetailedPlaceData db, IndependentSetM
 }
 
 /// @brief change from minimization problem for maximization problem with non-negative edge weights
-__global__ void postprocess_cost_matrix_kernel(DetailedPlaceData db, IndependentSetMatchingState<float> state) {
+__global__ void postprocess_cost_matrix_kernel(DetailedPlaceData db, IndependentSetMatchingState<DetailedPlaceData::type> state) {
     int i = blockIdx.y;  // set
     int j = blockIdx.x;  // node in set
     const int* __restrict__ independent_set = state.independent_sets + i * state.set_size;
@@ -151,7 +152,8 @@ __global__ void postprocess_cost_matrix_kernel(DetailedPlaceData db, Independent
     }
 }
 
-__global__ void print_cost_matrix_kernel(const float* cost_matrix, int set_size) {
+template <typename T>
+__global__ void print_cost_matrix_kernel(const T* cost_matrix, int set_size) {
     unsigned int tid = threadIdx.x;
     unsigned int bid = blockIdx.x;
     if (tid == 0 && bid == 0) {
@@ -190,7 +192,7 @@ __global__ void check_cost_matrices_kernel(IndependentSetMatchingState<float> st
         for (int i = 0; i < state.num_independent_sets; ++i) {
             for (int j = 0; j < state.cost_matrix_size; ++j) {
                 auto cost = state.cost_matrices[i * state.cost_matrix_size + j];
-                assert(cost == cuda::numeric_limits<float>::lowest() ||
+                assert(cost == cuda::numeric_limits<int>::lowest() ||
                        cost >= 0);
             }
         }
@@ -202,21 +204,21 @@ struct CompareCost {
     __host__ __device__ bool operator()(T cost1, T cost2) const { return cost1 > cost2; }
 };
 
-void cost_matrix_construction(const DetailedPlaceData& db, IndependentSetMatchingState<float>& state) {
+void cost_matrix_construction(const DetailedPlaceData& db, IndependentSetMatchingState<DetailedPlaceData::type>& state) {
     dim3 grid(state.set_size, state.num_independent_sets, 1);
     compute_cost_matrix_kernel<<<grid, state.set_size>>>(db, state);
 
     checkCuda(cudaMemcpy(state.cost_matrices_copy,
                          state.cost_matrices,
-                         sizeof(float) * state.num_independent_sets *
+                         sizeof(int) * state.num_independent_sets *
                              state.cost_matrix_size,
                          cudaMemcpyDeviceToDevice));
-    float ref = 0;
+    int ref = 0;
     reduce_2d(state.cost_matrices_copy,
               state.num_independent_sets,
               state.cost_matrix_size,
               ref,
-              CompareCost<float>());
+              CompareCost<int>());
 
     postprocess_cost_matrix_kernel<<<grid, state.set_size>>>(db, state);
 }

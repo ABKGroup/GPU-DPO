@@ -61,6 +61,8 @@ find_package(LEMON NAMES LEMON lemon REQUIRED)
 
 # find_package(Torch REQUIRED)
 
+# file(GLOB MIS_UTILS_SOURCES src/mis_utils/*.h src/mis_utils/*.cuh)
+
 target_sources(dpo
   PRIVATE
     src/Optdp.cu
@@ -73,6 +75,7 @@ target_sources(dpo
     src/legalize_shift.cxx
     src/detailed.cu
     src/detailed_manager.cxx
+    # ${MIS_UTILS_SOURCES}
     src/detailed_mis.cu
     src/detailed_reorder.cu
     src/detailed_vertical.cxx

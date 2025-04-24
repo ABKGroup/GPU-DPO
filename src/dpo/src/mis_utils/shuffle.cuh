@@ -3,7 +3,7 @@
 #include <curand.h>
 #include <curand_kernel.h>
 
-#include "cuda_utils.cuh"
+#include "../cuda_utils.cuh"
 
 namespace dpo {
 

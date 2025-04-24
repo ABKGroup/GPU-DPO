@@ -1,6 +1,7 @@
 #pragma once
 
-#include "gpudp/dp/detailed_place_db.cuh"
+#include "../detailed_db_cuda.cuh"
+#include "../detailed_mis.h"
 
 namespace dpo {
 
@@ -36,16 +37,15 @@ void select(const int* d_flags, int* d_results, const int length, int* scratch, 
 }
 
 /// @brief for each node, check its first level neighbors, if they are selected, mark itself as dependent
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType>
-__device__ void mark_dependent_nodes_self(const DetailedPlaceDBType& db,
-                                          IndependentSetMatchingStateType& state,
+__device__ void mark_dependent_nodes_self(const DetailedPlaceData& db,
+                                          IndependentSetMatchingState<DetailedPlaceData::type>& state,
                                           int node_id) {
     if (state.selected_markers[node_id]) {
         state.dependent_markers[node_id] = 1;
         return;
     }
-    typename DetailedPlaceDBType::type node_xl = db.x[node_id];
-    typename DetailedPlaceDBType::type node_yl = db.y[node_id];
+    DetailedPlaceData::type node_xl = db.x[node_id];
+    DetailedPlaceData::type node_yl = db.y[node_id];
     // in case all nets are masked
     int node2pin_start = db.flat_node2pin_start_map[node_id];
     int node2pin_end = db.flat_node2pin_start_map[node_id + 1];
@@ -58,9 +58,9 @@ __device__ void mark_dependent_nodes_self(const DetailedPlaceDBType& db,
             for (int net2pin_id = net2pin_start; net2pin_id < net2pin_end; ++net2pin_id) {
                 int net_pin_id = db.flat_net2pin_map[net2pin_id];
                 int other_node_id = db.pin2node_map[net_pin_id];
-                typename DetailedPlaceDBType::type other_node_xl = db.x[other_node_id];
-                typename DetailedPlaceDBType::type other_node_yl = db.y[other_node_id];
-                if (std::abs(node_xl - other_node_xl) + std::abs(node_yl - other_node_yl) < state.skip_threshold) {
+                DetailedPlaceData::type other_node_xl = db.x[other_node_id];
+                DetailedPlaceData::type other_node_yl = db.y[other_node_id];
+                if (abs(node_xl - other_node_xl) + abs(node_yl - other_node_yl) < state.skip_threshold) {
                     if (other_node_id < db.num_movable_nodes && state.selected_markers[other_node_id]) {
                         state.dependent_markers[node_id] = 1;
                         return;
@@ -71,9 +71,8 @@ __device__ void mark_dependent_nodes_self(const DetailedPlaceDBType& db,
     }
 }
 
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType>
-__global__ void maximal_independent_set_kernel(DetailedPlaceDBType db,
-                                               IndependentSetMatchingStateType state,
+__global__ void maximal_independent_set_kernel(DetailedPlaceData db,
+                                               IndependentSetMatchingState<DetailedPlaceData::type> state,
                                                int* empty) {
     const int from = blockIdx.x * blockDim.x + threadIdx.x;
     const int incr = gridDim.x * blockDim.x;
@@ -89,8 +88,8 @@ __global__ void maximal_independent_set_kernel(DetailedPlaceDBType db,
             // empty = false;
             bool min_node_flag = true;
             {
-                typename DetailedPlaceDBType::type node_xl = db.x[node_id];
-                typename DetailedPlaceDBType::type node_yl = db.y[node_id];
+                DetailedPlaceData::type node_xl = db.x[node_id];
+                DetailedPlaceData::type node_yl = db.y[node_id];
                 int node_rank = state.ordered_nodes[node_id];
                 // in case all nets are masked
                 int node2pin_start = db.flat_node2pin_start_map[node_id];
@@ -104,9 +103,9 @@ __global__ void maximal_independent_set_kernel(DetailedPlaceDBType db,
                         for (int net2pin_id = net2pin_start; net2pin_id < net2pin_end; ++net2pin_id) {
                             int net_pin_id = db.flat_net2pin_map[net2pin_id];
                             int other_node_id = db.pin2node_map[net_pin_id];
-                            typename DetailedPlaceDBType::type other_node_xl = db.x[other_node_id];
-                            typename DetailedPlaceDBType::type other_node_yl = db.y[other_node_id];
-                            typename DetailedPlaceDBType::type distance =
+                            DetailedPlaceData::type other_node_xl = db.x[other_node_id];
+                            DetailedPlaceData::type other_node_yl = db.y[other_node_id];
+                            DetailedPlaceData::type distance =
                                 abs(node_xl - other_node_xl) + abs(node_yl - other_node_yl);
                             if (other_node_id < db.num_movable_nodes && (distance < state.skip_threshold) &&
                                 (state.selected_markers[other_node_id] ||
@@ -130,8 +129,7 @@ __global__ void maximal_independent_set_kernel(DetailedPlaceDBType db,
     //} while (!empty);
 }
 
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType>
-__global__ void mark_dependent_nodes_kernel(DetailedPlaceDBType db, IndependentSetMatchingStateType state) {
+__global__ void mark_dependent_nodes_kernel(DetailedPlaceData db, IndependentSetMatchingState<DetailedPlaceData::type> state) {
     for (int node_id = blockIdx.x * blockDim.x + threadIdx.x; node_id < db.num_movable_nodes;
          node_id += blockDim.x * gridDim.x) {
         if (!state.dependent_markers[node_id]) {
@@ -140,8 +138,7 @@ __global__ void mark_dependent_nodes_kernel(DetailedPlaceDBType db, IndependentS
     }
 }
 
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType>
-__global__ void init_markers_kernel(DetailedPlaceDBType db, IndependentSetMatchingStateType state) {
+__global__ void init_markers_kernel(DetailedPlaceData db, IndependentSetMatchingState<DetailedPlaceData::type> state) {
     for (int i = blockIdx.x * blockDim.x + threadIdx.x; i < db.num_nodes; i += blockDim.x * gridDim.x) {
         state.selected_markers[i] = 0;
         // make sure multi-row height cells are not selected
@@ -149,8 +146,7 @@ __global__ void init_markers_kernel(DetailedPlaceDBType db, IndependentSetMatchi
     }
 }
 
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType>
-void maximal_independent_set(DetailedPlaceDBType const& db, IndependentSetMatchingStateType& state) {
+void maximal_independent_set(const DetailedPlaceData& db, IndependentSetMatchingState<DetailedPlaceData::type>& state) {
     // if dependent_markers is 1, it means "cannot be selected"
     // if selected_markers is 1, it means "already selected"
     init_markers_kernel<<<ceilDiv(db.num_nodes, 256), 256>>>(db, state);

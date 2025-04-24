@@ -1,7 +1,8 @@
 #pragma once
 
-#include "detailed_place_db.cuh"
+#include "../detailed_db_cuda.cuh"
 #include "cpu_state.cuh"
+#include "../detailed_mis.h"
 
 namespace dpo {
 
@@ -56,14 +57,16 @@ inline void fill_array(T* array, int n, T v) {
 }
 
 void init_kmeans(const DetailedPlaceData& db,
-                 const IndependentSetMatchingState<float>& state,
-                 KMeansState<float>& kmeans_state) {
+                 const IndependentSetMatchingState<DetailedPlaceData::type>& state,
+                 KMeansState<DetailedPlaceData::type>& kmeans_state) {
+    using T = DetailedPlaceData::type;
+
     allocateCuda(kmeans_state.centers_x,
                  state.batch_size,
-                 float);
+                 typename KMeansState<T>::coordinate_type);
     allocateCuda(kmeans_state.centers_y,
                  state.batch_size,
-                 float);
+                 typename KMeansState<T>::coordinate_type);
     allocateCuda(kmeans_state.weights, state.batch_size, T);
     allocateCuda(kmeans_state.partition_sizes, state.batch_size, int);
     allocateCuda(kmeans_state.node2centers_map, db.num_movable_nodes, int);
@@ -79,12 +82,12 @@ void destroy_kmeans(KMeansState<T>& kmeans_state) {
 }
 
 void prepare_kmeans(const DetailedPlaceData& db,
-                    const IndependentSetMatchingState<float>& state,
-                    KMeansState<float>& kmeans_state) {
+                    const IndependentSetMatchingState<DetailedPlaceData::type>& state,
+                    KMeansState<DetailedPlaceData::type>& kmeans_state) {
     // need at least 1 seed; otherwise, it will cause problem in later kernels
     kmeans_state.num_seeds = max(min(state.num_selected / state.set_size, state.batch_size), 1);
     // set weights to 1.0
-    fill_array(kmeans_state.weights, kmeans_state.num_seeds, (float)1.0);
+    fill_array(kmeans_state.weights, kmeans_state.num_seeds, (DetailedPlaceData::type)1.0);
 }
 
 template <typename T>
@@ -106,34 +109,34 @@ struct ReduceMinOP {
     }
 };
 
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType, int ThreadsPerBlock = 128>
-__global__ void kmeans_find_centers_kernel(DetailedPlaceDBType db,
-                                           IndependentSetMatchingStateType state,
-                                           KMeansState<typename DetailedPlaceDBType::type> kmeans_state) {
+template <int ThreadsPerBlock = 128>
+__global__ void kmeans_find_centers_kernel(DetailedPlaceData db,
+                                           IndependentSetMatchingState<DetailedPlaceData::type> state,
+                                           KMeansState<DetailedPlaceData::type> kmeans_state) {
     assert(blockIdx.x < state.num_selected);
     int node_id = state.selected_maximal_independent_set[blockIdx.x];
     assert(node_id < db.num_movable_nodes);
     auto node_x = db.x[node_id];
     auto node_y = db.y[node_id];
 
-    typedef cub::BlockReduce<ItemWithIndex<typename DetailedPlaceDBType::type>, ThreadsPerBlock> BlockReduce;
+    typedef cub::BlockReduce<ItemWithIndex<DetailedPlaceData::type>, ThreadsPerBlock> BlockReduce;
 
     __shared__ typename BlockReduce::TempStorage temp_storage;
 
-    ItemWithIndex<typename DetailedPlaceDBType::type> thread_data;
+    ItemWithIndex<DetailedPlaceData::type> thread_data;
 
-    thread_data.value = cuda::numeric_limits<typename DetailedPlaceDBType::type>::max();
+    thread_data.value = cuda::numeric_limits<DetailedPlaceData::type>::max();
     thread_data.index = cuda::numeric_limits<int>::max();
     for (int center_id = threadIdx.x; center_id < kmeans_state.num_seeds; center_id += ThreadsPerBlock) {
         assert(center_id < kmeans_state.num_seeds);
         // scale back to floating point numbers
-        typename DetailedPlaceDBType::type center_x =
-            kmeans_state.centers_x[center_id] / KMeansState<typename DetailedPlaceDBType::type>::scale;
-        typename DetailedPlaceDBType::type center_y =
-            kmeans_state.centers_y[center_id] / KMeansState<typename DetailedPlaceDBType::type>::scale;
-        typename DetailedPlaceDBType::type weight = kmeans_state.weights[center_id];
+        DetailedPlaceData::type center_x =
+            kmeans_state.centers_x[center_id] / KMeansState<DetailedPlaceData::type>::scale;
+        DetailedPlaceData::type center_y =
+            kmeans_state.centers_y[center_id] / KMeansState<DetailedPlaceData::type>::scale;
+        DetailedPlaceData::type weight = kmeans_state.weights[center_id];
 
-        typename DetailedPlaceDBType::type distance = kmeans_distance(node_x, node_y, center_x, center_y) * weight;
+        DetailedPlaceData::type distance = kmeans_distance(node_x, node_y, center_x, center_y) * weight;
         if (distance < thread_data.value) {
             thread_data.value = distance;
             thread_data.index = center_id;
@@ -146,9 +149,9 @@ __global__ void kmeans_find_centers_kernel(DetailedPlaceDBType db,
     __syncthreads();
 
     // Compute the block-wide max for thread0
-    ItemWithIndex<typename DetailedPlaceDBType::type> aggregate =
+    ItemWithIndex<DetailedPlaceData::type> aggregate =
         BlockReduce(temp_storage)
-            .Reduce(thread_data, ReduceMinOP<typename DetailedPlaceDBType::type>(), kmeans_state.num_seeds);
+            .Reduce(thread_data, ReduceMinOP<DetailedPlaceData::type>(), kmeans_state.num_seeds);
 
     __syncthreads();
 
@@ -158,10 +161,9 @@ __global__ void kmeans_find_centers_kernel(DetailedPlaceDBType db,
     }
 }
 
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType>
-__global__ void init_kmeans_seeds_kernel(DetailedPlaceDBType db,
-                                         IndependentSetMatchingStateType state,
-                                         KMeansState<typename DetailedPlaceDBType::type> kmeans_state) {
+__global__ void init_kmeans_seeds_kernel(DetailedPlaceData db,
+                                         IndependentSetMatchingState<DetailedPlaceData::type> state,
+                                         KMeansState<DetailedPlaceData::type> kmeans_state) {
     int i = blockIdx.x * blockDim.x + threadIdx.x;
     if (i < kmeans_state.num_seeds) {
         assert(db.num_movable_nodes - i - 1 < db.num_movable_nodes && db.num_movable_nodes - i - 1 >= 0);
@@ -170,32 +172,29 @@ __global__ void init_kmeans_seeds_kernel(DetailedPlaceDBType db,
         int node_id = state.selected_maximal_independent_set[random_number];
         assert(node_id < db.num_movable_nodes);
         // scale up for fixed point numbers
-        kmeans_state.centers_x[i] = db.x[node_id] * KMeansState<typename DetailedPlaceDBType::type>::scale;
-        kmeans_state.centers_y[i] = db.y[node_id] * KMeansState<typename DetailedPlaceDBType::type>::scale;
+        kmeans_state.centers_x[i] = db.x[node_id] * KMeansState<DetailedPlaceData::type>::scale;
+        kmeans_state.centers_y[i] = db.y[node_id] * KMeansState<DetailedPlaceData::type>::scale;
     }
 }
 
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType>
-void init_kmeans_seeds(const DetailedPlaceDBType& db,
-                       IndependentSetMatchingStateType& state,
-                       KMeansState<typename DetailedPlaceDBType::type>& kmeans_state) {
+void init_kmeans_seeds(const DetailedPlaceData& db,
+                       IndependentSetMatchingState<DetailedPlaceData::type>& state,
+                       KMeansState<DetailedPlaceData::type>& kmeans_state) {
     init_kmeans_seeds_kernel<<<ceilDiv(kmeans_state.num_seeds, 256), 256>>>(db, state, kmeans_state);
 }
 
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType>
-__global__ void reset_kmeans_partition_sizes_kernel(DetailedPlaceDBType db,
-                                                    IndependentSetMatchingStateType state,
-                                                    KMeansState<typename DetailedPlaceDBType::type> kmeans_state) {
+__global__ void reset_kmeans_partition_sizes_kernel(DetailedPlaceData db,
+                                                    IndependentSetMatchingState<DetailedPlaceData::type> state,
+                                                    KMeansState<DetailedPlaceData::type> kmeans_state) {
     int i = blockIdx.x * blockDim.x + threadIdx.x;
     if (i < kmeans_state.num_seeds) {
         kmeans_state.partition_sizes[i] = 0;
     }
 }
 
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType>
-__global__ void compute_kmeans_partition_sizes_kernel(DetailedPlaceDBType db,
-                                                      IndependentSetMatchingStateType state,
-                                                      KMeansState<typename DetailedPlaceDBType::type> kmeans_state) {
+__global__ void compute_kmeans_partition_sizes_kernel(DetailedPlaceData db,
+                                                      IndependentSetMatchingState<DetailedPlaceData::type> state,
+                                                      KMeansState<DetailedPlaceData::type> kmeans_state) {
     int i = blockIdx.x * blockDim.x + threadIdx.x;
     if (i < state.num_selected) {
         int center_id = kmeans_state.node2centers_map[i];
@@ -204,10 +203,9 @@ __global__ void compute_kmeans_partition_sizes_kernel(DetailedPlaceDBType db,
     }
 }
 
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType>
-__global__ void reset_kmeans_centers_kernel(DetailedPlaceDBType db,
-                                            IndependentSetMatchingStateType state,
-                                            KMeansState<typename DetailedPlaceDBType::type> kmeans_state) {
+__global__ void reset_kmeans_centers_kernel(DetailedPlaceData db,
+                                            IndependentSetMatchingState<DetailedPlaceData::type> state,
+                                            KMeansState<DetailedPlaceData::type> kmeans_state) {
     int i = blockIdx.x * blockDim.x + threadIdx.x;
     if (i < kmeans_state.num_seeds) {
         if (kmeans_state.partition_sizes[i]) {
@@ -217,10 +215,9 @@ __global__ void reset_kmeans_centers_kernel(DetailedPlaceDBType db,
     }
 }
 
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType>
-__global__ void compute_kmeans_centers_sum_kernel(DetailedPlaceDBType db,
-                                                  IndependentSetMatchingStateType state,
-                                                  KMeansState<typename DetailedPlaceDBType::type> kmeans_state) {
+__global__ void compute_kmeans_centers_sum_kernel(DetailedPlaceData db,
+                                                  IndependentSetMatchingState<DetailedPlaceData::type> state,
+                                                  KMeansState<DetailedPlaceData::type> kmeans_state) {
     int i = blockIdx.x * blockDim.x + threadIdx.x;
     if (i < state.num_selected) {
         int node_id = state.selected_maximal_independent_set[i];
@@ -228,17 +225,16 @@ __global__ void compute_kmeans_centers_sum_kernel(DetailedPlaceDBType db,
         assert(center_id < kmeans_state.num_seeds);
         assert(node_id < db.num_movable_nodes);
         // scale up for fixed point numbers
-        atomicAddWrapper<typename KMeansState<typename DetailedPlaceDBType::type>::coordinate_type>(
-            kmeans_state.centers_x + center_id, db.x[node_id] * KMeansState<typename DetailedPlaceDBType::type>::scale);
-        atomicAddWrapper<typename KMeansState<typename DetailedPlaceDBType::type>::coordinate_type>(
-            kmeans_state.centers_y + center_id, db.y[node_id] * KMeansState<typename DetailedPlaceDBType::type>::scale);
+        atomicAddWrapper<typename KMeansState<DetailedPlaceData::type>::coordinate_type>(
+            kmeans_state.centers_x + center_id, db.x[node_id] * KMeansState<DetailedPlaceData::type>::scale);
+        atomicAddWrapper<typename KMeansState<DetailedPlaceData::type>::coordinate_type>(
+            kmeans_state.centers_y + center_id, db.y[node_id] * KMeansState<DetailedPlaceData::type>::scale);
     }
 }
 
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType>
-__global__ void compute_kmeans_centers_div_kernel(DetailedPlaceDBType db,
-                                                  IndependentSetMatchingStateType state,
-                                                  KMeansState<typename DetailedPlaceDBType::type> kmeans_state) {
+__global__ void compute_kmeans_centers_div_kernel(DetailedPlaceData db,
+                                                  IndependentSetMatchingState<DetailedPlaceData::type> state,
+                                                  KMeansState<DetailedPlaceData::type> kmeans_state) {
     int i = blockIdx.x * blockDim.x + threadIdx.x;
     if (i < kmeans_state.num_seeds) {
         int s = kmeans_state.partition_sizes[i];
@@ -249,10 +245,9 @@ __global__ void compute_kmeans_centers_div_kernel(DetailedPlaceDBType db,
     }
 }
 
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType>
-void kmeans_update_centers(const DetailedPlaceDBType& db,
-                           IndependentSetMatchingStateType& state,
-                           KMeansState<typename DetailedPlaceDBType::type>& kmeans_state) {
+void kmeans_update_centers(const DetailedPlaceData& db,
+                           IndependentSetMatchingState<DetailedPlaceData::type>& state,
+                           KMeansState<DetailedPlaceData::type>& kmeans_state) {
     // reset partition_sizes to 0
     reset_kmeans_partition_sizes_kernel<<<ceilDiv(kmeans_state.num_seeds, 256), 256>>>(db, state, kmeans_state);
     // compute partition sizes
@@ -265,33 +260,30 @@ void kmeans_update_centers(const DetailedPlaceDBType& db,
     compute_kmeans_centers_div_kernel<<<ceilDiv(kmeans_state.num_seeds, 256), 256>>>(db, state, kmeans_state);
 }
 
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType>
-__global__ void compute_kmeans_weights_kernel(DetailedPlaceDBType db,
-                                              IndependentSetMatchingStateType state,
-                                              KMeansState<typename DetailedPlaceDBType::type> kmeans_state) {
+__global__ void compute_kmeans_weights_kernel(DetailedPlaceData db,
+                                              IndependentSetMatchingState<DetailedPlaceData::type> state,
+                                              KMeansState<DetailedPlaceData::type> kmeans_state) {
     int i = blockIdx.x * blockDim.x + threadIdx.x;
     if (i < kmeans_state.num_seeds) {
         int s = kmeans_state.partition_sizes[i];
         auto& w = kmeans_state.weights[i];
         if (s > state.set_size) {
-            auto ratio = s / (typename DetailedPlaceDBType::type)state.set_size;
+            auto ratio = s / (DetailedPlaceData::type)state.set_size;
             ratio = 1.0 + 0.5 * log(ratio);
             w *= ratio;
         }
     }
 }
 
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType>
-void kmeans_update_weights(const DetailedPlaceDBType& db,
-                           IndependentSetMatchingStateType& state,
-                           KMeansState<typename DetailedPlaceDBType::type>& kmeans_state) {
+void kmeans_update_weights(const DetailedPlaceData& db,
+                           IndependentSetMatchingState<DetailedPlaceData::type>& state,
+                           KMeansState<DetailedPlaceData::type>& kmeans_state) {
     compute_kmeans_weights_kernel<<<ceilDiv(kmeans_state.num_seeds, 256), 256>>>(db, state, kmeans_state);
 }
 
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType>
-void kmeans_collect_sets_cuda2cpu(const DetailedPlaceDBType& db,
-                                  IndependentSetMatchingStateType& state,
-                                  KMeansState<typename DetailedPlaceDBType::type>& kmeans_state) {
+void kmeans_collect_sets_cuda2cpu(const DetailedPlaceData& db,
+                                  IndependentSetMatchingState<DetailedPlaceData::type>& state,
+                                  KMeansState<DetailedPlaceData::type>& kmeans_state) {
     std::vector<int> selected_nodes(state.num_selected);
     checkCuda(cudaMemcpy(selected_nodes.data(),
                          state.selected_maximal_independent_set,
@@ -325,8 +317,8 @@ void kmeans_collect_sets_cuda2cpu(const DetailedPlaceDBType& db,
                          cudaMemcpyHostToDevice));
 
     // statistics
-    logger.debug(
-        "from %d nodes, collect %d sets, avg %d nodes, min/max %d/%d nodes",
+    printf(
+        "[INFO GPU-DPO] from %d nodes, collect %d sets, avg %d nodes, min/max %d/%d nodes\n",
         state.num_selected,
         state.num_independent_sets,
         std::accumulate(independent_set_sizes.begin(), independent_set_sizes.begin() + state.num_independent_sets, 0) /
@@ -335,17 +327,15 @@ void kmeans_collect_sets_cuda2cpu(const DetailedPlaceDBType& db,
         *std::max_element(independent_set_sizes.begin(), independent_set_sizes.begin() + state.num_independent_sets));
 }
 
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType>
-void partition_kmeans(const DetailedPlaceDBType& db,
-                      IndependentSetMatchingStateType& state,
-                      KMeansState<typename DetailedPlaceDBType::type>& kmeans_state) {
+void partition_kmeans(const DetailedPlaceData& db,
+                      IndependentSetMatchingState<DetailedPlaceData::type>& state,
+                      KMeansState<DetailedPlaceData::type>& kmeans_state) {
     prepare_kmeans(db, state, kmeans_state);
     init_kmeans_seeds(db, state, kmeans_state);
 
     for (int iter = 0; iter < 2; ++iter) {
         // for each node, find centers
-        kmeans_find_centers_kernel<DetailedPlaceDBType, IndependentSetMatchingStateType, 256>
-            <<<state.num_selected, 256>>>(db, state, kmeans_state);
+        kmeans_find_centers_kernel<256><<<state.num_selected, 256>>>(db, state, kmeans_state);
         // for each center, adjust itself
         kmeans_update_centers(db, state, kmeans_state);
         // for each partition, update weight
@@ -356,12 +346,11 @@ void partition_kmeans(const DetailedPlaceDBType& db,
     kmeans_collect_sets_cuda2cpu(db, state, kmeans_state);
 }
 
-template <typename DetailedPlaceDBType, typename IndependentSetMatchingStateType>
-void collect_independent_sets(const DetailedPlaceDBType& db,
-                              IndependentSetMatchingStateType& state,
-                              KMeansState<typename DetailedPlaceDBType::type>& kmeans_state,
-                              DetailedPlaceCPUDB<typename DetailedPlaceDBType::type>& host_db,
-                              IndependentSetMatchingCPUState<typename DetailedPlaceDBType::type>& host_state) {
+void collect_independent_sets(const DetailedPlaceData& db,
+                              IndependentSetMatchingState<DetailedPlaceData::type>& state,
+                              KMeansState<DetailedPlaceData::type>& kmeans_state,
+                              DetailedPlaceCPUDB<DetailedPlaceData::type>& host_db,
+                              IndependentSetMatchingCPUState<DetailedPlaceData::type>& host_state) {
     partition_kmeans(db, state, kmeans_state);
 }
 

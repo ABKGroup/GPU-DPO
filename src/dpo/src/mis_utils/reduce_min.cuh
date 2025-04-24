@@ -1,6 +1,6 @@
 #pragma once
 
-#include "gpudp/dp/utils.cuh"
+#include "../cuda_utils.cuh"
 
 namespace dpo {
 
