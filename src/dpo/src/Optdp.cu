@@ -622,6 +622,8 @@ void Optdp::createNetwork()
         double hh = (mTerm->getBBox().yMax() - mTerm->getBBox().yMax());
         double xx = (mTerm->getBBox().xMax() + mTerm->getBBox().xMin()) * 0.5;
         double yy = (mTerm->getBBox().yMax() + mTerm->getBBox().yMax()) * 0.5;
+        // we might need this for a different offset
+        double yyNew = (mTerm->getBBox().yMax() + mTerm->getBBox().yMin()) * 0.5; 
         double dx = xx - ((double) master->getWidth() / 2.);
         double dy = yy - ((double) master->getHeight() / 2.);
 
@@ -629,8 +631,10 @@ void Optdp::createNetwork()
         ptr->setOffsetY(dy);
         ptr->setPinHeight(hh);
         ptr->setPinWidth(ww);
+        // use these for the offsets for gpu calculation
+        ptr->setNewOffsetX(xx);
+        ptr->setNewOffsetY(yyNew);
         ptr->setPinLayer(0);  // Set to zero since not currently used.
-
         ++p;  // next pin.
       } else {
         logger_->error(
@@ -658,6 +662,8 @@ void Optdp::createNetwork()
         ptr->setOffsetY(0.0);
         ptr->setPinHeight(0.0);
         ptr->setPinWidth(0.0);
+        ptr->setNewOffsetX(0.0);
+        ptr->setNewOffsetY(0.0);
         ptr->setPinLayer(0);  // Set to zero since not currently used.
 
         ++p;  // next pin.

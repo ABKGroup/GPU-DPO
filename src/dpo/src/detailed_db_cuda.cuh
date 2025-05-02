@@ -270,7 +270,7 @@ public:
     return space;
   }
 
-  __device__ Box<float> compute_optimal_region(int node_id, const float* xx, const float* yy) const {
+  __device__ Box<float> compute_optimal_region(int node_id, const float* xx, const float* yy, const float* size_x, const float* size_y) const {
     Box<float> box(xh, yh, xl, yl);
     for (int node2pin_id = flat_node2pin_start_map[node_id]; node2pin_id < flat_node2pin_start_map[node_id + 1]; ++node2pin_id) {
       int node_pin_id = flat_node2pin_map[node2pin_id];
@@ -289,8 +289,6 @@ public:
       }
     }
     shift_box_to_layout(box);
-    /*printf("Node %d bounding box: [xl=%.3f, xh=%.3f, yl=%.3f, yh=%.3f]\n",
-           node_id, box.xl, box.xh, box.yl, box.yh);*/
     return box;
   }
 
@@ -302,10 +300,10 @@ public:
     for (int net2pin_id = flat_net2pin_start_map[net_id]; net2pin_id < flat_net2pin_start_map[net_id + 1]; ++net2pin_id) {
       int net_pin_id = flat_net2pin_map[net2pin_id];
       int other_node_id = pin2node_map[net_pin_id];
-      box.xl = min(box.xl, xx[other_node_id] + 0.5 * node_size_x[other_node_id] + pin_offset_x[net_pin_id]);
-      box.xh = max(box.xh, xx[other_node_id] + 0.5 * node_size_x[other_node_id] + pin_offset_x[net_pin_id]);
-      box.yl = min(box.yl, yy[other_node_id] + 0.5 * node_size_y[other_node_id] + pin_offset_y[net_pin_id]);
-      box.yh = max(box.yh, yy[other_node_id] + 0.5 * node_size_y[other_node_id] + pin_offset_y[net_pin_id]);
+      box.xl = min(box.xl, xx[other_node_id] /*+ 0.5 * node_size_x[other_node_id]*/ + pin_offset_x[net_pin_id]);
+      box.xh = max(box.xh, xx[other_node_id] /*+ 0.5 * node_size_x[other_node_id]*/ + pin_offset_x[net_pin_id]);
+      box.yl = min(box.yl, yy[other_node_id] /*+ 0.5 * node_size_y[other_node_id]*/ + pin_offset_y[net_pin_id]);
+      box.yh = max(box.yh, yy[other_node_id] /*+ 0.5 * node_size_y[other_node_id]*/ + pin_offset_y[net_pin_id]);
     }
     if (box.xl == xh || box.yl == yh) {
       return (double)0;
@@ -539,6 +537,6 @@ public:
   }
 };
 
-float compute_total_hpwl(const DetailedPlaceData& db, const float* xx, const float* yy, double* net_hpwls);
+double compute_total_hpwl(const DetailedPlaceData& db, const float* xx, const float* yy, double* net_hpwls);
 
 } // namespace dpo

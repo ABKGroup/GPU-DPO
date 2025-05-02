@@ -222,6 +222,12 @@ class Pin
   void setPinHeight(double height) { pinHeight_ = height; }
   double getPinHeight() const { return pinHeight_; }
 
+  void setNewOffsetX(double newOffsetX) { newOffsetX_ = newOffsetX; }
+  double getNewOffsetX() const { return newOffsetX_; }
+
+  void setNewOffsetY(double newOffsetY) { newOffsetY_ = newOffsetY; }
+  double getNewOffsetY() const { return newOffsetY_; }
+
   void setId(int id) { id_ = id; }
   int getId() const { return id_; }
 
@@ -241,6 +247,10 @@ class Pin
   double offsetY_ = 0;
   // Pin Id.
   int id_ = 0;
+
+  // new offsets for gpu calculation
+  double newOffsetY_ = 0;
+  double newOffsetX_ = 0;
 
   friend class Network;
 };

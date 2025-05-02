@@ -13,7 +13,7 @@ __global__ void compute_total_hpwl_kernel(DetailedPlaceData db, const float* xx,
   }
 }
 
-float compute_total_hpwl(const DetailedPlaceData& db, const float* xx, const float* yy, double* net_hpwls) {
+double compute_total_hpwl(const DetailedPlaceData& db, const float* xx, const float* yy, double* net_hpwls) {
   compute_total_hpwl_kernel<<<ceilDiv(db.num_nets, 512), 512>>>(db, xx, yy, net_hpwls);
   // auto hpwl = thrust::reduce(thrust::device, net_hpwls, net_hpwls+db.num_nets);
 
@@ -33,7 +33,7 @@ float compute_total_hpwl(const DetailedPlaceData& db, const float* xx, const flo
   cudaFree(d_temp_storage);
   cudaFree(d_out);
 
-  return float(hpwl);
+  return double(hpwl);
 }
 
 } // namespace dpo

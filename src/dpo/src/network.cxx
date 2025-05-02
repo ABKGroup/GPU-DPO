@@ -339,7 +339,7 @@ void Network::sanityCheckAndPrintStats() {
     }
   }
 
-  std::cout << "[INFO GPU-DPO] Error: Sanity check completed.\n";
+  std::cout << "[INFO GPU-DPO] Sanity check completed.\n";
 }
 
 }  // namespace dpo

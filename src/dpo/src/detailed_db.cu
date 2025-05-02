@@ -5,6 +5,9 @@
 #include <fstream>
 #include <algorithm>
 #include <memory>
+#include <iomanip>
+#include <limits>
+#include <algorithm>
 
 #include "architecture.h"
 #include "detailed_db.h"
@@ -45,7 +48,9 @@ void DetailedPlaceDB::createDetailedPlaceDB() {
   createFenceInfo();
   createChipInfo();
   createRowInfo();
-  compareFlattenedAndNetworkHPWL();
+  // we center the floorplan at the origin
+  scaleDatabase();
+  // compareFlattenedAndNetworkHPWL();
 }
 
 void DetailedPlaceDB::createNodeInfo() {
@@ -92,8 +97,8 @@ void DetailedPlaceDB::createPinInfo() {
 
   for (int pin_id = 0; pin_id < num_pins; ++pin_id) {
     const Pin* pin = network_->getPin(pin_id);
-    pin_offset_x[pin_id] = static_cast<float>(pin->getOffsetX());
-    pin_offset_y[pin_id] = static_cast<float>(pin->getOffsetY());
+    pin_offset_x[pin_id] = static_cast<float>(pin->getNewOffsetX());
+    pin_offset_y[pin_id] = static_cast<float>(pin->getNewOffsetY());
   }
 
   int ptr = 0;
@@ -139,8 +144,8 @@ void DetailedPlaceDB::compareFlattenedAndNetworkHPWL()
     for (const Pin* pin : edge->getPins()) {
       int pin_id = pin->getId();
       int node_id = pin->getNode()->getId();
-      double offset_x = pin->getOffsetX();
-      double offset_y = pin->getOffsetY();
+      double offset_x = pin->getNewOffsetX();
+      double offset_y = pin->getNewOffsetY();
 
       network_pin_ids.push_back(pin_id);
       network_node_ids.push_back(node_id);
@@ -339,35 +344,56 @@ void DetailedPlaceDB::createNetInfo() {
 }
 
 void DetailedPlaceDB::createFenceInfo() {
-  unsigned num_rects = 0;
-
-  for (auto& region : arch_->getRegions()) {
-    num_rects += region->getRects().size();
-  }
-  flat_region_boxes_start.resize(num_regions + 1);
-  flat_region_boxes.resize(num_rects * 4);
-  region_boxes_size = num_rects * 4;
-  node2fence_region_map.resize(num_nodes);
-  for (int i = 0; i < network_->getNumNodes(); i++) {
-    Node* node = network_->getNode(i);
-    int node_id = node->getId();
-    int region_id = node->getRegionId();
-    node2fence_region_map[node_id] = region_id;
-  }
-
-  int ptr = 0;
-  int lastIdx = 0;
-  flat_region_boxes_start[0] = 0;
-  for (auto& region : arch_->getRegions()) {
-    int region_id = region->getId();
-    for (auto& rect : region->getRects()) {
-      flat_region_boxes[ptr++] = rect.xmin();
-      flat_region_boxes[ptr++] = rect.ymin();
-      flat_region_boxes[ptr++] = rect.xmax();
-      flat_region_boxes[ptr++] = rect.ymax();
+  // the simplest case: if there is only one region (which is the entire chip)
+  // and the region has only one rectangle (no sub-rectangles)
+  // then disregard regions completely
+  if (arch_->getRegions().size() == 1 
+    && arch_->getRegions()[0]->getRects().size() == 1
+    && arch_->getRegions()[0]->getRects()[0].xmin() == arch_->getMinX()
+    && arch_->getRegions()[0]->getRects()[0].ymin() == arch_->getMinY() 
+    && arch_->getRegions()[0]->getRects()[0].xmax() == arch_->getMaxX()
+    && arch_->getRegions()[0]->getRects()[0].ymax() == arch_->getMaxY()) {
+    flat_region_boxes_start.resize(1);
+    flat_region_boxes.resize(0);
+    node2fence_region_map.resize(num_nodes);
+    
+    flat_region_boxes_start[0] = 0;
+    for (int i = 0; i < num_nodes; i++) {
+      node2fence_region_map[i] = std::numeric_limits<int>::max();
     }
-    lastIdx += region->getRects().size();
-    flat_region_boxes_start[region_id + 1] = lastIdx;
+    num_regions = 0;
+  }
+  else {
+    unsigned num_rects = 0;
+
+    for (auto& region : arch_->getRegions()) {
+      num_rects += region->getRects().size();
+    }
+    flat_region_boxes_start.resize(num_regions + 1);
+    flat_region_boxes.resize(num_rects * 4);
+    region_boxes_size = num_rects * 4;
+    node2fence_region_map.resize(num_nodes);
+    for (int i = 0; i < network_->getNumNodes(); i++) {
+      Node* node = network_->getNode(i);
+      int node_id = node->getId();
+      int region_id = node->getRegionId();
+      node2fence_region_map[node_id] = region_id;
+    }
+
+    int ptr = 0;
+    int lastIdx = 0;
+    flat_region_boxes_start[0] = 0;
+    for (auto& region : arch_->getRegions()) {
+      int region_id = region->getId();
+      for (auto& rect : region->getRects()) {
+        flat_region_boxes[ptr++] = rect.xmin();
+        flat_region_boxes[ptr++] = rect.ymin();
+        flat_region_boxes[ptr++] = rect.xmax();
+        flat_region_boxes[ptr++] = rect.ymax();
+      }
+      lastIdx += region->getRects().size();
+      flat_region_boxes_start[region_id + 1] = lastIdx;
+    }
   }
 }
 
@@ -381,6 +407,31 @@ void DetailedPlaceDB::createChipInfo() {
 void DetailedPlaceDB::createRowInfo() {
   num_sites_x = std::round((xh - xl) / site_width);
   num_sites_y = std::round((yh - yl) / row_height);
+}
+
+void DetailedPlaceDB::scaleDatabase() {
+  if (xl != 0) {
+    float shift_factor_x = xl;
+    xl -= shift_factor_x;
+    xh -= shift_factor_x;
+    for (auto& val : x) {
+      val -= shift_factor_x;
+    }
+    for (auto& val : init_x) {
+      val -= shift_factor_x;
+    }
+  } 
+  if (yl != 0) {
+    float shift_factor_y = yl;
+    yl -= shift_factor_y;
+    yh -= shift_factor_y;
+    for (auto& val : y) {
+      val -= shift_factor_y;
+    }
+    for (auto& val : init_y) {
+      val -= shift_factor_y;
+    }
+  }
 }
 
 } // namespace dpo

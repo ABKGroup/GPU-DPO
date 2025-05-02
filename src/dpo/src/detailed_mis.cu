@@ -122,19 +122,14 @@ void construct_spaces(DetailedPlaceData& db,
                       std::vector<Space<float>>& host_spaces,
                       int num_threads) {
     std::vector<std::vector<int>> row2node_map(db.num_sites_y);
-    db.make_row2node_map(host_x, host_y, host_node_size_x, host_node_size_y, db.num_nodes, row2node_map); // check whether this is right
+    db.make_row2node_map(host_x, host_y, host_node_size_x, host_node_size_y, db.num_nodes, row2node_map);
     // construct spaces
     host_spaces.resize(db.num_movable_nodes);
-    for (int i = 0; i < host_spaces.size(); i++) {
-      auto& space = host_spaces[i];
-      if (i == host_spaces.size()-1) {
-        printf("MAX INDEX IS %d\n", i);
-      }
-    }
     for (int i = 0; i < db.num_sites_y; ++i) {
         for (unsigned int j = 0; j < row2node_map[i].size(); ++j) {
             auto const& row2nodes = row2node_map[i];
             int node_id = row2nodes[j];
+            printf("NODE ID IS %d\n", node_id);
             auto& space = host_spaces[node_id]; // this line is an error
             if (node_id < db.num_movable_nodes) {
                 auto left_bound = db.xl;
@@ -157,7 +152,6 @@ void construct_spaces(DetailedPlaceData& db,
             }
         }
     }
-    printf("MADE IT OUT ALIVE\n");
 }
 
 ////////////////////////////////////////////////////////////////////////////////

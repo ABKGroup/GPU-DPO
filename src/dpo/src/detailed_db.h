@@ -81,6 +81,7 @@ private:
   void createFenceInfo();
   void createChipInfo();
   void createRowInfo();
+  void scaleDatabase();
   void compareFlattenedAndNetworkHPWL();
 
   // Other

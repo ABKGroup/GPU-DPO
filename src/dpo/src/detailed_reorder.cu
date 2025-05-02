@@ -10,6 +10,9 @@
 #include "utility.h"
 #include "utl/Logger.h"
 
+#include <fstream>
+#include <iomanip>
+
 using utl::DPO;
 
 namespace dpo {
@@ -944,7 +947,7 @@ void DetailedReorderer::run(DetailedMgr* mgrPtr,
   }
   mgrPtr_ = mgrPtr;
 
-  K = 3;
+  K = 4;
 
   K = std::min(4, std::max(2, K));
 
@@ -999,6 +1002,79 @@ void DetailedReorderer::run(DetailedMgr* mgrPtr,
     allocateCopyCpu(cpu_db.y, db.y, db.num_nodes, float);
     allocateCopyCpu(cpu_db.node_size_x, db.node_size_x, db.num_nodes, float);
     allocateCopyCpu(cpu_db.node_size_y, db.node_size_y, db.num_nodes, float);
+
+    std::ofstream log("db_dump.log");
+    log << std::setprecision(6) << std::fixed;
+
+    log << "=== DetailedPlaceDB (Device-side Dump) ===\n";
+    log << "xl: " << db.xl << ", yl: " << db.yl << ", xh: " << db.xh << ", yh: " << db.yh << "\n";
+    log << "site_width: " << db.site_width << ", row_height: " << db.row_height << "\n";
+    log << "bin_size_x: " << db.bin_size_x << ", bin_size_y: " << db.bin_size_y << "\n";
+    log << "num_bins_x: " << db.num_bins_x << ", num_bins_y: " << db.num_bins_y << "\n";
+    log << "num_sites_x: " << db.num_sites_x << ", num_sites_y: " << db.num_sites_y << "\n";
+    log << "num_nodes: " << db.num_nodes << ", num_movable_nodes: " << db.num_movable_nodes << "\n";
+    log << "num_nets: " << db.num_nets << ", num_pins: " << db.num_pins << ", num_regions: " << db.num_regions << "\n";
+
+    // Helper lambdas
+    auto dump_array = [&](const std::string& name, const float* device_ptr, int n) {
+        std::vector<float> host_buf(n);
+        cudaMemcpy(host_buf.data(), device_ptr, sizeof(float) * n, cudaMemcpyDeviceToHost);
+        log << "\n[" << name << "] (" << n << " elements)\n";
+        for (int i = 0; i < n; ++i) {
+            log << host_buf[i] << " ";
+            if ((i + 1) % 10 == 0) log << "\n";
+        }
+        log << "\n";
+    };
+
+    auto dump_int_array = [&](const std::string& name, const int* device_ptr, int n) {
+        std::vector<int> host_buf(n);
+        cudaMemcpy(host_buf.data(), device_ptr, sizeof(int) * n, cudaMemcpyDeviceToHost);
+        log << "\n[" << name << "] (" << n << " elements)\n";
+        for (int i = 0; i < n; ++i) {
+            log << host_buf[i] << " ";
+            if ((i + 1) % 10 == 0) log << "\n";
+        }
+        log << "\n";
+    };
+
+    auto dump_byte_array = [&](const std::string& name, const unsigned char* device_ptr, int n) {
+        std::vector<unsigned char> host_buf(n);
+        cudaMemcpy(host_buf.data(), device_ptr, sizeof(unsigned char) * n, cudaMemcpyDeviceToHost);
+        log << "\n[" << name << "] (" << n << " bytes)\n";
+        for (int i = 0; i < n; ++i) {
+            log << static_cast<int>(host_buf[i]) << " ";
+            if ((i + 1) % 20 == 0) log << "\n";
+        }
+        log << "\n";
+    };
+
+    // Dump float arrays
+    dump_array("x", db.x, db.num_nodes);
+    dump_array("y", db.y, db.num_nodes);
+    dump_array("init_x", db.init_x, db.num_nodes);
+    dump_array("init_y", db.init_y, db.num_nodes);
+    dump_array("node_size_x", db.node_size_x, db.num_nodes);
+    dump_array("node_size_y", db.node_size_y, db.num_nodes);
+    dump_array("pin_offset_x", db.pin_offset_x, db.num_pins);
+    dump_array("pin_offset_y", db.pin_offset_y, db.num_pins);
+    dump_array("flat_region_boxes", db.flat_region_boxes, db.num_regions * 4);
+
+    // Dump int arrays
+    dump_int_array("flat_net2pin_map", db.flat_net2pin_map, db.num_pins);
+    dump_int_array("flat_net2pin_start_map", db.flat_net2pin_start_map, db.num_nets + 1);
+    dump_int_array("pin2net_map", db.pin2net_map, db.num_pins);
+    dump_int_array("flat_node2pin_map", db.flat_node2pin_map, db.num_pins);
+    dump_int_array("flat_node2pin_start_map", db.flat_node2pin_start_map, db.num_nodes + 1);
+    dump_int_array("pin2node_map", db.pin2node_map, db.num_pins);
+    dump_int_array("flat_region_boxes_start", db.flat_region_boxes_start, db.num_regions + 1);
+    dump_int_array("node2fence_region_map", db.node2fence_region_map, db.num_movable_nodes);
+
+    // Dump byte arrays
+    dump_int_array("net_mask", db.net_mask, db.num_nets);
+
+    log.close();
+    //exit(1);
 
     make_row2node_map(cpu_db, cpu_db.x, cpu_db.y, host_row2node_map, db.num_threads);
     std::vector<std::vector<int>> host_row2node_map_left = db.reorder_row_map(cpu_db.x, cpu_db.y, cpu_db.node_size_x, cpu_db.node_size_y, host_row2node_map, 1);
@@ -1055,7 +1131,7 @@ void DetailedReorderer::run(DetailedMgr* mgrPtr,
   }
   tol = std::max(tol, 0.01);
 
-  float hpwls[passes + 1];
+  double hpwls[passes + 1];
   hpwls[0] = compute_total_hpwl(db, db.x, db.y, state.net_hpwls);
   printf("[INFO GPU-DPO] initial hpwl = %.3f\n", hpwls[0]);
 

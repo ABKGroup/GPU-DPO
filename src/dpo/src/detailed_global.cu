@@ -186,8 +186,6 @@ inline __device__ float compute_pair_hpwl_general(const int* __restrict__ flat_n
                                                   const int* __restrict__ pin2node_map,
                                                   const float* __restrict__ x,
                                                   const float* __restrict__ y,
-                                                  const float* __restrict__ node_size_x,
-                                                  const float* __restrict__ node_size_y,
                                                   const float* __restrict__ pin_offset_x,
                                                   const float* __restrict__ pin_offset_y,
                                                   int node_id,
@@ -210,8 +208,8 @@ inline __device__ float compute_pair_hpwl_general(const int* __restrict__ flat_n
     for (; net2pin_id < net2pin_id_end; ++net2pin_id) {
       int net_pin_id = flat_net2pin_map[net2pin_id];
       int other_node_id = pin2node_map[net_pin_id];
-      float xxl = x[other_node_id] + 0.5 * node_size_x[other_node_id];
-      float yyl = y[other_node_id] + 0.5 * node_size_y[other_node_id];
+      float xxl = x[other_node_id] /*+ 0.5 * node_size_x[other_node_id]*/;
+      float yyl = y[other_node_id] /*+ 0.5 * node_size_y[other_node_id]*/;
       flag &= (other_node_id != skip_node_id);
       int cond1 = (other_node_id == node_id);
       int cond2 = (other_node_id == target_node_id);
@@ -243,8 +241,6 @@ inline __device__ float compute_pair_hpwl_general_fast(PitchNestedVector<int>& n
                                                        const int* __restrict__ net_mask,
                                                        const float* __restrict__ x,
                                                        const float* __restrict__ y,
-                                                       const float* __restrict__ node_size_x,
-                                                       const float* __restrict__ node_size_y,
                                                        int node_id,
                                                        float node_xl,
                                                        float node_yl,
@@ -267,8 +263,8 @@ inline __device__ float compute_pair_hpwl_general_fast(PitchNestedVector<int>& n
 
       flag &= (other_node_id != skip_node_id);
 
-      float xxl = x[other_node_id] + 0.5 * node_size_x[other_node_id];
-      float yyl = y[other_node_id] + 0.5 * node_size_y[other_node_id];
+      float xxl = x[other_node_id] /*+ 0.5 * node_size_x[other_node_id]*/;
+      float yyl = y[other_node_id] /*+ 0.5 * node_size_y[other_node_id]*/;
       int cond1 = (other_node_id == node_id);
       int cond2 = (other_node_id == target_node_id);
       xxl = cond1 * node_xl + cond2 * target_node_xl + (!(cond1 || cond2)) * xxl;
@@ -310,9 +306,9 @@ __device__ float compute_pair_hpwl(const DetailedPlaceData& db,
         int cond1 = (other_node_id == node_id);
         int cond2 = (other_node_id == target_node_id);
         float xxl = cond1 * node_xl + cond2 * target_node_xl +
-                    (!(cond1 || cond2)) * (0.5 * db.node_size_x[other_node_id] + db.x[other_node_id]);
+                    (!(cond1 || cond2)) * (/*0.5 * db.node_size_x[other_node_id]*/ + db.x[other_node_id]);
         float yyl = cond1 * node_yl + cond2 * target_node_yl +
-                    (!(cond1 || cond2)) * (0.5 * db.node_size_y[other_node_id] + db.y[other_node_id]);
+                    (!(cond1 || cond2)) * (/*0.5 * db.node_size_y[other_node_id]*/ + db.y[other_node_id]);
         float px = db.pin_offset_x[net_pin_id];
         float py = db.pin_offset_y[net_pin_id];
         box.xl = min(box.xl, xxl + px);
@@ -343,9 +339,9 @@ __device__ float compute_pair_hpwl(const DetailedPlaceData& db,
         }
         int cond2 = (other_node_id == target_node_id);
         float xxl = cond1 * node_xl + cond2 * target_node_xl +
-                    (!(cond1 || cond2)) * (0.5 * db.node_size_x[other_node_id] + db.x[other_node_id]);
+                    (!(cond1 || cond2)) * (/*0.5 * db.node_size_x[other_node_id]*/ + db.x[other_node_id]);
         float yyl = cond1 * node_yl + cond2 * target_node_yl +
-                    (!(cond1 || cond2)) * (0.5 * db.node_size_y[other_node_id] + db.y[other_node_id]);
+                    (!(cond1 || cond2)) * (/*0.5 * db.node_size_y[other_node_id]*/ + db.y[other_node_id]);
         float px = db.pin_offset_x[net_pin_id];
         float py = db.pin_offset_y[net_pin_id];
         box.xl = min(box.xl, xxl + px);
@@ -411,7 +407,7 @@ __global__ void compute_search_bins(DetailedPlaceData db, SwapState<float> state
        node_id += blockDim.x * gridDim.x) {
     // compute optimal region
     Box<float> opt_box = (state.search_bin_strategy)
-      ? db.compute_optimal_region(node_id, db.x, db.y)
+      ? db.compute_optimal_region(node_id, db.x, db.y, db.node_size_x, db.node_size_y)
       : Box<float>(db.x[node_id],
                    db.y[node_id],
                    db.x[node_id] + db.node_size_x[node_id],
@@ -555,9 +551,6 @@ __global__ void __launch_bounds__(256, 4)
            db.row_height);  // only consider single-row height cell
       step_size = max((float)num_nodes_in_bin / (float)max_num_candidates, (float)1);
       iters = min(max_num_candidates, num_nodes_in_bin);
-      //printf("Num nodes in bin is %d\n", num_nodes_in_bin);
-      //printf("step size is %f\n", step_size);
-      //printf("Max num_candidates is %d\n", max_num_candidates);
     }
   }
   __syncthreads();
@@ -623,7 +616,7 @@ __global__ void __launch_bounds__(256, 4)
           (state.pair_hpwl_computing_strategy)
               ? compute_pair_hpwl_general_fast(
                     state.node2net_map, state.net2nodepin_map, db.xh, db.yh,
-                    db.xl, db.yl, db.net_mask, db.x, db.y, db.node_size_x, db.node_size_y,
+                    db.xl, db.yl, db.net_mask, db.x, db.y,
                     cand.node_id[node_id_flag],
                     cand.node_xl[node_id_flag][offset],
                     cand.node_yl[node_id_flag][offset],
@@ -634,7 +627,7 @@ __global__ void __launch_bounds__(256, 4)
                     db.flat_node2pin_start_map, db.flat_node2pin_map,
                     db.pin2net_map, db.xh, db.yh, db.xl, db.yl, db.net_mask,
                     db.flat_net2pin_start_map, db.flat_net2pin_map,
-                    db.pin2node_map, db.x, db.y, db.node_size_x, db.node_size_y, db.pin_offset_x,
+                    db.pin2node_map, db.x, db.y, db.pin_offset_x,
                     db.pin_offset_y, cand.node_id[node_id_flag],
                     cand.node_xl[node_id_flag][offset],
                     cand.node_yl[node_id_flag][offset],
@@ -664,9 +657,6 @@ __global__ void __launch_bounds__(256, 4)
       } else {
         cand.cost = cost[threadIdx.x] - cost[threadIdx.x - 1] +
                     cost[threadIdx.x - 2] - cost[threadIdx.x - 3];  // else cost is difference of prev and next
-        if (cand.cost < 0) {
-          printf("FOUND A BETTER CANDIDATE\n");
-        }
       }
     }
   }
@@ -674,7 +664,6 @@ __global__ void __launch_bounds__(256, 4)
 
 /// only allow 1 block
 __global__ void apply_candidates(DetailedPlaceData db, SwapState<float> state, int num_candidates) {
-  int swaps = 0;
   for (int i = 0; i < num_candidates; ++i) {
     const SwapCandidate<float>& best_cand = state.candidates[i * state.max_num_candidates];
 
@@ -748,7 +737,6 @@ __global__ void apply_candidates(DetailedPlaceData db, SwapState<float> state, i
 
         device_swap(row2nodes[row_id.sub_id], target_row2nodes[target_row_id.sub_id]);
         device_swap(row_id, target_row_id);
-        swaps++;
       }
     }
   }
@@ -775,6 +763,11 @@ void global_swap(DetailedPlaceData& db, SwapState<float>& state) {
     collect_candidates<<<grid, 256>>>(db, state, idx_bgn, idx_end);
     reset_candidate_costs<<<ceilDiv(state.max_num_candidates_all, 256), 256>>>(db, state);
     compute_candidate_cost<<<ceilDiv(state.max_num_candidates_all, 64), 64 * 4, 64 * 4 * sizeof(float)>>>(db, state);
+
+    //check_state<<<ceilDiv(db.num_movable_nodes, 512), 512>>>(db, state);
+    //check_candidate_costs<<<ceilDiv(state.max_num_candidates_all, 256), 256>>>(
+    //    db, state);
+
     // reduce min and apply
     reduce_min_2d_cub<float, 256><<<idx_end - idx_bgn, 256>>>(state.candidates, state.max_num_candidates);
     // must use single thread
@@ -901,8 +894,8 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr,
   rt_ = mgr_->getRoutingParams();
 
   // these should be passed in as options at some point
-  int num_bins_x = 16;  
-  int num_bins_y = 16; 
+  int num_bins_x = 256;  
+  int num_bins_y = 256; 
   int batch_size = 8;   
 
   db.set_num_bins(num_bins_x, num_bins_y);
