@@ -124,12 +124,11 @@ void construct_spaces(DetailedPlaceData& db,
     std::vector<std::vector<int>> row2node_map(db.num_sites_y);
     db.make_row2node_map(host_x, host_y, host_node_size_x, host_node_size_y, db.num_nodes, row2node_map);
     // construct spaces
-    host_spaces.resize(db.num_movable_nodes);
+    host_spaces.resize(db.num_nodes);
     for (int i = 0; i < db.num_sites_y; ++i) {
         for (unsigned int j = 0; j < row2node_map[i].size(); ++j) {
             auto const& row2nodes = row2node_map[i];
             int node_id = row2nodes[j];
-            printf("NODE ID IS %d\n", node_id);
             auto& space = host_spaces[node_id]; // this line is an error
             if (node_id < db.num_movable_nodes) {
                 auto left_bound = db.xl;
@@ -252,7 +251,7 @@ void DetailedMis::run(DetailedMgr* mgrPtr, DetailedPlaceData& db, std::vector<st
 
   checkCuda(cudaMemcpy(host_db.x.data(), db.x, sizeof(float) * db.num_nodes, cudaMemcpyDeviceToHost));
   checkCuda(cudaMemcpy(host_db.y.data(), db.y, sizeof(float) * db.num_nodes, cudaMemcpyDeviceToHost));
-  std::vector<Space<float>> host_spaces(db.num_movable_nodes);
+  std::vector<Space<float>> host_spaces(db.num_nodes);
   construct_spaces(db,
                     host_db.x.data(),
                     host_db.y.data(),
@@ -263,7 +262,7 @@ void DetailedMis::run(DetailedMgr* mgrPtr, DetailedPlaceData& db, std::vector<st
 
   // initialize cuda state
 
-  allocateCopyCuda(state.spaces, host_spaces.data(), db.num_movable_nodes);
+  allocateCopyCuda(state.spaces, host_spaces.data(), db.num_nodes);
   allocateCuda(state.ordered_nodes, db.num_movable_nodes, int);
   iota<<<ceilDiv(db.num_movable_nodes, 512), 512>>>(state.ordered_nodes, db.num_movable_nodes);
   allocateCuda(state.independent_sets, state.batch_size * state.set_size, int);

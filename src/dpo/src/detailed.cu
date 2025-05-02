@@ -187,7 +187,7 @@ void Detailed::doDetailedCommand(std::vector<std::string>& args, DetailedPlaceDB
 
   if (strcmp(args[0].c_str(), "mis") == 0) {
     DetailedMis mis(arch_, network_, rt_);
-    //mis.run(mgr_, dp_db, args);
+    mis.run(mgr_, dp_db, args);
   } else if (strcmp(args[0].c_str(), "gs") == 0) {
     DetailedGlobalSwap gs(arch_, network_, rt_);
     gs.run(mgr_, dp_db, args);
