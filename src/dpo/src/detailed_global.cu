@@ -896,7 +896,7 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr,
   // these should be passed in as options at some point
   int num_bins_x = 256;  
   int num_bins_y = 256; 
-  int batch_size = 8;   
+  int batch_size = 32;   
 
   db.set_num_bins(num_bins_x, num_bins_y);
   printf("[INFO GPU-DPO] bins %dx%d, bin sizes %gx%g, die size %g, %g, %g, %g\n",

@@ -192,7 +192,7 @@ class DetailedMis
 
   // Other.
   int skipEdgesLargerThanThis_ = 100;
-  int maxProblemSize_ = 25;
+  int maxProblemSize_ = 32;
   int traversal_ = 0;
   bool useSameSize_ = true;
   bool useSameColor_ = true;

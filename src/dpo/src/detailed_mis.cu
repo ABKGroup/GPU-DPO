@@ -222,8 +222,8 @@ void DetailedMis::run(DetailedMgr* mgrPtr, DetailedPlaceData& db, std::vector<st
   tol = std::max(tol, 0.01);
   passes = std::max(passes, 1);
 
-  int num_bins_x = 16;
-  int num_bins_y = 16;
+  int num_bins_x = 256;
+  int num_bins_y = 256;
   int batch_size = 32;
   int set_size = maxProblemSize_;
 
@@ -341,7 +341,7 @@ void DetailedMis::run(DetailedMgr* mgrPtr, DetailedPlaceData& db, std::vector<st
 
     hpwls[p] = compute_total_hpwl(db, db.x, db.y, state.net_hpwls);
     if ((p % (max(passes / 10, 1))) == 0 || p == passes) {
-      printf("[INFO GPU-DPO] iteration %d, target hpwl %g, delta %g(%g%%), %d independent sets, moved %g%% cells",
+      printf("[INFO GPU-DPO] iteration %d, target hpwl %g, delta %g(%g%%), %d independent sets, moved %g%% cells\n",
                     p,
                     hpwls[p],
                     hpwls[p] - hpwls[0],

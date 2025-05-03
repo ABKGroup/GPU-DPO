@@ -77,7 +77,7 @@ public:
                 m_temp_storage = NULL;
             }
             m_temp_storage_bytes = temp_storage_bytes;
-            printf("[INFO GPU-DPO] allocate %lu bytes in shuffler for length %d*(%d+%d)",
+            printf("[INFO GPU-DPO] allocate %lu bytes in shuffler for length %d*(%zu+%zu)\n",
                          m_temp_storage_bytes,
                          m_num_items,
                          sizeof(T),
