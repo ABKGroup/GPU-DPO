@@ -15,8 +15,6 @@ cmake-build-debug
 build
 pvt
 
-include/sta/StaConfig.hh
-
 app/sta
 app/libOpenSTA.*
 app/sta.exe
@@ -32,3 +30,6 @@ test/results
 test/b3v3_1check.log
 
 doc/messages.txt
+
+# clangd turds
+.cache/

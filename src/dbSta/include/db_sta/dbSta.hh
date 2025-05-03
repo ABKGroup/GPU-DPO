@@ -1,45 +1,15 @@
-/////////////////////////////////////////////////////////////////////////////
-//
-// Copyright (c) 2019, The Regents of the University of California
-// All rights reserved.
-//
-// BSD 3-Clause License
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are met:
-//
-// * Redistributions of source code must retain the above copyright notice, this
-//   list of conditions and the following disclaimer.
-//
-// * Redistributions in binary form must reproduce the above copyright notice,
-//   this list of conditions and the following disclaimer in the documentation
-//   and/or other materials provided with the distribution.
-//
-// * Neither the name of the copyright holder nor the names of its
-//   contributors may be used to endorse or promote products derived from
-//   this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
-// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-// POSSIBILITY OF SUCH DAMAGE.
-//
-///////////////////////////////////////////////////////////////////////////////
+// SPDX-License-Identifier: BSD-3-Clause
+// Copyright (c) 2019-2025, The OpenROAD Authors
 
 #pragma once
 
 #include <memory>
+#include <string>
+#include <vector>
 
 #include "odb/db.h"
 #include "odb/dbBlockCallBackObj.h"
-#include "ord/OpenRoadObserver.hh"
+#include "odb/dbDatabaseObserver.h"
 #include "sta/Sta.hh"
 
 namespace ord {
@@ -56,8 +26,6 @@ class dbSta;
 class dbNetwork;
 class dbStaReport;
 class dbStaCbk;
-class AbstractPathRenderer;
-class AbstractPowerDensityDataSource;
 class PatternMatch;
 class TestCell;
 
@@ -102,7 +70,7 @@ class BufferUseAnalyser
   std::unique_ptr<sta::PatternMatch> clkbuf_pattern_;
 };
 
-class dbSta : public Sta, public ord::OpenRoadObserver
+class dbSta : public Sta, public odb::dbDatabaseObserver
 {
  public:
   ~dbSta() override;
@@ -140,13 +108,17 @@ class dbSta : public Sta, public ord::OpenRoadObserver
     STD_OTHER
   };
 
+  // Report Instances Type
+  struct TypeStats
+  {
+    int count{0};
+    int64_t area{0};
+  };
+  using InstTypeMap = std::map<InstType, TypeStats>;
+
   void initVars(Tcl_Interp* tcl_interp,
                 odb::dbDatabase* db,
                 utl::Logger* logger);
-
-  void setPathRenderer(std::unique_ptr<AbstractPathRenderer> path_renderer);
-  void setPowerDensityDataSource(std::unique_ptr<AbstractPowerDensityDataSource>
-                                     power_density_data_source);
 
   // Creates a dbSta instance for the given dbBlock using the same context as
   // this dbSta instance (e.g. TCL interpreter, units, etc.)
@@ -177,19 +149,19 @@ class dbSta : public Sta, public ord::OpenRoadObserver
   void registerStaState(dbStaState* state);
   void unregisterStaState(dbStaState* state);
 
-  // Highlight path in the gui.
-  void highlight(PathRef* path);
-
-  // Report Instances Type
-  struct TypeStats
-  {
-    int count{0};
-    int64_t area{0};
-  };
-  std::map<InstType, TypeStats> countInstancesByType(odb::dbModule* module);
-  std::string getInstanceTypeText(InstType type);
+  std::string getInstanceTypeText(InstType type) const;
   InstType getInstanceType(odb::dbInst* inst);
-  void report_cell_usage(odb::dbModule* module, bool verbose);
+  void reportCellUsage(odb::dbModule* module,
+                       bool verbose,
+                       const char* file_name,
+                       const char* stage_name);
+
+  void reportTimingHistogram(int num_bins, const MinMax* min_max) const;
+
+  // Create a logic depth histogram report.
+  void reportLogicDepthHistogram(int num_bins,
+                                 bool exclude_buffers,
+                                 bool exclude_inverters) const;
 
   BufferUse getBufferUse(sta::LibertyCell* buffer);
 
@@ -205,6 +177,14 @@ class dbSta : public Sta, public ord::OpenRoadObserver
                    Cell* to_cell,
                    LibertyCell* to_lib_cell) override;
 
+  void countInstancesByType(odb::dbModule* module,
+                            InstTypeMap& inst_type_stats,
+                            std::vector<dbInst*>& insts);
+  void countPhysicalOnlyInstancesByType(InstTypeMap& inst_type_stats,
+                                        std::vector<dbInst*>& insts);
+  void addInstanceByTypeInstance(odb::dbInst* inst,
+                                 InstTypeMap& inst_type_stats);
+
   dbDatabase* db_ = nullptr;
   Logger* logger_ = nullptr;
 
@@ -214,9 +194,6 @@ class dbSta : public Sta, public ord::OpenRoadObserver
   std::set<dbStaState*> sta_states_;
 
   std::unique_ptr<BufferUseAnalyser> buffer_use_analyser_;
-
-  std::unique_ptr<AbstractPathRenderer> path_renderer_;
-  std::unique_ptr<AbstractPowerDensityDataSource> power_density_data_source_;
 };
 
 // Utilities for TestCell

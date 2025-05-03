@@ -1,35 +1,37 @@
-PSM 0010 ir_solver.cpp:1032        LU factorization of the G Matrix failed. SparseLU solver message: {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L1032
-PSM 0011 pdnsim.cpp:123            Reusing previous solution INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.cpp#L123
-PSM 0012 ir_solver.cpp:1048        Solving V = inv(G)*J failed. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L1048
-PSM 0015 ir_solver.cpp:715         Reading location of sources from: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L715
-PSM 0025 ir_solver.cpp:253         {} does not contain any terminals ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L253
-PSM 0028 pdnsim.tcl:297            Cannot find net $net_name in the design. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.tcl#L297
-PSM 0029 pdnsim.tcl:305            Cannot find instance $inst_name in the design. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.tcl#L305
-PSM 0038 ir_solver.cpp:303         Unconnected node on net {} at location ({:4.3f}um,  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L303
-PSM 0039 ir_solver.cpp:326         Unconnected instance {} at location ({:4.3f}um,  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L326
-PSM 0040 pdnsim.cpp:157            All shapes on net {} are connected. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.cpp#L157
-PSM 0041 ir_solver.cpp:1480        Could not open {} to write spice file ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L1480
-PSM 0047 pdnsim.cpp:316            {} is not a supply net. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.cpp#L316
-PSM 0048 pdnsim.cpp:311            Cannot find net {} in the design. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.cpp#L311
-PSM 0055 pdnsim.tcl:113            EM file cannot be specified without enabling em analysis. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.tcl#L113
-PSM 0057 pdnsim.tcl:49             Argument -net not specified. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.tcl#L49
-PSM 0058 pdnsim.tcl:85             Argument -net not specified. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.tcl#L85
-PSM 0059 pdnsim.tcl:198            Argument -net not specified. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.tcl#L198
-PSM 0062 pdnsim.tcl:233            Argument -net or -voltage not specified.\      Please specify both -net and -voltage arguments. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.tcl#L233
-PSM 0063 pdnsim.tcl:252            Argument -inst or -power not specified.\      Please specify both -inst and -power arguments. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.tcl#L252
-PSM 0069 pdnsim.cpp:160            Check connectivity failed on {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.cpp#L160
-PSM 0070 ir_solver.cpp:479         Unable to map source nodes into power grid ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L479
-PSM 0071 ir_solver.cpp:505         Using all nodes on {} as sources. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L505
-PSM 0072 ir_solver.cpp:531         Using strap pattern on {} with pitch {:.4f}um and offset {:.4f}um. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L531
-PSM 0073 ir_solver.cpp:582         Using bump pattern with x-pitch {:.4f}um, y-pitch {:.4f}um,  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L582
-PSM 0074 ir_solver.cpp:786         Unable to determine voltage for power nets. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L786
-PSM 0075 ir_solver.cpp:734         Expected four values on line: \"{}\" ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L734
-PSM 0079 ir_solver.cpp:1223        Cannot determine the supply voltage for {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L1223
-PSM 0080 ir_solver.cpp:758         Source voltage cannot be different ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L758
-PSM 0087 ir_network.cpp:52         {} is not a supply net. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_network.cpp#L52
-PSM 0089 ir_solver.cpp:712         Unable to open {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L712
-PSM 0090 ir_solver.cpp:1408        Unable to open {} to write instance voltage file ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L1408
-PSM 0091 ir_solver.cpp:1449        Unable to open {} to write EM file ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L1449
-PSM 0093 pdnsim.cpp:344            No IR drop data found. Run analyse_power_grid for net {}  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.cpp#L344
-PSM 0181 pdnsim.tcl:149            -cells must be a list of cell and decap pairs ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.tcl#L149
-PSM 0280 pdnsim.tcl:171            $cell_name did not match any masters. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.tcl#L171
+PSM 0010 ir_solver.cpp:1035        LU factorization of the G Matrix failed. SparseLU solver message: {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L1035
+PSM 0011 pdnsim.cpp:98             Reusing previous solution INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.cpp#L98
+PSM 0012 ir_solver.cpp:1051        Solving V = inv(G)*J failed. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L1051
+PSM 0015 ir_solver.cpp:716         Reading location of sources from: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L716
+PSM 0020 ir_solver.cpp:349         {} has zero resistance. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L349
+PSM 0021 ir_solver.cpp:355         Resistance map constains invalid values. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L355
+PSM 0025 ir_solver.cpp:232         {} does not contain any terminals ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L232
+PSM 0028 pdnsim.tcl:265            Cannot find net $net_name in the design. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.tcl#L265
+PSM 0029 pdnsim.tcl:273            Cannot find instance $inst_name in the design. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.tcl#L273
+PSM 0038 ir_solver.cpp:282         Unconnected node on net {} at location ({:4.3f}um,  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L282
+PSM 0039 ir_solver.cpp:305         Unconnected instance {} at location ({:4.3f}um,  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L305
+PSM 0040 pdnsim.cpp:132            All shapes on net {} are connected. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.cpp#L132
+PSM 0041 ir_solver.cpp:1483        Could not open {} to write spice file ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L1483
+PSM 0047 pdnsim.cpp:292            {} is not a supply net. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.cpp#L292
+PSM 0048 pdnsim.cpp:287            Cannot find net {} in the design. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.cpp#L287
+PSM 0055 pdnsim.tcl:81             EM file cannot be specified without enabling em analysis. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.tcl#L81
+PSM 0057 pdnsim.tcl:17             Argument -net not specified. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.tcl#L17
+PSM 0058 pdnsim.tcl:53             Argument -net not specified. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.tcl#L53
+PSM 0059 pdnsim.tcl:166            Argument -net not specified. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.tcl#L166
+PSM 0062 pdnsim.tcl:201            Argument -net or -voltage not specified.\      Please specify both -net and -voltage arguments. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.tcl#L201
+PSM 0063 pdnsim.tcl:220            Argument -inst or -power not specified.\      Please specify both -inst and -power arguments. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.tcl#L220
+PSM 0069 pdnsim.cpp:135            Check connectivity failed on {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.cpp#L135
+PSM 0070 ir_solver.cpp:480         Unable to map source nodes into power grid ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L480
+PSM 0071 ir_solver.cpp:506         Using all nodes on {} as sources. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L506
+PSM 0072 ir_solver.cpp:532         Using strap pattern on {} with pitch {:.4f}um and offset {:.4f}um. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L532
+PSM 0073 ir_solver.cpp:583         Using bump pattern with x-pitch {:.4f}um, y-pitch {:.4f}um,  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L583
+PSM 0074 ir_solver.cpp:787         Unable to determine voltage for power nets. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L787
+PSM 0075 ir_solver.cpp:735         Expected four values on line: \"{}\" ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L735
+PSM 0079 ir_solver.cpp:1226        Cannot determine the supply voltage for {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L1226
+PSM 0080 ir_solver.cpp:759         Source voltage cannot be different ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L759
+PSM 0087 ir_network.cpp:29         {} is not a supply net. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_network.cpp#L29
+PSM 0089 ir_solver.cpp:713         Unable to open {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L713
+PSM 0090 ir_solver.cpp:1411        Unable to open {} to write instance voltage file ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L1411
+PSM 0091 ir_solver.cpp:1452        Unable to open {} to write EM file ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/ir_solver.cpp#L1452
+PSM 0093 pdnsim.cpp:320            No IR drop data found. Run analyse_power_grid for net {}  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.cpp#L320
+PSM 0181 pdnsim.tcl:117            -cells must be a list of cell and decap pairs ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.tcl#L117
+PSM 0280 pdnsim.tcl:139            $cell_name did not match any masters. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/psm/src/pdnsim.tcl#L139

@@ -1,58 +1,58 @@
-RMP 0001 blif.cpp:104              Cannot open file {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L104
-RMP 0002 blif.cpp:359              Blif writer successfully dumped file with {} instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L359
-RMP 0003 blif.cpp:383              Cannot open file {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L383
-RMP 0004 blif.cpp:406              Cannot open file {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L406
-RMP 0005 blif.cpp:428              Blif parsed successfully, will destroy {} existing instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L428
-RMP 0006 blif.cpp:432              Found {} inputs, {} outputs, {} clocks, {} combinational  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L432
-RMP 0007 blif.cpp:457              Inserting {} new instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L457
-RMP 0008 blif.cpp:476              Const driver {} doesn't have any connected nets. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L476
-RMP 0009 blif.cpp:520              Master ({}) not found while stitching back instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L520
-RMP 0010 blif.cpp:573              Connection {} parsing failed for {} instance. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L573
-RMP 0012 rmp.tcl:97                Missing argument -liberty_file ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/rmp.tcl#L97
-RMP 0013 abc_library_factory.cpp:455 Can't convert scale abbreviation {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/abc_library_factory.cpp#L455
-RMP 0014 abc_library_factory.cpp:429 Time unit {} outside abc range [1e-9, 1e-12] ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/abc_library_factory.cpp#L429
-RMP 0015 abc_library_factory.cpp:308 Build called with null sta library ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/abc_library_factory.cpp#L308
-RMP 0016 Restructure.cpp:624       cannot open file {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/Restructure.cpp#L624
-RMP 0017 abc_library_factory.cpp:104 sta::TableModel order not equal to 2, order: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/abc_library_factory.cpp#L104
-RMP 0018 abc_library_factory.cpp:113 axis 1 null cannot create ABC table ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/abc_library_factory.cpp#L113
-RMP 0019 abc_library_factory.cpp:125 axis 2 null cannot create ABC table ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/abc_library_factory.cpp#L125
-RMP 0020 Restructure.cpp:489       Cannot open file {} for writing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/Restructure.cpp#L489
-RMP 0021 Restructure.cpp:296       All re-synthesis runs discarded, keeping original netlist. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/Restructure.cpp#L296
-RMP 0022 abc_library_factory.cpp:388 Leakage power doesn't exist for cell {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/abc_library_factory.cpp#L388
-RMP 0023 abc_library_factory.cpp:276 rise/fall Gate model is empty for cell {}. Need timing  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/abc_library_factory.cpp#L276
-RMP 0024 abc_library_factory.cpp:258 Unrecognized sta::TimingSense -> {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/abc_library_factory.cpp#L258
-RMP 0025 Restructure.cpp:646       ABC run failed, see log file {} for details. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/Restructure.cpp#L646
-RMP 0026 Restructure.cpp:229       Error executing ABC command {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/Restructure.cpp#L229
-RMP 0032 rmp.tcl:113               -tielo_port not specified WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/rmp.tcl#L113
-RMP 0033 rmp.tcl:129               -tiehi_port not specified WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/rmp.tcl#L129
-RMP 0034 blif.cpp:420              Blif parser failed. File doesn't follow blif spec. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L420
-RMP 0035 Restructure.cpp:457       Could not create instance {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/Restructure.cpp#L457
-RMP 0036 Restructure.cpp:598       Mode {} not recognized. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/Restructure.cpp#L598
-RMP 0037 Restructure.cpp:303       Fail to remove file {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/Restructure.cpp#L303
-RMP 0076 blif.cpp:540              Could not create new instance of type {} with name {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L540
-RMP 0146 blif.cpp:594              Could not connect instance of cell type {} to {} net  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L594
-RMP 1001 logic_cut.cpp:129         cell: {} was not found in the ABC library. Please report  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L129
-RMP 1002 logic_cut.cpp:175         output_pin: {} has the wrong number of drivers {}. Please  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L175
-RMP 1003 logic_cut.cpp:191         ABC version of instance {} of type {} not found. Please report this  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L191
-RMP 1007 logic_cut.cpp:251         Can't find gate for {}. Please report this internal error. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L251
-RMP 1008 logic_cut.cpp:643         abc_network has no mapping, please report this internal error. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L643
-RMP 1009 logic_cut.cpp:650         abc_network is not a netlist, please report this internal error. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L650
-RMP 1010 logic_cut.cpp:389         Could not find cell name {}, please report this internal error ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L389
-RMP 1011 logic_cut.cpp:347         Empty logic cuts are not allowed ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L347
-RMP 1012 logic_cut.cpp:357         LogiCuts with multiple parent modules are not allowed. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L357
-RMP 1013 logic_cut.cpp:430         Primary input or output is not connected to an AIG PI/PO,  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L430
-RMP 1014 logic_cut.cpp:532         Cannot find cell {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L532
-RMP 1015 logic_cut.cpp:543         Cannot find port  {}/{} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L543
-RMP 1016 logic_cut.cpp:549         Object is not a net in ABC netlist {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L549
-RMP 1017 logic_cut.cpp:575         Cannot find port  {}/{} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L575
-RMP 1018 logic_cut.cpp:157         Cannot find instance {} in abc instance map. Please  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L157
-RMP 1019 logic_cut.cpp:583         Object is not a net in ABC netlist {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L583
-RMP 1020 logic_cut.cpp:590         Could not find corresponding sta net for abc net: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L590
-RMP 1021 logic_cut.cpp:520         Cannot find abc gate port order {}, please report this  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L520
-RMP 1022 logic_cut.cpp:556         Could not find corresponding sta net for abc net: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L556
-RMP 1023 logic_extractor.cpp:328   primary input pin {} connected to null net ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_extractor.cpp#L328
-RMP 1024 logic_cut.cpp:439         Cannot find primary net {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L439
-RMP 1025 logic_cut.cpp:283         Zero fanout node emitted from ABC. Please report this  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L283
-RMP 1026 logic_cut.cpp:613         cannot find 0 valued constant tie cell. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L613
-RMP 1027 logic_cut.cpp:617         cannot find 1 valued constant tie cell. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L617
-RMP 1028 logic_extractor.cpp:125   constant vertex: {} should have exactly one constant driver.  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_extractor.cpp#L125
+RMP 0001 blif.cpp:74               Cannot open file {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L74
+RMP 0002 blif.cpp:329              Blif writer successfully dumped file with {} instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L329
+RMP 0003 blif.cpp:353              Cannot open file {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L353
+RMP 0004 blif.cpp:376              Cannot open file {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L376
+RMP 0005 blif.cpp:398              Blif parsed successfully, will destroy {} existing instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L398
+RMP 0006 blif.cpp:402              Found {} inputs, {} outputs, {} clocks, {} combinational  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L402
+RMP 0007 blif.cpp:427              Inserting {} new instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L427
+RMP 0008 blif.cpp:446              Const driver {} doesn't have any connected nets. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L446
+RMP 0009 blif.cpp:490              Master ({}) not found while stitching back instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L490
+RMP 0010 blif.cpp:543              Connection {} parsing failed for {} instance. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L543
+RMP 0012 rmp.tcl:65                Missing argument -liberty_file ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/rmp.tcl#L65
+RMP 0013 abc_library_factory.cpp:456 Can't convert scale abbreviation {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/abc_library_factory.cpp#L456
+RMP 0014 abc_library_factory.cpp:430 Time unit {} outside abc range [1e-9, 1e-12] ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/abc_library_factory.cpp#L430
+RMP 0015 abc_library_factory.cpp:309 Build called with null sta library ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/abc_library_factory.cpp#L309
+RMP 0016 Restructure.cpp:591       cannot open file {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/Restructure.cpp#L591
+RMP 0017 abc_library_factory.cpp:105 sta::TableModel order not equal to 2, order: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/abc_library_factory.cpp#L105
+RMP 0018 abc_library_factory.cpp:114 axis 1 null cannot create ABC table ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/abc_library_factory.cpp#L114
+RMP 0019 abc_library_factory.cpp:126 axis 2 null cannot create ABC table ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/abc_library_factory.cpp#L126
+RMP 0020 Restructure.cpp:456       Cannot open file {} for writing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/Restructure.cpp#L456
+RMP 0021 Restructure.cpp:264       All re-synthesis runs discarded, keeping original netlist. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/Restructure.cpp#L264
+RMP 0022 abc_library_factory.cpp:389 Leakage power doesn't exist for cell {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/abc_library_factory.cpp#L389
+RMP 0023 abc_library_factory.cpp:277 rise/fall Gate model is empty for cell {}. Need timing  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/abc_library_factory.cpp#L277
+RMP 0024 abc_library_factory.cpp:259 Unrecognized sta::TimingSense -> {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/abc_library_factory.cpp#L259
+RMP 0025 Restructure.cpp:613       ABC run failed, see log file {} for details. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/Restructure.cpp#L613
+RMP 0026 Restructure.cpp:197       Error executing ABC command {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/Restructure.cpp#L197
+RMP 0032 rmp.tcl:81                -tielo_port not specified WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/rmp.tcl#L81
+RMP 0033 rmp.tcl:97                -tiehi_port not specified WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/rmp.tcl#L97
+RMP 0034 blif.cpp:390              Blif parser failed. File doesn't follow blif spec. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L390
+RMP 0035 Restructure.cpp:424       Could not create instance {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/Restructure.cpp#L424
+RMP 0036 Restructure.cpp:565       Mode {} not recognized. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/Restructure.cpp#L565
+RMP 0037 Restructure.cpp:271       Fail to remove file {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/Restructure.cpp#L271
+RMP 0076 blif.cpp:510              Could not create new instance of type {} with name {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L510
+RMP 0146 blif.cpp:564              Could not connect instance of cell type {} to {} net  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/blif.cpp#L564
+RMP 1001 logic_cut.cpp:127         cell: {} was not found in the ABC library. Please report  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L127
+RMP 1002 logic_cut.cpp:173         output_pin: {} has the wrong number of drivers {}. Please  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L173
+RMP 1003 logic_cut.cpp:189         ABC version of instance {} of type {} not found. Please report this  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L189
+RMP 1007 logic_cut.cpp:249         Can't find gate for {}. Please report this internal error. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L249
+RMP 1008 logic_cut.cpp:648         abc_network has no mapping, please report this internal error. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L648
+RMP 1009 logic_cut.cpp:655         abc_network is not a netlist, please report this internal error. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L655
+RMP 1010 logic_cut.cpp:387         Could not find cell name {}, please report this internal error ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L387
+RMP 1011 logic_cut.cpp:345         Empty logic cuts are not allowed ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L345
+RMP 1012 logic_cut.cpp:355         LogiCuts with multiple parent modules are not allowed. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L355
+RMP 1013 logic_cut.cpp:428         Primary input or output is not connected to an AIG PI/PO,  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L428
+RMP 1014 logic_cut.cpp:537         Cannot find cell {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L537
+RMP 1015 logic_cut.cpp:548         Cannot find port  {}/{} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L548
+RMP 1016 logic_cut.cpp:554         Object is not a net in ABC netlist {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L554
+RMP 1017 logic_cut.cpp:580         Cannot find port  {}/{} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L580
+RMP 1018 logic_cut.cpp:155         Cannot find instance {} in abc instance map. Please  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L155
+RMP 1019 logic_cut.cpp:588         Object is not a net in ABC netlist {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L588
+RMP 1020 logic_cut.cpp:595         Could not find corresponding sta net for abc net: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L595
+RMP 1021 logic_cut.cpp:525         Cannot find abc gate port order {}, please report this  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L525
+RMP 1022 logic_cut.cpp:561         Could not find corresponding sta net for abc net: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L561
+RMP 1023 logic_extractor.cpp:331   primary input pin {} connected to null net ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_extractor.cpp#L331
+RMP 1024 logic_cut.cpp:437         Cannot find primary net {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L437
+RMP 1025 logic_cut.cpp:281         Zero fanout node emitted from ABC. Please report this  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L281
+RMP 1026 logic_cut.cpp:614         cannot find 0 valued constant tie cell. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L614
+RMP 1027 logic_cut.cpp:620         cannot find 1 valued constant tie cell. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_cut.cpp#L620
+RMP 1028 logic_extractor.cpp:128   constant vertex: {} should have exactly one constant driver.  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rmp/src/logic_extractor.cpp#L128

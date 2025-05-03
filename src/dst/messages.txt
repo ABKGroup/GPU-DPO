@@ -1,28 +1,28 @@
-DST 0001 Distributed.cc:79         Worker server error: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.cc#L79
-DST 0002 Distributed.tcl:42        -host is required in run_worker cmd. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.tcl#L42
-DST 0003 Distributed.tcl:47        -port is required in run_worker cmd. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.tcl#L47
-DST 0004 WorkerConnection.cc:122   Worker conhandler failed with message: \"{}\" WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/WorkerConnection.cc#L122
-DST 0005 WorkerConnection.cc:112   Unsupported job type {} from port {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/WorkerConnection.cc#L112
-DST 0006 BalancerConnection.cc:103 No workers available WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/BalancerConnection.cc#L103
-DST 0007 LoadBalancer.cc:44        Processed {} jobs INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/LoadBalancer.cc#L44
-DST 0008 BalancerConnection.cc:233 Balancer conhandler failed with message: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/BalancerConnection.cc#L233
-DST 0009 Distributed.cc:97         LoadBalancer error: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.cc#L97
-DST 0010 Distributed.tcl:66        -host is required in run_load_balancer cmd. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.tcl#L66
-DST 0011 Distributed.tcl:71        -port is required in run_load_balancer cmd. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.tcl#L71
-DST 0012 Distributed.cc:213        Serializing JobMessage failed WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.cc#L213
-DST 0013 Distributed.cc:223        Socket connection failed with message \"{}\" WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.cc#L223
-DST 0014 Distributed.cc:257        Sending job failed with message \"{}\" WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.cc#L257
-DST 0016 Distributed.tcl:91        -host is required in add_worker_address cmd. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.tcl#L91
-DST 0017 Distributed.tcl:96        -port is required in add_worker_address cmd. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.tcl#L96
-DST 0020 Distributed.cc:266        Serializing result JobMessage failed WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.cc#L266
-DST 0022 Distributed.cc:276        Sending result failed with message \"{}\" WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.cc#L276
-DST 0041 WorkerConnection.cc:78    Received malformed msg {} from port {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/WorkerConnection.cc#L78
-DST 0042 BalancerConnection.cc:88  Received malformed msg {} from port {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/BalancerConnection.cc#L88
-DST 0112 Distributed.cc:152        Serializing JobMessage failed WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.cc#L152
-DST 0113 Distributed.cc:162        Trial {}, socket connection failed with message \"{}\" WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.cc#L162
-DST 0114 Distributed.cc:188        Sending job failed with message \"{}\" WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.cc#L188
-DST 0203 LoadBalancer.cc:199       Workers domain resolution failed with error code = {}.  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/LoadBalancer.cc#L199
-DST 0204 BalancerConnection.cc:138 Exception thrown: {}. worker with ip \"{}\" and  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/BalancerConnection.cc#L138
-DST 0205 BalancerConnection.cc:148 Maximum of {} failing workers reached,  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/BalancerConnection.cc#L148
-DST 0207 BalancerConnection.cc:211 {} workers failed to receive the broadcast message  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/BalancerConnection.cc#L211
-DST 9999 Distributed.cc:243        Problem in deserialize {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.cc#L243
+DST 0001 Distributed.cc:57         Worker server error: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.cc#L57
+DST 0002 Distributed.tcl:17        -host is required in run_worker cmd. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.tcl#L17
+DST 0003 Distributed.tcl:22        -port is required in run_worker cmd. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.tcl#L22
+DST 0004 WorkerConnection.cc:99    Worker conhandler failed with message: \"{}\" WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/WorkerConnection.cc#L99
+DST 0005 WorkerConnection.cc:89    Unsupported job type {} from port {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/WorkerConnection.cc#L89
+DST 0006 BalancerConnection.cc:82  No workers available WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/BalancerConnection.cc#L82
+DST 0007 LoadBalancer.cc:20        Processed {} jobs INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/LoadBalancer.cc#L20
+DST 0008 BalancerConnection.cc:212 Balancer conhandler failed with message: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/BalancerConnection.cc#L212
+DST 0009 Distributed.cc:75         LoadBalancer error: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.cc#L75
+DST 0010 Distributed.tcl:41        -host is required in run_load_balancer cmd. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.tcl#L41
+DST 0011 Distributed.tcl:46        -port is required in run_load_balancer cmd. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.tcl#L46
+DST 0012 Distributed.cc:191        Serializing JobMessage failed WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.cc#L191
+DST 0013 Distributed.cc:201        Socket connection failed with message \"{}\" WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.cc#L201
+DST 0014 Distributed.cc:235        Sending job failed with message \"{}\" WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.cc#L235
+DST 0016 Distributed.tcl:66        -host is required in add_worker_address cmd. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.tcl#L66
+DST 0017 Distributed.tcl:71        -port is required in add_worker_address cmd. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.tcl#L71
+DST 0020 Distributed.cc:244        Serializing result JobMessage failed WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.cc#L244
+DST 0022 Distributed.cc:254        Sending result failed with message \"{}\" WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.cc#L254
+DST 0041 WorkerConnection.cc:55    Received malformed msg {} from port {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/WorkerConnection.cc#L55
+DST 0042 BalancerConnection.cc:67  Received malformed msg {} from port {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/BalancerConnection.cc#L67
+DST 0112 Distributed.cc:130        Serializing JobMessage failed WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.cc#L130
+DST 0113 Distributed.cc:140        Trial {}, socket connection failed with message \"{}\" WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.cc#L140
+DST 0114 Distributed.cc:166        Sending job failed with message \"{}\" WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.cc#L166
+DST 0203 LoadBalancer.cc:175       Workers domain resolution failed with error code = {}.  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/LoadBalancer.cc#L175
+DST 0204 BalancerConnection.cc:117 Exception thrown: {}. worker with ip \"{}\" and  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/BalancerConnection.cc#L117
+DST 0205 BalancerConnection.cc:127 Maximum of {} failing workers reached,  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/BalancerConnection.cc#L127
+DST 0207 BalancerConnection.cc:190 {} workers failed to receive the broadcast message  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/BalancerConnection.cc#L190
+DST 9999 Distributed.cc:221        Problem in deserialize {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dst/src/Distributed.cc#L221

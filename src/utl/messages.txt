@@ -7,18 +7,29 @@ FLW 0006 tee.tcl:53                LOGGER REDIRECT INFO https://github.com/The-O
 FLW 0007 tee.tcl:62                LOGGER REDIRECT INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/test/tee.tcl#L62
 FLW 0008 tee.tcl:63                LOGGER REDIRECT INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/test/tee.tcl#L63
 FLW 0009 tee.tcl:64                LOGGER REDIRECT INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/test/tee.tcl#L64
-UTL 0001 CFileUtils.cpp:8          seeking file to start {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/CFileUtils.cpp#L8
-UTL 0002 CFileUtils.cpp:25         error reading {} bytes from file at offset {}: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/CFileUtils.cpp#L25
-UTL 0003 CFileUtils.cpp:35         read no bytes from file at offset {}, but neither error nor EOF ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/CFileUtils.cpp#L35
-UTL 0004 CFileUtils.cpp:56         error writing {} bytes from file at offset {}: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/CFileUtils.cpp#L56
-UTL 0005 ScopedTemporaryFile.cpp:28 could not create temp file ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/ScopedTemporaryFile.cpp#L28
-UTL 0006 ScopedTemporaryFile.cpp:31 ScopedTemporaryFile; fd: {} path: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/ScopedTemporaryFile.cpp#L31
-UTL 0007 ScopedTemporaryFile.cpp:35 could not open temp descriptor as FILE ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/ScopedTemporaryFile.cpp#L35
-UTL 0008 ScopedTemporaryFile.cpp:43 could not unlink temp file at {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/ScopedTemporaryFile.cpp#L43
-UTL 0009 ScopedTemporaryFile.cpp:47 could not close temp file: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/ScopedTemporaryFile.cpp#L47
-UTL 0010 Logger.cpp:184            Unable to open {} to write metrics WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/Logger.cpp#L184
-UTL 0011 Logger.cpp:89             {} is not a metrics file ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/Logger.cpp#L89
-UTL 0100 Utl.tcl:116               Man page for $name is not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/Utl.tcl#L116
-UTL 0101 Utl.tcl:132               -file or -variable is required ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/Utl.tcl#L132
-UTL 0102 Logger.cpp:300            Unable to start new log redirect while another is active. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/Logger.cpp#L300
+UTL 0001 CFileUtils.cpp:11         seeking file to start {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/CFileUtils.cpp#L11
+UTL 0002 CFileUtils.cpp:28         error reading {} bytes from file at offset {}: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/CFileUtils.cpp#L28
+UTL 0003 CFileUtils.cpp:38         read no bytes from file at offset {}, but neither error nor EOF ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/CFileUtils.cpp#L38
+UTL 0004 CFileUtils.cpp:59         error writing {} bytes from file at offset {}: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/CFileUtils.cpp#L59
+UTL 0005 ScopedTemporaryFile.cpp:29 could not create temp file ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/ScopedTemporaryFile.cpp#L29
+UTL 0006 ScopedTemporaryFile.cpp:32 ScopedTemporaryFile; fd: {} path: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/ScopedTemporaryFile.cpp#L32
+UTL 0007 ScopedTemporaryFile.cpp:36 could not open temp descriptor as FILE ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/ScopedTemporaryFile.cpp#L36
+UTL 0008 ScopedTemporaryFile.cpp:44 could not unlink temp file at {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/ScopedTemporaryFile.cpp#L44
+UTL 0009 ScopedTemporaryFile.cpp:48 could not close temp file: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/ScopedTemporaryFile.cpp#L48
+UTL 0010 Logger.cpp:167            Unable to open {} to write metrics WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/Logger.cpp#L167
+UTL 0011 Logger.cpp:72             {} is not a metrics file ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/Logger.cpp#L72
+UTL 0013 Progress.cpp:244          {} was interupted and may have modified the database. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/Progress.cpp#L244
+UTL 0014 Progress.cpp:44           OpenROAD will terminate after the next control+C WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/Progress.cpp#L44
+UTL 0070 histogram.cpp:22          The number of bins must be positive. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/histogram.cpp#L22
+UTL 0071 histogram.cpp:30          No data for the histogram has been loaded. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/histogram.cpp#L30
+UTL 0072 histogram.cpp:53          No data for the histogram has been loaded. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/histogram.cpp#L53
+UTL 0100 Utl.tcl:84                Man page for $name is not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/Utl.tcl#L84
+UTL 0101 Utl.tcl:100               -file or -variable is required ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/Utl.tcl#L100
+UTL 0102 Logger.cpp:283            Unable to start new log redirect while another is active. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/Logger.cpp#L283
+UTL 0103 metrics_server.cpp:153    Prometheus Server Exception: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/prometheus/metrics_server.cpp#L153
+UTL 0104 metrics_server.cpp:96     Starting Prometheus collection endpoint:  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/prometheus/metrics_server.cpp#L96
+UTL 0105 metrics_server.cpp:107    Metrics server accept error: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/prometheus/metrics_server.cpp#L107
+UTL 0106 metrics_server.cpp:119    Metrics server read error: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/prometheus/metrics_server.cpp#L119
+UTL 0107 metrics_server.cpp:136    Shutdown error: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/prometheus/metrics_server.cpp#L136
+UTL 0108 metrics_server.cpp:140    Socket close error: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/src/prometheus/metrics_server.cpp#L140
 UTL 1234 logger_max_messages.tcl:3 test WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/utl/test/logger_max_messages.tcl#L3

@@ -1,376 +1,379 @@
-DRT 0000 FlexDR_init.cpp:686       initNetTerms unsupported obj. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_init.cpp#L686
+DRT 0000 FlexDR_init.cpp:659       initNetTerms unsupported obj. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_init.cpp#L659
 DRT 0001 TritonRoute.cpp:1159      GCELLGRID is undefined ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L1159
-DRT 0002 TritonRoute.cpp:207       Detailed routing has not been run yet. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L207
-DRT 0003 io.cpp:3824               Load design first. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3824
-DRT 0004 io.cpp:3830               Load design first. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3830
-DRT 0005 frRegionQuery.cpp:127     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L127
-DRT 0006 frRegionQuery.cpp:138     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L138
-DRT 0007 frRegionQuery.cpp:156     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L156
-DRT 0008 frRegionQuery.cpp:343     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L343
-DRT 0009 frRegionQuery.cpp:369     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L369
-DRT 0010 frRegionQuery.cpp:379     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L379
-DRT 0011 frRegionQuery.cpp:401     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L401
-DRT 0012 frRegionQuery.cpp:412     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L412
-DRT 0013 frRegionQuery.cpp:423     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L423
-DRT 0014 frRegionQuery.cpp:471     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L471
-DRT 0015 frRegionQuery.cpp:488     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L488
-DRT 0016 frRegionQuery.cpp:533     Unsupported region query add of blockage in instance {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L533
-DRT 0017 frRegionQuery.cpp:552     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L552
-DRT 0018 frRegionQuery.cpp:756       Complete {} insts. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L756
-DRT 0019 frRegionQuery.cpp:760       Complete {} insts. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L760
-DRT 0020 frRegionQuery.cpp:772       Complete {} terms. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L772
-DRT 0021 frRegionQuery.cpp:776       Complete {} terms. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L776
-DRT 0022 frRegionQuery.cpp:793       Complete {} snets. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L793
-DRT 0023 frRegionQuery.cpp:804       Complete {} blockages. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L804
-DRT 0024 frRegionQuery.cpp:814       Complete {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L814
-DRT 0026 frRegionQuery.cpp:844       Complete {} origin guides. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L844
-DRT 0027 frRegionQuery.cpp:848       Complete {} origin guides. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L848
-DRT 0028 frRegionQuery.cpp:859       Complete {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L859
-DRT 0029 frRegionQuery.cpp:888       Complete {} nets (guide). INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L888
-DRT 0030 frRegionQuery.cpp:892       Complete {} nets (guide). INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L892
-DRT 0031 frRegionQuery.cpp:167     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L167
-DRT 0032 frRegionQuery.cpp:1024    {} grObj region query size = {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L1024
-DRT 0033 frRegionQuery.cpp:1038    {} shape region query size = {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L1038
-DRT 0034 frRegionQuery.cpp:1066    {} drObj region query size = {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L1066
-DRT 0035 frRegionQuery.cpp:902       Complete {} (guide). INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L902
-DRT 0036 frRegionQuery.cpp:1052    {} guide region query size = {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L1052
-DRT 0037 FlexGC_init.cpp:89        init_design_helper shape does not have net. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_init.cpp#L89
-DRT 0038 FlexGC_init.cpp:100       init_design_helper shape does not have dr net. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_init.cpp#L100
-DRT 0039 FlexGC_init.cpp:106       init_design_helper unsupported type. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_init.cpp#L106
-DRT 0040 TritonRoute.cpp:976       Design does not have any routable net  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L976
-DRT 0041 FlexGC_main.cpp:152       Unsupported metSpc rule. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L152
-DRT 0042 FlexGC_main.cpp:226       Unknown corner direction. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L226
-DRT 0043 FlexGC_main.cpp:306       Unsupported metSpc rule. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L306
-DRT 0044 FlexGC_main.cpp:2832      Unsupported LEF58_SPACING rule for cut layer, skipped. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2832
-DRT 0045 FlexGC_main.cpp:2975       Unsupported branch EXACTALIGNED in checkLef58CutSpacing_spc_adjCut. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2975
-DRT 0046 FlexGC_main.cpp:2982       Unsupported branch EXCEPTSAMEPGNET in  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2982
-DRT 0047 FlexGC_main.cpp:2989       Unsupported branch EXCEPTALLWITHIN in  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2989
-DRT 0048 FlexGC_main.cpp:2996       Unsupported branch TO ALL in checkLef58CutSpacing_spc_adjCut. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2996
-DRT 0050 FlexGC_main.cpp:3003       Unsupported branch ENCLOSURE in checkLef58CutSpacing_spc_adjCut. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L3003
-DRT 0051 FlexGC_main.cpp:3010       Unsupported branch SIDEPARALLELOVERLAP in  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L3010
-DRT 0052 FlexGC_main.cpp:3017       Unsupported branch SAMEMASK in checkLef58CutSpacing_spc_adjCut. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L3017
-DRT 0053 FlexGC_init.cpp:1028      updateGCWorker cannot find frNet in DRWorker. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_init.cpp#L1028
-DRT 0054 FlexGC_main.cpp:3107      Unsupported branch STACK in checkLef58CutSpacing_spc_layer. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L3107
-DRT 0055 FlexGC_main.cpp:3112      Unsupported branch ORTHOGONALSPACING in  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L3112
-DRT 0056 FlexGC_main.cpp:3120      Unsupported branch SHORTEDGEONLY in  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L3120
-DRT 0057 FlexGC_main.cpp:3128      Unsupported branch WIDTH in checkLef58CutSpacing_spc_layer. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L3128
-DRT 0058 FlexGC_main.cpp:3133      Unsupported branch PARALLEL in checkLef58CutSpacing_spc_layer. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L3133
-DRT 0059 FlexGC_main.cpp:3138      Unsupported branch EDGELENGTH in checkLef58CutSpacing_spc_layer. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L3138
-DRT 0060 FlexGC_main.cpp:3144      Unsupported branch EXTENSION in checkLef58CutSpacing_spc_layer. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L3144
-DRT 0061 FlexGC_main.cpp:3151      Unsupported branch ABOVEWIDTH in checkLef58CutSpacing_spc_layer. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L3151
-DRT 0062 FlexGC_main.cpp:3156      Unsupported branch MASKOVERLAP in checkLef58CutSpacing_spc_layer. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L3156
-DRT 0063 FlexGC_main.cpp:3161      Unsupported branch WRONGDIRECTION in  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L3161
-DRT 0065 FlexPA_unique.cpp:96      instAnalysis unsupported pin_fig. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_unique.cpp#L96
-DRT 0066 FlexPA_unique.cpp:106     instAnalysis skips {} due to no pin shapes. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_unique.cpp#L106
-DRT 0067 FlexPA_acc_point.cpp:1305 FlexPA mergePinShapes unsupported shape. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_point.cpp#L1305
-DRT 0068 FlexPA_acc_point.cpp:380  genAPsFromRect cannot find second_layer_num. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_point.cpp#L380
-DRT 0069 FlexPA_unique.cpp:267     genPinAccess error. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_unique.cpp#L267
-DRT 0070 FlexPA_acc_point.cpp:611  Unexpected direction in getPlanarEP. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_point.cpp#L611
-DRT 0073 FlexPA_acc_point.cpp:1396 No access point for {}/{}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_point.cpp#L1396
-DRT 0074 FlexPA_acc_point.cpp:1464 No access point for PIN/{}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_point.cpp#L1464
-DRT 0076 FlexPA_acc_point.cpp:1434   Complete {} pins. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_point.cpp#L1434
-DRT 0078 FlexPA_acc_point.cpp:1475   Complete {} pins. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_point.cpp#L1475
-DRT 0079 FlexPA_acc_pattern.cpp:140   Complete {} unique inst patterns. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_pattern.cpp#L140
-DRT 0081 FlexPA_acc_pattern.cpp:150   Complete {} unique inst patterns. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_pattern.cpp#L150
-DRT 0082 FlexPA_row_pattern.cpp:149   Complete {} groups. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_row_pattern.cpp#L149
-DRT 0084 FlexPA_row_pattern.cpp:160   Complete {} groups. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_row_pattern.cpp#L160
-DRT 0085 FlexPA_row_pattern.cpp:301 Valid access pattern combination not found for {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_row_pattern.cpp#L301
-DRT 0086 FlexPA_acc_pattern.cpp:243 Pin does not have an access point. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_pattern.cpp#L243
-DRT 0087 FlexPA_acc_pattern.cpp:127 No valid pattern for unique instance {}, master is {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_pattern.cpp#L127
-DRT 0089 FlexPA_acc_pattern.cpp:435 genPattern_gc objs empty. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_pattern.cpp#L435
-DRT 0090 FlexPA_acc_pattern.cpp:677 Valid access pattern not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_pattern.cpp#L677
-DRT 0091 FlexPA_acc_pattern.cpp:774 {} does not have valid access points. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_pattern.cpp#L774
-DRT 0092 FlexRP_prep.cpp:1512      Duplicate diff layer samenet cut spacing, skipping cut  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/rp/FlexRP_prep.cpp#L1512
-DRT 0093 FlexRP_prep.cpp:1532      Duplicate diff layer diffnet cut spacing, skipping  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/rp/FlexRP_prep.cpp#L1532
-DRT 0094 io.cpp:84                 Cannot find layer: {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L84
-DRT 0095 io.cpp:161                Library cell {} not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L161
-DRT 0096 io.cpp:166                Same cell name: {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L166
-DRT 0097 io.cpp:215                Cannot find cut layer {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L215
-DRT 0098 io.cpp:226                Cannot find bottom layer {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L226
-DRT 0099 io.cpp:248                Cannot find top layer {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L248
-DRT 0100 io.cpp:362                Unsupported via: {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L362
-DRT 0101 io.cpp:365                Non-consecutive layers for via: {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L365
-DRT 0102 io.cpp:524                Odd dimension in both directions. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L524
-DRT 0103 io.cpp:554                Unknown direction. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L554
-DRT 0104 io.cpp:579                Terminal {} not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L579
-DRT 0105 io.cpp:605                Component {} not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L605
-DRT 0106 io.cpp:612                Component pin {} not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L612
-DRT 0107 io.cpp:743                Unsupported layer {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L743
-DRT 0108 io.cpp:891                Unsupported via in db. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L891
-DRT 0109 io.cpp:958                Unsupported via in db. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L958
-DRT 0110 FlexPA_row_pattern.cpp:108   Complete {} groups. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_row_pattern.cpp#L108
-DRT 0112 io.cpp:1128               Unsupported layer {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1128
-DRT 0113 io.cpp:3485               Tech layers for via {} not found in db tech. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3485
-DRT 0114 io.cpp:3622               Unknown connFig type while writing net {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3622
-DRT 0115 FlexPA_graphics.cpp:69    Setting MAX_THREADS=1 for use with the PA GUI. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_graphics.cpp#L69
-DRT 0116 io.cpp:1293               Load design first. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1293
-DRT 0117 io.cpp:1297               Load design first. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1297
-DRT 0118 TritonRoute.tcl:272       -box is a list of 4 coordinates. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L272
-DRT 0119 FlexPA_graphics.cpp:284   Marker ({}, {}) ({}, {}) on {}: INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_graphics.cpp#L284
-DRT 0120 io.cpp:630                Large net {} has {} pins which may impact routing performance.  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L630
-DRT 0122 io.cpp:2670               Layer {} is skipped for {}/{}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2670
-DRT 0123 io.cpp:2704               Layer {} is skipped for {}/OBS. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2704
-DRT 0124 io.cpp:2936               Via {} with unused layer {} will be ignored. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2936
-DRT 0125 io.cpp:2960               Unsupported via {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2960
-DRT 0126 io.cpp:2968               Non-consecutive layers for via {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2968
-DRT 0127 io.cpp:2979               Unknown layer {} for via {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2979
-DRT 0128 io.cpp:2814               Unsupported viarule {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2814
-DRT 0129 io.cpp:2822               Unknown layer {} for viarule {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2822
-DRT 0130 io.cpp:2836               Non-consecutive layers for viarule {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2836
-DRT 0131 io.cpp:2858               cutLayer cannot have overhangs in viarule {},  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2858
-DRT 0132 io.cpp:2879               botLayer cannot have rect in viarule {}, skipping rect. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2879
-DRT 0133 io.cpp:2889               topLayer cannot have rect in viarule {}, skipping rect. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2889
-DRT 0134 io.cpp:2904               botLayer cannot have spacing in viarule {}, skipping spacing. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2904
-DRT 0135 io.cpp:2914               botLayer cannot have spacing in viarule {}, skipping spacing. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2914
-DRT 0136 io.cpp:3033               Load design first. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3033
-DRT 0139 io.cpp:2221               minEnclosedArea constraint with width is not supported, skipped. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2221
-DRT 0140 FlexTA_init.cpp:844       Layer {} has negative min spacing value. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/ta/FlexTA_init.cpp#L844
-DRT 0141 io.cpp:2262               SpacingLengthThreshold unsupported. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2262
-DRT 0142 io.cpp:2264               SpacingNotchLength unsupported. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2264
-DRT 0143 io.cpp:2266               SpacingEndOfNotchWidth unsupported. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2266
-DRT 0144 FlexTA_init.cpp:882       Layer {} has negative min spacing value. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/ta/FlexTA_init.cpp#L882
-DRT 0146 FlexPA_unique.cpp:166     Master {} not found in master_to_pin_layer_range ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_unique.cpp#L166
-DRT 0147 io.cpp:2511               cutWithin is smaller than cutSpacing for ADJACENTCUTS on  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2511
-DRT 0148 io.cpp:2060               Invalid index for cut class {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2060
-DRT 0149 io.cpp:3028               Reading tech and libs. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3028
-DRT 0150 io.cpp:1288               Reading design. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1288
-DRT 0151 TritonRoute.cpp:553       Database, chip or block not initialized. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L553
-DRT 0152 FlexDR.cpp:236            Directory {} could not be created. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR.cpp#L236
-DRT 0153 GuideProcessor.cpp:726    Cannot find net {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L726
-DRT 0154 GuideProcessor.cpp:440    Cannot find layer {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L440
-DRT 0155 GuideProcessor.cpp:456    Guide in net {} uses layer {} ({}) ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L456
-DRT 0156 GuideProcessor.cpp:412    guideIn read {} guides. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L412
-DRT 0157 GuideProcessor.cpp:747    Number of guides:     {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L747
-DRT 0158 FlexPA_graphics.cpp:186   Instance for MPin {} is null. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_graphics.cpp#L186
-DRT 0160 io_parser_helper.cpp:176  Warning: {} does not have viaDef aligned with layer  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L176
-DRT 0161 io.cpp:1830               Unsupported LEF58_SPACING rule for layer {} of type MAXXY. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1830
-DRT 0162 io_pin.cpp:38             Library cell analysis. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_pin.cpp#L38
-DRT 0163 io_pin.cpp:84             Instance analysis. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_pin.cpp#L84
-DRT 0164 io_pin.cpp:137            Number of unique instances = {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_pin.cpp#L137
-DRT 0165 FlexPA.cpp:225            Start pin access. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA.cpp#L225
-DRT 0166 FlexPA.cpp:267            Complete pin access. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA.cpp#L267
-DRT 0167 frTechObject.h:272        List of default vias: INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/db/tech/frTechObject.h#L272
-DRT 0168 io_parser_helper.cpp:932  Init region query. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L932
-DRT 0169 GuideProcessor.cpp:1988   Post process guides. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L1988
-DRT 0170 GuideProcessor.cpp:808    No GCELLGRIDX. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L808
-DRT 0171 GuideProcessor.cpp:813    No GCELLGRIDY. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L813
-DRT 0172 GuideProcessor.cpp:863    No GCELLGRIDX. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L863
-DRT 0173 GuideProcessor.cpp:868    No GCELLGRIDY. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L868
-DRT 0174 GuideProcessor.cpp:908    GCell cnt x < 1. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L908
-DRT 0175 GuideProcessor.cpp:924    GCell cnt y < 1. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L924
-DRT 0176 GuideProcessor.cpp:930    GCELLGRID X {} DO {} STEP {} ; INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L930
-DRT 0177 GuideProcessor.cpp:936    GCELLGRID Y {} DO {} STEP {} ; INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L936
-DRT 0178 GuideProcessor.cpp:2044   Init guide query. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L2044
-DRT 0179 GuideProcessor.cpp:2047   Init gr pin query. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L2047
-DRT 0180 io.cpp:3456               Post processing. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3456
-DRT 0181 FlexTA.cpp:336            Start track assignment. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/ta/FlexTA.cpp#L336
-DRT 0182 FlexTA.cpp:349            Complete track assignment. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/ta/FlexTA.cpp#L349
-DRT 0183 FlexTA.cpp:229            Done with {} horizontal wires in {} frboxes and  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/ta/FlexTA.cpp#L229
-DRT 0184 FlexTA.cpp:247            Done with {} vertical wires in {} frboxes and  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/ta/FlexTA.cpp#L247
-DRT 0185 io_parser_helper.cpp:942  Post process initialize RPin region query. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L942
-DRT 0186 FlexTA.cpp:313            Done with {} vertical wires in {} frboxes and  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/ta/FlexTA.cpp#L313
-DRT 0187 FlexDR.cpp:462            Start routing data preparation. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR.cpp#L462
-DRT 0190 io.cpp:233                Via {} with MASTERSLICE layer {} will be ignored. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L233
-DRT 0191 io.cpp:254                Via {} with MASTERSLICE layer {} will be ignored. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L254
-DRT 0192 io.cpp:2945               Via {} with MASTERSLICE layer {} will be ignored. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2945
-DRT 0193 io.cpp:2642               Skipping unsupported via {} in macro pin {}/{}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2642
-DRT 0194 FlexDR.cpp:476            Start detail routing. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR.cpp#L476
-DRT 0195 FlexDR.cpp:623            Start {}{} {} iteration. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR.cpp#L623
-DRT 0198 FlexDR.cpp:1320           Complete detail routing. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR.cpp#L1320
-DRT 0199 FlexDR.cpp:651              Number of violations = {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR.cpp#L651
-DRT 0200 FlexDR.cpp:1865           Skipping iteration {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR.cpp#L1865
-DRT 0201 FlexGR.cpp:671            Must load design before global routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gr/FlexGR.cpp#L671
-DRT 0202 FlexGR.cpp:700            Skipping layer {} not found in db for congestion map. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gr/FlexGR.cpp#L700
-DRT 0203 FlexGR.cpp:679            dbGcellGrid already exists in db. Clearing existing dbGCellGrid. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gr/FlexGR.cpp#L679
-DRT 0204 io.cpp:3990               Cut layer {} has no default via defined. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3990
-DRT 0206 FlexDR_conn.cpp:1369      checkConnectivity error. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_conn.cpp#L1369
-DRT 0207 FlexDR_graphics.cpp:764   Setting MAX_THREADS=1 for use with the DR GUI. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_graphics.cpp#L764
-DRT 0210 io.cpp:2132               Layer {} minWidth is larger than width. Using width as minWidth. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2132
-DRT 0214 GuideProcessor.cpp:1417   genGuides empty gcell_pin_map. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L1417
-DRT 0215 GuideProcessor.cpp:1430   Pin {}/{} not covered by guide. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L1430
-DRT 0216 GuideProcessor.cpp:1439   Pin PIN/{} not covered by guide. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L1439
-DRT 0217 GuideProcessor.cpp:1444   genGuides unknown type. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L1444
-DRT 0218 GuideProcessor.cpp:1466   Guide is not connected to design. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L1466
-DRT 0220 GuideProcessor.cpp:1547   genGuides_final net {} error 1. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L1547
-DRT 0222 GuideProcessor.cpp:1689   Pin {} is not visited by any guide ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L1689
-DRT 0223 GuideProcessor.cpp:1600   Pin dangling id {} ({},{}) {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L1600
-DRT 0226 FlexGC_eol.cpp:491        Unsupported endofline spacing rule. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_eol.cpp#L491
-DRT 0227 FlexDR.cpp:1674           Checking For LEF58_MAXSPACING violations INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR.cpp#L1674
-DRT 0228 GuideProcessor.cpp:685    genGuides_merge cannot find bridge layer. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L685
-DRT 0229 GuideProcessor.cpp:1239   genGuides_split split_indices is empty on {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L1239
-DRT 0233 io_parser_helper.cpp:138  {} does not have any vias. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L138
-DRT 0234 io_parser_helper.cpp:129  {} does not have single-cut via. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L129
-DRT 0235 io_parser_helper.cpp:378  Second layer {} does not exist. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L378
-DRT 0236 io_parser_helper.cpp:384  Updating diff-net cut spacing rule between {} and {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L384
-DRT 0237 io_parser_helper.cpp:402  Second layer {} does not exist. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L402
-DRT 0238 io_parser_helper.cpp:408  Updating same-net cut spacing rule between {} and {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L408
-DRT 0239 io_parser_helper.cpp:466  Non-rectangular shape in via definition. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L466
-DRT 0242 io_parser_helper.cpp:474  CUT layer {} does not have default via. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L474
-DRT 0243 io_parser_helper.cpp:485  Non-rectangular shape in via definition. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L485
-DRT 0245 GuideProcessor.cpp:2055   skipped writing guide updates to database. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L2055
-DRT 0246 io_parser_helper.cpp:976  {}/{} from {} has nullptr as prefAP. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L976
-DRT 0247 io.cpp:3152               io::Writer::fillConnFigs_net does not support this type. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3152
-DRT 0248 io_pin.cpp:73             instAnalysis unsupported pinFig. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_pin.cpp#L73
-DRT 0249 FlexDR_graphics.cpp:685   Net {} (id = {}). INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_graphics.cpp#L685
-DRT 0250 FlexDR_graphics.cpp:688     Pin {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_graphics.cpp#L688
-DRT 0253 FlexGC_init.cpp:180       Design and tech mismatch. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_init.cpp#L180
-DRT 0254 FlexPA_acc_point.cpp:1372 inst_term can not be nullptr ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_point.cpp#L1372
-DRT 0255 FlexDR_maze.cpp:1947      Maze Route cannot find path of net {} in  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_maze.cpp#L1947
-DRT 0256 io.cpp:413                Skipping NDR {} because another rule with the same name  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L413
-DRT 0257 FlexPA_acc_point.cpp:206  Invalid frAccessPointEnum type ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_point.cpp#L206
-DRT 0258 io.cpp:1823               Unsupported LEF58_SPACING rule for layer {} of type AREA. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1823
-DRT 0259 io.cpp:1837               Unsupported LEF58_SPACING rule for layer {} of type SAMEMASK. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1837
-DRT 0261 io.cpp:1858               Unsupported LEF58_SPACING rule for layer {} of type  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1858
-DRT 0262 io.cpp:1865               Unsupported LEF58_SPACING rule for layer {} of type  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1865
-DRT 0263 io.cpp:1872               Unsupported LEF58_SPACING rule for layer {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1872
-DRT 0267 frTime.cpp:47             cpu time = {:02}:{:02}:{:02},  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/db/infra/frTime.cpp#L47
-DRT 0268 FlexTA.cpp:295            Done with {} horizontal wires in {} frboxes and  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/ta/FlexTA.cpp#L295
-DRT 0269 FlexGC_eol.cpp:59         Unsupported endofline spacing rule. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_eol.cpp#L59
-DRT 0270 FlexGC_eol.cpp:241        Unsupported endofline spacing rule. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_eol.cpp#L241
-DRT 0271 FlexGC_eol.cpp:413        Unsupported endofline spacing rule. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_eol.cpp#L413
-DRT 0272 io.cpp:3047               bottomRoutingLayer {} not found. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3047
-DRT 0273 io.cpp:3059               topRoutingLayer {} not found. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3059
-DRT 0275 FlexDR_graphics.cpp:691       AP ({:.5f}, {:.5f}) (layer {}) (cost {}). INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_graphics.cpp#L691
-DRT 0276 FlexPA_row_pattern.cpp:366 Valid access pattern combination not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_row_pattern.cpp#L366
-DRT 0277 FlexPA_acc_pattern.cpp:848 Valid access pattern not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_pattern.cpp#L848
-DRT 0278 FlexPA_acc_pattern.cpp:883 Valid access pattern not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_pattern.cpp#L883
-DRT 0279 io.cpp:1884               SAMEMASK unsupported for cut LEF58_SPACINGTABLE rule WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1884
-DRT 0280 FlexPA_graphics.cpp:357   Unknown type {} in setObjAP WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_graphics.cpp#L357
-DRT 0281 FlexPA_graphics.cpp:363   Marker {} at ({}, {}) ({}, {}). INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_graphics.cpp#L363
-DRT 0282 io.cpp:178                Skipping blockage. Cannot find layer {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L178
-DRT 0290 TritonRoute.cpp:1376      Warning: no DRC report specified, skipped writing DRC report WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L1376
-DRT 0291 TritonRoute.cpp:1362      Unexpected source type in marker: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L1362
-DRT 0292 FlexPA_graphics.cpp:319   Marker {} at ({}, {}) ({}, {}). INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_graphics.cpp#L319
-DRT 0293 FlexPA_graphics.cpp:77    pin name {} has no ':' delimiter ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_graphics.cpp#L77
-DRT 0294 io.cpp:3711               master {} not found in db ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3711
-DRT 0295 io.cpp:3716               mterm {} not found in db ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3716
-DRT 0296 io.cpp:3720               Mismatch in number of pins for term {}/{} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3720
-DRT 0297 io.cpp:3747               inst {} not found in db ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3747
-DRT 0298 io.cpp:3754               iterm {} not found in db ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3754
-DRT 0299 io.cpp:3763               Mismatch in access points size {} and term pins size {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3763
-DRT 0300 io.cpp:3776               Preferred access point is not found ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3776
-DRT 0301 io.cpp:3788               bterm {} not found in db ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3788
-DRT 0302 io.cpp:1092               Unsupported multiple pins on bterm {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1092
-DRT 0303 io.cpp:3797               Mismatch in number of pins for bterm {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3797
-DRT 0304 TritonRoute.cpp:929       Updating design remotely failed ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L929
-DRT 0305 io.cpp:986                Net {} of signal type {} is not routable by TritonRoute.  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L986
-DRT 0306 io.cpp:568                Net {} of signal type {} cannot be connected to bterm  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L568
-DRT 0307 io.cpp:594                Net {} of signal type {} cannot be connected to iterm  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L594
-DRT 0308 TritonRoute.tcl:467       step_dr requires nine positional arguments. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L467
-DRT 0309 io.cpp:641                Unsupported net wiring {} for net {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L641
-DRT 0310 io.cpp:696                Unsupported net wiring {} for net {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L696
-DRT 0311 FlexGC_main.cpp:2161      Unsupported branch EXCEPTMINWIDTH in PROPERTY LEF58_AREA. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2161
-DRT 0312 FlexGC_main.cpp:2168      Unsupported branch EXCEPTEDGELENGTH in PROPERTY LEF58_AREA. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2168
-DRT 0313 FlexGC_main.cpp:2173      Unsupported branch EXCEPTMINSIZE in PROPERTY LEF58_AREA. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2173
-DRT 0314 FlexGC_main.cpp:2176      Unsupported branch EXCEPTSTEP in PROPERTY LEF58_AREA. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2176
-DRT 0315 FlexGC_main.cpp:2179      Unsupported branch MASK in PROPERTY LEF58_AREA. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2179
-DRT 0316 FlexGC_main.cpp:2182      Unsupported branch LAYER in PROPERTY LEF58_AREA. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2182
-DRT 0317 io.cpp:2406               LEF58_MINIMUMCUT AREA is not supported. Skipping for layer {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2406
-DRT 0318 io.cpp:2414               LEF58_MINIMUMCUT SAMEMETALOVERLAP is not supported.  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2414
-DRT 0319 io.cpp:2422               LEF58_MINIMUMCUT FULLYENCLOSED is not supported. Skipping  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2422
-DRT 0320 FlexPA_unique.cpp:236     Term {} of {} contains offgrid pin shape ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_unique.cpp#L236
-DRT 0321 FlexPA_unique.cpp:246     Term {} of {} contains offgrid pin shape ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_unique.cpp#L246
-DRT 0322 FlexPA_unique.cpp:254     checkFigsOnGrid unsupported pin_fig. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_unique.cpp#L254
-DRT 0324 io.cpp:1927               LEF58_KEEPOUTZONE SAMEMASK is not supported. Skipping for layer {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1927
-DRT 0325 io.cpp:1935               LEF58_KEEPOUTZONE SAMEMETAL is not supported. Skipping for layer {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1935
-DRT 0326 io.cpp:1943               LEF58_KEEPOUTZONE DIFFMETAL is not supported. Skipping for layer {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1943
-DRT 0327 io.cpp:1951               LEF58_KEEPOUTZONE EXTENSION is not supported. Skipping for layer {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1951
-DRT 0328 io.cpp:1959               LEF58_KEEPOUTZONE non zero SPIRALEXTENSION is not  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1959
-DRT 0329 FlexPA_row_pattern.cpp:90 Error sending INST_ROWS Job to cloud ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_row_pattern.cpp#L90
-DRT 0330 FlexPA_acc_pattern.cpp:166 Error sending UPDATE_PATTERNS Job to cloud ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_pattern.cpp#L166
-DRT 0331 FlexPA.cpp:154            Error sending UPDATE_PA Job to cloud ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA.cpp#L154
-DRT 0332 FlexPA_row_pattern.cpp:132 Error sending UPDATE_PA Job to cloud ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_row_pattern.cpp#L132
-DRT 0333 io.cpp:1555               Unsupported branch LENGTH in WrongDirSpacingRule. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1555
-DRT 0334 io.cpp:1560               Unsupported negative value for prlLength in branch PRL  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1560
-DRT 0335 io.cpp:1591               LEF58_MINSTEP MAXEDGES {}  is not supported WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1591
-DRT 0336 io_parser_helper.cpp:222  Duplicated via definition for {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L222
-DRT 0337 io.cpp:346                Duplicated via definition for {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L346
-DRT 0338 io.cpp:394                Duplicated via definition for {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L394
-DRT 0339 io.cpp:3019               Duplicated via definition for {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3019
-DRT 0340 io.cpp:1975               LEF58_ENCLOSURE EOL SIDESPACING/ENDSPACING is not  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1975
-DRT 0341 io.cpp:1983               LEF58_ENCLOSURE HORIZONTAL/VERTICAL is not supported.  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1983
-DRT 0342 io.cpp:1991               LEF58_ENCLOSURE INCLUDEABUTTED is not supported. Skipping  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1991
-DRT 0343 io.cpp:1999               LEF58_ENCLOSURE OFFCENTERLINE is not supported. Skipping  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1999
-DRT 0344 io.cpp:2007               LEF58_ENCLOSURE LENGTH is not supported. Skipping for layer {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2007
-DRT 0345 io.cpp:2015               LEF58_ENCLOSURE EXTRACUT is not supported. Skipping for layer {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2015
-DRT 0346 io.cpp:2023               LEF58_ENCLOSURE REDUNDANTCUT is not supported. Skipping  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2023
-DRT 0347 io.cpp:2031               LEF58_ENCLOSURE PARALLEL is not supported. Skipping for layer {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2031
-DRT 0348 io.cpp:2039               LEF58_ENCLOSURE CONCAVECORNERS is not supported. Skipping  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2039
-DRT 0349 io.cpp:2047               LEF58_ENCLOSURE with no CUTCLASS is not supported.  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2047
-DRT 0350 io.cpp:2070               LEF58_MAXSPACING with no CUTCLASS is not supported.  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2070
-DRT 0352 GuideProcessor.cpp:730    Input route guides are congested. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L730
-DRT 0400 io.cpp:1438               Unsupported LEF58_SPACING rule with option  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1438
-DRT 0401 io.cpp:1446               Unsupported LEF58_SPACING rule with option  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1446
-DRT 0403 io.cpp:1454               Unsupported LEF58_SPACING rule with option EQUALRECTWIDTH  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1454
-DRT 0404 io.cpp:1217               mterm {} not found in db ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1217
-DRT 0405 io.cpp:1221               Mismatch in number of pins for term {}/{} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1221
-DRT 0406 FlexTA_assign.cpp:624     No {} tracks found in ({}, {}) for layer {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/ta/FlexTA_assign.cpp#L624
-DRT 0407 FlexDR_maze.cpp:1670      pwire with no net ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_maze.cpp#L1670
-DRT 0410 FlexGC_main.cpp:2308      frNet not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2308
-DRT 0411 FlexGC_main.cpp:2313      frNet {} does not have drNets. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2313
-DRT 0412 FlexTA_assign.cpp:801     assignIroute_getDRCCost_helper overlap value is {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/ta/FlexTA_assign.cpp#L801
-DRT 0415 io.cpp:4024               Net {} already has routes. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L4024
-DRT 0416 io_parser_helper.cpp:768  Term {} contains offgrid pin shape. Pin shape {} is  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L768
-DRT 0417 io_parser_helper.cpp:810  Term {} contains offgrid pin shape. Polygon point  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L810
-DRT 0418 io_parser_helper.cpp:907  Term {} has no pins on routing grid WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L907
-DRT 0419 io_parser_helper.cpp:910  No routing tracks pass through the center of Term {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L910
-DRT 0421 io_parser_helper.cpp:869  Term {} has no pins on routing grid WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L869
-DRT 0422 io_parser_helper.cpp:872  No routing tracks pass through the center of Term {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L872
-DRT 0423 FlexDR_maze.cpp:2306      No access points found ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_maze.cpp#L2306
-DRT 0500 FlexDR.cpp:1942           Sending worker {} failed ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR.cpp#L1942
-DRT 0506 TritonRoute.tcl:170       -remote_host is required for distributed routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L170
-DRT 0507 TritonRoute.tcl:175       -remote_port is required for distributed routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L175
-DRT 0508 TritonRoute.tcl:180       -shared_volume is required for distributed routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L180
-DRT 0512 frRegionQuery.cpp:328     Unsupported region removeBlockObj ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L328
-DRT 0513 frRegionQuery.cpp:255     Unsupported region addBlockObj ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L255
-DRT 0516 TritonRoute.tcl:185       -cloud_size is required for distributed routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L185
-DRT 0517 TritonRoute.tcl:376       -dump_dir is required for detailed_route_run_worker command ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L376
-DRT 0519 FlexPA_acc_point.cpp:768  Via cut classes in LEF58_METALWIDTHVIAMAP are not supported. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_point.cpp#L768
-DRT 0520 TritonRoute.tcl:382       -worker_dir is required for detailed_route_run_worker command ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L382
-DRT 0550 FlexGridGraph.h:1156      addToByte overflow ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexGridGraph.h#L1156
-DRT 0551 FlexGridGraph.h:1168      subFromByte underflow ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexGridGraph.h#L1168
-DRT 0552 TritonRoute.tcl:339       -remote_host is required for distributed routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L339
-DRT 0553 TritonRoute.tcl:344       -remote_port is required for distributed routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L344
-DRT 0554 TritonRoute.tcl:349       -shared_volume is required for distributed routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L349
-DRT 0555 TritonRoute.tcl:354       -cloud_size is required for distributed routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L354
-DRT 0606 TritonRoute.cpp:569       via in pin bottom layer {} not found. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L569
-DRT 0607 TritonRoute.cpp:581       via in pin top layer {} not found. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L581
-DRT 0608 io_parser_helper.cpp:87   Could not find user defined via {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L87
+DRT 0002 TritonRoute.cpp:186       Detailed routing has not been run yet. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L186
+DRT 0003 io.cpp:3806               Load design first. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3806
+DRT 0004 io.cpp:3812               Load design first. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3812
+DRT 0005 frRegionQuery.cpp:104     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L104
+DRT 0006 frRegionQuery.cpp:115     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L115
+DRT 0007 frRegionQuery.cpp:133     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L133
+DRT 0008 frRegionQuery.cpp:320     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L320
+DRT 0009 frRegionQuery.cpp:346     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L346
+DRT 0010 frRegionQuery.cpp:356     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L356
+DRT 0011 frRegionQuery.cpp:378     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L378
+DRT 0012 frRegionQuery.cpp:389     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L389
+DRT 0013 frRegionQuery.cpp:400     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L400
+DRT 0014 frRegionQuery.cpp:448     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L448
+DRT 0015 frRegionQuery.cpp:465     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L465
+DRT 0016 frRegionQuery.cpp:510     Unsupported region query add of blockage in instance {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L510
+DRT 0017 frRegionQuery.cpp:529     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L529
+DRT 0018 frRegionQuery.cpp:733       Complete {} insts. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L733
+DRT 0019 frRegionQuery.cpp:737       Complete {} insts. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L737
+DRT 0020 frRegionQuery.cpp:749       Complete {} terms. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L749
+DRT 0021 frRegionQuery.cpp:753       Complete {} terms. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L753
+DRT 0022 frRegionQuery.cpp:770       Complete {} snets. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L770
+DRT 0023 frRegionQuery.cpp:781       Complete {} blockages. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L781
+DRT 0024 frRegionQuery.cpp:791       Complete {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L791
+DRT 0025 FlexPA_unique.cpp:308     {} not found on unique insts, although being the only  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_unique.cpp#L308
+DRT 0026 frRegionQuery.cpp:821       Complete {} origin guides. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L821
+DRT 0027 frRegionQuery.cpp:825       Complete {} origin guides. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L825
+DRT 0028 frRegionQuery.cpp:836       Complete {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L836
+DRT 0029 frRegionQuery.cpp:865       Complete {} nets (guide). INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L865
+DRT 0030 frRegionQuery.cpp:869       Complete {} nets (guide). INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L869
+DRT 0031 frRegionQuery.cpp:144     Unsupported region query add. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L144
+DRT 0032 frRegionQuery.cpp:1001    {} grObj region query size = {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L1001
+DRT 0033 frRegionQuery.cpp:1015    {} shape region query size = {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L1015
+DRT 0034 frRegionQuery.cpp:1043    {} drObj region query size = {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L1043
+DRT 0035 frRegionQuery.cpp:879       Complete {} (guide). INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L879
+DRT 0036 frRegionQuery.cpp:1029    {} guide region query size = {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L1029
+DRT 0037 FlexGC_init.cpp:68        init_design_helper shape does not have net. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_init.cpp#L68
+DRT 0038 FlexGC_init.cpp:79        init_design_helper shape does not have dr net. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_init.cpp#L79
+DRT 0039 FlexGC_init.cpp:85        init_design_helper unsupported type. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_init.cpp#L85
+DRT 0040 TritonRoute.cpp:974       Design does not have any routable net  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L974
+DRT 0041 FlexGC_main.cpp:132       Unsupported metSpc rule. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L132
+DRT 0042 FlexGC_main.cpp:206       Unknown corner direction. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L206
+DRT 0043 FlexGC_main.cpp:286       Unsupported metSpc rule. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L286
+DRT 0044 FlexGC_main.cpp:2812      Unsupported LEF58_SPACING rule for cut layer, skipped. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2812
+DRT 0045 FlexGC_main.cpp:2955       Unsupported branch EXACTALIGNED in checkLef58CutSpacing_spc_adjCut. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2955
+DRT 0046 FlexGC_main.cpp:2962       Unsupported branch EXCEPTSAMEPGNET in  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2962
+DRT 0047 FlexGC_main.cpp:2969       Unsupported branch EXCEPTALLWITHIN in  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2969
+DRT 0048 FlexGC_main.cpp:2976       Unsupported branch TO ALL in checkLef58CutSpacing_spc_adjCut. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2976
+DRT 0050 FlexGC_main.cpp:2983       Unsupported branch ENCLOSURE in checkLef58CutSpacing_spc_adjCut. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2983
+DRT 0051 FlexGC_main.cpp:2990       Unsupported branch SIDEPARALLELOVERLAP in  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2990
+DRT 0052 FlexGC_main.cpp:2997       Unsupported branch SAMEMASK in checkLef58CutSpacing_spc_adjCut. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2997
+DRT 0053 FlexGC_init.cpp:1007      updateGCWorker cannot find frNet in DRWorker. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_init.cpp#L1007
+DRT 0054 FlexGC_main.cpp:3087      Unsupported branch STACK in checkLef58CutSpacing_spc_layer. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L3087
+DRT 0055 FlexGC_main.cpp:3092      Unsupported branch ORTHOGONALSPACING in  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L3092
+DRT 0056 FlexGC_main.cpp:3100      Unsupported branch SHORTEDGEONLY in  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L3100
+DRT 0057 FlexGC_main.cpp:3108      Unsupported branch WIDTH in checkLef58CutSpacing_spc_layer. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L3108
+DRT 0058 FlexGC_main.cpp:3113      Unsupported branch PARALLEL in checkLef58CutSpacing_spc_layer. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L3113
+DRT 0059 FlexGC_main.cpp:3118      Unsupported branch EDGELENGTH in checkLef58CutSpacing_spc_layer. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L3118
+DRT 0060 FlexGC_main.cpp:3124      Unsupported branch EXTENSION in checkLef58CutSpacing_spc_layer. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L3124
+DRT 0061 FlexGC_main.cpp:3131      Unsupported branch ABOVEWIDTH in checkLef58CutSpacing_spc_layer. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L3131
+DRT 0062 FlexGC_main.cpp:3136      Unsupported branch MASKOVERLAP in checkLef58CutSpacing_spc_layer. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L3136
+DRT 0063 FlexGC_main.cpp:3141      Unsupported branch WRONGDIRECTION in  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L3141
+DRT 0065 FlexPA_unique.cpp:73      instAnalysis unsupported pin_fig. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_unique.cpp#L73
+DRT 0066 FlexPA_unique.cpp:83      instAnalysis skips {} due to no pin shapes. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_unique.cpp#L83
+DRT 0067 FlexPA_acc_point.cpp:1329 FlexPA mergePinShapes unsupported shape. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_point.cpp#L1329
+DRT 0068 FlexPA_acc_point.cpp:366  genAPsFromRect cannot find second_layer_num. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_point.cpp#L366
+DRT 0070 FlexPA_acc_point.cpp:597  Unexpected direction in getPlanarEP. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_point.cpp#L597
+DRT 0073 FlexPA_acc_point.cpp:1423 No access point for {}/{} ({}). ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_point.cpp#L1423
+DRT 0074 FlexPA_acc_point.cpp:1490 No access point for PIN/{}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_point.cpp#L1490
+DRT 0076 FlexPA_acc_point.cpp:1460   Complete {} pins. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_point.cpp#L1460
+DRT 0078 FlexPA_acc_point.cpp:1501   Complete {} pins. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_point.cpp#L1501
+DRT 0079 FlexPA.cpp:205              Complete {} unique inst patterns. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA.cpp#L205
+DRT 0081 FlexPA.cpp:215              Complete {} unique inst patterns. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA.cpp#L215
+DRT 0082 FlexPA_row_pattern.cpp:210   Complete {} groups. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_row_pattern.cpp#L210
+DRT 0084 FlexPA_row_pattern.cpp:221   Complete {} groups. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_row_pattern.cpp#L221
+DRT 0085 FlexPA_row_pattern.cpp:332 Valid access pattern combination not found for {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_row_pattern.cpp#L332
+DRT 0086 FlexPA_acc_pattern.cpp:119 Term {} ({}) does not have any access point. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_pattern.cpp#L119
+DRT 0087 FlexPA_acc_pattern.cpp:81 No valid pattern for unique instance {}, master is {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_pattern.cpp#L81
+DRT 0088 FlexPA_acc_point.cpp:1377 Exhaustive access point generation for {} ({}) is unsatisfactory. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_point.cpp#L1377
+DRT 0089 FlexPA_acc_pattern.cpp:315 genPattern_gc objs empty. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_pattern.cpp#L315
+DRT 0090 FlexPA_acc_pattern.cpp:556 Valid access pattern not found for inst {}({}). ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_pattern.cpp#L556
+DRT 0091 FlexPA_acc_pattern.cpp:654 {} does not have valid access points. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_pattern.cpp#L654
+DRT 0092 FlexRP_prep.cpp:1490      Duplicate diff layer samenet cut spacing, skipping cut  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/rp/FlexRP_prep.cpp#L1490
+DRT 0093 FlexRP_prep.cpp:1510      Duplicate diff layer diffnet cut spacing, skipping  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/rp/FlexRP_prep.cpp#L1510
+DRT 0094 io.cpp:66                 Cannot find layer: {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L66
+DRT 0095 io.cpp:143                Library cell {} not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L143
+DRT 0096 io.cpp:148                Same cell name: {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L148
+DRT 0097 io.cpp:197                Cannot find cut layer {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L197
+DRT 0098 io.cpp:208                Cannot find bottom layer {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L208
+DRT 0099 io.cpp:230                Cannot find top layer {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L230
+DRT 0100 io.cpp:344                Unsupported via: {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L344
+DRT 0101 io.cpp:347                Non-consecutive layers for via: {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L347
+DRT 0102 io.cpp:506                Odd dimension in both directions. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L506
+DRT 0103 io.cpp:536                Unknown direction. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L536
+DRT 0104 io.cpp:561                Terminal {} not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L561
+DRT 0105 io.cpp:587                Component {} not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L587
+DRT 0106 io.cpp:594                Component pin {} not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L594
+DRT 0107 io.cpp:725                Unsupported layer {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L725
+DRT 0108 io.cpp:873                Unsupported via in db. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L873
+DRT 0109 io.cpp:940                Unsupported via in db. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L940
+DRT 0110 FlexPA_row_pattern.cpp:172   Complete {} groups. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_row_pattern.cpp#L172
+DRT 0112 io.cpp:1110               Unsupported layer {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1110
+DRT 0113 io.cpp:3467               Tech layers for via {} not found in db tech. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3467
+DRT 0114 io.cpp:3604               Unknown connFig type while writing net {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3604
+DRT 0115 FlexPA_graphics.cpp:47    Setting MAX_THREADS=1 for use with the PA GUI. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_graphics.cpp#L47
+DRT 0116 io.cpp:1275               Load design first. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1275
+DRT 0117 io.cpp:1279               Load design first. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1279
+DRT 0118 TritonRoute.tcl:240       -box is a list of 4 coordinates. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L240
+DRT 0119 FlexPA_graphics.cpp:262   Marker ({}, {}) ({}, {}) on {}: INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_graphics.cpp#L262
+DRT 0120 io.cpp:612                Large net {} has {} pins which may impact routing performance.  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L612
+DRT 0122 io.cpp:2652               Layer {} is skipped for {}/{}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2652
+DRT 0123 io.cpp:2686               Layer {} is skipped for {}/OBS. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2686
+DRT 0124 io.cpp:2918               Via {} with unused layer {} will be ignored. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2918
+DRT 0125 io.cpp:2942               Unsupported via {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2942
+DRT 0126 io.cpp:2950               Non-consecutive layers for via {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2950
+DRT 0127 io.cpp:2961               Unknown layer {} for via {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2961
+DRT 0128 io.cpp:2796               Unsupported viarule {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2796
+DRT 0129 io.cpp:2804               Unknown layer {} for viarule {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2804
+DRT 0130 io.cpp:2818               Non-consecutive layers for viarule {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2818
+DRT 0131 io.cpp:2840               cutLayer cannot have overhangs in viarule {},  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2840
+DRT 0132 io.cpp:2861               botLayer cannot have rect in viarule {}, skipping rect. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2861
+DRT 0133 io.cpp:2871               topLayer cannot have rect in viarule {}, skipping rect. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2871
+DRT 0134 io.cpp:2886               botLayer cannot have spacing in viarule {}, skipping spacing. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2886
+DRT 0135 io.cpp:2896               botLayer cannot have spacing in viarule {}, skipping spacing. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2896
+DRT 0136 io.cpp:3015               Load design first. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3015
+DRT 0139 io.cpp:2203               minEnclosedArea constraint with width is not supported, skipped. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2203
+DRT 0140 FlexTA_init.cpp:871       Layer {} has negative min spacing value. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/ta/FlexTA_init.cpp#L871
+DRT 0141 io.cpp:2244               SpacingLengthThreshold unsupported. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2244
+DRT 0142 io.cpp:2246               SpacingNotchLength unsupported. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2246
+DRT 0143 io.cpp:2248               SpacingEndOfNotchWidth unsupported. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2248
+DRT 0144 FlexTA_init.cpp:909       Layer {} has negative min spacing value. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/ta/FlexTA_init.cpp#L909
+DRT 0146 FlexPA_unique.cpp:122     Master {} not found in master_to_pin_layer_range ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_unique.cpp#L122
+DRT 0147 io.cpp:2493               cutWithin is smaller than cutSpacing for ADJACENTCUTS on  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2493
+DRT 0148 io.cpp:2042               Invalid index for cut class {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2042
+DRT 0149 io.cpp:3010               Reading tech and libs. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3010
+DRT 0150 io.cpp:1270               Reading design. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1270
+DRT 0151 TritonRoute.cpp:550       Database, chip or block not initialized. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L550
+DRT 0152 FlexDR.cpp:220            Directory {} could not be created. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR.cpp#L220
+DRT 0153 GuideProcessor.cpp:709    Cannot find net {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L709
+DRT 0154 GuideProcessor.cpp:423    Cannot find layer {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L423
+DRT 0155 GuideProcessor.cpp:439    Guide in net {} uses layer {} ({}) ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L439
+DRT 0156 GuideProcessor.cpp:395    guideIn read {} guides. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L395
+DRT 0157 GuideProcessor.cpp:730    Number of guides:     {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L730
+DRT 0158 FlexPA_graphics.cpp:164   Instance for MPin {} is null. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_graphics.cpp#L164
+DRT 0160 io_parser_helper.cpp:155  Warning: {} does not have viaDef aligned with layer  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L155
+DRT 0161 io.cpp:1812               Unsupported LEF58_SPACING rule for layer {} of type MAXXY. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1812
+DRT 0162 io_pin.cpp:14             Library cell analysis. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_pin.cpp#L14
+DRT 0163 io_pin.cpp:60             Instance analysis. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_pin.cpp#L60
+DRT 0164 io_pin.cpp:113            Number of unique instances = {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_pin.cpp#L113
+DRT 0165 FlexPA.cpp:308            Start pin access. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA.cpp#L308
+DRT 0166 FlexPA.cpp:350            Complete pin access. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA.cpp#L350
+DRT 0167 frTechObject.h:249        List of default vias: INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/db/tech/frTechObject.h#L249
+DRT 0168 io_parser_helper.cpp:924  Init region query. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L924
+DRT 0169 GuideProcessor.cpp:1971   Post process guides. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L1971
+DRT 0170 GuideProcessor.cpp:791    No GCELLGRIDX. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L791
+DRT 0171 GuideProcessor.cpp:796    No GCELLGRIDY. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L796
+DRT 0172 GuideProcessor.cpp:846    No GCELLGRIDX. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L846
+DRT 0173 GuideProcessor.cpp:851    No GCELLGRIDY. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L851
+DRT 0174 GuideProcessor.cpp:891    GCell cnt x < 1. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L891
+DRT 0175 GuideProcessor.cpp:907    GCell cnt y < 1. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L907
+DRT 0176 GuideProcessor.cpp:913    GCELLGRID X {} DO {} STEP {} ; INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L913
+DRT 0177 GuideProcessor.cpp:919    GCELLGRID Y {} DO {} STEP {} ; INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L919
+DRT 0178 GuideProcessor.cpp:2027   Init guide query. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L2027
+DRT 0179 GuideProcessor.cpp:2030   Init gr pin query. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L2030
+DRT 0180 io.cpp:3438               Post processing. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3438
+DRT 0181 FlexTA.cpp:315            Start track assignment. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/ta/FlexTA.cpp#L315
+DRT 0182 FlexTA.cpp:328            Complete track assignment. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/ta/FlexTA.cpp#L328
+DRT 0183 FlexTA.cpp:208            Done with {} horizontal wires in {} frboxes and  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/ta/FlexTA.cpp#L208
+DRT 0184 FlexTA.cpp:226            Done with {} vertical wires in {} frboxes and  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/ta/FlexTA.cpp#L226
+DRT 0185 io_parser_helper.cpp:934  Post process initialize RPin region query. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L934
+DRT 0186 FlexTA.cpp:292            Done with {} vertical wires in {} frboxes and  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/ta/FlexTA.cpp#L292
+DRT 0187 FlexDR.cpp:444            Start routing data preparation. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR.cpp#L444
+DRT 0190 io.cpp:215                Via {} with MASTERSLICE layer {} will be ignored. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L215
+DRT 0191 io.cpp:236                Via {} with MASTERSLICE layer {} will be ignored. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L236
+DRT 0192 io.cpp:2927               Via {} with MASTERSLICE layer {} will be ignored. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2927
+DRT 0193 io.cpp:2624               Skipping unsupported via {} in macro pin {}/{}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2624
+DRT 0194 FlexDR.cpp:458            Start detail routing. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR.cpp#L458
+DRT 0195 FlexDR.cpp:604            Start {}{} {} iteration. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR.cpp#L604
+DRT 0198 FlexDR.cpp:1301           Complete detail routing. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR.cpp#L1301
+DRT 0199 FlexDR.cpp:632              Number of violations = {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR.cpp#L632
+DRT 0200 FlexDR.cpp:1849           Skipping iteration {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR.cpp#L1849
+DRT 0201 FlexGR.cpp:654            Must load design before global routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gr/FlexGR.cpp#L654
+DRT 0202 FlexGR.cpp:683            Skipping layer {} not found in db for congestion map. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gr/FlexGR.cpp#L683
+DRT 0203 FlexGR.cpp:662            dbGcellGrid already exists in db. Clearing existing dbGCellGrid. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gr/FlexGR.cpp#L662
+DRT 0204 io.cpp:3972               Cut layer {} has no default via defined. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3972
+DRT 0206 FlexDR_conn.cpp:1346      checkConnectivity error. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_conn.cpp#L1346
+DRT 0207 FlexDR_graphics.cpp:740   Setting MAX_THREADS=1 for use with the DR GUI. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_graphics.cpp#L740
+DRT 0210 io.cpp:2114               Layer {} minWidth is larger than width. Using width as minWidth. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2114
+DRT 0214 GuideProcessor.cpp:1400   genGuides empty gcell_pin_map. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L1400
+DRT 0215 GuideProcessor.cpp:1413   Pin {}/{} not covered by guide. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L1413
+DRT 0216 GuideProcessor.cpp:1422   Pin PIN/{} not covered by guide. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L1422
+DRT 0217 GuideProcessor.cpp:1427   genGuides unknown type. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L1427
+DRT 0218 GuideProcessor.cpp:1449   Guide is not connected to design. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L1449
+DRT 0220 GuideProcessor.cpp:1530   genGuides_final net {} error 1. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L1530
+DRT 0222 GuideProcessor.cpp:1672   Pin {} is not visited by any guide ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L1672
+DRT 0223 GuideProcessor.cpp:1583   Pin dangling id {} ({},{}) {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L1583
+DRT 0226 FlexGC_eol.cpp:471        Unsupported endofline spacing rule. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_eol.cpp#L471
+DRT 0227 FlexDR.cpp:1655           Checking For LEF58_MAXSPACING violations INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR.cpp#L1655
+DRT 0228 GuideProcessor.cpp:668    genGuides_merge cannot find bridge layer. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L668
+DRT 0229 GuideProcessor.cpp:1222   genGuides_split split_indices is empty on {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L1222
+DRT 0233 io_parser_helper.cpp:117  {} does not have any vias. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L117
+DRT 0234 io_parser_helper.cpp:108  {} does not have single-cut via. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L108
+DRT 0235 io_parser_helper.cpp:357  Second layer {} does not exist. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L357
+DRT 0236 io_parser_helper.cpp:363  Updating diff-net cut spacing rule between {} and {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L363
+DRT 0237 io_parser_helper.cpp:381  Second layer {} does not exist. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L381
+DRT 0238 io_parser_helper.cpp:387  Updating same-net cut spacing rule between {} and {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L387
+DRT 0239 io_parser_helper.cpp:445  Non-rectangular shape in via definition. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L445
+DRT 0242 io_parser_helper.cpp:453  CUT layer {} does not have default via. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L453
+DRT 0243 io_parser_helper.cpp:464  Non-rectangular shape in via definition. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L464
+DRT 0245 GuideProcessor.cpp:2038   skipped writing guide updates to database. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L2038
+DRT 0246 io_parser_helper.cpp:968  {}/{} from {} has nullptr as prefAP. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L968
+DRT 0247 io.cpp:3134               io::Writer::fillConnFigs_net does not support this type. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3134
+DRT 0248 io_pin.cpp:49             instAnalysis unsupported pinFig. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_pin.cpp#L49
+DRT 0249 FlexDR_graphics.cpp:661   Net {} (id = {}). INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_graphics.cpp#L661
+DRT 0250 FlexDR_graphics.cpp:664     Pin {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_graphics.cpp#L664
+DRT 0253 FlexGC_init.cpp:159       Design and tech mismatch. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_init.cpp#L159
+DRT 0254 FlexPA_acc_point.cpp:1399 inst_term can not be nullptr ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_point.cpp#L1399
+DRT 0255 FlexDR_maze.cpp:1928      Maze Route cannot find path of net {} in  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_maze.cpp#L1928
+DRT 0256 io.cpp:395                Skipping NDR {} because another rule with the same name  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L395
+DRT 0257 FlexPA_acc_point.cpp:192  Invalid frAccessPointEnum type ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_point.cpp#L192
+DRT 0258 io.cpp:1805               Unsupported LEF58_SPACING rule for layer {} of type AREA. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1805
+DRT 0259 io.cpp:1819               Unsupported LEF58_SPACING rule for layer {} of type SAMEMASK. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1819
+DRT 0261 io.cpp:1840               Unsupported LEF58_SPACING rule for layer {} of type  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1840
+DRT 0262 io.cpp:1847               Unsupported LEF58_SPACING rule for layer {} of type  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1847
+DRT 0263 io.cpp:1854               Unsupported LEF58_SPACING rule for layer {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1854
+DRT 0267 frTime.cpp:22             cpu time = {:02}:{:02}:{:02},  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/db/infra/frTime.cpp#L22
+DRT 0268 FlexTA.cpp:274            Done with {} horizontal wires in {} frboxes and  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/ta/FlexTA.cpp#L274
+DRT 0269 FlexGC_eol.cpp:39         Unsupported endofline spacing rule. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_eol.cpp#L39
+DRT 0270 FlexGC_eol.cpp:221        Unsupported endofline spacing rule. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_eol.cpp#L221
+DRT 0271 FlexGC_eol.cpp:393        Unsupported endofline spacing rule. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_eol.cpp#L393
+DRT 0272 io.cpp:3029               bottomRoutingLayer {} not found. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3029
+DRT 0273 io.cpp:3041               topRoutingLayer {} not found. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3041
+DRT 0275 FlexDR_graphics.cpp:667       AP ({:.5f}, {:.5f}) (layer {}) (cost {}). INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_graphics.cpp#L667
+DRT 0276 FlexPA_row_pattern.cpp:425 Valid access pattern combination not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_row_pattern.cpp#L425
+DRT 0277 FlexPA_acc_pattern.cpp:725 Valid access pattern not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_pattern.cpp#L725
+DRT 0278 FlexPA_acc_pattern.cpp:760 Valid access pattern not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_pattern.cpp#L760
+DRT 0279 io.cpp:1866               SAMEMASK unsupported for cut LEF58_SPACINGTABLE rule WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1866
+DRT 0280 FlexPA_graphics.cpp:335   Unknown type {} in setObjAP WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_graphics.cpp#L335
+DRT 0281 FlexPA_graphics.cpp:341   Marker {} at ({}, {}) ({}, {}). INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_graphics.cpp#L341
+DRT 0282 io.cpp:160                Skipping blockage. Cannot find layer {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L160
+DRT 0290 TritonRoute.cpp:1377      Warning: no DRC report specified, skipped writing DRC report WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L1377
+DRT 0291 TritonRoute.cpp:1363      Unexpected source type in marker: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L1363
+DRT 0292 FlexPA_graphics.cpp:297   Marker {} at ({}, {}) ({}, {}). INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_graphics.cpp#L297
+DRT 0293 FlexPA_graphics.cpp:55    pin name {} has no ':' delimiter ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_graphics.cpp#L55
+DRT 0294 io.cpp:3693               master {} not found in db ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3693
+DRT 0295 io.cpp:3698               mterm {} not found in db ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3698
+DRT 0296 io.cpp:3702               Mismatch in number of pins for term {}/{} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3702
+DRT 0297 io.cpp:3729               inst {} not found in db ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3729
+DRT 0298 io.cpp:3736               iterm {} not found in db ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3736
+DRT 0299 io.cpp:3745               Mismatch in access points size {} and term pins size {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3745
+DRT 0300 io.cpp:3758               Preferred access point is not found ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3758
+DRT 0301 io.cpp:3770               bterm {} not found in db ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3770
+DRT 0302 io.cpp:1074               Unsupported multiple pins on bterm {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1074
+DRT 0303 io.cpp:3779               Mismatch in number of pins for bterm {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3779
+DRT 0304 TritonRoute.cpp:928       Updating design remotely failed ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L928
+DRT 0305 io.cpp:969                Net {} of signal type {} is not routable by TritonRoute.  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L969
+DRT 0306 io.cpp:550                Net {} of signal type {} cannot be connected to bterm  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L550
+DRT 0307 io.cpp:576                Net {} of signal type {} cannot be connected to iterm  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L576
+DRT 0308 TritonRoute.tcl:435       step_dr requires nine positional arguments. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L435
+DRT 0309 io.cpp:623                Unsupported net wiring {} for net {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L623
+DRT 0310 io.cpp:678                Unsupported net wiring {} for net {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L678
+DRT 0311 FlexGC_main.cpp:2141      Unsupported branch EXCEPTMINWIDTH in PROPERTY LEF58_AREA. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2141
+DRT 0312 FlexGC_main.cpp:2148      Unsupported branch EXCEPTEDGELENGTH in PROPERTY LEF58_AREA. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2148
+DRT 0313 FlexGC_main.cpp:2153      Unsupported branch EXCEPTMINSIZE in PROPERTY LEF58_AREA. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2153
+DRT 0314 FlexGC_main.cpp:2156      Unsupported branch EXCEPTSTEP in PROPERTY LEF58_AREA. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2156
+DRT 0315 FlexGC_main.cpp:2159      Unsupported branch MASK in PROPERTY LEF58_AREA. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2159
+DRT 0316 FlexGC_main.cpp:2162      Unsupported branch LAYER in PROPERTY LEF58_AREA. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2162
+DRT 0317 io.cpp:2388               LEF58_MINIMUMCUT AREA is not supported. Skipping for layer {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2388
+DRT 0318 io.cpp:2396               LEF58_MINIMUMCUT SAMEMETALOVERLAP is not supported.  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2396
+DRT 0319 io.cpp:2404               LEF58_MINIMUMCUT FULLYENCLOSED is not supported. Skipping  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2404
+DRT 0320 FlexPA_unique.cpp:206     Term {} of {} contains offgrid pin shape ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_unique.cpp#L206
+DRT 0321 FlexPA_unique.cpp:216     Term {} of {} contains offgrid pin shape ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_unique.cpp#L216
+DRT 0322 FlexPA_unique.cpp:224     checkFigsOnGrid unsupported pin_fig. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_unique.cpp#L224
+DRT 0324 io.cpp:1909               LEF58_KEEPOUTZONE SAMEMASK is not supported. Skipping for layer {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1909
+DRT 0325 io.cpp:1917               LEF58_KEEPOUTZONE SAMEMETAL is not supported. Skipping for layer {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1917
+DRT 0326 io.cpp:1925               LEF58_KEEPOUTZONE DIFFMETAL is not supported. Skipping for layer {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1925
+DRT 0327 io.cpp:1933               LEF58_KEEPOUTZONE EXTENSION is not supported. Skipping for layer {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1933
+DRT 0328 io.cpp:1941               LEF58_KEEPOUTZONE non zero SPIRALEXTENSION is not  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1941
+DRT 0329 FlexPA_row_pattern.cpp:154 Error sending INST_ROWS Job to cloud ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_row_pattern.cpp#L154
+DRT 0330 FlexPA.cpp:231            Error sending UPDATE_PATTERNS Job to cloud ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA.cpp#L231
+DRT 0331 FlexPA.cpp:171            Error sending UPDATE_PA Job to cloud ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA.cpp#L171
+DRT 0332 FlexPA_row_pattern.cpp:196 Error sending UPDATE_PA Job to cloud ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_row_pattern.cpp#L196
+DRT 0333 io.cpp:1537               Unsupported branch LENGTH in WrongDirSpacingRule. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1537
+DRT 0334 io.cpp:1542               Unsupported negative value for prlLength in branch PRL  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1542
+DRT 0335 io.cpp:1573               LEF58_MINSTEP MAXEDGES {}  is not supported WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1573
+DRT 0336 io_parser_helper.cpp:201  Duplicated via definition for {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L201
+DRT 0337 io.cpp:328                Duplicated via definition for {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L328
+DRT 0338 io.cpp:376                Duplicated via definition for {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L376
+DRT 0339 io.cpp:3001               Duplicated via definition for {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L3001
+DRT 0340 io.cpp:1957               LEF58_ENCLOSURE EOL SIDESPACING/ENDSPACING is not  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1957
+DRT 0341 io.cpp:1965               LEF58_ENCLOSURE HORIZONTAL/VERTICAL is not supported.  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1965
+DRT 0342 io.cpp:1973               LEF58_ENCLOSURE INCLUDEABUTTED is not supported. Skipping  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1973
+DRT 0343 io.cpp:1981               LEF58_ENCLOSURE OFFCENTERLINE is not supported. Skipping  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1981
+DRT 0344 io.cpp:1989               LEF58_ENCLOSURE LENGTH is not supported. Skipping for layer {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1989
+DRT 0345 io.cpp:1997               LEF58_ENCLOSURE EXTRACUT is not supported. Skipping for layer {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1997
+DRT 0346 io.cpp:2005               LEF58_ENCLOSURE REDUNDANTCUT is not supported. Skipping  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2005
+DRT 0347 io.cpp:2013               LEF58_ENCLOSURE PARALLEL is not supported. Skipping for layer {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2013
+DRT 0348 io.cpp:2021               LEF58_ENCLOSURE CONCAVECORNERS is not supported. Skipping  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2021
+DRT 0349 io.cpp:2029               LEF58_ENCLOSURE with no CUTCLASS is not supported.  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2029
+DRT 0350 io.cpp:2052               LEF58_MAXSPACING with no CUTCLASS is not supported.  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L2052
+DRT 0352 GuideProcessor.cpp:713    Input route guides are congested. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L713
+DRT 0400 io.cpp:1420               Unsupported LEF58_SPACING rule with option  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1420
+DRT 0401 io.cpp:1428               Unsupported LEF58_SPACING rule with option  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1428
+DRT 0403 io.cpp:1436               Unsupported LEF58_SPACING rule with option EQUALRECTWIDTH  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1436
+DRT 0404 io.cpp:1199               mterm {} not found in db ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1199
+DRT 0405 io.cpp:1203               Mismatch in number of pins for term {}/{} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1203
+DRT 0406 FlexTA_assign.cpp:598     No {} tracks found in ({}, {}) for layer {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/ta/FlexTA_assign.cpp#L598
+DRT 0407 FlexDR_maze.cpp:1652      pwire with no net ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_maze.cpp#L1652
+DRT 0410 FlexGC_main.cpp:2288      frNet not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2288
+DRT 0411 FlexGC_main.cpp:2293      frNet {} does not have drNets. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2293
+DRT 0412 FlexTA_assign.cpp:775     assignIroute_getDRCCost_helper overlap value is {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/ta/FlexTA_assign.cpp#L775
+DRT 0415 io.cpp:4006               Net {} already has routes. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L4006
+DRT 0416 io_parser_helper.cpp:760  Term {} contains offgrid pin shape. Pin shape {} is  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L760
+DRT 0417 io_parser_helper.cpp:802  Term {} contains offgrid pin shape. Polygon point  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L802
+DRT 0418 io_parser_helper.cpp:899  Term {} has no pins on routing grid WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L899
+DRT 0419 io_parser_helper.cpp:902  No routing tracks pass through the center of Term {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L902
+DRT 0421 io_parser_helper.cpp:861  Term {} has no pins on routing grid WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L861
+DRT 0422 io_parser_helper.cpp:864  No routing tracks pass through the center of Term {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L864
+DRT 0423 FlexDR_maze.cpp:2285      No access points found ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_maze.cpp#L2285
+DRT 0500 FlexDR.cpp:1933           Sending worker {} failed ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR.cpp#L1933
+DRT 0506 TritonRoute.tcl:138       -remote_host is required for distributed routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L138
+DRT 0507 TritonRoute.tcl:143       -remote_port is required for distributed routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L143
+DRT 0508 TritonRoute.tcl:148       -shared_volume is required for distributed routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L148
+DRT 0512 frRegionQuery.cpp:305     Unsupported region removeBlockObj ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L305
+DRT 0513 frRegionQuery.cpp:232     Unsupported region addBlockObj ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/frRegionQuery.cpp#L232
+DRT 0516 TritonRoute.tcl:153       -cloud_size is required for distributed routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L153
+DRT 0517 TritonRoute.tcl:344       -dump_dir is required for detailed_route_run_worker command ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L344
+DRT 0519 FlexPA_acc_point.cpp:753  Via cut classes in LEF58_METALWIDTHVIAMAP are not supported. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_point.cpp#L753
+DRT 0520 TritonRoute.tcl:350       -worker_dir is required for detailed_route_run_worker command ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L350
+DRT 0550 FlexGridGraph.h:1135      addToByte overflow ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexGridGraph.h#L1135
+DRT 0551 FlexGridGraph.h:1147      subFromByte underflow ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexGridGraph.h#L1147
+DRT 0552 TritonRoute.tcl:307       -remote_host is required for distributed routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L307
+DRT 0553 TritonRoute.tcl:312       -remote_port is required for distributed routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L312
+DRT 0554 TritonRoute.tcl:317       -shared_volume is required for distributed routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L317
+DRT 0555 TritonRoute.tcl:322       -cloud_size is required for distributed routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L322
+DRT 0606 TritonRoute.cpp:566       via in pin bottom layer {} not found. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L566
+DRT 0607 TritonRoute.cpp:578       via in pin top layer {} not found. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L578
+DRT 0608 io_parser_helper.cpp:66   Could not find user defined via {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io_parser_helper.cpp#L66
 DRT 0610 TritonRoute.cpp:1174      Load design before setting default vias ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L1174
 DRT 0611 TritonRoute.cpp:1180      Via {} not found ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L1180
-DRT 0612 TritonRoute.tcl:487       -box is a list of 4 coordinates. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L487
-DRT 0613 TritonRoute.tcl:498       -output_file is required for check_drc command ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L498
+DRT 0612 TritonRoute.tcl:455       -box is a list of 4 coordinates. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L455
+DRT 0613 TritonRoute.tcl:466       -output_file is required for check_drc command ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L466
 DRT 0615 TritonRoute.cpp:1189      Load tech before setting unidirectional layers ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L1189
 DRT 0616 TritonRoute.cpp:1194      Layer {} not found ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L1194
-DRT 0617 TritonRoute.cpp:593       PDN layer {} not found. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L593
+DRT 0617 TritonRoute.cpp:590       PDN layer {} not found. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L590
 DRT 0618 TritonRoute.cpp:1197      Non-routing layer {} can't be set unidirectional ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L1197
-DRT 0619 io.cpp:1636               LEF58_FORBIDDENSPACING rule without TWOEDGES is not  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1636
-DRT 0620 io.cpp:1644               LEF58_FORBIDDENSPACING rule without PRL is not supported  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1644
-DRT 0621 io.cpp:1652               LEF58_FORBIDDENSPACING rule without WIDTH is not  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1652
-DRT 0622 io.cpp:1660               LEF58_FORBIDDENSPACING rule with WITHIN is not supported  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1660
-DRT 0999 FlexDR.cpp:1971           Can't serialize used worker ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR.cpp#L1971
-DRT 1006 FlexDR_maze.cpp:1986      failed to setTargetNet ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_maze.cpp#L1986
-DRT 1007 GuideProcessor.cpp:994    patchGuides invoked with non-term object. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L994
-DRT 1009 FlexDR_init.cpp:1213      initNet_term invoked with non-term object. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_init.cpp#L1213
-DRT 1010 FlexDR_init.cpp:67        Unsupported non-orthogonal wire begin=({}, {}) end=({},  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_init.cpp#L67
-DRT 1011 io.cpp:1262               Access Point not found for iterm {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1262
-DRT 12304 TritonRoute.cpp:849       Updating design remotely failed ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L849
-DRT 1231 FlexDR_init.cpp:1276      Pin {} does not have access point ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_init.cpp#L1276
-DRT 2000 FlexDR_maze.cpp:2336      ({} {} {} coords: {} {} {}\n INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_maze.cpp#L2336
-DRT 2001 FlexDR_maze.cpp:1718      Starting worker ({} {}) ({} {}) with {} markers INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_maze.cpp#L1718
-DRT 2002 FlexDR_maze.cpp:1924      Routing net {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_maze.cpp#L1924
-DRT 2003 FlexDR_maze.cpp:1973      Ending net {} with markers: INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_maze.cpp#L1973
-DRT 2005 FlexDR_maze.cpp:2216      Creating dest search points from pins: INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_maze.cpp#L2216
-DRT 2006 FlexDR_maze.cpp:2220      Pin {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_maze.cpp#L2220
-DRT 2007 FlexDR_maze.cpp:2254      ({} {} {} coords: {} {} {}\n INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_maze.cpp#L2254
-DRT 2008 TritonRoute.tcl:260       -dump_dir is required for debugging with -dump_dr. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L260
-DRT 4000 FlexPA_graphics.cpp:82    DEBUGGING inst {} term {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_graphics.cpp#L82
-DRT 4500 FlexGC_main.cpp:2283      Edge outer dir should be either North or South ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2283
-DRT 4501 FlexGC_main.cpp:2296      Edge outer dir should be either East or West ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2296
-DRT 5000 FlexPA_graphics.cpp:89    INST NOT FOUND! WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_graphics.cpp#L89
-DRT 6000 FlexPA_acc_point.cpp:578  Macro pin has more than 1 polygon WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_point.cpp#L578
-DRT 6001 FlexDR_conn.cpp:1067      Path segs were not split: {} and {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_conn.cpp#L1067
-DRT 7461 FlexDR.cpp:1918           Balancer failed ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR.cpp#L1918
-DRT 9199 TritonRoute.cpp:482       Guide {} out of range {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L482
-DRT 9504 TritonRoute.cpp:883       Updating router_cfg remotely failed ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L883
-DRT 9999 TritonRoute.cpp:418       unknown update type {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L418
+DRT 0619 io.cpp:1618               LEF58_FORBIDDENSPACING rule without TWOEDGES is not  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1618
+DRT 0620 io.cpp:1626               LEF58_FORBIDDENSPACING rule without PRL is not supported  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1626
+DRT 0621 io.cpp:1634               LEF58_FORBIDDENSPACING rule without WIDTH is not  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1634
+DRT 0622 io.cpp:1642               LEF58_FORBIDDENSPACING rule with WITHIN is not supported  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1642
+DRT 0999 FlexDR.cpp:1962           Can't serialize used worker ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR.cpp#L1962
+DRT 1006 FlexDR_maze.cpp:1967      failed to setTargetNet ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_maze.cpp#L1967
+DRT 1007 GuideProcessor.cpp:977    patchGuides invoked with non-term object. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/GuideProcessor.cpp#L977
+DRT 1009 FlexDR_init.cpp:1177      initNet_term invoked with non-term object. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_init.cpp#L1177
+DRT 1010 FlexDR_init.cpp:45        Unsupported non-orthogonal wire begin=({}, {}) end=({},  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_init.cpp#L45
+DRT 1011 io.cpp:1244               Access Point not found for iterm {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/io/io.cpp#L1244
+DRT 12304 TritonRoute.cpp:847       Updating design remotely failed ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L847
+DRT 1231 FlexDR_init.cpp:1240      Pin {} does not have access point ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_init.cpp#L1240
+DRT 2000 FlexDR_maze.cpp:2315      ({} {} {} coords: {} {} {}\n INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_maze.cpp#L2315
+DRT 2001 FlexDR_maze.cpp:1701      Starting worker ({} {}) ({} {}) with {} markers INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_maze.cpp#L1701
+DRT 2002 FlexDR_maze.cpp:1905      Routing net {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_maze.cpp#L1905
+DRT 2003 FlexDR_maze.cpp:1954      Ending net {} with markers: INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_maze.cpp#L1954
+DRT 2005 FlexDR_maze.cpp:2196      Creating dest search points from pins: INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_maze.cpp#L2196
+DRT 2006 FlexDR_maze.cpp:2200      Pin {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_maze.cpp#L2200
+DRT 2007 FlexDR_maze.cpp:2234      ({} {} {} coords: {} {} {}\n INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_maze.cpp#L2234
+DRT 2008 TritonRoute.tcl:228       -dump_dir is required for debugging with -dump_dr. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.tcl#L228
+DRT 4000 FlexPA_graphics.cpp:60    DEBUGGING inst {} term {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_graphics.cpp#L60
+DRT 4500 FlexGC_main.cpp:2263      Edge outer dir should be either North or South ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2263
+DRT 4501 FlexGC_main.cpp:2276      Edge outer dir should be either East or West ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/gc/FlexGC_main.cpp#L2276
+DRT 5000 FlexPA_graphics.cpp:67    INST NOT FOUND! WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_graphics.cpp#L67
+DRT 6000 FlexPA_acc_point.cpp:564  Macro pin has more than 1 polygon WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/pa/FlexPA_acc_point.cpp#L564
+DRT 6001 FlexDR_conn.cpp:1045      Path segs were not split: {} and {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR_conn.cpp#L1045
+DRT 7461 FlexDR.cpp:1909           Balancer failed ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/dr/FlexDR.cpp#L1909
+DRT 9199 TritonRoute.cpp:479       Guide {} out of range {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L479
+DRT 9504 TritonRoute.cpp:881       Updating router_cfg remotely failed ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L881
+DRT 9947 TritonRoute.cpp:292       You can't load a new db file as the db is already populated ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L292
+DRT 9954 TritonRoute.cpp:303       odb file {} is invalid: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L303
+DRT 9999 TritonRoute.cpp:415       unknown update type {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/drt/src/TritonRoute.cpp#L415

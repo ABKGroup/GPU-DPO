@@ -42,6 +42,15 @@ PathAnalysisPt::PathAnalysisPt(Corner *corner,
 {
 }
 
+std::string
+PathAnalysisPt::to_string() const
+{
+  std::string name = corner_->name();
+  name += '/';
+  name += path_min_max_->to_string();
+  return name;
+}
+
 void
 PathAnalysisPt::setTgtClkAnalysisPt(PathAnalysisPt *path_ap)
 {

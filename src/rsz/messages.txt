@@ -1,118 +1,110 @@
-ORD 0201 Resizer.tcl:48            Use -layer or -via but not both. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L48
-ORD 0202 Resizer.tcl:57            layer $layer_name not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L57
-ORD 0203 Resizer.tcl:61            $layer_name is not a routing layer. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L61
-ORD 0204 Resizer.tcl:65            missing -capacitance or -resistance argument. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L65
-ORD 0205 Resizer.tcl:97            via $layer_name not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L97
-ORD 0206 Resizer.tcl:101           -capacitance not supported for vias. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L101
-ORD 0208 Resizer.tcl:119           no -resistance specified for via. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L119
-ORD 0209 Resizer.tcl:122           missing -layer or -via argument. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L122
-RSZ 0001 Resizer.tcl:157           Use -layers or -resistance/-capacitance but not both. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L157
-RSZ 0002 Resizer.tcl:175           layer $layer_name not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L175
-RSZ 0003 Resizer.tcl:339           missing -placement or -global_routing flag. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L339
-RSZ 0004 Resizer.tcl:892           -max_utilization must be between 0 and 100%. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L892
-RSZ 0005 Resizer.tcl:336           Run global_route before estimating parasitics for global routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L336
-RSZ 0006 Resizer.tcl:160           Use -layers or -layer but not both. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L160
-RSZ 0007 Resizer.i:280             Can't open file  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.i#L280
-RSZ 0008 SpefWriter.cc:176         Got a modTerm instead of iTerm or bTerm while writing  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/SpefWriter.cc#L176
-RSZ 0009 SpefWriter.cc:225         Got a modTerm instead of iTerm or bTerm while writing  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/SpefWriter.cc#L225
-RSZ 0010 Resizer.tcl:287           $signal_clk horizontal wire resistance is 0. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L287
-RSZ 0011 Resizer.tcl:290           $signal_clk vertical wire resistance is 0. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L290
-RSZ 0012 Resizer.tcl:293           $signal_clk horizontal wire capacitance is 0. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L293
-RSZ 0013 Resizer.tcl:296           $signal_clk vertical wire capacitance is 0. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L296
-RSZ 0014 SpefWriter.cc:190         Tried to write net SPEF info for corner that was not set ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/SpefWriter.cc#L190
-RSZ 0015 Resizer.tcl:216           layer $tec_layer not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L216
-RSZ 0016 Resizer.tcl:202           No horizontal layer specified. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L202
-RSZ 0017 Resizer.tcl:205           No vertical layer specified. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L205
-RSZ 0018 Resizer.tcl:914           wire capacitance for corner [$corner name] is zero.\        Use the set_wire_rc command to set wire resistance and capacitance. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L914
-RSZ 0019 Resizer.i:128             Unknown parasitics source '{}'. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.i#L128
-RSZ 0020 Resizer.tcl:692           found $floating_net_count floating nets. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L692
-RSZ 0021 Resizer.tcl:859           no estimated parasitics. Using wire load models. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L859
-RSZ 0022 Resizer.cc:594            no buffers found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L594
-RSZ 0023 Resizer.cc:3516           Output pin found when none was expected. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L3516
-RSZ 0025 RepairSetup.cc:441        max utilization reached. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L441
-RSZ 0026 Resizer.cc:301            Removed {} buffers. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L301
-RSZ 0027 Resizer.cc:644            Inserted {} input buffers. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L644
-RSZ 0028 Resizer.cc:885            Inserted {} output buffers. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L885
-RSZ 0030 RepairSetup.cc:471        Inserted {} buffers. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L471
-RSZ 0031 RepairSetup.cc:474        Resized {} instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L474
-RSZ 0032 RepairHold.cc:314         Inserted {} hold buffers. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairHold.cc#L314
-RSZ 0033 RepairHold.cc:326         No hold violations found. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairHold.cc#L326
-RSZ 0034 RepairDesign.cc:114       Found {} slew violations. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L114
-RSZ 0035 RepairDesign.cc:117       Found {} fanout violations. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L117
-RSZ 0036 RepairDesign.cc:120       Found {} capacitance violations. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L120
-RSZ 0037 RepairDesign.cc:123       Found {} long wires. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L123
-RSZ 0038 RepairDesign.cc:126       Inserted {} buffers in {} nets. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L126
-RSZ 0039 RepairDesign.cc:133       Resized {} instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L133
-RSZ 0040 RepairSetup.cc:412        Inserted {} buffers. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L412
-RSZ 0041 RepairSetup.cc:425        Resized {} instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L425
-RSZ 0042 Resizer.cc:2312           Inserted {} tie {} instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L2312
-RSZ 0043 RepairSetup.cc:429        Swapped pins on {} instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L429
-RSZ 0044 RepairSetup.cc:477        Swapped pins on {} instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L477
-RSZ 0045 RepairSetup.cc:415        Inserted {} buffers, {} to split loads. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L415
-RSZ 0046 RepairHold.cc:261         Found {} endpoints with hold violations. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairHold.cc#L261
-RSZ 0047 RepairDesign.cc:324       Found {} long wires. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L324
-RSZ 0048 RepairDesign.cc:327       Inserted {} buffers in {} nets. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L327
-RSZ 0049 RepairSetup.cc:433        Cloned {} instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L433
-RSZ 0050 RepairHold.cc:322         Max utilization reached. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairHold.cc#L322
-RSZ 0051 RepairDesign.cc:386       Found {} slew violations. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L386
-RSZ 0052 RepairDesign.cc:389       Found {} fanout violations. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L389
-RSZ 0053 RepairDesign.cc:392       Found {} capacitance violations. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L392
-RSZ 0054 RepairDesign.cc:395       Found {} long wires. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L395
-RSZ 0055 RepairDesign.cc:398       Inserted {} buffers in {} nets. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L398
-RSZ 0056 RepairDesign.cc:406       Resized {} instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L406
-RSZ 0057 RepairDesign.cc:409       Resized {} instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L409
-RSZ 0058 Resizer.tcl:933           Using max wire length ${max_wire_length_fmt}um. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L933
-RSZ 0059 RepairSetup.cc:408        Removed {} buffers. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L408
-RSZ 0060 RepairHold.cc:319         Max buffer count reached. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairHold.cc#L319
-RSZ 0061 RepairSetup.cc:468        Removed {} buffers. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L468
-RSZ 0062 RepairSetup.cc:438        Unable to repair all setup violations. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L438
-RSZ 0064 RepairHold.cc:309         Unable to repair all hold checks within margin. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairHold.cc#L309
-RSZ 0065 Resizer.tcl:928           max wire length less than $wire_length_fmt increases wire delays. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L928
-RSZ 0066 RepairHold.cc:307         Unable to repair all hold violations. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairHold.cc#L307
-RSZ 0067 Resizer.tcl:870           $key must be  between 0 and 100 percent. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L870
-RSZ 0068 Resizer.cc:2037           missing target load cap. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L2037
-RSZ 0070 Resizer.cc:2873           no LEF cell for {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L2873
-RSZ 0071 Rebuffer.cc:343           unhandled BufferedNet type CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Rebuffer.cc#L343
-RSZ 0072 RepairDesign.cc:1065      unhandled BufferedNet type CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L1065
-RSZ 0073 BufferedNet.cc:702        driver pin {} not found in global routes WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/BufferedNet.cc#L702
-RSZ 0074 BufferedNet.cc:707        driver pin {} not found in global route grid points WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/BufferedNet.cc#L707
-RSZ 0075 Rebuffer.cc:171           makeBufferedNet failed for driver {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Rebuffer.cc#L171
-RSZ 0076 Resizer.tcl:583           -slack_margin is deprecated. Use -setup_margin/-hold_margin WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L583
-RSZ 0077 Resizer.cc:4006           some buffers were moved inside the core. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L4006
-RSZ 0078 BufferedNet.cc:81         incorrect BufferedNet type {} CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/BufferedNet.cc#L81
-RSZ 0079 BufferedNet.cc:115        incorrect BufferedNet type {} CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/BufferedNet.cc#L115
-RSZ 0080 BufferedNet.cc:143        incorrect BufferedNet type {} CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/BufferedNet.cc#L143
-RSZ 0081 BufferedNet.cc:173        incorrect BufferedNet type {} CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/BufferedNet.cc#L173
-RSZ 0082 BufferedNet.cc:336        wireRC called for non-wire CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/BufferedNet.cc#L336
-RSZ 0083 RepairDesign.cc:1549      pin outside regions CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L1549
-RSZ 0084 Resizer.cc:905            Output {} can't be buffered due to dont-touch driver {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L905
-RSZ 0085 Resizer.cc:750            Input {} can't be buffered due to dont-touch fanout {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L750
-RSZ 0086 Resizer.cc:1852           metersToDbu({}) cannot convert negative distances ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L1852
-RSZ 0088 Resizer.cc:2833           Corner: {} has no wire signal resistance value. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L2833
-RSZ 0089 Resizer.cc:2848           Could not find a resistance value for any corner. Cannot  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L2848
-RSZ 0090 PreChecks.cc:80           Max transition time from SDC is {}{}s. Best achievable  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/PreChecks.cc#L80
-RSZ 0091 RepairSetup.cc:1627       unrecognized expr op from OpenSTA ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L1627
-RSZ 0092 SteinerTree.cc:377        Steiner tree creation error. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/SteinerTree.cc#L377
-RSZ 0093 SteinerTree.cc:306        Invalid Steiner point {} requested. 0 <= Valid values <  {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/SteinerTree.cc#L306
-RSZ 0094 RepairSetup.cc:143        Found {} endpoints with setup violations. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L143
-RSZ 0095 Resizer.tcl:700           found $floating_pin_count floating pins. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L700
-RSZ 0096 Resizer.cc:1302           Cell {} is missing in {} and will be set dont-use WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L1302
-RSZ 0097 Resizer.cc:291            Instance {} cannot be removed because it is not a buffer,  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L291
-RSZ 0098 RepairSetup.cc:150        No setup violations found INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L150
-RSZ 0099 RepairSetup.cc:162        Repairing {} out of {} ({:0.2f}%) violating endpoints... INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L162
-RSZ 0102 Resizer.tcl:799           Cell sizing restriction based on area has been removed. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L799
-RSZ 0103 Resizer.tcl:806           Cell sizing restriction based on leakage has been removed. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L806
-RSZ 0125 RecoverPower.cc:250       max utilization reached. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RecoverPower.cc#L250
-RSZ 0141 RecoverPower.cc:247       Resized {} instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RecoverPower.cc#L247
-RSZ 0142 RecoverPower.cc:201       {} successive tries yielded negative slack. Ending  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RecoverPower.cc#L201
-RSZ 0143 RepairDesign.cc:524       dont-touch instance {} ignored when buffering net {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L524
-RSZ 0200 Resizer.tcl:741           db needs to be defined for set_opt_config. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L741
-RSZ 0201 Resizer.tcl:745           chip needs to be defined for set_opt_config. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L745
-RSZ 0202 Resizer.tcl:749           block needs to be defined for set_opt_config. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L749
-RSZ 0203 Resizer.tcl:784           db needs to be defined for reset_opt_config. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L784
-RSZ 0204 Resizer.tcl:788           chip needs to be defined for reset_opt_config. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L788
-RSZ 0205 Resizer.tcl:792           block needs to be defined for reset_opt_config. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L792
-RSZ 0206 Resizer.tcl:816           db needs to be defined for report_opt_config. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L816
-RSZ 0207 Resizer.tcl:820           chip needs to be defined for report_opt_config ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L820
-RSZ 0208 Resizer.tcl:824           block needs to be defined for report_opt_config. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L824
-RSZ 3111 RecoverPower.cc:272       Resized {} instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RecoverPower.cc#L272
+ORD 0201 Resizer.tcl:16            Use -layer or -via but not both. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L16
+ORD 0202 Resizer.tcl:25            layer $layer_name not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L25
+ORD 0203 Resizer.tcl:29            $layer_name is not a routing layer. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L29
+ORD 0204 Resizer.tcl:33            missing -capacitance or -resistance argument. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L33
+ORD 0205 Resizer.tcl:65            via $layer_name not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L65
+ORD 0206 Resizer.tcl:69            -capacitance not supported for vias. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L69
+ORD 0208 Resizer.tcl:87            no -resistance specified for via. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L87
+ORD 0209 Resizer.tcl:90            missing -layer or -via argument. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L90
+RSZ 0001 Resizer.tcl:125           Use -layers or -resistance/-capacitance but not both. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L125
+RSZ 0002 Resizer.tcl:143           layer $layer_name not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L143
+RSZ 0003 Resizer.tcl:307           missing -placement or -global_routing flag. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L307
+RSZ 0004 Resizer.tcl:1032          -max_utilization must be between 0 and 100%. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L1032
+RSZ 0005 Resizer.tcl:304           Run global_route before estimating parasitics for global routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L304
+RSZ 0006 Resizer.tcl:128           Use -layers or -layer but not both. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L128
+RSZ 0007 Resizer.i:250             Can't open file  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.i#L250
+RSZ 0010 Resizer.tcl:255           $signal_clk horizontal wire resistance is 0. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L255
+RSZ 0011 Resizer.tcl:258           $signal_clk vertical wire resistance is 0. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L258
+RSZ 0012 Resizer.tcl:261           $signal_clk horizontal wire capacitance is 0. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L261
+RSZ 0013 Resizer.tcl:264           $signal_clk vertical wire capacitance is 0. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L264
+RSZ 0015 Resizer.tcl:184           layer $tec_layer not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L184
+RSZ 0016 Resizer.tcl:170           No horizontal layer specified. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L170
+RSZ 0017 Resizer.tcl:173           No vertical layer specified. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L173
+RSZ 0018 Resizer.tcl:1054          wire capacitance for corner [$corner name] is zero.\        Use the set_wire_rc command to set wire resistance and capacitance. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L1054
+RSZ 0019 Resizer.i:98              Unknown parasitics source '{}'. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.i#L98
+RSZ 0020 Resizer.tcl:662           found $floating_net_count floating nets. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L662
+RSZ 0021 Resizer.tcl:999           no estimated parasitics. Using wire load models. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L999
+RSZ 0022 Resizer.cc:944            no buffers found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L944
+RSZ 0023 Resizer.cc:4356           Output pin found when none was expected. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L4356
+RSZ 0024 Resizer.tcl:696           found $overdriven_net_count overdriven nets. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L696
+RSZ 0025 RepairSetup.cc:422        max utilization reached. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L422
+RSZ 0026 Resizer.cc:366            Removed {} buffers. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L366
+RSZ 0027 Resizer.cc:994            Inserted {} input buffers. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L994
+RSZ 0028 Resizer.cc:1221           Inserted {} output buffers. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L1221
+RSZ 0030 RepairSetup.cc:452        Inserted {} buffers. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L452
+RSZ 0031 RepairSetup.cc:455        Resized {} instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L455
+RSZ 0032 RepairHold.cc:278         Inserted {} hold buffers. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairHold.cc#L278
+RSZ 0033 RepairHold.cc:290         No hold violations found. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairHold.cc#L290
+RSZ 0034 RepairDesign.cc:2596      Found {} slew violations. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L2596
+RSZ 0035 RepairDesign.cc:2599      Found {} fanout violations. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L2599
+RSZ 0036 RepairDesign.cc:2603      Found {} capacitance violations. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L2603
+RSZ 0037 RepairDesign.cc:2607      Found {} long wires. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L2607
+RSZ 0039 RepairDesign.cc:2610      Resized {} instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L2610
+RSZ 0040 RepairSetup.cc:393        Inserted {} buffers. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L393
+RSZ 0041 RepairSetup.cc:406        Resized {} instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L406
+RSZ 0042 Resizer.cc:3065           Inserted {} tie {} instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L3065
+RSZ 0043 RepairSetup.cc:410        Swapped pins on {} instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L410
+RSZ 0044 RepairSetup.cc:458        Swapped pins on {} instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L458
+RSZ 0045 RepairSetup.cc:396        Inserted {} buffers, {} to split loads. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L396
+RSZ 0046 RepairHold.cc:229         Found {} endpoints with hold violations. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairHold.cc#L229
+RSZ 0047 RepairDesign.cc:340       Found {} long wires. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L340
+RSZ 0048 RepairDesign.cc:343       Inserted {} buffers in {} nets. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L343
+RSZ 0049 RepairSetup.cc:414        Cloned {} instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L414
+RSZ 0050 RepairHold.cc:286         Max utilization reached. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairHold.cc#L286
+RSZ 0058 Resizer.tcl:1073          Using max wire length ${max_wire_length_fmt}um. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L1073
+RSZ 0059 RepairSetup.cc:389        Removed {} buffers. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L389
+RSZ 0060 RepairHold.cc:283         Max buffer count reached. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairHold.cc#L283
+RSZ 0061 RepairSetup.cc:449        Removed {} buffers. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L449
+RSZ 0062 RepairSetup.cc:419        Unable to repair all setup violations. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L419
+RSZ 0064 RepairHold.cc:273         Unable to repair all hold checks within margin. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairHold.cc#L273
+RSZ 0065 Resizer.tcl:1068          max wire length less than $wire_length_fmt increases wire delays. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L1068
+RSZ 0066 RepairHold.cc:271         Unable to repair all hold violations. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairHold.cc#L271
+RSZ 0067 Resizer.tcl:1010          $key must be  between 0 and 100 percent. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L1010
+RSZ 0068 Resizer.cc:2778           missing target load cap. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L2778
+RSZ 0070 Resizer.cc:3707           no LEF cell for {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L3707
+RSZ 0071 Rebuffer.cc:215           unhandled BufferedNet type CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Rebuffer.cc#L215
+RSZ 0072 RepairDesign.cc:1140      unhandled BufferedNet type CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L1140
+RSZ 0073 BufferedNet.cc:677        driver pin {} not found in global routes WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/BufferedNet.cc#L677
+RSZ 0074 BufferedNet.cc:682        driver pin {} not found in global route grid points WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/BufferedNet.cc#L682
+RSZ 0075 Rebuffer.cc:572           makeBufferedNet failed for driver {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Rebuffer.cc#L572
+RSZ 0076 Resizer.tcl:553           -slack_margin is deprecated. Use -setup_margin/-hold_margin WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L553
+RSZ 0077 Resizer.cc:4847           some buffers were moved inside the core. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L4847
+RSZ 0078 BufferedNet.cc:53         incorrect BufferedNet type {} CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/BufferedNet.cc#L53
+RSZ 0079 BufferedNet.cc:76         incorrect BufferedNet type {} CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/BufferedNet.cc#L76
+RSZ 0080 BufferedNet.cc:101        incorrect BufferedNet type {} CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/BufferedNet.cc#L101
+RSZ 0081 BufferedNet.cc:127        incorrect BufferedNet type {} CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/BufferedNet.cc#L127
+RSZ 0082 BufferedNet.cc:311        wireRC called for non-wire CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/BufferedNet.cc#L311
+RSZ 0083 RepairDesign.cc:1638      pin outside regions CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L1638
+RSZ 0084 Resizer.cc:1241           Output {} can't be buffered due to dont-touch driver {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L1241
+RSZ 0085 Resizer.cc:1085           Input {} can't be buffered due to dont-touch fanout {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L1085
+RSZ 0086 Resizer.cc:2591           metersToDbu({}) cannot convert negative distances ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L2591
+RSZ 0088 Resizer.cc:3660           Corner: {} has no wire signal resistance value. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L3660
+RSZ 0089 Resizer.cc:3682           Could not find a resistance value for any corner. Cannot  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L3682
+RSZ 0090 PreChecks.cc:50           Max transition time from SDC is {}{}s. Best achievable  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/PreChecks.cc#L50
+RSZ 0091 RepairSetup.cc:1611       unrecognized expr op from OpenSTA ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L1611
+RSZ 0092 SteinerTree.cc:357        Steiner tree creation error. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/SteinerTree.cc#L357
+RSZ 0093 SteinerTree.cc:286        Invalid Steiner point {} requested. 0 <= Valid values <  {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/SteinerTree.cc#L286
+RSZ 0094 RepairSetup.cc:115        Found {} endpoints with setup violations. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L115
+RSZ 0095 Resizer.tcl:670           found $floating_pin_count floating pins. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L670
+RSZ 0096 Resizer.cc:1844           Cell {} is missing in {} and will be set dont-use WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L1844
+RSZ 0097 Resizer.cc:356            Instance {} cannot be removed because it is not a buffer,  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.cc#L356
+RSZ 0098 RepairSetup.cc:122        No setup violations found INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L122
+RSZ 0099 RepairSetup.cc:134        Repairing {} out of {} ({:0.2f}%) violating endpoints... INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairSetup.cc#L134
+RSZ 0102 Resizer.tcl:878           Cell sizing restriction based on area has been removed. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L878
+RSZ 0103 Resizer.tcl:885           Cell sizing restriction based on leakage has been removed. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L885
+RSZ 0105 Resizer.tcl:889           Cell sizing restriction based on site has been removed. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L889
+RSZ 0107 Resizer.tcl:893           Cell sizing restriction based on VT type has been removed. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L893
+RSZ 0125 RecoverPower.cc:215       max utilization reached. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RecoverPower.cc#L215
+RSZ 0141 RecoverPower.cc:212       Resized {} instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RecoverPower.cc#L212
+RSZ 0142 RecoverPower.cc:168       {} successive tries yielded negative slack. Ending  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RecoverPower.cc#L168
+RSZ 0143 RepairDesign.cc:554       dont-touch instance {} ignored when buffering net {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L554
+RSZ 0144 RepairDesign.cc:806       sizes list empty for cell {}\n CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RepairDesign.cc#L806
+RSZ 0145 Rebuffer.cc:521           area recovery lost the ball in rebuffering for driver {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Rebuffer.cc#L521
+RSZ 0146 Resizer.tcl:897           Capacitance ratio for early cell sizing has been unset. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L897
+RSZ 0148 Resizer.tcl:901           Capacitance ratio for early buffer sizing has been unset. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L901
+RSZ 0149 Resizer.tcl:444           -buffer_gain is deprecated WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L444
+RSZ 0150 Rebuffer.cc:404           unhandled BufferedNet type CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Rebuffer.cc#L404
+RSZ 0200 Resizer.tcl:733           db needs to be defined for set_opt_config and related commands. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L733
+RSZ 0201 Resizer.tcl:737           chip needs to be defined for set_opt_config and related commands. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L737
+RSZ 0202 Resizer.tcl:741           block needs to be defined for set_opt_config and related commands. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/Resizer.tcl#L741
+RSZ 3111 RecoverPower.cc:237       Resized {} instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rsz/src/RecoverPower.cc#L237

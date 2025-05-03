@@ -38,6 +38,8 @@
 
 namespace sta {
 
+using std::string;
+
 ////////////////////////////////////////////////////////////////
 //
 // Graph
@@ -206,7 +208,7 @@ Graph::makePortInstanceEdges(const Instance *inst,
 	// Vertices can be missing from the graph if the pins
 	// are power or ground.
 	if (from_vertex) {
-          TimingRole *role = arc_set->role();
+          const TimingRole *role = arc_set->role();
   	  bool is_check = role->isTimingCheckBetween();
 	  if (to_bidirect_drvr_vertex && !is_check)
 	    makeEdge(from_vertex, to_bidirect_drvr_vertex, arc_set);
@@ -571,75 +573,25 @@ Graph::gateEdgeArc(const Pin *in_pin,
 
 ////////////////////////////////////////////////////////////////
 
-Arrival *
-Graph::makeArrivals(Vertex *vertex,
-                    uint32_t count)
+Path *
+Graph::makePaths(Vertex *vertex,
+                 uint32_t count)
 {
-  Arrival *arrivals = new Arrival[count];
-  vertex->setArrivals(arrivals);
-  return arrivals;
+  Path *paths = new Path[count];
+  vertex->setPaths(paths);
+  return paths;
 }
 
-Arrival *
-Graph::arrivals(const Vertex *vertex) const
+Path *
+Graph::paths(const Vertex *vertex) const
 {
-  return vertex->arrivals();
-}
-
-void
-Graph::deleteArrivals(Vertex *vertex)
-{
-  vertex->setArrivals(nullptr);
-}
-
-Required *
-Graph::requireds(const Vertex *vertex) const
-{
-  return vertex->requireds();
-}
-
-Required *
-Graph::makeRequireds(Vertex *vertex,
-                     uint32_t count)
-{
-  Required *requireds = new Arrival[count];
-  vertex->setRequireds(requireds);
-  return requireds;
-}
-
-void
-Graph::deleteRequireds(Vertex *vertex)
-{
-  vertex->setRequireds(nullptr);
-}
-
-PathPrev *
-Graph::prevPaths(const Vertex *vertex) const
-{
-  return vertex->prevPaths();
-}
-
-PathPrev *
-Graph::makePrevPaths(Vertex *vertex,
-                     uint32_t count)
-{
-  PathPrev *prev_paths = new PathPrev[count];
-  vertex->setPrevPaths(prev_paths);
-  return prev_paths;
-}
-
-void
-Graph::deletePrevPaths(Vertex *vertex)
-{
-  vertex->setPrevPaths(nullptr);
+  return vertex->paths();
 }
 
 void
 Graph::deletePaths(Vertex *vertex)
 {
-  deleteArrivals(vertex);
-  deleteRequireds(vertex);
-  deletePrevPaths(vertex);
+  vertex->setPaths(nullptr);
   vertex->tag_group_index_ = tag_group_index_max;
   vertex->crpr_path_pruning_disabled_ = false;
 }
@@ -1007,9 +959,7 @@ Vertex::init(Pin *pin,
   in_edges_ = edge_id_null;
   out_edges_ = edge_id_null;
   slews_ = nullptr;
-  arrivals_ = nullptr;
-  requireds_ = nullptr;
-  prev_paths_ = nullptr;
+  paths_ = nullptr;
   tag_group_index_ = tag_group_index_max;
   slew_annotated_ = false;
   sim_value_ = unsigned(LogicValue::unknown);
@@ -1019,8 +969,9 @@ Vertex::init(Pin *pin,
   is_check_clk_ = false;
   is_constrained_ = false;
   has_downstream_clk_pin_ = false;
-  color_ = unsigned(LevelColor::white);
   level_ = 0;
+  visited1_ = false;
+  visited2_ = false;
   bfs_in_queue_ = 0;
   crpr_path_pruning_disabled_ = false;
 }
@@ -1035,12 +986,8 @@ Vertex::clear()
 {
   delete [] slews_;
   slews_ = nullptr;
-  delete [] arrivals_;
-  arrivals_ = nullptr;
-  delete [] requireds_;
-  requireds_ = nullptr;
-  delete [] prev_paths_;
-  prev_paths_ = nullptr;
+  delete [] paths_;
+  paths_ = nullptr;
 }
 
 void
@@ -1049,17 +996,25 @@ Vertex::setObjectIdx(ObjectIdx idx)
   object_idx_ = idx;
 }
 
-const char *
-Vertex::name(const Network *network) const
+string
+Vertex::to_string(const StaState *sta) const
 {
+  const Network *network = sta->network();
   if (network->direction(pin_)->isBidirect()) {
-    const char *pin_name = network->pathName(pin_);
-    return stringPrintTmp("%s %s",
-			  pin_name,
-			  is_bidirect_drvr_ ? "driver" : "load");
+    string str = network->pathName(pin_);
+    str += ' ';
+    str += is_bidirect_drvr_ ? "driver" : "load";
+    return str;
   }
   else
     return network->pathName(pin_);
+}
+
+const char *
+Vertex::name(const Network *network) const
+{
+  string name = to_string(network);
+  return makeTmpString(name);  
 }
 
 bool
@@ -1086,9 +1041,15 @@ Vertex::setLevel(Level level)
 }
 
 void
-Vertex::setColor(LevelColor color)
+Vertex::setVisited(bool visited)
 {
-  color_ = unsigned(color);
+  visited1_ = visited;
+}
+
+void
+Vertex::setVisited2(bool visited)
+{
+  visited2_ = visited;
 }
 
 void
@@ -1153,24 +1114,10 @@ Vertex::setTagGroupIndex(TagGroupIndex tag_index)
 }
 
 void
-Vertex::setArrivals(Arrival *arrivals)
+Vertex::setPaths(Path *paths)
 {
-  delete [] arrivals_;
-  arrivals_ = arrivals;
-}
-
-void
-Vertex::setRequireds(Required *requireds)
-{
-  delete [] requireds_;
-  requireds_ = requireds;
-}
-
-void
-Vertex::setPrevPaths(PathPrev *prev_paths)
-{
-  delete [] prev_paths_;
-  prev_paths_ = prev_paths;
+  delete [] paths_;
+  paths_ = paths;
 }
 
 LogicValue
@@ -1315,6 +1262,16 @@ Edge::setObjectIdx(ObjectIdx idx)
   object_idx_ = idx;
 }
 
+string
+Edge::to_string(const StaState *sta) const
+{
+  const Graph *graph = sta->graph();
+  string str = from(graph)->to_string(sta);
+  str += " -> ";
+  str += to(graph)->to_string(sta);
+  return str;
+}
+
 void
 Edge::setTimingArcSet(TimingArcSet *set)
 {
@@ -1350,7 +1307,8 @@ Edge::setArcDelayAnnotated(const TimingArc *arc,
   if (index > sizeof(intptr_t) * 8
       && arc_delay_annotated_is_bits_) {
     arc_delay_annotated_is_bits_ = false;
-    arc_delay_annotated_.seq_ = new vector<bool>(ap_count * RiseFall::index_count * 2);
+    size_t bit_count = ap_count * RiseFall::index_count * 2;
+    arc_delay_annotated_.seq_ = new std::vector<bool>(bit_count);
   }
   if (arc_delay_annotated_is_bits_) {
     if (annotated)
@@ -1380,7 +1338,7 @@ Edge::setDelayAnnotationIsIncremental(bool is_incr)
   delay_annotation_is_incremental_ = is_incr;
 }
 
-TimingRole *
+const TimingRole *
 Edge::role() const
 {
   return arc_set_->role();
@@ -1414,7 +1372,7 @@ Edge::setSimTimingSense(TimingSense sense)
 bool
 Edge::isDisabledConstraint() const
 {
-  TimingRole *role = arc_set_->role();
+  const TimingRole *role = arc_set_->role();
   bool is_wire = role->isWire();
   return is_disabled_constraint_
     || arc_set_->isDisabledConstraint()

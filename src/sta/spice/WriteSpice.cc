@@ -39,13 +39,14 @@
 #include "Graph.hh"
 #include "search/Sim.hh"
 #include "Clock.hh"
-#include "PathVertex.hh"
+#include "Path.hh"
 #include "DcalcAnalysisPt.hh"
 #include "Bdd.hh"
 
 namespace sta {
 
 using std::ifstream;
+using std::ofstream;
 using std::swap;
 using std::set;
 
@@ -183,8 +184,8 @@ WriteSpice::replaceFileExt(string filename,
 void
 WriteSpice::writeGnuplotFile(StdStringSeq &node_nanes)
 {
-  string gnuplot_filename = replaceFileExt(spice_filename_, "gnuplot");
-  string csv_filename = replaceFileExt(spice_filename_, "csv");
+  std::string gnuplot_filename = replaceFileExt(spice_filename_, "gnuplot");
+  std::string csv_filename = replaceFileExt(spice_filename_, "csv");
   ofstream gnuplot_stream;
   gnuplot_stream.open(gnuplot_filename);
   if (gnuplot_stream.is_open()) {
@@ -474,7 +475,7 @@ WriteSpice::pgPortVoltage(LibertyPgPort *pg_port)
 float
 WriteSpice::findSlew(Vertex *vertex,
                      const RiseFall *rf,
-                     TimingArc *next_arc)
+                     const TimingArc *next_arc)
 {
   float slew = delayAsFloat(graph_->slew(vertex, rf, dcalc_ap_->index()));
   if (slew == 0.0 && next_arc)
@@ -486,7 +487,7 @@ WriteSpice::findSlew(Vertex *vertex,
 
 // Look up the smallest slew axis value in the timing arc delay table.
 float
-WriteSpice::slewAxisMinValue(TimingArc *arc)
+WriteSpice::slewAxisMinValue(const TimingArc *arc)
 {
   GateTableModel *gate_model = arc->gateTableModel(dcalc_ap_);
   if (gate_model) {

@@ -1,62 +1,62 @@
-PAD 0001 ICeWall.cpp:1142          Unable to place {} ({}) at ({:.3f}um, {:.3f}um) -  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1142
-PAD 0002 ICeWall.cpp:1656          {} ({}) and {} ({}) are touching, but are  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1656
-PAD 0003 RDLRouter.cpp:169         {:.3f}um is below the minimum width for {}, changing to {:.3f}um WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/RDLRouter.cpp#L169
-PAD 0004 RDLRouter.cpp:183         {:.3f}um is below the minimum spacing for {}, changing to {:.3f}um WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/RDLRouter.cpp#L183
-PAD 0005 RDLRouter.cpp:398         Routing {} nets INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/RDLRouter.cpp#L398
-PAD 0006 RDLRouter.cpp:309         Failed to route the following {} nets: WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/RDLRouter.cpp#L309
-PAD 0007 RDLRouter.cpp:675         Failed to route {} nets. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/RDLRouter.cpp#L675
-PAD 0010 RDLRouter.cpp:1961        {} only has one iterm on {} layer WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/RDLRouter.cpp#L1961
-PAD 0011 ICeWall.cpp:78            {} is not of type {}, but is instead {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L78
-PAD 0012 ICeWall.cpp:92            {} is not of type {}, but is instead {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L92
-PAD 0013 ICeWall.cpp:534           Unable to find {} row to place a corner cell in ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L534
-PAD 0014 ICeWall.cpp:324           Horizontal site must be speficied. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L324
-PAD 0015 ICeWall.cpp:327           Vertical site must be speficied. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L327
-PAD 0016 ICeWall.cpp:330           Corner site must be speficied. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L330
-PAD 0017 pad.tcl:62                -origin must be specified as {x y} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L62
-PAD 0018 ICeWall.cpp:568           Unable to create instance {} without master ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L568
-PAD 0019 ICeWall.cpp:584           Row must be specified to place a pad ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L584
-PAD 0020 ICeWall.cpp:1191          Row must be specified to place IO filler ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1191
-PAD 0021 ICeWall.cpp:1369          Row must be specified to remove IO filler ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1369
-PAD 0022 ICeWall.cpp:1847          Layer must be specified to perform routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1847
-PAD 0023 ICeWall.cpp:75            Master must be specified. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L75
-PAD 0024 ICeWall.cpp:198           Instance must be specified to assign it to a bump. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L198
-PAD 0025 ICeWall.cpp:203           Net must be specified to assign it to a bump. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L203
-PAD 0026 ICeWall.cpp:1273          Filling {} ({:.3f}um -> {:.3f}um) will result in a gap. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1273
-PAD 0027 ICeWall.cpp:1394          Bond master must be specified to place bond pads ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1394
-PAD 0028 ICeWall.cpp:527           Corner master must be specified. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L527
-PAD 0029 ICeWall.cpp:1044          {} is not a recognized IO row. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1044
-PAD 0030 ICeWall.cpp:1349          Unable to fill gap completely {:.3f}um -> {:.3f}um in row {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1349
-PAD 0031 ICeWall.cpp:1430          {} contains more than 1 pin shape on {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1430
-PAD 0032 ICeWall.cpp:1424          Unable to determine the top layer of {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1424
-PAD 0033 ICeWall.cpp:161           Could not find a block terminal associated with net:  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L161
-PAD 0034 ICeWall.cpp:168           Unable to create block terminal: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L168
-PAD 0035 ICeWall.cpp:223           {} has already been assigned. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L223
-PAD 0036 ICeWall.cpp:229           {} is not connected to {}, but connected to {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L229
-PAD 0037 RDLRouter.cpp:556         End of routing iteration {}: {:.1f}% complete INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/RDLRouter.cpp#L556
-PAD 0038 pad.tcl:68                -pitch must be specified as {deltax deltay} or {delta} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L68
-PAD 0039 pad.tcl:272               place_pads requires a list of instances. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L272
-PAD 0040 ICeWall.cpp:708           Total pad width ({:.4f}um) cannot fit into {} with width {:.4f}um. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L708
-PAD 0041 ICeWall.cpp:752           Placed {} pads in {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L752
-PAD 0042 pad.tcl:442               No nets found to route ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L442
-PAD 0043 RDLRouter.cpp:364         Nothing to route ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/RDLRouter.cpp#L364
-PAD 0100 pad.tcl:509               Unable to find site: $name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L509
-PAD 0101 pad.tcl:517               Unable to find master: $name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L517
-PAD 0102 pad.tcl:525               Unable to find instance: $name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L525
-PAD 0103 pad.tcl:533               Unable to find net: $name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L533
-PAD 0104 pad.tcl:541               $arg is required for $cmd ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L541
-PAD 0105 pad.tcl:448               Unable to find layer: $keys(-layer) ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L448
-PAD 0106 pad.i:172                 Unable to find row: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.i#L172
-PAD 0107 pad.tcl:454               Unable to find techvia: $keys(-bump_via) ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L454
-PAD 0108 pad.tcl:461               Unable to find techvia: $keys(-pad_via) ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L461
-PAD 0109 pad.tcl:549               Unable to find instance: $inst_name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L549
-PAD 0110 pad.tcl:554               Unable to find iterm: $iterm_name of $inst_name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L554
-PAD 0111 pad.tcl:559               Unable to find net: $net_name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L559
-PAD 0112 pad.tcl:169               Use of -rotation is deprecated WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L169
-PAD 0113 pad.tcl:125               Unable to find $keys(-terminal) ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L125
-PAD 0114 pad.tcl:131               -dont_route and -terminal cannot be used together ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L131
-PAD 0115 ICeWall.cpp:1534          Unable to place a terminal on {} for {}/{} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1534
-PAD 0116 ICeWall.cpp:179           Creating terminal for {} on {} at ({:.3f}um, {:.3f}um) -  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L179
-PAD 0117 pad.tcl:345               No instances matched $args ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L345
-PAD 0118 ICeWall.cpp:575           Master cell mismatch for {} ({}) is not {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L575
-PAD 0119 ICeWall.cpp:1110          Unable to place {} ({}) at ({:.3f}um, {:.3f}um) -  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1110
-PAD 0120 ICeWall.cpp:1544          No shape in terminal {}/{} found on layer {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1544
+PAD 0001 ICeWall.cpp:1117          Unable to place {} ({}) at ({:.3f}um, {:.3f}um) -  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1117
+PAD 0002 ICeWall.cpp:1631          {} ({}) and {} ({}) are touching, but are  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1631
+PAD 0003 RDLRouter.cpp:142         {:.3f}um is below the minimum width for {}, changing to {:.3f}um WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/RDLRouter.cpp#L142
+PAD 0004 RDLRouter.cpp:156         {:.3f}um is below the minimum spacing for {}, changing to {:.3f}um WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/RDLRouter.cpp#L156
+PAD 0005 RDLRouter.cpp:371         Routing {} nets INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/RDLRouter.cpp#L371
+PAD 0006 RDLRouter.cpp:282         Failed to route the following {} nets: WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/RDLRouter.cpp#L282
+PAD 0007 RDLRouter.cpp:648         Failed to route {} nets. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/RDLRouter.cpp#L648
+PAD 0010 RDLRouter.cpp:1934        {} only has one iterm on {} layer WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/RDLRouter.cpp#L1934
+PAD 0011 ICeWall.cpp:53            {} is not of type {}, but is instead {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L53
+PAD 0012 ICeWall.cpp:67            {} is not of type {}, but is instead {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L67
+PAD 0013 ICeWall.cpp:509           Unable to find {} row to place a corner cell in ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L509
+PAD 0014 ICeWall.cpp:299           Horizontal site must be speficied. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L299
+PAD 0015 ICeWall.cpp:302           Vertical site must be speficied. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L302
+PAD 0016 ICeWall.cpp:305           Corner site must be speficied. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L305
+PAD 0017 pad.tcl:35                -origin must be specified as {x y} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L35
+PAD 0018 ICeWall.cpp:543           Unable to create instance {} without master ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L543
+PAD 0019 ICeWall.cpp:559           Row must be specified to place a pad ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L559
+PAD 0020 ICeWall.cpp:1166          Row must be specified to place IO filler ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1166
+PAD 0021 ICeWall.cpp:1344          Row must be specified to remove IO filler ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1344
+PAD 0022 ICeWall.cpp:1822          Layer must be specified to perform routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1822
+PAD 0023 ICeWall.cpp:50            Master must be specified. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L50
+PAD 0024 ICeWall.cpp:173           Instance must be specified to assign it to a bump. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L173
+PAD 0025 ICeWall.cpp:178           Net must be specified to assign it to a bump. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L178
+PAD 0026 ICeWall.cpp:1248          Filling {} ({:.3f}um -> {:.3f}um) will result in a gap. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1248
+PAD 0027 ICeWall.cpp:1369          Bond master must be specified to place bond pads ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1369
+PAD 0028 ICeWall.cpp:502           Corner master must be specified. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L502
+PAD 0029 ICeWall.cpp:1019          {} is not a recognized IO row. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1019
+PAD 0030 ICeWall.cpp:1324          Unable to fill gap completely {:.3f}um -> {:.3f}um in row {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1324
+PAD 0031 ICeWall.cpp:1405          {} contains more than 1 pin shape on {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1405
+PAD 0032 ICeWall.cpp:1399          Unable to determine the top layer of {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1399
+PAD 0033 ICeWall.cpp:136           Could not find a block terminal associated with net:  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L136
+PAD 0034 ICeWall.cpp:143           Unable to create block terminal: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L143
+PAD 0035 ICeWall.cpp:198           {} has already been assigned. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L198
+PAD 0036 ICeWall.cpp:204           {} is not connected to {}, but connected to {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L204
+PAD 0037 RDLRouter.cpp:529         End of routing iteration {}: {:.1f}% complete INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/RDLRouter.cpp#L529
+PAD 0038 pad.tcl:41                -pitch must be specified as {deltax deltay} or {delta} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L41
+PAD 0039 pad.tcl:245               place_pads requires a list of instances. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L245
+PAD 0040 ICeWall.cpp:683           Total pad width ({:.4f}um) cannot fit into {} with width {:.4f}um. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L683
+PAD 0041 ICeWall.cpp:727           Placed {} pads in {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L727
+PAD 0042 pad.tcl:415               No nets found to route ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L415
+PAD 0043 RDLRouter.cpp:337         Nothing to route ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/RDLRouter.cpp#L337
+PAD 0100 pad.tcl:482               Unable to find site: $name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L482
+PAD 0101 pad.tcl:490               Unable to find master: $name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L490
+PAD 0102 pad.tcl:498               Unable to find instance: $name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L498
+PAD 0103 pad.tcl:506               Unable to find net: $name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L506
+PAD 0104 pad.tcl:514               $arg is required for $cmd ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L514
+PAD 0105 pad.tcl:421               Unable to find layer: $keys(-layer) ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L421
+PAD 0106 pad.i:140                 Unable to find row: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.i#L140
+PAD 0107 pad.tcl:427               Unable to find techvia: $keys(-bump_via) ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L427
+PAD 0108 pad.tcl:434               Unable to find techvia: $keys(-pad_via) ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L434
+PAD 0109 pad.tcl:522               Unable to find instance: $inst_name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L522
+PAD 0110 pad.tcl:527               Unable to find iterm: $iterm_name of $inst_name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L527
+PAD 0111 pad.tcl:532               Unable to find net: $net_name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L532
+PAD 0112 pad.tcl:142               Use of -rotation is deprecated WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L142
+PAD 0113 pad.tcl:98                Unable to find $keys(-terminal) ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L98
+PAD 0114 pad.tcl:104               -dont_route and -terminal cannot be used together ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L104
+PAD 0115 ICeWall.cpp:1509          Unable to place a terminal on {} for {}/{} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1509
+PAD 0116 ICeWall.cpp:154           Creating terminal for {} on {} at ({:.3f}um, {:.3f}um) -  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L154
+PAD 0117 pad.tcl:318               No instances matched $args ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/pad.tcl#L318
+PAD 0118 ICeWall.cpp:550           Master cell mismatch for {} ({}) is not {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L550
+PAD 0119 ICeWall.cpp:1085          Unable to place {} ({}) at ({:.3f}um, {:.3f}um) -  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1085
+PAD 0120 ICeWall.cpp:1519          No shape in terminal {}/{} found on layer {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/pad/src/ICeWall.cpp#L1519

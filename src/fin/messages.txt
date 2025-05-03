@@ -1,10 +1,10 @@
-FIN 0001 DensityFill.cpp:180       Layer {} in names was not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/fin/src/DensityFill.cpp#L180
-FIN 0002 DensityFill.cpp:191       Layer {} not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/fin/src/DensityFill.cpp#L191
-FIN 0003 DensityFill.cpp:451       Filling layer {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/fin/src/DensityFill.cpp#L451
-FIN 0004 DensityFill.cpp:489       Total fills: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/fin/src/DensityFill.cpp#L489
-FIN 0005 DensityFill.cpp:508       Filling {} areas with OPC fill. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/fin/src/DensityFill.cpp#L508
-FIN 0006 DensityFill.cpp:514       Total fills: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/fin/src/DensityFill.cpp#L514
-FIN 0007 finale.tcl:49             The -rules argument must be specified. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/fin/src/finale.tcl#L49
-FIN 0008 finale.tcl:55             The -area argument must be a list of 4 coordinates. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/fin/src/finale.tcl#L55
-FIN 0009 DensityFill.cpp:476       Filling {} areas with non-OPC fill. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/fin/src/DensityFill.cpp#L476
-FIN 0010 DensityFill.cpp:534       Skipping layer {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/fin/src/DensityFill.cpp#L534
+FIN 0001 DensityFill.cpp:152       Layer {} in names was not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/fin/src/DensityFill.cpp#L152
+FIN 0002 DensityFill.cpp:163       Layer {} not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/fin/src/DensityFill.cpp#L163
+FIN 0003 DensityFill.cpp:423       Filling layer {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/fin/src/DensityFill.cpp#L423
+FIN 0004 DensityFill.cpp:461       Total fills: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/fin/src/DensityFill.cpp#L461
+FIN 0005 DensityFill.cpp:480       Filling {} areas with OPC fill. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/fin/src/DensityFill.cpp#L480
+FIN 0006 DensityFill.cpp:486       Total fills: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/fin/src/DensityFill.cpp#L486
+FIN 0007 finale.tcl:18             The -rules argument must be specified. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/fin/src/finale.tcl#L18
+FIN 0008 finale.tcl:24             The -area argument must be a list of 4 coordinates. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/fin/src/finale.tcl#L24
+FIN 0009 DensityFill.cpp:448       Filling {} areas with non-OPC fill. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/fin/src/DensityFill.cpp#L448
+FIN 0010 DensityFill.cpp:506       Skipping layer {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/fin/src/DensityFill.cpp#L506

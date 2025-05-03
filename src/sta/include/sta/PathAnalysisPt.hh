@@ -24,6 +24,8 @@
 
 #pragma once
 
+#include <string>
+
 #include "Iterator.hh"
 #include "MinMax.hh"
 #include "SdcClass.hh"
@@ -42,6 +44,7 @@ public:
 		 PathAPIndex index,
 		 const MinMax *path_min_max,
 		 DcalcAnalysisPt *dcalc_ap);
+  std::string to_string() const;
   Corner *corner() const { return corner_; }
   PathAPIndex index() const { return index_; }
   const MinMax *pathMinMax() const { return path_min_max_; }

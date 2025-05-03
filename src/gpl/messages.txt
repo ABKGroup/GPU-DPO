@@ -1,114 +1,100 @@
-GPL 0001 placerBase.cpp:521        {} toplevel port is not placed!\n WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L521
-GPL 0002 placerBase.cpp:776        DBU: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L776
-GPL 0003 placerBase.cpp:804        {:9} ( {:6.3f} {:6.3f} ) um INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L804
-GPL 0004 placerBase.cpp:810        {:9} ( {:6.3f} {:6.3f} ) ( {:6.3f} {:6.3f} ) um INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L810
-GPL 0006 placerBase.cpp:1271       {:20} {:10} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L1271
-GPL 0007 placerBase.cpp:1276       {:20} {:10} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L1276
-GPL 0008 placerBase.cpp:1277       {:20} {:10} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L1277
-GPL 0009 placerBase.cpp:1278       {:20} {:10} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L1278
-GPL 0010 placerBase.cpp:1279       {:20} {:10} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L1279
-GPL 0011 placerBase.cpp:1280       {:20} {:10} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L1280
-GPL 0012 placerBase.cpp:1282       {:9} ( {:6.3f} {:6.3f} ) ( {:6.3f} {:6.3f} ) um INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L1282
-GPL 0013 placerBase.cpp:1290       {:9} ( {:6.3f} {:6.3f} ) ( {:6.3f} {:6.3f} ) um INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L1290
-GPL 0016 placerBase.cpp:1303       {:20} {:10.3f} um^2 INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L1303
-GPL 0017 placerBase.cpp:1308       {:20} {:10.3f} um^2 INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L1308
-GPL 0018 placerBase.cpp:1314       {:20} {:10.3f} um^2 INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L1314
-GPL 0019 placerBase.cpp:1319       {:20} {:10.3f} % INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L1319
-GPL 0020 placerBase.cpp:1321       {:20} {:10.3f} um^2 INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L1321
-GPL 0021 placerBase.cpp:1327       {:20} {:10.3f} um^2 INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L1327
-GPL 0023 nesterovBase.cpp:716      {:20} {:10.3f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L716
-GPL 0024 nesterovBase.cpp:717      {:20} {:10.3f} um^2 INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L717
-GPL 0025 nesterovBase.cpp:722      {:20} {:10.3f} um^2 INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L722
-GPL 0026 nesterovBase.cpp:727      {:20} {:10} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L727
-GPL 0027 nesterovBase.cpp:728      {:20} {:10.3f} um^2 INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L728
-GPL 0028 nesterovBase.cpp:762      {:8} {:8} {:6} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L762
-GPL 0029 nesterovBase.cpp:767      {:8} ( {:6.3f} {:6.3f} ) INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L767
-GPL 0030 nesterovBase.cpp:789      {:8} {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L789
-GPL 0031 nesterovBase.cpp:1573     {:20} {:9} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L1573
-GPL 0032 nesterovBase.cpp:1574     {:20} {:10} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L1574
-GPL 0033 nesterovBase.cpp:1576     {:20} {:10} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L1576
-GPL 0036 routeBase.cpp:149         {:9} ( {:4} {:4} ) ( {:4} {:4} ) DBU INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L149
-GPL 0038 routeBase.cpp:157         {:9} {:6} {:4} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L157
-GPL 0039 routeBase.cpp:159         numRoutingLayers: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L159
-GPL 0040 routeBase.cpp:183         NumTiles: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L183
-GPL 0045 routeBase.cpp:682         {:20} {:10.3f} um^2 ({:+.2f}%) INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L682
-GPL 0046 routeBase.cpp:688         {:20} {:10.3f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L688
-GPL 0047 routeBase.cpp:710         SavedMinRC: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L710
-GPL 0048 routeBase.cpp:711         SavedTargetDensity: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L711
-GPL 0049 routeBase.cpp:723         {:20} {:10.3f} um^2 INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L723
-GPL 0050 routeBase.cpp:728         {:20} {:10.3f} um^2 INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L728
-GPL 0051 routeBase.cpp:733         {:20} {:10.3f} um^2 INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L733
-GPL 0052 routeBase.cpp:738         {:20} {:10.3f} um^2 INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L738
-GPL 0053 routeBase.cpp:744         {:20} {:10.3f} um^2 INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L744
-GPL 0054 routeBase.cpp:765         {:20} {:10.3f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L765
-GPL 0055 routeBase.cpp:770         {:20} {:10.3f} um^2 INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L770
-GPL 0056 routeBase.cpp:775         {:20} {:10.3f} um^2 INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L775
-GPL 0057 routeBase.cpp:780         {:20} {:10.3f} um^2 INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L780
-GPL 0058 routeBase.cpp:785         {:20} {:10.3f} um^2 INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L785
-GPL 0059 routeBase.cpp:790         {:20} {:10.3f} um^2 INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L790
-GPL 0063 routeBase.cpp:926         TotalRouteOverflowH2: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L926
-GPL 0064 routeBase.cpp:927         TotalRouteOverflowV2: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L927
-GPL 0065 routeBase.cpp:928         OverflowTileCnt2: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L928
-GPL 0066 routeBase.cpp:983         0.5%RC: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L983
-GPL 0067 routeBase.cpp:984         1.0%RC: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L984
-GPL 0068 routeBase.cpp:985         2.0%RC: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L985
-GPL 0069 routeBase.cpp:986         5.0%RC: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L986
-GPL 0070 routeBase.cpp:988         0.5rcK: {:.2f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L988
-GPL 0071 routeBase.cpp:989         1.0rcK: {:.2f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L989
-GPL 0072 routeBase.cpp:990         2.0rcK: {:.2f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L990
-GPL 0073 routeBase.cpp:991         5.0rcK: {:.2f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L991
-GPL 0074 routeBase.cpp:999         FinalRC: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L999
-GPL 0075 routeBase.cpp:1007        Routability iteration: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L1007
-GPL 0077 routeBase.cpp:570         FinalRC lower than targetRC({:.4f}), routability not needed. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L570
-GPL 0078 routeBase.cpp:583         FinalRC lower than minRC ({:.4f}), min RC updated. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L583
-GPL 0079 routeBase.cpp:600         MinRC ({}) violation occurred, total count: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L600
-GPL 0080 routeBase.cpp:709         minRcViolatedCnt: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L709
-GPL 0081 routeBase.cpp:840         TotalRouteOverflow: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L840
-GPL 0082 routeBase.cpp:841         OverflowTileCnt: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L841
-GPL 0083 routeBase.cpp:871         0.5%RC: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L871
-GPL 0084 routeBase.cpp:872         1.0%RC: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L872
-GPL 0085 routeBase.cpp:873         2.0%RC: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L873
-GPL 0086 routeBase.cpp:874         5.0%RC: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L874
-GPL 0087 routeBase.cpp:880         FinalRC: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L880
-GPL 0088 nesterovPlace.cpp:593     Routability snapshot saved at iter = {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovPlace.cpp#L593
-GPL 0089 nesterovPlace.cpp:620     Routability: revert back to snapshot INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovPlace.cpp#L620
-GPL 0090 nesterovPlace.cpp:560     Divergence detected, reverting to snapshot with min hpwl. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovPlace.cpp#L560
-GPL 0091 nesterovPlace.cpp:563     Revert to iter: {:4d} overflow: {:.3f} HPWL: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovPlace.cpp#L563
-GPL 0100 nesterovPlace.cpp:454     Timing-driven iteration {}/{}, virtual: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovPlace.cpp#L454
-GPL 0101 nesterovPlace.cpp:461     Iter: {}, overflow: {:.3f}, keep rsz at: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovPlace.cpp#L461
-GPL 0102 timingBase.cpp:174        Timing-driven: no slacks found. Timing-driven mode disabled. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/timingBase.cpp#L174
-GPL 0103 timingBase.cpp:214        Timing-driven: weighted {} nets. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/timingBase.cpp#L214
-GPL 0105 timingBase.cpp:158        Timing-driven: no net slacks found. Timing-driven mode disabled. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/timingBase.cpp#L158
-GPL 0106 timingBase.cpp:171        Timing-driven: worst slack {:.3g} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/timingBase.cpp#L171
-GPL 0107 nesterovPlace.cpp:498     Timing-driven: repair_design delta area: {:.3f} um^2 ({:+.2f}%) INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovPlace.cpp#L498
-GPL 0108 nesterovPlace.cpp:504     Timing-driven: new target density: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovPlace.cpp#L504
-GPL 0113 replace.tcl:356           No design block found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L356
-GPL 0114 replace.tcl:424           No design block found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L424
-GPL 0115 replace.tcl:157           -disable_timing_driven is deprecated. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L157
-GPL 0116 replace.tcl:169           -disable_routability_driven is deprecated. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L169
-GPL 0117 replace.tcl:389           No design block found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L389
-GPL 0118 placerBase.cpp:795        core area outside of die. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L795
-GPL 0119 placerBase.cpp:849        instance {} height is larger than core. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L849
-GPL 0120 placerBase.cpp:853        instance {} width is larger than core. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L853
-GPL 0121 replace.tcl:122           No liberty libraries found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L122
-GPL 0122 mbff.cpp:218              {} is not in 2^[0,{}] ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/mbff.cpp#L218
-GPL 0130 replace.tcl:338           No rows defined in design. Use initialize_floorplan to add rows. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L338
-GPL 0131 replace.tcl:456           No rows defined in design. Use initialize_floorplan to add rows. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L456
-GPL 0132 replace.cpp:186           Locked {} instances INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.cpp#L186
-GPL 0133 replace.cpp:203           Unlocked instances INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.cpp#L203
-GPL 0134 placerBase.cpp:108        Master {} is not marked as a BLOCK in LEF but is more  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L108
-GPL 0135 replace.tcl:208           Target density must be in \[0, 1\]. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L208
-GPL 0136 replace.cpp:293           No placeable instances - skipping placement. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.cpp#L293
-GPL 0137 mbff.cpp:2202             No tray found for group of {} flop instances containing {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/mbff.cpp#L2202
-GPL 0138 mbff.cpp:2223             No clusterable flops found WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/mbff.cpp#L2223
-GPL 0150 replace.tcl:126           -skip_io will disable timing driven mode. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L126
-GPL 0151 replace.tcl:164           -skip_io will disable routability driven mode. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L164
-GPL 0152 replace.tcl:109           -force_cpu is deprecated. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L109
-GPL 0153 mbff.cpp:972              ILP solver failed to find an solution solution! ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/mbff.cpp#L972
-GPL 0301 placerBase.cpp:1334       Utilization {:.3f} % exceeds 100%. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L1334
-GPL 0302 nesterovBase.cpp:1686     Use a higher -density or  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L1686
-GPL 0303 nesterovBase.cpp:1960     Use a higher -density or  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L1960
-GPL 0304 nesterovPlace.cpp:275     RePlAce diverged at initial iteration with steplength being {}.  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovPlace.cpp#L275
-GPL 0305 placerBase.cpp:789        Unable to find a site ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L789
-GPL 0306 nesterovBase.cpp:698      GPL component has no placed instances. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L698
-GPL 9032 mbff.cpp:606              Could not recognize port {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/mbff.cpp#L606
+GPL 0001 placerBase.cpp:494        {} toplevel port is not placed!\n WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L494
+GPL 0002 placerBase.cpp:749        DBU: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L749
+GPL 0003 placerBase.cpp:777        {:9} ( {:6.3f} {:6.3f} ) um INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L777
+GPL 0004 placerBase.cpp:783        {:9} ( {:6.3f} {:6.3f} ) ( {:6.3f} {:6.3f} ) um INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L783
+GPL 0012 placerBase.cpp:1258       {:10} ( {:6.3f} {:6.3f} ) ( {:6.3f} {:6.3f} ) um INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L1258
+GPL 0013 placerBase.cpp:1266       {:10} ( {:6.3f} {:6.3f} ) ( {:6.3f} {:6.3f} ) um INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L1266
+GPL 0019 placerBase.cpp:1295       {:27} {:10.3f} % INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L1295
+GPL 0028 nesterovBase.cpp:800      {:21} {:7d} , {:6d} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L800
+GPL 0029 nesterovBase.cpp:806      {:21} {:7.3f} * {:6.3f} um INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L806
+GPL 0031 nesterovBase.cpp:2588     HPWL: Half-Perimeter Wirelength INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L2588
+GPL 0039 routeBase.cpp:134         Number of routing layers: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L134
+GPL 0040 routeBase.cpp:1018        Routability iteration: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L1018
+GPL 0041 routeBase.cpp:843         Total routing overflow: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L843
+GPL 0042 routeBase.cpp:844         Number of overflowed tiles: {} ({:.2f}%) INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L844
+GPL 0043 routeBase.cpp:879         Average top 0.5% routing congestion: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L879
+GPL 0044 routeBase.cpp:880         Average top 1.0% routing congestion: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L880
+GPL 0045 routeBase.cpp:881         Average top 2.0% routing congestion: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L881
+GPL 0046 routeBase.cpp:882         Average top 5.0% routing congestion: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L882
+GPL 0047 routeBase.cpp:888         Routability iteration weighted routing congestion: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L888
+GPL 0048 routeBase.cpp:557         Routing congestion ({:.4f}) lower than previous minimum  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L557
+GPL 0049 routeBase.cpp:578         Routing congestion ({:.4f}) higher than minimum ({:.4f}).  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L578
+GPL 0050 routeBase.cpp:545         Weighted routing congestion is lower than target routing  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L545
+GPL 0053 routeBase.cpp:693         Target density {:.4f} exceeds the maximum allowed {:.4f}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L693
+GPL 0054 routeBase.cpp:700         No improvement in routing congestion for {} consecutive  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L700
+GPL 0055 routeBase.cpp:707         Reverting inflation values and target density from the iteration with  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L707
+GPL 0056 routeBase.cpp:713         Minimum observed routing congestion: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L713
+GPL 0057 routeBase.cpp:714         Target density at minimum routing congestion: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L714
+GPL 0064 routeBase.cpp:937         TotalRouteOverflowH2: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L937
+GPL 0065 routeBase.cpp:938         TotalRouteOverflowV2: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L938
+GPL 0066 routeBase.cpp:939         OverflowTileCnt2: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L939
+GPL 0067 routeBase.cpp:994         0.5%RC: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L994
+GPL 0068 routeBase.cpp:995         1.0%RC: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L995
+GPL 0069 routeBase.cpp:996         2.0%RC: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L996
+GPL 0070 routeBase.cpp:997         5.0%RC: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L997
+GPL 0071 routeBase.cpp:999         0.5rcK: {:.2f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L999
+GPL 0072 routeBase.cpp:1000        1.0rcK: {:.2f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L1000
+GPL 0073 routeBase.cpp:1001        2.0rcK: {:.2f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L1001
+GPL 0074 routeBase.cpp:1002        5.0rcK: {:.2f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L1002
+GPL 0075 routeBase.cpp:1010        Final routing congestion: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/routeBase.cpp#L1010
+GPL 0088 nesterovPlace.cpp:639     Routability snapshot saved at iter = {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovPlace.cpp#L639
+GPL 0089 nesterovPlace.cpp:667     Routability end iteration: revert back to snapshot INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovPlace.cpp#L667
+GPL 0090 nesterovPlace.cpp:600     Divergence detected, reverting to snapshot with min hpwl. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovPlace.cpp#L600
+GPL 0091 nesterovPlace.cpp:603     Revert to iter: {:4d} overflow: {:.3f} HPWL: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovPlace.cpp#L603
+GPL 0092 nesterovPlace.cpp:454     Mismatch in #cells between central object and all regions.  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovPlace.cpp#L454
+GPL 0093 nesterovPlace.cpp:504     Buffer insertion count by rsz ({}) and cells created  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovPlace.cpp#L504
+GPL 0094 replace.tcl:400           placement_cluster requires a list of instances. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L400
+GPL 0095 replace.tcl:464           Instances {$names} for $cmd command were not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L464
+GPL 0096 replace.tcl:411           Created placement cluster of [llength $insts] instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L411
+GPL 0100 nesterovPlace.cpp:413     Timing-driven iteration {}/{}, virtual: {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovPlace.cpp#L413
+GPL 0101 nesterovPlace.cpp:420        Iter: {}, overflow: {:.3f}, keep resizer changes at: {},  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovPlace.cpp#L420
+GPL 0102 timingBase.cpp:146        Timing-driven: no slacks found. Timing-driven mode disabled. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/timingBase.cpp#L146
+GPL 0105 timingBase.cpp:130        Timing-driven: no net slacks found. Timing-driven mode disabled. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/timingBase.cpp#L130
+GPL 0106 timingBase.cpp:143        Timing-driven: worst slack {:.3g} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/timingBase.cpp#L143
+GPL 0107 nesterovPlace.cpp:482     Timing-driven: repair_design delta area: {:.3f} um^2 ({:+.2f}%) INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovPlace.cpp#L482
+GPL 0108 nesterovPlace.cpp:496     Timing-driven: repair_design, gpl cells created: {} ({:+.2f}%) INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovPlace.cpp#L496
+GPL 0109 nesterovPlace.cpp:511     Timing-driven: inserted buffers as reported by  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovPlace.cpp#L511
+GPL 0110 nesterovPlace.cpp:516     Timing-driven: new target density: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovPlace.cpp#L516
+GPL 0113 replace.tcl:326           No design block found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L326
+GPL 0114 replace.tcl:419           No design block found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L419
+GPL 0115 replace.tcl:127           -disable_timing_driven is deprecated. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L127
+GPL 0116 replace.tcl:139           -disable_routability_driven is deprecated. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L139
+GPL 0117 replace.tcl:359           No design block found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L359
+GPL 0118 placerBase.cpp:768        core area outside of die. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L768
+GPL 0119 placerBase.cpp:822        instance {} height is larger than core. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L822
+GPL 0120 placerBase.cpp:826        instance {} width is larger than core. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L826
+GPL 0121 replace.tcl:92            No liberty libraries found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L92
+GPL 0122 mbff.cpp:190              {} is not in 2^[0,{}] ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/mbff.cpp#L190
+GPL 0130 replace.tcl:308           No rows defined in design. Use initialize_floorplan to add rows. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L308
+GPL 0131 replace.tcl:451           No rows defined in design. Use initialize_floorplan to add rows. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L451
+GPL 0132 replace.cpp:164           Locked {} instances INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.cpp#L164
+GPL 0133 replace.cpp:181           Unlocked instances INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.cpp#L181
+GPL 0134 placerBase.cpp:81         Master {} is not marked as a BLOCK in LEF but is more  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L81
+GPL 0135 replace.tcl:178           Target density must be in \[0, 1\]. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L178
+GPL 0136 replace.cpp:271           No placeable instances - skipping placement. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.cpp#L271
+GPL 0137 mbff.cpp:2174             No tray found for group of {} flop instances containing {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/mbff.cpp#L2174
+GPL 0138 mbff.cpp:2195             No clusterable flops found WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/mbff.cpp#L2195
+GPL 0150 replace.tcl:96            -skip_io will disable timing driven mode. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L96
+GPL 0151 replace.tcl:134           -skip_io will disable routability driven mode. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L134
+GPL 0152 replace.tcl:79            -force_cpu is deprecated. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/replace.tcl#L79
+GPL 0153 mbff.cpp:944              ILP solver failed to find an solution solution! ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/mbff.cpp#L944
+GPL 0301 placerBase.cpp:1310       Utilization {:.3f} % exceeds 100%. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L1310
+GPL 0302 nesterovBase.cpp:1772     Consider increasing the target density or re-floorplanning  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L1772
+GPL 0303 nesterovBase.cpp:2046     Consider increasing the target density or re-floorplanning  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L2046
+GPL 0304 nesterovPlace.cpp:234     RePlAce diverged at initial iteration with steplength being {}.  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovPlace.cpp#L234
+GPL 0305 placerBase.cpp:762        Unable to find a site ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/placerBase.cpp#L762
+GPL 0306 nesterovBase.cpp:735      GPL component has no placed instances. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L735
+GPL 0307 nesterovBase.cpp:3167     db_inst not found in db_inst_to_NBC_index_map_ when trying to  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L3167
+GPL 0308 nesterovBase.cpp:3214     db_net not found in db_net_to_NBC_index_map_ for net: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L3214
+GPL 0309 nesterovBase.cpp:3225     index {} out of bounds for gNetStor_ (max: {}) ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L3225
+GPL 0310 nesterovBase.cpp:3255     index {} out of bounds for gPinStor_ (max:{}) ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L3255
+GPL 0311 nesterovBase.cpp:3271     db_iterm not found in db_iterm_map_ for iterm: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L3271
+GPL 1000 nesterovBase.cpp:2757     PowerDomain {} finished with Overflow: {:.6f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L2757
+GPL 1001 nesterovBase.cpp:2763     Finished with Overflow: {:.6f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L2763
+GPL 1004 nesterovBase.cpp:2780     Minimum Feasible Density        {:.4f} (cell_area / free_area) INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L2780
+GPL 1006 nesterovBase.cpp:2792       Suggested Target Densities: INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L2792
+GPL 1007 nesterovBase.cpp:2793         - For 90% usage of free space: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L2793
+GPL 1008 nesterovBase.cpp:2799         - For 80% usage of free space: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L2799
+GPL 1009 nesterovBase.cpp:2807         - For 50% usage of free space: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L2807
+GPL 1015 nesterovBase.cpp:2815     High uniform density (>{:.2f}) may cause congestion or  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/nesterovBase.cpp#L2815
+GPL 9032 mbff.cpp:578              Could not recognize port {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/gpl/src/mbff.cpp#L578

@@ -36,15 +36,13 @@
 #include "Delay.hh"
 #include "GraphClass.hh"
 #include "VertexId.hh"
-#include "PathPrev.hh"
+#include "Path.hh"
 #include "StaState.hh"
 
 namespace sta {
 
 class MinMax;
 class Sdc;
-
-enum class LevelColor { white, gray, black };
 
 typedef ObjectTable<Vertex> VertexTable;
 typedef ObjectTable<Edge> EdgeTable;
@@ -96,19 +94,9 @@ public:
   void deleteVertex(Vertex *vertex);
   bool hasFaninOne(Vertex *vertex) const;
   VertexId vertexCount() { return vertices_->size(); }
-  Arrival *makeArrivals(Vertex *vertex,
-			uint32_t count);
-  Arrival *arrivals(const Vertex *vertex) const;
-  void deleteArrivals(Vertex *vertex);
-  Required *makeRequireds(Vertex *vertex,
-                          uint32_t count);
-  Required *requireds(const Vertex *vertex) const;
-  void deleteRequireds(Vertex *vertex);
-  PathPrev *makePrevPaths(Vertex *vertex,
-			       uint32_t count);
-  PathPrev *prevPaths(const Vertex *vertex) const;
-  void deletePrevPaths(Vertex *vertex);
-  // Private to Search::deletePaths(Vertex).
+  Path *makePaths(Vertex *vertex,
+                  uint32_t count);
+  Path *paths(const Vertex *vertex) const;
   void deletePaths(Vertex *vertex);
 
   // Reported slew are the same as those in the liberty tables.
@@ -257,22 +245,24 @@ public:
   ~Vertex();
   Pin *pin() const { return pin_; }
   // Pin path with load/driver suffix for bidirects.
+  std::string to_string(const StaState *sta) const;
+  // compatibility
   const char *name(const Network *network) const;
   bool isBidirectDriver() const { return is_bidirect_drvr_; }
   bool isDriver(const Network *network) const;
   Level level() const { return level_; }
   void setLevel(Level level);
+  bool visited() const { return visited1_; }
+  void setVisited(bool visited);
+  bool visited2() const { return visited2_; }
+  void setVisited2(bool visited);
   bool isRoot() const{ return level_ == 0; }
   bool hasFanin() const;
   bool hasFanout() const;
-  LevelColor color() const { return static_cast<LevelColor>(color_); }
-  void setColor(LevelColor color);
   Slew *slews() { return slews_; }
   const Slew *slews() const { return slews_; }
-  Arrival *arrivals() const { return arrivals_; }
-  Arrival *requireds() const { return requireds_; }
-  PathPrev *prevPaths() const { return prev_paths_; }
-  void setPrevPaths(PathPrev *prev_paths);
+  Path *paths() const { return paths_; }
+  void setPaths(Path *paths);
   TagGroupIndex tagGroupIndex() const;
   void setTagGroupIndex(TagGroupIndex tag_index);
   // Slew is annotated by sdc set_annotated_transition cmd.
@@ -311,7 +301,6 @@ public:
   bool isRegClk() const { return is_reg_clk_; }
   bool crprPathPruningDisabled() const { return crpr_path_pruning_disabled_;}
   void setCrprPathPruningDisabled(bool disabled);
-  bool hasRequireds() const { return requireds_ != nullptr; }
   
   // ObjectTable interface.
   ObjectIdx objectIdx() const { return object_idx_; }
@@ -324,8 +313,6 @@ protected:
 	    bool is_bidirect_drvr,
 	    bool is_reg_clk);
   void clear();
-  void setArrivals(Arrival *arrivals);
-  void setRequireds(Required *requireds);
   void setSlews(Slew *slews);
 
   Pin *pin_;
@@ -335,9 +322,7 @@ protected:
   // Delay calc
   Slew *slews_;
   // Search
-  Arrival *arrivals_;
-  Arrival *requireds_;
-  PathPrev *prev_paths_;
+  Path *paths_;
 
   // These fields are written by multiple threads, so they
   // cannot share the same word as the following bit fields.
@@ -345,16 +330,15 @@ protected:
   // Each bit corresponds to a different BFS queue.
   std::atomic<uint8_t> bfs_in_queue_; // 8
 
-  unsigned int level_:Graph::vertex_level_bits; // 24
+  int level_:Graph::vertex_level_bits; // 24
   unsigned int slew_annotated_:slew_annotated_bits;  // 4
-  // Levelization search state.
-  // LevelColor gcc barfs if this is dcl'd.
-  unsigned color_:2;
   // LogicValue gcc barfs if this is dcl'd.
   unsigned sim_value_:3;
   // Bidirect pins have two vertices.
   // This flag distinguishes the driver and load vertices.
   bool is_bidirect_drvr_:1;
+
+  unsigned object_idx_:VertexTable::idx_bits; // 7
   bool is_reg_clk_:1;
   bool is_disabled_constraint_:1;
   bool is_gated_clk_enable_:1;
@@ -365,7 +349,8 @@ protected:
   bool is_constrained_:1;
   bool has_downstream_clk_pin_:1;
   bool crpr_path_pruning_disabled_:1;
-  unsigned object_idx_:VertexTable::idx_bits; // 7
+  bool visited1_:1;
+  bool visited2_:1;
 
 private:
   friend class Graph;
@@ -381,11 +366,12 @@ class Edge
 public:
   Edge();
   ~Edge();
+  std::string to_string(const StaState *sta) const;
   Vertex *to(const Graph *graph) const { return graph->vertex(to_); }
   VertexId to() const { return to_; }
   Vertex *from(const Graph *graph) const { return graph->vertex(from_); }
   VertexId from() const { return from_; }
-  TimingRole *role() const;
+  const TimingRole *role() const;
   bool isWire() const;
   TimingSense sense() const;
   TimingArcSet *timingArcSet() const { return arc_set_; }
@@ -440,7 +426,7 @@ protected:
   ArcDelay *arc_delays_;
   union {
     uintptr_t bits_;
-    vector<bool> *seq_;
+    std::vector<bool> *seq_;
   } arc_delay_annotated_;
   bool arc_delay_annotated_is_bits_:1;
   bool delay_annotation_is_incremental_:1;
