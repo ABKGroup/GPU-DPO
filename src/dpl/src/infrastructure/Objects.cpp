@@ -575,5 +575,13 @@ DbuY Pin::getPinHeight() const
 {
   return pinHeight_;
 }
+void Pin::setId(int id) 
+{
+  id_ = id;
+}
+int Pin::getId()
+{
+  return id_;
+}
 
 }  // namespace dpl

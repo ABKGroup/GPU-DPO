@@ -13,6 +13,8 @@
 
 #include "infrastructure/Grid.h"
 #include "infrastructure/network.h"
+#include "infrastructure/FlattenedData.h"
+#include "infrastructure/GpuData.cuh"
 #include "util/journal.h"
 #include "util/utility.h"
 namespace utl {
@@ -24,6 +26,8 @@ class PlacementDRC;
 class Architecture;
 class DetailedSeg;
 class Network;
+class FlattenedData;
+class GpuData;
 
 enum class BlockageType
 {
@@ -72,6 +76,8 @@ class DetailedMgr
 
   Architecture* getArchitecture() const { return arch_; }
   Network* getNetwork() const { return network_; }
+  FlattenedData* getFlattenedData() const { return flattenedData_; }
+  GpuData* getGpuData() const { return gpuData_; }
 
   void setLogger(utl::Logger* logger) { logger_ = logger; }
   utl::Logger* getLogger() const { return logger_; }
@@ -330,6 +336,8 @@ class DetailedMgr
   Grid* grid_;
   PlacementDRC* drc_engine_;
   Journal journal;
+  FlattenedData* flattenedData_;
+  GpuData* gpuData_;
 
   // For output.
   utl::Logger* logger_ = nullptr;

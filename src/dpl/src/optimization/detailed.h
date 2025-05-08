@@ -11,6 +11,8 @@
 
 #include "infrastructure/architecture.h"
 #include "infrastructure/network.h"
+#include "infrastructure/FlattenedData.h"
+#include "infrastructure/GpuData.cuh"
 
 namespace dpl {
 
@@ -43,6 +45,11 @@ class Detailed
 
   Architecture* arch_ = nullptr;
   Network* network_ = nullptr;
+
+  FlattenedData* flattenedData_ = nullptr;
+  GpuData* gpuData_ = nullptr;
+
+  bool deviceOpsDone = false;
 };
 
 }  // namespace dpl

@@ -38,7 +38,8 @@ DetailedMgr::DetailedMgr(Architecture* arch,
       network_(network),
       grid_(grid),
       drc_engine_(drc_engine),
-      journal(grid, this)
+      journal(grid, this),
+      flattenedData_(arch, network)
 {
   singleRowHeight_ = arch_->getRow(0)->getHeight();
   numSingleHeightRows_ = arch_->getNumRows();
@@ -62,6 +63,9 @@ DetailedMgr::DetailedMgr(Architecture* arch,
   reverseCellToSegs_.resize(network_->getNumNodes());
 
   recordOriginalPositions();
+
+  // construct the flattened database
+  flattenedData_->createFlattenedData();
 }
 
 ////////////////////////////////////////////////////////////////////////////////

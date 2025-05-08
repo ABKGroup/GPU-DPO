@@ -254,6 +254,10 @@ void Opendp::createArchitecture()
   arch_->setSiteWidth(grid_->getSiteWidth());
 
   arch_->postProcess(network_.get());
+
+  // Reorder and reindex nodes for gpu preprocessing
+  network_->reorderAndReindexNodes();
+  network_->sanityCheckAndPrintStats();
 }
 
 void Opendp::setUpPlacementGroups()

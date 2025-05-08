@@ -228,6 +228,8 @@ class Pin
   DbuX getPinWidth() const;
   void setPinHeight(DbuY height);
   DbuY getPinHeight() const;
+  int getId() const;
+  void setId(int id);
 
  private:
   // Pin width and height.
@@ -243,6 +245,8 @@ class Pin
   // Offsets from cell center.
   DbuX offsetX_{0};
   DbuY offsetY_{0};
+  // Pin Id.
+  int id_ = 0;
 };
 
 }  // namespace dpl

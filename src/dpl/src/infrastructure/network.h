@@ -7,6 +7,7 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
+#include <iostream>
 
 #include "Coordinates.h"
 #include "Objects.h"
@@ -83,9 +84,19 @@ class Network
   const std::string& getEdgeName(int i) const { return edgeNames_.at(i); }
 
   int getNumPins() const { return (int) pins_.size(); }
+  Pin* getPin(int i) { return pins_[i].get(); }
 
   int getNumBlockages() const { return (int) blockages_.size(); }
   odb::Rect getBlockage(int i) const { return blockages_[i]; }
+
+  // used for gpu indexing
+  int getNumMovableNodes() { return numMovableNodes_; }
+  int getNumTerminalNodes() { return numTerminalNodes_; }
+  int getNumFillerNodes() { return numFillerNodes_; }
+
+  void setNumMovableNodes(int num) { numMovableNodes_ = num; }
+  void setNumTerminalNodes(int num) { numTerminalNodes_ = num; }
+  void setNumFillerNodes(int num) { numFillerNodes_ = num; }
 
   // For creating and adding cells.
   void addNode(odb::dbInst*);
@@ -110,6 +121,10 @@ class Network
   void setCore(const odb::Rect& core) { core_ = core; }
   const odb::Rect& getCore() const { return core_; }
 
+  // gpu pre-processing
+  void reorderAndReindexNodes();
+  void sanityCheckAndPrintStats();
+
  private:
   Pin* addPin(odb::dbITerm* term);
   Pin* addPin(odb::dbBTerm* term);
@@ -133,6 +148,11 @@ class Network
   uint cells_cnt_{0};
   uint terminals_cnt_{0};
   uint filler_cnt_{0};
+
+  // for gpu
+  uint numMovableNodes_{0};
+  uint numTerminalNodes_{0};
+  uint numFillerNodes_{0};
 };
 
 }  // namespace dpl

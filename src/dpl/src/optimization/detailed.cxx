@@ -44,6 +44,11 @@ bool Detailed::improve(DetailedMgr& mgr)
   arch_ = mgr.getArchitecture();
   network_ = mgr.getNetwork();
 
+  // Copy the data from host to device
+  flattenedData_ = mgr.getFlattenedData(); 
+  gpuData_ = mgr.getGpuData();
+  gpuData_->copyToDevice(flattenedData_);
+
   // Parse the script string and run each command.
   boost::char_separator<char> separators(" \r\t\n", ";");
   boost::tokenizer<boost::char_separator<char>> tokens(params_.script_,
@@ -60,6 +65,11 @@ bool Detailed::improve(DetailedMgr& mgr)
       // Command ended by a semi-colon.
       doDetailedCommand(args);
       args.clear();
+      // Copy data back to host once done
+      if (deviceOpsDone) {
+        gpuData_->copyToHost(flattenedData_);
+        flattenedData_->populateNetwork(network_);
+      }
     } else {
       args.push_back(temp);
     }
@@ -144,17 +154,18 @@ void Detailed::doDetailedCommand(std::vector<std::string>& args)
   logger->info(DPL, 303, "Running algorithm for {:s}.", command);
 
   if (strcmp(args[0].c_str(), "mis") == 0) {
-    DetailedMis mis(arch_, network_);
+    DetailedMis mis(gpuData_);
     mis.run(mgr_, args);
   } else if (strcmp(args[0].c_str(), "gs") == 0) {
-    DetailedGlobalSwap gs(arch_, network_);
+    DetailedGlobalSwap gs(gpuData_);
     gs.run(mgr_, args);
   } else if (strcmp(args[0].c_str(), "vs") == 0) {
     DetailedVerticalSwap vs(arch_, network_);
     vs.run(mgr_, args);
   } else if (strcmp(args[0].c_str(), "ro") == 0) {
-    DetailedReorderer ro(arch_, network_);
+    DetailedReorderer ro(gpuData_);
     ro.run(mgr_, args);
+    deviceOpsDone = true;
   } else if (strcmp(args[0].c_str(), "orient") == 0) {
     DetailedOrient orienter(arch_, network_);
     orienter.run(mgr_, args);

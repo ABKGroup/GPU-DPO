@@ -59,6 +59,7 @@ Pin* Network::addPin(odb::dbITerm* term)
   auto dx = xx - ((int) master->getWidth() / 2);
   auto dy = yy - ((int) master->getHeight() / 2);
 
+  upin->setId((int) pins_.size());
   upin->setOffsetX(DbuX{dx});
   upin->setOffsetY(DbuY{dy});
   upin->setPinHeight(DbuY{hh});
@@ -71,6 +72,7 @@ Pin* Network::addPin(odb::dbBTerm* term)
 {
   auto upin = std::make_unique<Pin>();
   Pin* ptr = upin.get();
+  upin->setId((int) pins_.size());
   pins_.emplace_back(std::move(upin));
   return ptr;
 }
@@ -433,8 +435,115 @@ void Network::clear()
   cells_cnt_ = 0;
   terminals_cnt_ = 0;
   filler_cnt_ = 0;
+  numMovableNodes_ = 0;
+  numTerminalNodes_ = 0;
+  numFillerNodes_ = 0;
 }
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+void Network::reorderAndReindexNodes()
+{
+  // do this to ensure that when iterating through nodes,
+  // map the first group to movable nodes
+  // map the second group to fixed/terminal nodes
+  // map the last group to filler nodes
+  std::vector<Node*> movableNodes;
+  std::vector<Node*> terminalNodes;
+  std::vector<Node*> fillerNodes;
+
+  // save mapping from old node id to Node*
+  std::unordered_map<int, Node*> oldIdToNode;
+  for (Node* node : nodes_) {
+    oldIdToNode[node->getId()] = node;
+  }
+
+  for (Node* node : nodes_) {
+    if (node->getType() == Node::CELL && !node->isFixed()) {
+      movableNodes.push_back(node);
+    } else if (node->getType() == Node::TERMINAL) {
+      terminalNodes.push_back(node);
+    } else if (node->getType() == Node::FILLER) {
+      fillerNodes.push_back(node);
+    } else {
+      terminalNodes.push_back(node);  // add all other fixed nodes to terminal
+    }
+  }
+
+  setNumMovableNodes(movableNodes.size());
+  setNumTerminalNodes(terminalNodes.size());
+  setNumFillerNodes(fillerNodes.size());
+
+  nodes_.clear();
+  nodes_.insert(nodes_.end(), movableNodes.begin(), movableNodes.end());
+  nodes_.insert(nodes_.end(), terminalNodes.begin(), terminalNodes.end());
+  nodes_.insert(nodes_.end(), fillerNodes.begin(), fillerNodes.end());
+
+  std::unordered_map<int, std::string> newNodeNames;
+  for (int newId = 0; newId < static_cast<int>(nodes_.size()); newId++) {
+    Node* node = nodes_[newId];
+    int oldId = node->getId();    // current ID before old assignment is still old ID
+    node->setId(newId);           // assign new ID
+    auto it = nodeNames_.find(oldId);
+    if (it != nodeNames_.end()) {
+      newNodeNames[newId] = it->second;
+    }
+  }
+
+  nodeNames_ = std::move(newNodeNames);
+}
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+void Network::sanityCheckAndPrintStats() {
+  int numMovable = 0;
+  int numTerminals = 0;
+  int numFillers = 0;
+
+  // count types and verify IDs match index
+  for (size_t i = 0; i < nodes_.size(); i++) {
+    const Node* node = nodes_[i];
+    if (node->getId() != static_cast<int>(i)) {
+      std::cerr << "[INFO GPU-DPO] Error: Node ID mismatch: expected " << i << ", found " << node->getId() << "\n";
+    }
+
+    if (node->getType() == Node::CELL && !node->getFixed()) {
+      numMovable++;
+    } else if (node->getType() == Node::TERMINAL) {
+      numTerminals++;
+    } else if (node->getType() == Node::FILLER) {
+      numFillers++;
+    } else {
+      std::cerr << "[INFO GPU-DPO] Error: Unknown node type in node " << i << "\n";
+    }
+  }
+
+  std::cout << "[INFO GPU-DPO] === Network Node Summary ===\n";
+  std::cout << "Total Nodes     : " << nodes_.size() << "\n";
+  std::cout << "Movable Nodes   : " << getNumMovableNodes() << "\n";
+  std::cout << "Terminal Nodes  : " << getNumTerminalNodes() << "\n";
+  std::cout << "Filler Nodes    : " << getNumFillerNodes() << "\n";
+  assert(nodes_.size() == numMovable + numTerminals + numFillers);
+
+  // Check pins
+  for (int i = 0; i < pins_.size(); i++) {
+    const Pin* pin = pins_[i];
+    const Node* node = pin->getNode();
+    if (node != nodes_[node->getId()]) {
+      std::cerr << "[INFO GPU-DPO] Error: Pin " << i << " points to node with ID " << node->getId()
+                << ", but nodes_[" << node->getId() << "] != pin->getNode()\n";
+    }
+  }
+
+  // Check nets
+  for (int i = 0; i < edges_.size(); i++) {
+    const Edge* edge = edges_[i];
+    for (const Pin* pin : edge->getPins()) {
+      if (pin == nullptr || pin->getNode() == nullptr) {
+        std::cerr << "[INFO GPU-DPO] Error: Null pin or node in edge " << i << "\n";
+      }
+    }
+  }
+
+  std::cout << "[INFO GPU-DPO] Sanity check completed.\n";
+}
 
 }  // namespace dpl
