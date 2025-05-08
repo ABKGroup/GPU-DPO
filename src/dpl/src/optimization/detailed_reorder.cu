@@ -10,6 +10,8 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
+#include <cmath>
+#include <omp.h>
 
 #include "detailed_manager.h"
 #include "infrastructure/architecture.h"
@@ -23,14 +25,14 @@ namespace dpl {
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
-DetailedReorderer::DetailedReorderer(GpuData* gpuData)
-    : db_(gpuData)
+DetailedReorderer::DetailedReorderer(Architecture* arch, Network* network)
+    : arch_(arch), network_(network)
 {
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
-void DetailedReorderer::run(DetailedMgr* mgrPtr, const std::string& command)
+void DetailedReorderer::run(DetailedMgr* mgrPtr, GpuData& db, const std::string& command)
 {
   // A temporary interface to allow for a string which we will decode to create
   // the arguments.
@@ -40,190 +42,7 @@ void DetailedReorderer::run(DetailedMgr* mgrPtr, const std::string& command)
   for (const auto& token : tokens) {
     args.push_back(token);
   }
-  run(mgrPtr, args);
-}
-
-///////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////
-void DetailedReorderer::run(DetailedMgr* mgrPtr,
-                            const std::vector<std::string>& args)
-{
-  // Given the arguments, figure out which routine to run to do the reordering.
-
-  mgrPtr_ = mgrPtr;
-  db_ = mgrPtr_->getGpuData();
-
-  windowSize_ = 3;
-
-  int passes = 1;
-  double tol = 0.01;
-  for (size_t i = 1; i < args.size(); i++) {
-    if (args[i] == "-w" && i + 1 < args.size()) {
-      windowSize_ = std::atoi(args[++i].c_str());
-    } else if (args[i] == "-p" && i + 1 < args.size()) {
-      passes = std::atoi(args[++i].c_str());
-    } else if (args[i] == "-t" && i + 1 < args.size()) {
-      tol = std::atof(args[++i].c_str());
-    } else if (args[i] == "-binX" && i + 1 < args.size()) {
-      numBinsX_ = std::atoi(args[++i].c_str());
-    } else if (args[i] == "-binY" && i + 1 < args.size()) {
-      numBinsY_ = std::atoi(args[++i].c_str());
-    }
-  }
-  windowSize_ = std::min(4, std::max(2, windowSize_));
-  tol = std::max(tol, 0.01);
-
-  db_.set_num_bins(numBinsX_, numBinsY_);
-  KReorderState state;
-  DetailedPlaceData cpu_db;
-  state.K = windowSize_;
-
-  // distribute cells to rows on host
-  // copy cell locations from device to host
-  std::vector<std::vector<int>> host_row2node_map(db_.num_sites_y);
-  std::vector<float> host_node_space_x(db_.num_movable_nodes);
-  std::vector<std::vector<int>> host_permutations = quick_perm(K);
-  std::vector<unsigned char> host_adjacency_matrix;
-  std::vector<std::vector<int>> host_row_graph;
-  std::vector<std::vector<int>> host_independent_rows;
-  std::vector<std::vector<KReorderInstance>> host_reorder_instances;
-  printf("[INFO GPU-DPO] %d permutations\n", host_permutations.size());
-
-  // initialize cpu db from db
-  {
-    cpu_db.xl = db_.xl;
-    cpu_db.yl = db_.yl;
-    cpu_db.xh = db_.xh;
-    cpu_db.yh = db_.yh;
-    cpu_db.site_width = db_.site_width;
-    cpu_db.row_height = db_.row_height;
-    cpu_db.bin_size_x = db_.bin_size_x;
-    cpu_db.bin_size_y = db_.bin_size_y;
-    cpu_db.num_bins_x = db_.num_bins_x;
-    cpu_db.num_bins_y = db_.num_bins_y;
-    cpu_db.num_sites_x = db_.num_sites_x;
-    cpu_db.num_sites_y = db_.num_sites_y;
-    cpu_db.num_nodes = db_.num_nodes;
-    cpu_db.num_movable_nodes = db_.num_movable_nodes;
-    cpu_db.num_nets = db_.num_nets;
-    cpu_db.num_pins = db_.num_pins;
-
-    allocateCopyCpu(cpu_db.net_mask, db_.net_mask, db_.num_nets, int);
-    allocateCopyCpu(cpu_db.flat_net2pin_start_map, db_.flat_net2pin_start_map, db_.num_nets + 1, int);
-    allocateCopyCpu(cpu_db.flat_net2pin_map, db_.flat_net2pin_map, db_.num_pins, int);
-    allocateCopyCpu(cpu_db.pin2node_map, db_.pin2node_map, db_.num_pins, int);
-    allocateCopyCpu(cpu_db.x, db_.x, db_.num_nodes, int);
-    allocateCopyCpu(cpu_db.y, db_.y, db_.num_nodes, int);
-    allocateCopyCpu(cpu_db.node_size_x, db_.node_size_x, db_.num_nodes, int);
-    allocateCopyCpu(cpu_db.node_size_y, db_.node_size_y, db_.num_nodes, int);
-
-    make_row2node_map(cpu_db, cpu_db.x, cpu_db.y, host_row2node_map, db_.num_threads);
-    std::vector<std::vector<int>> host_row2node_map_left = db_.reorder_row_map(cpu_db.x, cpu_db.y, cpu_db.node_size_x, cpu_db.node_size_y, host_row2node_map, 1);
-    host_node_space_x.resize(cpu_db.num_movable_nodes);
-    for (int i = 0; i < cpu_db.num_sites_y; ++i) {
-      for (unsigned int j = 0; j < host_row2node_map_left.at(i).size(); ++j) {
-        int node_id = host_row2node_map_left[i][j];
-        if (node_id < db_.num_movable_nodes) {
-          auto& space = host_node_space_x[node_id];
-          int space_xl = cpu_db.x[node_id];
-          int space_xh = cpu_db.xh;
-          if (j + 1 < host_row2node_map_left[i].size()) {
-            int right_node_id = host_row2node_map_left[i][j + 1];
-            space_xh = min(space_xh, cpu_db.x[right_node_id]);
-          }
-          space = space_xh - space_xl;
-          // align space to sites, as I assume space_xl aligns to sites
-          // I also assume node width should be integral numbers of sites
-          space = floorDiv(space, db_.site_width) * db_.site_width;
-          float node_size_x = cpu_db.node_size_x[node_id];
-          if (!(space >= node_size_x)) {
-            printf("[INFO GPU-DPO] Assertion failed: space >= node_size_x — space %g, node_size_x[%d] %g, original space (%g, %g), site_width %g\n", space, node_id, node_size_x, space_xl, space_xh, db.site_width);
-          }
-        }
-      }
-    }
-    compute_row_conflict_graph(cpu_db, host_row2node_map, host_adjacency_matrix, host_row_graph, db_.num_threads);
-    compute_independent_rows(cpu_db, host_row_graph, host_independent_rows);
-    compute_reorder_instances(cpu_db, host_row2node_map, host_independent_rows, host_reorder_instances, state.K);
-  }
-  // initialize cuda state
-  {
-    allocateCopyCuda(state.node_space_x, host_node_space_x.data(), db_.num_movable_nodes);
-
-    std::vector<int> host_permutations_flat(host_permutations.size() * windowSize_);
-    for (unsigned int i = 0; i < host_permutations.size(); ++i) {
-      std::copy(host_permutations[i].begin(), host_permutations[i].end(), host_permutations_flat.begin() + i * windowSize_);
-    }
-    state.num_permutations = host_permutations.size();
-    allocateCopyCuda(state.permutations, host_permutations_flat.data(), state.num_permutations * state.K);
-
-    state.row2node_map.initialize(host_row2node_map);
-    state.reorder_instances.initialize(host_reorder_instances);
-
-    allocateCuda(state.costs, state.reorder_instances.size2 * state.num_permutations, int);
-    allocateCuda(state.best_permute_id, state.reorder_instances.size2, int);
-    allocateCuda(state.instance_nets, state.reorder_instances.size2 * MAX_NUM_NETS_PER_INSTANCE, InstanceNet);
-    allocateCuda(state.instance_nets_size, state.reorder_instances.size2, int);
-    allocateCuda(state.node2inst_map, db_.num_nodes, int);
-    allocateCuda(state.net_markers, db_.num_nets, int);
-    allocateCuda(state.node_markers, db_.num_nodes, unsigned char);
-    allocateCuda(state.device_num_moved, 1, int);
-    allocateCuda(state.net_hpwls, db_.num_nets, int);
-  }
-
-  int64_t curr_hpwl = compute_total_hpwl(db_, db_.x, db_.y, state.net_hpwls);
-  const int64_t init_hpwl = curr_hpwl;
-  for (int p = 1; p <= passes; p++) {
-    const int64_t last_hpwl = curr_hpwl;
-
-    reorder(db_, state, host_reorder_instances);
-    checkCuda(cudaDeviceSynchronize());
-
-    curr_hpwl = compute_total_hpwl(db_, db_.x, db_.y, state.net_hpwls);
-
-    printf("[INFO GPU-DPO] Pass {:3d} of reordering; objective is {:.6e}.", p, (double) curr_hpwl);
-
-    if (std::abs(curr_hpwl - last_hpwl) / (double) last_hpwl <= tol) {
-      break;
-    }
-  }
-
-  const double curr_imp
-      = (((init_hpwl - curr_hpwl) / (double) init_hpwl) * 100.);
-  printf("[INFO GPU-DPO] End of reordering; objective is {:.6e}, improvement is {:.2f} percent.",
-          (double) curr_hpwl,
-          curr_imp);
-
-  checkCuda(cudaDeviceSynchronize());
-
-  // destroy cuda state
-  {
-    cudaFree(state.node_space_x);
-    cudaFree(state.permutations);
-    state.row2node_map.destroy();
-    state.reorder_instances.destroy();
-    cudaFree(state.costs);
-    cudaFree(state.best_permute_id);
-    cudaFree(state.instance_nets);
-    cudaFree(state.instance_nets_size);
-    cudaFree(state.node2inst_map);
-    cudaFree(state.net_markers);
-    cudaFree(state.node_markers);
-    cudaFree(state.device_num_moved);
-    cudaFree(state.net_hpwls);
-  }
-
-  // destroy cpu db
-  {
-    free((void*)cpu_db.net_mask);
-    free((void*)cpu_db.flat_net2pin_start_map);
-    free((void*)cpu_db.flat_net2pin_map);
-    free((void*)cpu_db.pin2node_map);
-    free((void*)cpu_db.x);
-    free((void*)cpu_db.y);
-    free((void*)cpu_db.node_size_x);
-    free((void*)cpu_db.node_size_y);
-  }
+  run(mgrPtr, db, args);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -511,9 +330,9 @@ __global__ void compute_instance_net_boxes(GpuData db, KReorderState state, int 
     }
 
     if (K > 0) {
-      float segment_xl = db.x[row2nodes[0]];
-      float segment_xh = db.x[row2nodes[K - 1]];
-      float row_yl = db.yl + inst.row_id * db.row_height;
+      int segment_xl = db.x[row2nodes[0]];
+      int segment_xh = db.x[row2nodes[K - 1]];
+      int row_yl = db.yl + inst.row_id * db.row_height;
       auto instance_nets = state.instance_nets + inst_id * MAX_NUM_NETS_PER_INSTANCE;
       auto instance_nets_size = state.instance_nets_size[inst_id];
       for (int idx = 0; idx < instance_nets_size; ++idx) {
@@ -532,9 +351,9 @@ __global__ void compute_instance_net_boxes(GpuData db, KReorderState state, int 
             int other_node_found = (state.node2inst_map[other_node_id] == inst_id);
             if (!other_node_found)  // not found
             {
-              float other_node_xl = db.x[other_node_id];
+              int other_node_xl = db.x[other_node_id];
               auto pin_offset_x = db.pin_offset_x[net_pin_id];
-              if (abs(db.y[other_node_id] - row_yl) < db.row_height)  // in the same row
+              if (::abs(db.y[other_node_id] - row_yl) < db.row_height)  // in the same row
               {
                 if (other_node_xl < segment_xl)  // left of the segment
                 {
@@ -566,8 +385,8 @@ __global__ void compute_reorder_hpwl(GpuData db, KReorderState state, int group_
   }
   __syncthreads();
 
-  float target_x[MAX_K];
-  float target_sizes[MAX_K];
+  int target_x[MAX_K];
+  int target_sizes[MAX_K];
   for (int i = blockIdx.x * blockDim.x + threadIdx.x; i < group_size_with_permutation; i += blockDim.x * gridDim.x) {
     int inst_id = i / state.num_permutations;
     int permute_id = i - inst_id * state.num_permutations;
@@ -600,7 +419,7 @@ __global__ void compute_reorder_hpwl(GpuData db, KReorderState state, int group_
     if (valid_flag) {
       compute_position(db, state, inst, permute_id, target_x, target_sizes);
 
-      float cost = 0;
+      int cost = 0;
       // consider FENCE region
       if (db.num_regions) {
         for (int idx = 0; idx < K; ++idx) {
@@ -619,14 +438,14 @@ __global__ void compute_reorder_hpwl(GpuData db, KReorderState state, int group_
         auto const& instance_nets_size = state.instance_nets_size[inst_id];
         for (int idx = 0; idx < instance_nets_size; ++idx) {
           auto& instance_net = instance_nets[idx];
-          float bxl = instance_net.bxl;
-          float bxh = instance_net.bxh;
+          int bxl = instance_net.bxl;
+          int bxh = instance_net.bxh;
 
           for (int j = 0; j < K; ++j) {
             int flag = (1 << j);
             if ((instance_net.node_marker & flag)) {
               int permuted_offset = permutation[j];
-              float other_node_xl = target_x[permuted_offset];
+              int other_node_xl = target_x[permuted_offset];
               other_node_xl += instance_net.pin_offset_x[j];
               bxl = min(bxl, other_node_xl);
               bxh = max(bxh, other_node_xl);
@@ -719,7 +538,7 @@ __global__ void apply_reorder(GpuData db, KReorderState state, int group_id, int
 
       for (int i = 0; i < K; ++i) {
         int node_id = row2nodes[i];
-        float xx = target_x[permutation[i]];
+        int xx = target_x[permutation[i]];
         if (db.x[node_id] != xx) {
           atomicAdd(state.device_num_moved, 1);
         }
@@ -945,7 +764,7 @@ __global__ void print_instance_net_bboxes(KReorderState state, int group_id, int
       for (int j = 0; j < instance_nets_size; ++j) {
         int index = i * MAX_NUM_NETS_PER_INSTANCE + j;
         assert(index >= 0 && index < state.reorder_instances.size2 * MAX_NUM_NETS_PER_INSTANCE);
-        printf("%d/%d:%g/%g ", index, j, state.instance_nets[index].bxl, state.instance_nets[index].bxh);
+        printf("%d/%d:%d/%d ", index, j, state.instance_nets[index].bxl, state.instance_nets[index].bxh);
       }
       printf("\n");
     }
@@ -992,7 +811,7 @@ __global__ void print_pos(GpuData db, int group_id, int offset) {
   if (blockIdx.x == 0 && threadIdx.x == 0) {
     printf("[INFO GPU-DPO] group_id %d, offset %d, pos[%d]\n", group_id, offset, db.num_movable_nodes);
     for (int i = 0; i < db.num_movable_nodes; ++i) {
-      printf("[INFO GPU-DPO] [%d] = %g, %g\n", i, db.x[i], db.y[i]);
+      printf("[INFO GPU-DPO] [%d] = %d, %d\n", i, db.x[i], db.y[i]);
     }
   }
 }
@@ -1059,12 +878,195 @@ void k_reorder(GpuData& db,
         compute_reorder_hpwl<<<ceilDiv(group_size, 256), 256>>>(db, state, group_id, offset);
 
         // print_costs<<<1, 1>>>(state, group_id, offset);
-        reduce_min_2d_cub<float, 32><<<group_size, 32>>>(state.costs, state.best_permute_id, group_size, state.num_permutations);
+        reduce_min_2d_cub<32><<<group_size, 32>>>(state.costs, state.best_permute_id, group_size, state.num_permutations);
         // print_best_permute_id<<<1, 1>>>(state, group_id, offset);
         apply_reorder<<<ceilDiv(group_size, 256), 256>>>(db, state, group_id, offset);
         // print_pos<<<1, 1>>>(db, group_id, offset);
       }
     }
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+void DetailedReorderer::run(DetailedMgr* mgrPtr, GpuData& db_,
+                            const std::vector<std::string>& args)
+{
+  // Given the arguments, figure out which routine to run to do the reordering.
+
+  mgrPtr_ = mgrPtr;
+  // db_ = mgrPtr_->getGpuData();
+
+  windowSize_ = 3;
+
+  int passes = 1;
+  double tol = 0.01;
+  for (size_t i = 1; i < args.size(); i++) {
+    if (args[i] == "-w" && i + 1 < args.size()) {
+      windowSize_ = std::atoi(args[++i].c_str());
+    } else if (args[i] == "-p" && i + 1 < args.size()) {
+      passes = std::atoi(args[++i].c_str());
+    } else if (args[i] == "-t" && i + 1 < args.size()) {
+      tol = std::atof(args[++i].c_str());
+    } else if (args[i] == "-binX" && i + 1 < args.size()) {
+      numBinsX_ = std::atoi(args[++i].c_str());
+    } else if (args[i] == "-binY" && i + 1 < args.size()) {
+      numBinsY_ = std::atoi(args[++i].c_str());
+    }
+  }
+  windowSize_ = std::min(4, std::max(2, windowSize_));
+  tol = std::max(tol, 0.01);
+
+  db_.set_num_bins(numBinsX_, numBinsY_);
+  KReorderState state;
+  GpuData cpu_db;
+  state.K = windowSize_;
+
+  // distribute cells to rows on host
+  // copy cell locations from device to host
+  std::vector<std::vector<int>> host_row2node_map(db_.num_sites_y);
+  std::vector<int> host_node_space_x(db_.num_movable_nodes);
+  std::vector<std::vector<int>> host_permutations = quick_perm(windowSize_);
+  std::vector<unsigned char> host_adjacency_matrix;
+  std::vector<std::vector<int>> host_row_graph;
+  std::vector<std::vector<int>> host_independent_rows;
+  std::vector<std::vector<KReorderInstance>> host_reorder_instances;
+  printf("[INFO GPU-DPO] %d permutations\n", host_permutations.size());
+
+  // initialize cpu db from db
+  {
+    cpu_db.xl = db_.xl;
+    cpu_db.yl = db_.yl;
+    cpu_db.xh = db_.xh;
+    cpu_db.yh = db_.yh;
+    cpu_db.site_width = db_.site_width;
+    cpu_db.row_height = db_.row_height;
+    cpu_db.bin_size_x = db_.bin_size_x;
+    cpu_db.bin_size_y = db_.bin_size_y;
+    cpu_db.num_bins_x = db_.num_bins_x;
+    cpu_db.num_bins_y = db_.num_bins_y;
+    cpu_db.num_sites_x = db_.num_sites_x;
+    cpu_db.num_sites_y = db_.num_sites_y;
+    cpu_db.num_nodes = db_.num_nodes;
+    cpu_db.num_movable_nodes = db_.num_movable_nodes;
+    cpu_db.num_nets = db_.num_nets;
+    cpu_db.num_pins = db_.num_pins;
+
+    allocateCopyCpu(cpu_db.net_mask, db_.net_mask, db_.num_nets, int);
+    allocateCopyCpu(cpu_db.flat_net2pin_start_map, db_.flat_net2pin_start_map, db_.num_nets + 1, int);
+    allocateCopyCpu(cpu_db.flat_net2pin_map, db_.flat_net2pin_map, db_.num_pins, int);
+    allocateCopyCpu(cpu_db.pin2node_map, db_.pin2node_map, db_.num_pins, int);
+    allocateCopyCpu(cpu_db.x, db_.x, db_.num_nodes, int);
+    allocateCopyCpu(cpu_db.y, db_.y, db_.num_nodes, int);
+    allocateCopyCpu(cpu_db.node_size_x, db_.node_size_x, db_.num_nodes, int);
+    allocateCopyCpu(cpu_db.node_size_y, db_.node_size_y, db_.num_nodes, int);
+
+    make_row2node_map(cpu_db, cpu_db.x, cpu_db.y, host_row2node_map, db_.num_threads);
+    std::vector<std::vector<int>> host_row2node_map_left = db_.reorder_row_map(cpu_db.x, cpu_db.y, cpu_db.node_size_x, cpu_db.node_size_y, host_row2node_map, 1);
+    host_node_space_x.resize(cpu_db.num_movable_nodes);
+    for (int i = 0; i < cpu_db.num_sites_y; ++i) {
+      for (unsigned int j = 0; j < host_row2node_map_left.at(i).size(); ++j) {
+        int node_id = host_row2node_map_left[i][j];
+        if (node_id < db_.num_movable_nodes) {
+          auto& space = host_node_space_x[node_id];
+          int space_xl = cpu_db.x[node_id];
+          int space_xh = cpu_db.xh;
+          if (j + 1 < host_row2node_map_left[i].size()) {
+            int right_node_id = host_row2node_map_left[i][j + 1];
+            space_xh = min(space_xh, cpu_db.x[right_node_id]);
+          }
+          space = space_xh - space_xl;
+          // align space to sites, as I assume space_xl aligns to sites
+          // I also assume node width should be integral numbers of sites
+          space = floorDiv(space, db_.site_width) * db_.site_width;
+          int node_size_x = cpu_db.node_size_x[node_id];
+          if (!(space >= node_size_x)) {
+            printf("[INFO GPU-DPO] Assertion failed: space >= node_size_x — space %d, node_size_x[%d] %d, original space (%d, %d), site_width %d\n", space, node_id, node_size_x, space_xl, space_xh, db_.site_width);
+          }
+        }
+      }
+    }
+    compute_row_conflict_graph(cpu_db, host_row2node_map, host_adjacency_matrix, host_row_graph, db_.num_threads);
+    compute_independent_rows(cpu_db, host_row_graph, host_independent_rows);
+    compute_reorder_instances(cpu_db, host_row2node_map, host_independent_rows, host_reorder_instances, state.K);
+  }
+  // initialize cuda state
+  {
+    allocateCopyCuda(state.node_space_x, host_node_space_x.data(), db_.num_movable_nodes);
+
+    std::vector<int> host_permutations_flat(host_permutations.size() * windowSize_);
+    for (unsigned int i = 0; i < host_permutations.size(); ++i) {
+      std::copy(host_permutations[i].begin(), host_permutations[i].end(), host_permutations_flat.begin() + i * windowSize_);
+    }
+    state.num_permutations = host_permutations.size();
+    allocateCopyCuda(state.permutations, host_permutations_flat.data(), state.num_permutations * state.K);
+
+    state.row2node_map.initialize(host_row2node_map);
+    state.reorder_instances.initialize(host_reorder_instances);
+
+    allocateCuda(state.costs, state.reorder_instances.size2 * state.num_permutations, int);
+    allocateCuda(state.best_permute_id, state.reorder_instances.size2, int);
+    allocateCuda(state.instance_nets, state.reorder_instances.size2 * MAX_NUM_NETS_PER_INSTANCE, InstanceNet);
+    allocateCuda(state.instance_nets_size, state.reorder_instances.size2, int);
+    allocateCuda(state.node2inst_map, db_.num_nodes, int);
+    allocateCuda(state.net_markers, db_.num_nets, int);
+    allocateCuda(state.node_markers, db_.num_nodes, unsigned char);
+    allocateCuda(state.device_num_moved, 1, int);
+    allocateCuda(state.net_hpwls, db_.num_nets, int);
+  }
+
+  int64_t curr_hpwl = compute_total_hpwl(db_, db_.x, db_.y, state.net_hpwls);
+  const int64_t init_hpwl = curr_hpwl;
+  for (int p = 1; p <= passes; p++) {
+    const int64_t last_hpwl = curr_hpwl;
+
+    k_reorder(db_, state, host_reorder_instances);
+    checkCuda(cudaDeviceSynchronize());
+
+    curr_hpwl = compute_total_hpwl(db_, db_.x, db_.y, state.net_hpwls);
+
+    printf("[INFO GPU-DPO] Pass %d of reordering; objective is %d.\n", p, (int) curr_hpwl);
+
+    if (std::abs(curr_hpwl - last_hpwl) / (double) last_hpwl <= tol) {
+      break;
+    }
+  }
+
+  const double curr_imp
+      = (((init_hpwl - curr_hpwl) / (double) init_hpwl) * 100.);
+  printf("[INFO GPU-DPO] End of reordering; objective is %d, improvement is %f percent.\n",
+          (int) curr_hpwl,
+          curr_imp);
+
+  checkCuda(cudaDeviceSynchronize());
+
+  // destroy cuda state
+  {
+    cudaFree(state.node_space_x);
+    cudaFree(state.permutations);
+    state.row2node_map.destroy();
+    state.reorder_instances.destroy();
+    cudaFree(state.costs);
+    cudaFree(state.best_permute_id);
+    cudaFree(state.instance_nets);
+    cudaFree(state.instance_nets_size);
+    cudaFree(state.node2inst_map);
+    cudaFree(state.net_markers);
+    cudaFree(state.node_markers);
+    cudaFree(state.device_num_moved);
+    cudaFree(state.net_hpwls);
+  }
+
+  // destroy cpu db
+  {
+    free((void*)cpu_db.net_mask);
+    free((void*)cpu_db.flat_net2pin_start_map);
+    free((void*)cpu_db.flat_net2pin_map);
+    free((void*)cpu_db.pin2node_map);
+    free((void*)cpu_db.x);
+    free((void*)cpu_db.y);
+    free((void*)cpu_db.node_size_x);
+    free((void*)cpu_db.node_size_y);
   }
 }
 

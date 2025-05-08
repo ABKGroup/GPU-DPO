@@ -14,6 +14,12 @@
 
 #define NUM_NODE_SIZES 64
 
+namespace dpl {
+class Node;
+class Architecture;
+class DetailedMgr;
+class Network;
+
 struct SizedBinIndex {
   int size_id;
   int bin_id;
@@ -66,12 +72,6 @@ struct IndependentSetMatchingState {
   float skip_threshold;            ///< ignore connections if cells are far apart
 };
 
-namespace dpl {
-class Node;
-class Architecture;
-class DetailedMgr;
-class Network;
-
 class DetailedMisParams
 {
  public:
@@ -106,22 +106,25 @@ class DetailedMis
   };
 
  public:
-  DetailedMis(GpuData* gpuData);
+  DetailedMis(Architecture* arch, Network* network);
+  // virtual ~DetailedMis();
 
-  void run(DetailedMgr* mgrPtr, const std::string& command);
-  void run(DetailedMgr* mgrPtr, std::vector<std::string>& args);
+  void run(DetailedMgr* mgrPtr, GpuData& db_, const std::string& command);
+  void run(DetailedMgr* mgrPtr, GpuData& db_, std::vector<std::string>& args);
 
  public:
   /* DetailedMisParams _params; */
 
   DetailedMgr* mgrPtr_ = nullptr;
 
-  GpuData* db_;
+  Architecture* arch_;
+  Network* network_;
 
   // Other.
   int batchSize_ = 32;
   int numBinsX_ = 256;
   int numBinsY_ = 256;
+  int setSize_ = 32;
 };
 
 }  // namespace dpl

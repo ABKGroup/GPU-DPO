@@ -443,29 +443,26 @@ void Network::clear()
 ////////////////////////////////////////////////////////////////////////////////
 void Network::reorderAndReindexNodes()
 {
-  // do this to ensure that when iterating through nodes,
-  // map the first group to movable nodes
-  // map the second group to fixed/terminal nodes
-  // map the last group to filler nodes
-  std::vector<Node*> movableNodes;
-  std::vector<Node*> terminalNodes;
-  std::vector<Node*> fillerNodes;
+  // Separate nodes into three categories
+  std::vector<std::unique_ptr<Node>> movableNodes;
+  std::vector<std::unique_ptr<Node>> terminalNodes;
+  std::vector<std::unique_ptr<Node>> fillerNodes;
 
-  // save mapping from old node id to Node*
-  std::unordered_map<int, Node*> oldIdToNode;
-  for (Node* node : nodes_) {
-    oldIdToNode[node->getId()] = node;
-  }
+  // Temporarily store old ID to name mapping
+  std::unordered_map<int, std::string> oldNodeNames = std::move(nodeNames_);
+  nodeNames_.clear();
 
-  for (Node* node : nodes_) {
+  // Classify and move nodes into appropriate buckets
+  for (auto& nodePtr : nodes_) {
+    Node* node = nodePtr.get();
     if (node->getType() == Node::CELL && !node->isFixed()) {
-      movableNodes.push_back(node);
+      movableNodes.push_back(std::move(nodePtr));
     } else if (node->getType() == Node::TERMINAL) {
-      terminalNodes.push_back(node);
+      terminalNodes.push_back(std::move(nodePtr));
     } else if (node->getType() == Node::FILLER) {
-      fillerNodes.push_back(node);
+      fillerNodes.push_back(std::move(nodePtr));
     } else {
-      terminalNodes.push_back(node);  // add all other fixed nodes to terminal
+      terminalNodes.push_back(std::move(nodePtr));  // catch-all for fixed cells
     }
   }
 
@@ -473,24 +470,25 @@ void Network::reorderAndReindexNodes()
   setNumTerminalNodes(terminalNodes.size());
   setNumFillerNodes(fillerNodes.size());
 
+  // Move all back into nodes_ in the desired order
   nodes_.clear();
-  nodes_.insert(nodes_.end(), movableNodes.begin(), movableNodes.end());
-  nodes_.insert(nodes_.end(), terminalNodes.begin(), terminalNodes.end());
-  nodes_.insert(nodes_.end(), fillerNodes.begin(), fillerNodes.end());
+  nodes_.reserve(movableNodes.size() + terminalNodes.size() + fillerNodes.size());
+  std::move(movableNodes.begin(), movableNodes.end(), std::back_inserter(nodes_));
+  std::move(terminalNodes.begin(), terminalNodes.end(), std::back_inserter(nodes_));
+  std::move(fillerNodes.begin(), fillerNodes.end(), std::back_inserter(nodes_));
 
-  std::unordered_map<int, std::string> newNodeNames;
-  for (int newId = 0; newId < static_cast<int>(nodes_.size()); newId++) {
-    Node* node = nodes_[newId];
-    int oldId = node->getId();    // current ID before old assignment is still old ID
-    node->setId(newId);           // assign new ID
-    auto it = nodeNames_.find(oldId);
-    if (it != nodeNames_.end()) {
-      newNodeNames[newId] = it->second;
+  // Reindex all nodes and update node name mapping
+  for (int newId = 0; newId < static_cast<int>(nodes_.size()); ++newId) {
+    std::unique_ptr<Node>& nodePtr = nodes_[newId];
+    int oldId = nodePtr->getId();
+    nodePtr->setId(newId);
+    auto it = oldNodeNames.find(oldId);
+    if (it != oldNodeNames.end()) {
+      nodeNames_[newId] = std::move(it->second);
     }
   }
-
-  nodeNames_ = std::move(newNodeNames);
 }
+
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 void Network::sanityCheckAndPrintStats() {
@@ -500,14 +498,14 @@ void Network::sanityCheckAndPrintStats() {
 
   // count types and verify IDs match index
   for (size_t i = 0; i < nodes_.size(); i++) {
-    const Node* node = nodes_[i];
+    const Node* node = nodes_[i].get();  // access raw pointer from unique_ptr
     if (node->getId() != static_cast<int>(i)) {
       std::cerr << "[INFO GPU-DPO] Error: Node ID mismatch: expected " << i << ", found " << node->getId() << "\n";
     }
 
-    if (node->getType() == Node::CELL && !node->getFixed()) {
+    if (node->getType() == Node::CELL && !node->isFixed()) {
       numMovable++;
-    } else if (node->getType() == Node::TERMINAL) {
+    } else if (node->getType() == Node::TERMINAL || (node->getType() == Node::CELL && node->isFixed())) {
       numTerminals++;
     } else if (node->getType() == Node::FILLER) {
       numFillers++;
@@ -524,18 +522,18 @@ void Network::sanityCheckAndPrintStats() {
   assert(nodes_.size() == numMovable + numTerminals + numFillers);
 
   // Check pins
-  for (int i = 0; i < pins_.size(); i++) {
-    const Pin* pin = pins_[i];
+  for (size_t i = 0; i < pins_.size(); i++) {
+    const Pin* pin = pins_[i].get();
     const Node* node = pin->getNode();
-    if (node != nodes_[node->getId()]) {
+    if (node != nodes_[node->getId()].get()) {
       std::cerr << "[INFO GPU-DPO] Error: Pin " << i << " points to node with ID " << node->getId()
                 << ", but nodes_[" << node->getId() << "] != pin->getNode()\n";
     }
   }
 
   // Check nets
-  for (int i = 0; i < edges_.size(); i++) {
-    const Edge* edge = edges_[i];
+  for (size_t i = 0; i < edges_.size(); i++) {
+    const Edge* edge = edges_[i].get();
     for (const Pin* pin : edge->getPins()) {
       if (pin == nullptr || pin->getNode() == nullptr) {
         std::cerr << "[INFO GPU-DPO] Error: Null pin or node in edge " << i << "\n";

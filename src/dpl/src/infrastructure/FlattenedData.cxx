@@ -12,7 +12,7 @@
 
 namespace dpl {
 
-FlattenedData::FlattenedData(Architecture* architecture, Network* network) {
+FlattenedData::FlattenedData(Architecture* arch, Network* network) {
   arch_ = arch;
   network_ = network;
 }
@@ -41,8 +41,8 @@ void FlattenedData::createNodeInfo() {
   num_terminal_nodes = network_->getNumTerminalNodes();
   num_filler_nodes = network_->getNumFillerNodes();
 
-  node_init_x.resize(num_nodes);
-  node_init_y.resize(num_nodes);
+  init_x.resize(num_nodes);
+  init_y.resize(num_nodes);
   x.resize(num_nodes);
   y.resize(num_nodes);
   node_size_x.resize(num_nodes);
@@ -51,8 +51,8 @@ void FlattenedData::createNodeInfo() {
   for (int i = 0; i < network_->getNumNodes(); i++) {
     Node* node = network_->getNode(i);
     int node_id = node->getId();
-    node_init_x[node_id] = node->getOrigLeft().v;
-    node_init_y[node_id] = node->getOrigBottom().v;
+    init_x[node_id] = node->getOrigLeft().v;
+    init_y[node_id] = node->getOrigBottom().v;
     x[node_id] = node->getLeft().v;
     y[node_id] = node->getBottom().v;
     node_size_x[node_id] = node->getWidth().v;
@@ -76,7 +76,7 @@ void FlattenedData::createPinInfo() {
   pin_offset_x.resize(num_pins);
   pin_offset_y.resize(num_pins);
 
-  for (int pin_id = 0; pin_id < num_pins; i++) {
+  for (int pin_id = 0; pin_id < num_pins; pin_id++) {
     const Pin* pin = network_->getPin(pin_id);
     pin_offset_x[pin_id] = pin->getOffsetX().v;
     pin_offset_y[pin_id] = pin->getOffsetY().v;
@@ -133,10 +133,10 @@ void FlattenedData::createFenceInfo() {
   // then disregard fence regions completely
   if (arch_->getRegions().size() == 1 
     && arch_->getRegions()[0]->getRects().size() == 1
-    && arch_->getRegions()[0]->getRects()[0].xmin().v == arch_->getMinX().v
-    && arch_->getRegions()[0]->getRects()[0].ymin().v == arch_->getMinY().v
-    && arch_->getRegions()[0]->getRects()[0].xmax().v == arch_->getMaxX().v
-    && arch_->getRegions()[0]->getRects()[0].ymax().v == arch_->getMaxY().v) {
+    && arch_->getRegions()[0]->getRects()[0].xMin() == arch_->getMinX().v
+    && arch_->getRegions()[0]->getRects()[0].yMin() == arch_->getMinY().v
+    && arch_->getRegions()[0]->getRects()[0].xMax() == arch_->getMaxX().v
+    && arch_->getRegions()[0]->getRects()[0].yMax() == arch_->getMaxY().v) {
     flat_region_boxes_start.resize(1);
     flat_region_boxes.resize(0);
     node2fence_region_map.resize(num_nodes);
@@ -161,7 +161,7 @@ void FlattenedData::createFenceInfo() {
     for (int i = 0; i < network_->getNumNodes(); i++) {
       Node* node = network_->getNode(i);
       int node_id = node->getId();
-      int region_id = node->getRegionId();
+      int region_id = node->getGroupId();
       node2fence_region_map[node_id] = region_id;
     }
 
@@ -171,10 +171,10 @@ void FlattenedData::createFenceInfo() {
     for (auto& region : arch_->getRegions()) {
       int region_id = region->getId();
       for (auto& rect : region->getRects()) {
-        flat_region_boxes[ptr++] = rect.xmin().v;
-        flat_region_boxes[ptr++] = rect.ymin().v;
-        flat_region_boxes[ptr++] = rect.xmax().v;
-        flat_region_boxes[ptr++] = rect.ymax().v;
+        flat_region_boxes[ptr++] = rect.xMin();
+        flat_region_boxes[ptr++] = rect.yMin();
+        flat_region_boxes[ptr++] = rect.xMax();
+        flat_region_boxes[ptr++] = rect.yMax();
       }
       lastIdx += region->getRects().size();
       flat_region_boxes_start[region_id + 1] = lastIdx;
@@ -202,7 +202,7 @@ void FlattenedData::shiftDatabase() {
     for (auto& val : x) {
       val -= shift_factor_x;
     }
-    for (auto& val : node_init_x) {
+    for (auto& val : init_x) {
       val -= shift_factor_x;
     }
   }
@@ -213,7 +213,7 @@ void FlattenedData::shiftDatabase() {
     for (auto& val : y) {
       val -= shift_factor_y;
     }
-    for (auto& val : node_init_y) {
+    for (auto& val : init_y) {
       val -= shift_factor_y;
     }
   }
@@ -228,7 +228,7 @@ void FlattenedData::populateNetwork(Network& network) {
     for (auto& val : x) {
       val += shift_factor_x;
     }
-    for (auto& val : node_init_x) {
+    for (auto& val : init_x) {
       val += shift_factor_x;
     }
   }
@@ -238,13 +238,13 @@ void FlattenedData::populateNetwork(Network& network) {
     for (auto& val : y) {
       val += shift_factor_y;
     }
-    for (auto& val : node_init_y) {
+    for (auto& val : init_y) {
       val += shift_factor_y;
     }
   }
   // we should only have to update locations of non-fixed nodes
-  for (int i = 0; i < network->getNumMovableNodes(); i++) {
-    Node* node = network->getNode(i);
+  for (int i = 0; i < network.getNumMovableNodes(); i++) {
+    Node* node = network.getNode(i);
     if (node->getLeft().v != x[i]) {
       node->setLeft(DbuX{x[i]});
     }

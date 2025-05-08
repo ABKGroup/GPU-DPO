@@ -49,7 +49,7 @@ add_library(dpl_lib
   src/infrastructure/FlattenedData.cxx
   src/util/utility.cxx
   src/legalize_shift.cxx
-  src/optimization/detailed.cxx
+  src/optimization/detailed.cu
   src/optimization/detailed_manager.cxx
   src/optimization/detailed_mis.cu
   src/optimization/detailed_reorder.cu
@@ -59,7 +59,7 @@ add_library(dpl_lib
   src/objective/detailed_hpwl.cxx
   src/objective/detailed_hpwl.cu
   src/objective/detailed_abu.cxx
-  src/optimization/detailed_random.cxx
+  src/optimization/detailed_random.cu
   src/optimization/detailed_orient.cxx
   src/util/journal.cxx
 )
@@ -99,18 +99,17 @@ target_link_libraries(dpl
     ${TCL_LIBRARY}
     dpl_lib
     gui
-    OpenMP::OpenMP_CXX
 )
 
 messages(
   TARGET dpl
 )
 
-set_property(TARGET dpl 
+set_property(TARGET dpl_lib 
              PROPERTY CUDA_SEPARABLE_COMPILATION ON)      
-set_target_properties(dpl PROPERTIES CUDA_RESOLVE_DEVICE_SYMBOLS ON)
-set_target_properties(dpl PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
-set_target_properties(dpl PROPERTIES POSITION_INDEPENDENT_CODE ON)
+set_target_properties(dpl_lib PROPERTIES CUDA_RESOLVE_DEVICE_SYMBOLS ON)
+set_target_properties(dpl_lib PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
+set_target_properties(dpl_lib PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
 # Set CUDA host compiler and link executable
 set(CMAKE_CUDA_HOST_COMPILER /home/tool/gcc/gcc-10.3.0/bin/g++) # replace with your host compiler
@@ -129,7 +128,7 @@ find_package(CUDAToolkit)
 if (CUDAToolkit_FOUND)
   message(STATUS "CUDA is found")
   enable_language(CUDA)
-  target_link_libraries(dpl
+  target_link_libraries(dpl_lib
     PRIVATE
       CUDA::cudart
       CUDA::cublas

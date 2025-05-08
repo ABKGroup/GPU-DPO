@@ -18,6 +18,13 @@
 
 namespace dpl {
 
+template <typename T1, typename T2>
+__device__ inline void device_swap(T1& a, T2& b) {
+  T1 tmp = a;
+  a = b;
+  b = tmp;
+}
+
 inline __host__ __device__ int floorDiv(int a, int b) {
   int q = a / b;
   int r = a % b;
@@ -33,13 +40,24 @@ inline __host__ __device__ int ceilDiv(int a, int b) {
 }
 
 inline __host__ __device__ int roundDiv(int a, int b) {
-  return (a + (b > 0 ? b / 2 : -(abs(b) / 2))) / b;
+  return (a + (b > 0 ? b / 2 : -((b < 0 ? -b : b) / 2))) / b;
 }
 
 // defines a horizontal space in a row
 struct Space {
   int xl;
   int xh;
+};
+
+struct ItemWithIndex {
+  int value;
+  int index;
+};
+
+struct ReduceMinOP {
+  __host__ __device__ ItemWithIndex operator()(const ItemWithIndex& a, const ItemWithIndex& b) const {
+      return (a.value < b.value) ? a : b;
+  }
 };
 
 struct Box {
@@ -311,10 +329,10 @@ public:
     for (int net2pin_id = flat_net2pin_start_map[net_id]; net2pin_id < flat_net2pin_start_map[net_id + 1]; ++net2pin_id) {
       int net_pin_id = flat_net2pin_map[net2pin_id];
       int other_node_id = pin2node_map[net_pin_id];
-      box.xl = min(box.xl, xx[other_node_id] + pin_offset_x[net_pin_id]);
-      box.xh = max(box.xh, xx[other_node_id] + pin_offset_x[net_pin_id]);
-      box.yl = min(box.yl, yy[other_node_id] + pin_offset_y[net_pin_id]);
-      box.yh = max(box.yh, yy[other_node_id] + pin_offset_y[net_pin_id]);
+      box.xl = min(box.xl, xx[other_node_id] + (int)(0.5 * node_size_x[other_node_id]) + pin_offset_x[net_pin_id]);
+      box.xh = max(box.xh, xx[other_node_id] + (int)(0.5 * node_size_x[other_node_id]) + pin_offset_x[net_pin_id]);
+      box.yl = min(box.yl, yy[other_node_id] + (int)(0.5 * node_size_y[other_node_id]) + pin_offset_y[net_pin_id]);
+      box.yh = max(box.yh, yy[other_node_id] + (int)(0.5 * node_size_y[other_node_id]) + pin_offset_y[net_pin_id]);
     }
     if (box.xl == xh || box.yl == yh) {
       return 0;

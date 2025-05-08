@@ -19,11 +19,11 @@
 #include "optimization/detailed_manager.h"
 // Detailed placement algorithms.
 #include "detailed.h"
-#include "optimization/detailed_global.h"
-#include "optimization/detailed_mis.h"
+#include "optimization/detailed_global.cuh"
+#include "optimization/detailed_mis.cuh"
 #include "optimization/detailed_orient.h"
 #include "optimization/detailed_random.h"
-#include "optimization/detailed_reorder.h"
+#include "optimization/detailed_reorder.cuh"
 #include "optimization/detailed_vertical.h"
 
 using utl::DPL;
@@ -37,17 +37,17 @@ namespace dpl {
 ////////////////////////////////////////////////////////////////////////////////
 // Detailed::improve:
 ////////////////////////////////////////////////////////////////////////////////
-bool Detailed::improve(DetailedMgr& mgr)
+bool Detailed::improve(DetailedMgr& mgr, FlattenedData& flattenedData)
 {
   mgr_ = &mgr;
 
   arch_ = mgr.getArchitecture();
   network_ = mgr.getNetwork();
+  flattenedData_ = &flattenedData;
 
   // Copy the data from host to device
-  flattenedData_ = mgr.getFlattenedData(); 
-  gpuData_ = mgr.getGpuData();
-  gpuData_->copyToDevice(flattenedData_);
+  GpuData* gpuData_ = new GpuData();
+  gpuData_->copyToDevice(*flattenedData_);
 
   // Parse the script string and run each command.
   boost::char_separator<char> separators(" \r\t\n", ";");
@@ -63,19 +63,21 @@ bool Detailed::improve(DetailedMgr& mgr)
         args.push_back(temp);
       }
       // Command ended by a semi-colon.
-      doDetailedCommand(args);
+      doDetailedCommand(args, *gpuData_);
       args.clear();
       // Copy data back to host once done
-      if (deviceOpsDone) {
-        gpuData_->copyToHost(flattenedData_);
-        flattenedData_->populateNetwork(network_);
+      if (deviceOpsDone && !dataCopiedBack) {
+        gpuData_->copyToHost(*flattenedData_);
+        flattenedData_->populateNetwork(*network_);
+        gpuData_->freeData();
+        dataCopiedBack = true;
       }
     } else {
       args.push_back(temp);
     }
   }
   // Last command; possible if no ending semi-colon.
-  doDetailedCommand(args);
+  doDetailedCommand(args, *gpuData_);
 
   // Note: If cell orientation was not the last script
   // command run, then we should/need to perform
@@ -117,12 +119,15 @@ bool Detailed::improve(DetailedMgr& mgr)
     mgr.setMoveLimit(temp_move_limit);
   }
 
+  // clean up
+  delete gpuData_;
+
   return true;
 }
 
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
-void Detailed::doDetailedCommand(std::vector<std::string>& args)
+void Detailed::doDetailedCommand(std::vector<std::string>& args, GpuData& db_)
 {
   if (args.empty()) {
     return;
@@ -154,17 +159,17 @@ void Detailed::doDetailedCommand(std::vector<std::string>& args)
   logger->info(DPL, 303, "Running algorithm for {:s}.", command);
 
   if (strcmp(args[0].c_str(), "mis") == 0) {
-    DetailedMis mis(gpuData_);
-    mis.run(mgr_, args);
+    DetailedMis mis(arch_, network_);
+    mis.run(mgr_, db_, args);
   } else if (strcmp(args[0].c_str(), "gs") == 0) {
-    DetailedGlobalSwap gs(gpuData_);
-    gs.run(mgr_, args);
+    DetailedGlobalSwap gs(arch_, network_);
+    gs.run(mgr_, db_, args);
   } else if (strcmp(args[0].c_str(), "vs") == 0) {
     DetailedVerticalSwap vs(arch_, network_);
     vs.run(mgr_, args);
   } else if (strcmp(args[0].c_str(), "ro") == 0) {
-    DetailedReorderer ro(gpuData_);
-    ro.run(mgr_, args);
+    DetailedReorderer ro(arch_, network_);
+    ro.run(mgr_, db_, args);
     deviceOpsDone = true;
   } else if (strcmp(args[0].c_str(), "orient") == 0) {
     DetailedOrient orienter(arch_, network_);

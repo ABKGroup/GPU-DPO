@@ -18,13 +18,6 @@ class Architecture;
 class DetailedMgr;
 class Network;
 
-template <typename T1, typename T2>
-__device__ inline void device_swap(T1& a, T2& b) {
-  T1 tmp = a;
-  a = b;
-  b = tmp;
-}
-
 struct InstanceNet {
   int net_id;
   int node_marker;  ///< mark cells in one instance using bit
@@ -70,28 +63,17 @@ struct KReorderState {
   int* net_hpwls;  ///< used for compute HPWL
 };
 
-struct ItemWithIndex {
-  int value;
-  int index;
-};
-
-struct ReduceMinOP {
-  __host__ __device__ ItemWithIndex operator()(const ItemWithIndex& a, const ItemWithIndex& b) const {
-      return (a.value < b.value) ? a : b;
-  }
-};
-
 class DetailedReorderer
 {
  public:
-  DetailedReorderer(GpuData* gpuData);
+  DetailedReorderer(Architecture* arch, Network* network);
 
-  void run(DetailedMgr* mgrPtr, const std::string& command);
-  void run(DetailedMgr* mgrPtr, const std::vector<std::string>& args);
+  void run(DetailedMgr* mgrPtr, GpuData& db, const std::string& command);
+  void run(DetailedMgr* mgrPtr, GpuData& db_, const std::vector<std::string>& args);
 
  private:
-  // Standard stuff.
-  GpuData* db_;
+  Architecture* arch_;
+  Network* network_;
 
   // For segments.
   DetailedMgr* mgrPtr_ = nullptr;

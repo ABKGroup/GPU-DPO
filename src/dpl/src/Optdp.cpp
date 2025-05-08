@@ -51,6 +51,9 @@ void Opendp::improvePlacement(const int seed,
   ShiftLegalizer lg;
   lg.legalize(mgr);
 
+  FlattenedData* flattenedData_ = new FlattenedData(arch_.get(), network_.get());
+  flattenedData_->createFlattenedData();
+
   // Detailed improvement.  Runs through a number of different
   // optimizations aimed at wirelength improvement.  The last
   // call to the random improver can be set to consider things
@@ -77,10 +80,13 @@ void Opendp::improvePlacement(const int seed,
 
   // Run the script.
   Detailed dt(dtParams);
-  dt.improve(mgr);
+  dt.improve(mgr, *flattenedData_);
 
   // Write solution back.
   updateDbInstLocations();
+
+  // Clean up
+  delete flattenedData_;
 
   // Get final hpwl.
   const int64_t hpwlAfter = eval.hpwl();

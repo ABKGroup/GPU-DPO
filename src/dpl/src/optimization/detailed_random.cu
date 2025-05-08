@@ -24,7 +24,7 @@
 #include "detailed_random.h"
 #include "infrastructure/detailed_segment.h"
 // Detailed placement objectives.
-#include "detailed_global.h"
+#include "detailed_global.cuh"
 #include "detailed_vertical.h"
 #include "objective/detailed_abu.h"
 #include "objective/detailed_displacement.h"

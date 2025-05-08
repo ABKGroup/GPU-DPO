@@ -12,19 +12,15 @@
 #define maxNodeDegree_ 20
 #define maxNetDegree_ 100
 
+namespace odb {
+class Rect;
+}
 namespace dpl {
 class Edge;
 class Architecture;
 class DetailedMgr;
 class Network;
 class GpuData;
-
-template <typename T1, typename T2>
-__device__ inline void device_swap(T1& a, T2& b) {
-  T1 tmp = a;
-  a = b;
-  b = tmp;
-}
 
 struct __align__(16) SwapCandidate {
   int cost;
@@ -64,7 +60,7 @@ struct SwapState {
 
   // PitchNestedVector<NetPinPair<T> > node2netpin_map;
   PitchNestedVector<int> node2net_map;
-  PitchNestedVector<NodePinPair<T>> net2nodepin_map;
+  PitchNestedVector<NodePinPair> net2nodepin_map;
 
   int* search_bins = nullptr;
   int search_bin_strategy;  ///< how to compute search bins for eahc cell: 0 for
@@ -86,33 +82,48 @@ struct SwapState {
                                      ///< additional memory
 };
 
-struct ItemWithIndex {
-  int value;
-  int index;
-};
-
-struct ReduceMinOP {
-  __host__ __device__ ItemWithIndex operator()(
-      const ItemWithIndex& a, const ItemWithIndex& b) const {
-    return (a.value < b.value) ? a : b;
-  }
-};
-
 class DetailedGlobalSwap : public DetailedGenerator
 {
  public:
+  DetailedGlobalSwap(Architecture* arch, Network* network);
   DetailedGlobalSwap();
 
   // Interfaces for scripting.
   void run(DetailedMgr* mgrPtr, const std::string& command);
   void run(DetailedMgr* mgrPtr, std::vector<std::string>& args);
 
+  void run(DetailedMgr* mgrPtr, GpuData& db_, const std::string& command);
+  void run(DetailedMgr* mgrPtr, GpuData& db_, std::vector<std::string>& args);
+
+  // Interface for move generation.
+  bool generate(DetailedMgr* mgr, std::vector<Node*>& candidates) override;
+  void stats() override;
+  void init(DetailedMgr* mgr) override;
+
  private:
+  void globalSwap();  // tries to avoid overlap.
+  bool calculateEdgeBB(Edge* ed, Node* nd, odb::Rect& bbox);
+  bool getRange(Node*, odb::Rect&);
+  bool generate(Node* ndi);
+
   // Standard stuff.
   DetailedMgr* mgr_;
-  GpuData* db_;
+  Architecture* arch_;
+  Network* network_;
 
   // Other.
+  int skipNetsLargerThanThis_;
+  std::vector<int> edgeMask_;
+  int traversal_;
+
+  std::vector<double> xpts_;
+  std::vector<double> ypts_;
+
+  // For use as a move generator.
+  int attempts_;
+  int moves_;
+  int swaps_;
+
   int batchSize_ = 32;
   int numBinsX_ = 256;
   int numBinsY_ = 256;

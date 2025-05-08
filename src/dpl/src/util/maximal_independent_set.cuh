@@ -2,8 +2,9 @@
 
 #include "infrastructure/GpuData.cuh"
 #include "optimization/detailed_mis.cuh"
+#include <cmath>
 
-namespace dpo {
+namespace dpl {
 
 __global__ void collect_kernel(const int* d_flags, int* d_sums, int* d_results, const int length) {
   const int tid = blockIdx.x * blockDim.x + threadIdx.x;
@@ -60,7 +61,7 @@ __device__ void mark_dependent_nodes_self(const GpuData& db,
         int other_node_id = db.pin2node_map[net_pin_id];
         int other_node_xl = db.x[other_node_id];
         int other_node_yl = db.y[other_node_id];
-        if (abs(node_xl - other_node_xl) + abs(node_yl - other_node_yl) < state.skip_threshold) {
+        if (::abs(node_xl - other_node_xl) + ::abs(node_yl - other_node_yl) < state.skip_threshold) {
           if (other_node_id < db.num_movable_nodes && state.selected_markers[other_node_id]) {
             state.dependent_markers[node_id] = 1;
             return;
@@ -101,7 +102,7 @@ __global__ void maximal_independent_set_kernel(GpuData db,
               int other_node_xl = db.x[other_node_id];
               int other_node_yl = db.y[other_node_id];
               int distance =
-                abs(node_xl - other_node_xl) + abs(node_yl - other_node_yl);
+                ::abs(node_xl - other_node_xl) + ::abs(node_yl - other_node_yl);
               if (other_node_id < db.num_movable_nodes && (distance < state.skip_threshold) &&
                   (state.selected_markers[other_node_id] ||
                    (state.dependent_markers[other_node_id] == 0 &&
@@ -167,4 +168,4 @@ void maximal_independent_set(const GpuData& db, IndependentSetMatchingState& sta
 }
 
 
-}  // namespace dpo
+}  // namespace dpl

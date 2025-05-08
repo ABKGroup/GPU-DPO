@@ -9,7 +9,7 @@
 #include <type_traits>
 #include <vector>
 
-namespace dpo {
+namespace dpl {
 
 /// @brief grid index
 template <typename T>
@@ -102,4 +102,4 @@ void diamond_search_print(const std::vector<GridIndex<T> >& grid_sequence) {
   printf("\n");
 }
 
-}  // namespace dpo
+}  // namespace dpl

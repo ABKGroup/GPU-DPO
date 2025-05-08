@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: BSD-3-Clause
 // Copyright (c) 2021-2025, The OpenROAD Authors
 
+#pragma once
+
 #include <vector>
 
 #include "architecture.h"
@@ -14,20 +16,22 @@ public:
 
   void createFlattenedData();
 
+  void populateNetwork(Network& network);
+
   Architecture* arch_;
   Network* network_;
 
   /* node info */
-  std::vector<float> init_x;  
-  std::vector<float> init_y;  
-  std::vector<float> x;      
-  std::vector<float> y;     
-  std::vector<float> node_size_x; 
-  std::vector<float> node_size_y; 
+  std::vector<int> init_x;  
+  std::vector<int> init_y;  
+  std::vector<int> x;      
+  std::vector<int> y;     
+  std::vector<int> node_size_x; 
+  std::vector<int> node_size_y; 
 
   /* pin info */
-  std::vector<float> pin_offset_x;  
-  std::vector<float> pin_offset_y;  
+  std::vector<int> pin_offset_x;  
+  std::vector<int> pin_offset_y;  
 
   std::vector<int> flat_node2pin_start_map;   
   std::vector<int> flat_node2pin_map;   
@@ -84,7 +88,6 @@ private:
   void createChipInfo();
   void createRowInfo();
   void shiftDatabase();
-  void populateNetwork(Network& network);
 
   // Other
   int skipNetsLargerThanThis_ = 100;

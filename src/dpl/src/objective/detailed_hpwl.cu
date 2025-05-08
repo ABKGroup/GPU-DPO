@@ -5,30 +5,31 @@
 
 namespace dpl {
 
-__global__ void computeTotalHpwlKernel(GpuData gd, const int* nodeX_, const int* nodeY_, int* netHpwls) {
-  for (int i = blockIdx.x * blockDim.x + threadIdx.x; i < gd.numNets; i += blockDim.x * gridDim.x) {
-    netHpwls[i] = gd.computeNetHpwl(i, nodeX_, nodeY_);
+__global__ void compute_total_hpwl_kernel(GpuData db, const int* xx, const int* yy, int* net_hpwls) {
+  for (int i = blockIdx.x * blockDim.x + threadIdx.x; i < db.num_nets; i += blockDim.x * gridDim.x) {
+    net_hpwls[i] = db.compute_net_hpwl(i, xx, yy);
   }
 }
 
-int computeTotalHpwl(const GpuData& gd, const int* nodeX_, const int* nodeY_, int* netHpwls) {
-  computeTotalHpwlKernel<<<ceilDiv(gd.numNets, 512), 512>>>(gd, nodeX_, nodeY_, netHpwls);
+int compute_total_hpwl(const GpuData& db, const int* xx, const int* yy, int* net_hpwls) {
+  compute_total_hpwl_kernel<<<ceilDiv(db.num_nets, 512), 512>>>(db, xx, yy, net_hpwls);
+  // auto hpwl = thrust::reduce(thrust::device, net_hpwls, net_hpwls+db.num_nets);
 
-  int* dOut = NULL;
+  int* d_out = NULL;
   // Determine temporary device storage requirements
-  void* dTempStorage = NULL;
-  size_t tempStorageBytes = 0;
-  cub::DeviceReduce::Sum(dTempStorage, tempStorageBytes, netHpwls, dOut, gd.numNets);
+  void* d_temp_storage = NULL;
+  size_t temp_storage_bytes = 0;
+  cub::DeviceReduce::Sum(d_temp_storage, temp_storage_bytes, net_hpwls, d_out, db.num_nets);
   // Allocate temporary storage
-  checkCuda(cudaMalloc(&dTempStorage, tempStorageBytes));
-  checkCuda(cudaMalloc(&dOut, sizeof(int)));
+  checkCuda(cudaMalloc(&d_temp_storage, temp_storage_bytes));
+  checkCuda(cudaMalloc(&d_out, sizeof(int)));
   // Run sum-reduction
-  cub::DeviceReduce::Sum(dTempStorage, tempStorageBytes, netHpwls, dOut, gd.numNets);
+  cub::DeviceReduce::Sum(d_temp_storage, temp_storage_bytes, net_hpwls, d_out, db.num_nets);
   // copy d_out to hpwl
   int hpwl = 0;
-  checkCuda(cudaMemcpy(&hpwl, dOut, sizeof(int), cudaMemcpyDeviceToHost));
-  cudaFree(dTempStorage);
-  cudaFree(dOut);
+  checkCuda(cudaMemcpy(&hpwl, d_out, sizeof(int), cudaMemcpyDeviceToHost));
+  cudaFree(d_temp_storage);
+  cudaFree(d_out);
 
   return hpwl;
 }

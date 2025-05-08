@@ -7,7 +7,7 @@
 
 namespace dpl {
 
-__global__ void copy_orig_cost_kernel(const T* cost_matrices, const char* stop_flags, const int set_size, T* costs) {
+__global__ void copy_orig_cost_kernel(const int* cost_matrices, const char* stop_flags, const int set_size, int* costs) {
   int i = blockIdx.x;  // set
 
   if (stop_flags[i]) {
@@ -34,8 +34,8 @@ __global__ void copy_solution_cost_kernel(
   }
 }
 
-template <int BlockDim>
-__global__ void block_reduce_sum(int* costs, const char* stop_flags, int batch_size, int set_size) {
+template <typename T, int BlockDim>
+__global__ void block_reduce_sum(T* costs, const char* stop_flags, int batch_size, int set_size) {
   int bid = blockIdx.x;  // set
   int tid = threadIdx.x;
 
@@ -58,18 +58,18 @@ __global__ void block_reduce_sum(int* costs, const char* stop_flags, int batch_s
   }
 }
 
-void compute_costs(const char* stop_flags, const int batch_size, const int set_size, T* costs) {
+void compute_costs(const char* stop_flags, const int batch_size, const int set_size, int* costs) {
   switch (set_size) {
-    case 2: block_reduce_sum<2><<<batch_size, 2>>>(costs, stop_flags, batch_size, set_size); break;
-    case 4: block_reduce_sum<4><<<batch_size, 4>>>(costs, stop_flags, batch_size, set_size); break;
-    case 8: block_reduce_sum<8><<<batch_size, 8>>>(costs, stop_flags, batch_size, set_size); break;
-    case 16: block_reduce_sum<16><<<batch_size, 16>>>(costs, stop_flags, batch_size, set_size); break;
-    case 32: block_reduce_sum<32><<<batch_size, 32>>>(costs, stop_flags, batch_size, set_size); break;
-    case 64: block_reduce_sum<64><<<batch_size, 64>>>(costs, stop_flags, batch_size, set_size); break;
-    case 128: block_reduce_sum<128><<<batch_size, 128>>>(costs, stop_flags, batch_size, set_size); break;
-    case 256: block_reduce_sum<256><<<batch_size, 256>>>(costs, stop_flags, batch_size, set_size); break;
-    case 512: block_reduce_sum<512><<<batch_size, 512>>>(costs, stop_flags, batch_size, set_size); break;
-    case 1024: block_reduce_sum<1024><<<batch_size, 1024>>>(costs, stop_flags, batch_size, set_size); break;
+    case 2: block_reduce_sum<int, 2><<<batch_size, 2>>>(costs, stop_flags, batch_size, set_size); break;
+    case 4: block_reduce_sum<int, 4><<<batch_size, 4>>>(costs, stop_flags, batch_size, set_size); break;
+    case 8: block_reduce_sum<int, 8><<<batch_size, 8>>>(costs, stop_flags, batch_size, set_size); break;
+    case 16: block_reduce_sum<int, 16><<<batch_size, 16>>>(costs, stop_flags, batch_size, set_size); break;
+    case 32: block_reduce_sum<int, 32><<<batch_size, 32>>>(costs, stop_flags, batch_size, set_size); break;
+    case 64: block_reduce_sum<int, 64><<<batch_size, 64>>>(costs, stop_flags, batch_size, set_size); break;
+    case 128: block_reduce_sum<int, 128><<<batch_size, 128>>>(costs, stop_flags, batch_size, set_size); break;
+    case 256: block_reduce_sum<int, 256><<<batch_size, 256>>>(costs, stop_flags, batch_size, set_size); break;
+    case 512: block_reduce_sum<int, 512><<<batch_size, 512>>>(costs, stop_flags, batch_size, set_size); break;
+    case 1024: block_reduce_sum<int, 1024><<<batch_size, 1024>>>(costs, stop_flags, batch_size, set_size); break;
     default:
       printf("[INFO GPU-DPO] unsupported set size %d\n", set_size);
   }
@@ -128,8 +128,8 @@ __global__ void move_nodes_kernel(GpuData db, IndependentSetMatchingState state)
     if (state.orig_costs[idx] <= state.solution_costs[idx]) {
       const int* __restrict__ independent_set = state.independent_sets + i * state.set_size;
       const int* __restrict__ solution = state.solutions + i * state.set_size;
-      const float* __restrict__ orig_x = state.orig_x + i * state.set_size;
-      const float* __restrict__ orig_y = state.orig_y + i * state.set_size;
+      const int* __restrict__ orig_x = state.orig_x + i * state.set_size;
+      const int* __restrict__ orig_y = state.orig_y + i * state.set_size;
       const Space* __restrict__ orig_spaces = state.orig_spaces + i * state.set_size;
 
       for (int j = threadIdx.x; j < state.set_size; j += blockDim.x) {
@@ -146,7 +146,7 @@ __global__ void move_nodes_kernel(GpuData db, IndependentSetMatchingState state)
             x = orig_x[sol_k];
             bool ret = adjust_pos(x, node_width, orig_space);
             if (!ret) {
-              printf("[INFO GPU-DPO] ERROR: ism adjust_pos, node_width: %g, orig_space(%g, %g)\n",
+              printf("[INFO GPU-DPO] ERROR: ism adjust_pos, node_width: %d, orig_space(%d, %d)\n",
                      node_width, orig_space.xl, orig_space.xh);
             }
             assert(ret);

@@ -47,10 +47,11 @@
     checkCuda(cudaMemcpy((void*)var, (void*)rhs, sizeof(T) * (size), cudaMemcpyDeviceToHost)); \
   }
 
-#define copyBackToCpu(var, rhs, size)                                                     \
-  {                                                                                       \
-    checkCuda(cudaMemcpy((rhs), (var), sizeof(*(rhs)) * (size), cudaMemcpyDeviceToHost)); \                         \
-  }                       
+#define copyBackToCpu(var, rhs, size)                                                      \
+  {                                                                                        \
+    checkCuda(cudaMemcpy((rhs), (var), sizeof(*(rhs)) * (size), cudaMemcpyDeviceToHost));  \
+  }
+                     
 
 // For cuda::numeric_limits
 namespace cuda {  // namespace cuda

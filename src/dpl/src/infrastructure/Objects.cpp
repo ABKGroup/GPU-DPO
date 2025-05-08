@@ -579,7 +579,7 @@ void Pin::setId(int id)
 {
   id_ = id;
 }
-int Pin::getId()
+int Pin::getId() const
 {
   return id_;
 }

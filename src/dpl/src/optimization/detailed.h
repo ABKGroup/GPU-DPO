@@ -12,7 +12,6 @@
 #include "infrastructure/architecture.h"
 #include "infrastructure/network.h"
 #include "infrastructure/FlattenedData.h"
-#include "infrastructure/GpuData.cuh"
 
 namespace dpl {
 
@@ -20,6 +19,7 @@ namespace dpl {
 // Forward declarations.
 ////////////////////////////////////////////////////////////////////////////////
 class DetailedMgr;
+class GpuData;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Classes.
@@ -35,10 +35,10 @@ class Detailed
  public:
   explicit Detailed(DetailedParams& params) : params_(params) {}
 
-  bool improve(DetailedMgr& mgr);
+  bool improve(DetailedMgr& mgr, FlattenedData& flattenedData);
 
  private:
-  void doDetailedCommand(std::vector<std::string>& args);
+  void doDetailedCommand(std::vector<std::string>& args, GpuData& gpuData);
 
   DetailedParams& params_;
   DetailedMgr* mgr_ = nullptr;
@@ -47,9 +47,9 @@ class Detailed
   Network* network_ = nullptr;
 
   FlattenedData* flattenedData_ = nullptr;
-  GpuData* gpuData_ = nullptr;
 
   bool deviceOpsDone = false;
+  bool dataCopiedBack = false;
 };
 
 }  // namespace dpl

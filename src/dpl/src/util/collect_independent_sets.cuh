@@ -70,8 +70,7 @@ void init_kmeans(const GpuData& db,
   allocateCuda(kmeans_state.node2centers_map, db.num_movable_nodes, int);
 }
 
-template <typename T>
-void destroy_kmeans(KMeansState<T>& kmeans_state) {
+void destroy_kmeans(KMeansState<int>& kmeans_state) {
   cudaFree(kmeans_state.centers_x);
   cudaFree(kmeans_state.centers_y);
   cudaFree(kmeans_state.weights);
@@ -94,19 +93,6 @@ __inline__ __device__ T kmeans_distance(T node_x, T node_y, T center_x, T center
   return distance;
 }
 
-template <typename T>
-struct ItemWithIndex {
-  T value;
-  int index;
-};
-
-template <typename T>
-struct ReduceMinOP {
-  __host__ __device__ ItemWithIndex<T> operator()(const ItemWithIndex<T>& a, const ItemWithIndex<T>& b) const {
-    return (a.value < b.value) ? a : b;
-  }
-};
-
 template <int ThreadsPerBlock = 128>
 __global__ void kmeans_find_centers_kernel(GpuData db,
                                            IndependentSetMatchingState state,
@@ -117,11 +103,11 @@ __global__ void kmeans_find_centers_kernel(GpuData db,
   auto node_x = db.x[node_id];
   auto node_y = db.y[node_id];
 
-  typedef cub::BlockReduce<ItemWithIndex<int>, ThreadsPerBlock> BlockReduce;
+  typedef cub::BlockReduce<ItemWithIndex, ThreadsPerBlock> BlockReduce;
 
   __shared__ typename BlockReduce::TempStorage temp_storage;
 
-  ItemWithIndex<int> thread_data;
+  ItemWithIndex thread_data;
 
   thread_data.value = cuda::numeric_limits<int>::max();
   thread_data.index = cuda::numeric_limits<int>::max();
@@ -147,9 +133,9 @@ __global__ void kmeans_find_centers_kernel(GpuData db,
   __syncthreads();
 
   // Compute the block-wide max for thread0
-  ItemWithIndex<int> aggregate =
+  ItemWithIndex aggregate =
       BlockReduce(temp_storage)
-          .Reduce(thread_data, ReduceMinOP<int>(), kmeans_state.num_seeds);
+          .Reduce(thread_data, ReduceMinOP(), kmeans_state.num_seeds);
 
   __syncthreads();
 
