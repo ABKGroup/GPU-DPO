@@ -31,6 +31,7 @@
 #include <curand.h>
 #include <curand_kernel.h>
 #include <omp.h>
+#include <chrono>
 
 #include "detailed_manager.h"
 #include "infrastructure/architecture.h"
@@ -297,7 +298,7 @@ void DetailedMis::run(DetailedMgr* mgrPtr, GpuData& db_, std::vector<std::string
     // const double curr_obj = (obj_ == DetailedMis::Hpwl) ? curr_hpwl : curr_disp;
 
     printf("[INFO GPU-DPO] Pass %d of matching; objective is %d.\n", p, curr_hpwl);
-
+    auto start = std::chrono::high_resolution_clock::now();
     shuffler();
     checkCuda(cudaDeviceSynchronize());
 
@@ -328,6 +329,10 @@ void DetailedMis::run(DetailedMgr* mgrPtr, GpuData& db_, std::vector<std::string
     // apply solutions
     apply_solution(db_, state);
     checkCuda(cudaDeviceSynchronize());
+
+    auto end = std::chrono::high_resolution_clock::now();
+    double elapsed_ms = std::chrono::duration<double, std::milli>(end - start).count();
+    std::cout << "[INFO GPU-DPO] Iteration time: " << elapsed_ms << " ms\n";
 
     const int64_t last_hpwl = curr_hpwl;
     curr_hpwl = compute_total_hpwl(db_, db_.x, db_.y, state.net_hpwls);

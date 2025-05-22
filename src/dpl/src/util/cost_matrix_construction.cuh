@@ -78,20 +78,20 @@ __global__ void compute_cost_matrix_kernel(GpuData db, IndependentSetMatchingSta
       int target_hpwl = 0;
       
       // Must span the same number of rows (same height) and must be voltage compatible
-      // if (db.node_bottom_power[node_id] != db.node_bottom_power[pos_id]
-      //     || db.node_top_power[node_id] != db.node_top_power[pos_id] 
-      //     || db.node_size_y[node_id] != db.node_size_y[pos_id]) {
-      //   cost = BIG_NEGATIVE;
-      //   continue;
-      // }
+      if (db.node_bottom_power[node_id] != db.node_bottom_power[pos_id]
+          || db.node_top_power[node_id] != db.node_top_power[pos_id] 
+          || db.node_size_y[node_id] != db.node_size_y[pos_id]) {
+        cost = BIG_NEGATIVE;
+        continue;
+      }
 
-      // // Must exchange node with the same size node
-      // if (db.use_same_size 
-      //     && (db.node_size_x[node_id] != db.node_size_x[pos_id] || 
-      //         db.node_size_y[node_id] != db.node_size_y[pos_id])) {
-      //   cost = BIG_NEGATIVE;
-      //   continue;
-      // }
+      // Must exchange node with the same size node
+      if (db.use_same_size 
+          && (db.node_size_x[node_id] != db.node_size_x[pos_id] || 
+              db.node_size_y[node_id] != db.node_size_y[pos_id])) {
+        cost = BIG_NEGATIVE;
+        continue;
+      }
 
       if (adjust_pos(target_x, node_width, target_space)) {
         // check if the node is not in the fence region

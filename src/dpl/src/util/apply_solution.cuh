@@ -146,23 +146,23 @@ __global__ void move_nodes_kernel(GpuData db, IndependentSetMatchingState state)
           auto& space = state.spaces[node_id];
           if (j != sol_k) {
             // Check if proposed move is within displacement bounds
-            // int dx = ::abs(orig_x[sol_k] - db.init_x[node_id]);
-            // int dy = ::abs(orig_y[sol_k] - db.init_y[node_id]);
+            int dx = ::abs(orig_x[sol_k] - db.init_x[node_id]);
+            int dy = ::abs(orig_y[sol_k] - db.init_y[node_id]);
 
-            //if (dx <= db.max_displacement_x && dy <= db.max_displacement_y) {
-            atomicAdd(state.device_num_moved, 1);
-            auto const& orig_space = orig_spaces[sol_k];
-            x = orig_x[sol_k];
-            bool ret = adjust_pos(x, node_width, orig_space);
-            if (!ret) {
-              printf("[INFO GPU-DPO] ERROR: ism adjust_pos, node_width: %d, orig_space(%d, %d)\n",
-                    node_width, orig_space.xl, orig_space.xh);
+            if (dx <= db.max_displacement_x && dy <= db.max_displacement_y) {
+              atomicAdd(state.device_num_moved, 1);
+              auto const& orig_space = orig_spaces[sol_k];
+              x = orig_x[sol_k];
+              bool ret = adjust_pos(x, node_width, orig_space);
+              if (!ret) {
+                printf("[INFO GPU-DPO] ERROR: ism adjust_pos, node_width: %d, orig_space(%d, %d)\n",
+                      node_width, orig_space.xl, orig_space.xh);
+              }
+              assert(ret);
+              y = orig_y[sol_k];
+              seg = orig_seg[sol_k];
+              space = orig_space;
             }
-            assert(ret);
-            y = orig_y[sol_k];
-            seg = orig_seg[sol_k];
-            space = orig_space;
-            //}
           }
         }
       }

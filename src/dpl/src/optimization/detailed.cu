@@ -10,6 +10,9 @@
 #include <string>
 #include <utility>
 #include <vector>
+#include <chrono>
+#include <cuda.h>
+#include <cuda_runtime.h>
 
 #include "util/utility.h"
 #include "utl/Logger.h"
@@ -47,7 +50,14 @@ bool Detailed::improve(DetailedMgr& mgr, FlattenedData& flattenedData)
 
   // Copy the data from host to device
   GpuData* gpuData_ = new GpuData();
+
+  cudaFree(0);  // triggers context initialization
+
+  auto start = std::chrono::high_resolution_clock::now();
   gpuData_->copyToDevice(*flattenedData_);
+  auto end = std::chrono::high_resolution_clock::now();
+  double elapsed_ms = std::chrono::duration<double, std::milli>(end - start).count();
+  std::cout << "[INFO GPU-DPO] Copy to device time: " << elapsed_ms << " ms\n";
 
   // Parse the script string and run each command.
   boost::char_separator<char> separators(" \r\t\n", ";");
@@ -67,7 +77,11 @@ bool Detailed::improve(DetailedMgr& mgr, FlattenedData& flattenedData)
       args.clear();
       // Copy data back to host once done
       if (deviceOpsDone && !dataCopiedBack) {
+        auto start = std::chrono::high_resolution_clock::now();
         gpuData_->copyToHost(*flattenedData_);
+        auto end = std::chrono::high_resolution_clock::now();
+        double elapsed_ms = std::chrono::duration<double, std::milli>(end - start).count();
+        std::cout << "[INFO GPU-DPO] Copy to host time: " << elapsed_ms << " ms\n";
         flattenedData_->populateNetwork(*network_, *mgr_);
         gpuData_->freeData();
         dataCopiedBack = true;
