@@ -255,9 +255,9 @@ void Opendp::createArchitecture()
 
   arch_->postProcess(network_.get());
 
-  // Reorder and reindex nodes for gpu preprocessing
+  // Reorder and reindex nodes for gpu preprocessing (this can probably be removed)
   network_->reorderAndReindexNodes();
-  network_->sanityCheckAndPrintStats();
+  // network_->sanityCheckAndPrintStats();
 }
 
 void Opendp::setUpPlacementGroups()

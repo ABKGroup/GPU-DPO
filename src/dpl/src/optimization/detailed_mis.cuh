@@ -53,6 +53,7 @@ struct IndependentSetMatchingState {
   char* stop_flags = nullptr;               ///< record stopping status from auction solver
   int* orig_x = nullptr;                      ///< original locations of cells for applying solutions
   int* orig_y = nullptr;
+  int* orig_seg = nullptr;        ///< original segments of cells for applying solutions
   int* orig_costs = nullptr;      ///< original costs
   int* solution_costs = nullptr;  ///< solution costs
   Space* orig_spaces = nullptr;      ///< original spaces of cells for apply solutions
@@ -121,10 +122,10 @@ class DetailedMis
   Network* network_;
 
   // Other.
-  int batchSize_ = 32;
+  int batchSize_ = 16;
   int numBinsX_ = 256;
   int numBinsY_ = 256;
-  int setSize_ = 32;
+  int setSize_ = 64;
 };
 
 }  // namespace dpl

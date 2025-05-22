@@ -16,6 +16,7 @@
 #include <string>
 #include <utility>
 #include <vector>
+#include <iostream>
 
 #include "PlacementDRC.h"
 #include "detailed_orient.h"

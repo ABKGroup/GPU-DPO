@@ -16,6 +16,8 @@
 #include <cstdio>
 #include <omp.h>
 
+#define MAX_NET_DEGREE 40   // an estimation
+
 namespace dpl {
 
 template <typename T1, typename T2>
@@ -49,6 +51,8 @@ struct Space {
   int xh;
 };
 
+// =============================================================
+// Used in CUB reduction to track best (min) cost and index
 struct ItemWithIndex {
   int value;
   int index;
@@ -90,6 +94,9 @@ struct BinMapIndex {
   int sub_id;
 };
 
+// this db acts like the network and architecture of the design
+// here we manage the tasks of the detailed placement operators too
+// includes: edge spacing check, site alignment, overlap check, etc.
 class GpuData {
 public:
   int* x = nullptr;
@@ -98,6 +105,11 @@ public:
   int* init_y = nullptr;
   int* node_size_x = nullptr;
   int* node_size_y = nullptr;
+  int* node_top_power = nullptr;
+  int* node_bottom_power = nullptr;
+  int* node2segs = nullptr;
+  //int* flat_seg2node_map = nullptr;
+  //int* flat_seg2node_start_map = nullptr;
 
   int* pin_offset_x = nullptr;
   int* pin_offset_y = nullptr;
@@ -116,6 +128,9 @@ public:
 
   int* net_mask = nullptr;
 
+  int* node_left_padding = nullptr;
+  int* node_right_padding = nullptr;
+
   int xl;
   int yl;
   int xh;
@@ -125,6 +140,11 @@ public:
   int num_sites_y;
   int row_height;
   int site_width;
+  int site_spacing;
+  int row_left;
+
+  int max_displacement_x;
+  int max_displacement_y;
 
   int num_nets;
   int num_movable_nodes;
@@ -140,6 +160,8 @@ public:
   float bin_size_x;
   float bin_size_y;
 
+  bool use_same_size;
+
   GpuData() = default;
 
   void copyToDevice(const FlattenedData& db) {
@@ -149,6 +171,7 @@ public:
     allocateCopyCuda(init_y, db.init_y.data(), db.num_nodes);
     allocateCopyCuda(node_size_x, db.node_size_x.data(), db.num_nodes);
     allocateCopyCuda(node_size_y, db.node_size_y.data(), db.num_nodes);
+    allocateCopyCuda(node2segs, db.node2segs.data(), db.num_nodes);
     allocateCopyCuda(pin_offset_x, db.pin_offset_x.data(), db.num_pins);
     allocateCopyCuda(pin_offset_y, db.pin_offset_y.data(), db.num_pins);
     allocateCopyCuda(flat_node2pin_start_map, db.flat_node2pin_start_map.data(), db.num_nodes + 1);
@@ -161,6 +184,10 @@ public:
     allocateCopyCuda(flat_region_boxes_start, db.flat_region_boxes_start.data(), db.num_regions + 1);
     allocateCopyCuda(flat_region_boxes, db.flat_region_boxes.data(), db.region_boxes_size);
     allocateCopyCuda(node2fence_region_map, db.node2fence_region_map.data(), db.num_nodes);
+    allocateCopyCuda(node_left_padding, db.node_left_padding.data(), db.num_nodes);
+    allocateCopyCuda(node_right_padding, db.node_right_padding.data(), db.num_nodes);
+    allocateCopyCuda(node_top_power, db.node_top_power.data(), db.num_nodes);
+    allocateCopyCuda(node_bottom_power, db.node_bottom_power.data(), db.num_nodes);
 
     xl = db.xl;
     xh = db.xh;
@@ -168,6 +195,11 @@ public:
     yh = db.yh;
     row_height = db.row_height;
     site_width = db.site_width;
+    site_spacing = db.site_spacing;
+    row_left = db.row_left;
+
+    max_displacement_x = db.max_displacement_x;
+    max_displacement_y = db.max_displacement_y;
 
     num_sites_x = db.num_sites_x;
     num_sites_y = db.num_sites_y;
@@ -179,6 +211,8 @@ public:
     num_pins = db.num_pins;
     num_regions = db.num_regions;
     region_boxes_size = db.region_boxes_size;
+
+    use_same_size = db.use_same_size;
   }
 
   void copyToHost(FlattenedData& db) {
@@ -188,6 +222,7 @@ public:
     copyBackToCpu(init_y, db.init_y.data(), num_nodes);
     copyBackToCpu(node_size_x, db.node_size_x.data(), num_nodes);
     copyBackToCpu(node_size_y, db.node_size_y.data(), num_nodes);
+    copyBackToCpu(node2segs, db.node2segs.data(), num_nodes);
     copyBackToCpu(pin_offset_x, db.pin_offset_x.data(), num_pins);
     copyBackToCpu(pin_offset_y, db.pin_offset_y.data(), num_pins);
     copyBackToCpu(flat_node2pin_start_map, db.flat_node2pin_start_map.data(), num_nodes + 1);
@@ -207,6 +242,8 @@ public:
     db.yh = yh;
     db.row_height = row_height;
     db.site_width = site_width;
+    db.site_spacing = site_spacing;
+    db.row_left = row_left;
 
     db.num_sites_x = num_sites_x;
     db.num_sites_y = num_sites_y;
@@ -227,6 +264,7 @@ public:
     cudaFree(init_y);
     cudaFree(node_size_x);
     cudaFree(node_size_y);
+    cudaFree(node2segs);
     cudaFree(pin_offset_x);
     cudaFree(pin_offset_y);
     cudaFree(flat_node2pin_start_map);
@@ -239,6 +277,10 @@ public:
     cudaFree(flat_region_boxes_start);
     cudaFree(flat_region_boxes);
     cudaFree(node2fence_region_map);
+    cudaFree(node_left_padding);
+    cudaFree(node_right_padding);
+    cudaFree(node_bottom_power);
+    cudaFree(node_top_power);
   }
 
   void set_num_bins(int num_bins_x_, int num_bins_y_) {
@@ -246,22 +288,6 @@ public:
     num_bins_y = num_bins_y_;
     bin_size_x = (xh - xl) / num_bins_x_;
     bin_size_y = (yh - yl) / num_bins_y_;
-  }
-
-  inline __device__ int pos2site_x(int xx) const {
-    return min(max((int)floorDiv((xx - xl), site_width), 0), num_sites_x - 1);
-  }
-
-  inline __device__ int pos2site_y(int yy) const {
-    return min(max((int)floorDiv((yy - yl), row_height), 0), num_sites_y - 1);
-  }
-
-  inline __device__ int pos2site_ub_x(int xx) const {
-    return min(max(ceilDiv((xx - xl), site_width), 1), num_sites_x);
-  }
-
-  inline __device__ int pos2site_ub_y(int yy) const {
-    return min(max(ceilDiv((yy - yl), row_height), 1), num_sites_y);
   }
 
   inline __device__ int pos2bin_x(int xx) const {
@@ -278,6 +304,16 @@ public:
     return by;
   }
 
+  inline __device__ int align2site(int xx) const {
+    return (int)floorDiv((xx - xl), site_width) * site_width + xl;
+  }
+
+  inline __device__ Space align2site(Space space) const {
+    space.xl = ceilDiv((space.xl - xl), site_width) * site_width + xl;
+    space.xh = floorDiv((space.xh - xl), site_width) * site_width + xl;
+    return space;
+  }
+
   inline __device__ void shift_box_to_layout(Box& box) const {
     box.xl = max(box.xl, xl);
     box.xl = min(box.xl, xh);
@@ -289,17 +325,30 @@ public:
     box.yh = min(box.yh, yh);
   }
 
-  inline __device__ int align2site(int xx) const {
-    return (int)floorDiv((xx - xl), site_width) * site_width + xl;
-  }
+  /*__device__ bool is_site_aligned(const int node_width,
+                                  int& xi,  // node left coordinate
+                                  const int xl,
+                                  int xr)
+  {
+    // check whether a node can be site aligned with the left edge
+    // Given a cell with a target location, xi, determine a
+    // site-aligned position such that the cell falls
+    // within the interval [xl,xr].
+    // This routine works with the left edge of the cell.
+    // We fail if the left edge is out of range, which means cell is OOB
+    xr -= node_width; // adjust range for left edge
+    int xp = max(xl, min(xr, xi));
+    int ix = floorf((xp - row_left) / site_spacing);
+    xp = row_left + ix * site_spacing;
+    if (xp < xl) xp += site_spacing;
+    else if (xp > xhi) xp -= site_spacing;
 
-  inline __device__ Space align2site(Space space) const {
-    space.xl = ceilDiv((space.xl - xl), site_width) * site_width + xl;
-    space.xh = floorDiv((space.xh - xl), site_width) * site_width + xl;
-    return space;
-  }
+    if (xp < xl || xp > xhi) return false;
+    xi = xp;
+    return true;
+  }*/
 
-  __device__ Box compute_optimal_region(int node_id, const int* xx, const int* yy, const int* size_x, const int* size_y) const {
+  /*__device__ Box compute_optimal_region(int node_id, const int* xx, const int* yy, const int* size_x, const int* size_y) const {
     Box box(xh, yh, xl, yl);
     for (int node2pin_id = flat_node2pin_start_map[node_id]; node2pin_id < flat_node2pin_start_map[node_id + 1]; ++node2pin_id) {
       int node_pin_id = flat_node2pin_map[node2pin_id];
@@ -319,7 +368,118 @@ public:
     }
     shift_box_to_layout(box);
     return box;
+  }*/
+  __device__ Box compute_optimal_region(
+    int node_id,
+    const int* xx, const int* yy,
+    const int* size_x, const int* size_y) const
+  {
+    // Start with an empty vector of points
+    int xpts[MAX_NET_DEGREE * 2];
+    int ypts[MAX_NET_DEGREE * 2];
+    int t = 0;
+
+    for (int node2pin_id = flat_node2pin_start_map[node_id];
+        node2pin_id < flat_node2pin_start_map[node_id + 1];
+        ++node2pin_id)
+    {
+      int node_pin_id = flat_node2pin_map[node2pin_id];
+      int net_id = pin2net_map[node_pin_id];
+
+      // Skip masked nets or too large nets
+      if (!net_mask[net_id])
+        continue;
+
+      // Compute bounding box of other pins in the net
+      int bbox_xl = xh, bbox_xh = xl;
+      int bbox_yl = yh, bbox_yh = yl;
+      bool has_valid = false;
+
+      for (int net2pin_id = flat_net2pin_start_map[net_id];
+          net2pin_id < flat_net2pin_start_map[net_id + 1];
+          ++net2pin_id)
+      {
+        int net_pin_id = flat_net2pin_map[net2pin_id];
+        int other_node_id = pin2node_map[net_pin_id];
+        if (node_id == other_node_id)
+          continue;
+
+        int px = xx[other_node_id] + pin_offset_x[net_pin_id];
+        int py = yy[other_node_id] + pin_offset_y[net_pin_id];
+
+        bbox_xl = min(bbox_xl, px);
+        bbox_xh = max(bbox_xh, px);
+        bbox_yl = min(bbox_yl, py);
+        bbox_yh = max(bbox_yh, py);
+        has_valid = true;
+      }
+
+      if (has_valid)
+      {
+        // Adjust to cell center by subtracting pin offset
+        int offset_x = pin_offset_x[node_pin_id];
+        int offset_y = pin_offset_y[node_pin_id];
+
+        int cxmin = max(xl, bbox_xl - offset_x);
+        int cxmax = min(xh, bbox_xh - offset_x);
+        int cymin = max(yl, bbox_yl - offset_y);
+        int cymax = min(yh, bbox_yh - offset_y);
+
+        xpts[t] = cxmin;
+        ypts[t] = cymin;
+        ++t;
+
+        xpts[t] = cxmax;
+        ypts[t] = cymax;
+        ++t;
+      }
+    }
+
+    if (t <= 1)
+    {
+      // Default fallback: return whole layout region
+      Box box(xl, yl, xh, yh);
+      return box;
+    }
+
+    // Sort the x and y points to get median box
+    // Simple insertion sort (as t is small)
+    for (int i = 1; i < t; ++i)
+    {
+      int key = xpts[i];
+      int j = i - 1;
+      while (j >= 0 && xpts[j] > key)
+      {
+        xpts[j + 1] = xpts[j];
+        --j;
+      }
+      xpts[j + 1] = key;
+    }
+
+    for (int i = 1; i < t; ++i)
+    {
+      int key = ypts[i];
+      int j = i - 1;
+      while (j >= 0 && ypts[j] > key)
+      {
+        ypts[j + 1] = ypts[j];
+        --j;
+      }
+      ypts[j + 1] = key;
+    }
+
+    int mid = t >> 1;
+    Box box(
+      xpts[mid - 1],
+      ypts[mid - 1],
+      xpts[mid],
+      ypts[mid]
+    );
+
+    shift_box_to_layout(box);
+    return box;
   }
+
 
   __device__ int compute_net_hpwl(int net_id, const int* xx, const int* yy) const {
     if (flat_net2pin_start_map[net_id + 1] - flat_net2pin_start_map[net_id] <= 1) {

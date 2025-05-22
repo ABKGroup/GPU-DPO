@@ -108,6 +108,7 @@ __global__ void store_orig_pos_kernel(GpuData db, IndependentSetMatchingState st
   const int* __restrict__ independent_set = state.independent_sets + i * state.set_size;
   auto orig_x = state.orig_x + i * state.set_size;
   auto orig_y = state.orig_y + i * state.set_size;
+  auto orig_seg = state.orig_seg + i * state.set_size;
   auto orig_spaces = state.orig_spaces + i * state.set_size;
   for (int j = threadIdx.x; j < state.set_size; j += blockDim.x) {
     int node_id = independent_set[j];
@@ -115,6 +116,7 @@ __global__ void store_orig_pos_kernel(GpuData db, IndependentSetMatchingState st
       assert(node_id >= 0);
       orig_x[j] = db.x[node_id];
       orig_y[j] = db.y[node_id];
+      orig_seg[j] = db.node2segs[node_id];
       orig_spaces[j] = state.spaces[node_id];
     }
   }
@@ -130,6 +132,7 @@ __global__ void move_nodes_kernel(GpuData db, IndependentSetMatchingState state)
       const int* __restrict__ solution = state.solutions + i * state.set_size;
       const int* __restrict__ orig_x = state.orig_x + i * state.set_size;
       const int* __restrict__ orig_y = state.orig_y + i * state.set_size;
+      const int* __restrict__ orig_seg = state.orig_seg + i * state.set_size;
       const Space* __restrict__ orig_spaces = state.orig_spaces + i * state.set_size;
 
       for (int j = threadIdx.x; j < state.set_size; j += blockDim.x) {
@@ -139,19 +142,27 @@ __global__ void move_nodes_kernel(GpuData db, IndependentSetMatchingState state)
           auto node_width = db.node_size_x[node_id];
           auto& x = db.x[node_id];
           auto& y = db.y[node_id];
+          auto& seg = db.node2segs[node_id];
           auto& space = state.spaces[node_id];
           if (j != sol_k) {
+            // Check if proposed move is within displacement bounds
+            // int dx = ::abs(orig_x[sol_k] - db.init_x[node_id]);
+            // int dy = ::abs(orig_y[sol_k] - db.init_y[node_id]);
+
+            //if (dx <= db.max_displacement_x && dy <= db.max_displacement_y) {
             atomicAdd(state.device_num_moved, 1);
             auto const& orig_space = orig_spaces[sol_k];
             x = orig_x[sol_k];
             bool ret = adjust_pos(x, node_width, orig_space);
             if (!ret) {
               printf("[INFO GPU-DPO] ERROR: ism adjust_pos, node_width: %d, orig_space(%d, %d)\n",
-                     node_width, orig_space.xl, orig_space.xh);
+                    node_width, orig_space.xl, orig_space.xh);
             }
             assert(ret);
             y = orig_y[sol_k];
+            seg = orig_seg[sol_k];
             space = orig_space;
+            //}
           }
         }
       }

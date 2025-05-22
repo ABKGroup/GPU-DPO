@@ -51,7 +51,7 @@ void Opendp::improvePlacement(const int seed,
   ShiftLegalizer lg;
   lg.legalize(mgr);
 
-  FlattenedData* flattenedData_ = new FlattenedData(arch_.get(), network_.get());
+  FlattenedData* flattenedData_ = new FlattenedData(&mgr);
   flattenedData_->createFlattenedData();
 
   // Detailed improvement.  Runs through a number of different

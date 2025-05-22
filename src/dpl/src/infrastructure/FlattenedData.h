@@ -7,17 +7,19 @@
 
 #include "architecture.h"
 #include "network.h"
+#include "optimization/detailed_manager.h"
 
 namespace dpl {
 
 class FlattenedData {
 public:
-  FlattenedData(Architecture* arch, Network* network);
+  FlattenedData(DetailedMgr* mgr);
 
   void createFlattenedData();
 
-  void populateNetwork(Network& network);
+  void populateNetwork(Network& network, DetailedMgr& mgr);
 
+  DetailedMgr* mgr_;
   Architecture* arch_;
   Network* network_;
 
@@ -28,6 +30,15 @@ public:
   std::vector<int> y;     
   std::vector<int> node_size_x; 
   std::vector<int> node_size_y; 
+  std::vector<int> node_bottom_power;
+  std::vector<int> node_top_power;
+
+  /* segment info */
+  std::vector<int> orig_node2segs;          // stores the original segments which nodes are stored
+  std::vector<int> node2segs;               // stores which cells are in the segments
+  //std::vector<int> flat_seg2node_map;       // stores the contiguous list of nodes in each segment
+  //std::vector<int> flat_seg2node_start_map; // start position of segments
+  int num_segments;
 
   /* pin info */
   std::vector<int> pin_offset_x;  
@@ -48,15 +59,25 @@ public:
   std::vector<float> flat_region_boxes;
   std::vector<int> node2fence_region_map;
 
+  // DRC info (for edge spacing and padding checks)
+  // Padding and edge spacing is usually 0 
+  bool use_padding = 0;
+  std::vector<int> node_left_padding;
+  std::vector<int> node_right_padding;
+
   // Core die coordinates
   int xl;
   int yl;
   int xh;
   int yh;
 
-  // used to shift core to the origin
+  // used to shift core to the origin (may not need this at all)
   int shift_factor_x = 0;   
   int shift_factor_y = 0;
+
+  // displacement limits
+  int max_displacement_x;
+  int max_displacement_y;
 
   // Row/site grid info
   int num_sites_x;     // number of columns
@@ -76,9 +97,14 @@ public:
   // Placement/site dimensions
   int site_width;
   int row_height;
+  int site_spacing;
+  int row_left;
 
   // System settings
   int num_threads;
+
+  // MIS parameters
+  bool use_same_size = true;   // only exchange cells with the same size
 
 private:
   void createNodeInfo();
@@ -87,7 +113,8 @@ private:
   void createFenceInfo();
   void createChipInfo();
   void createRowInfo();
-  void shiftDatabase();
+  void createSegmentInfo();
+  void shiftDatabase(); // we may not need this
 
   // Other
   int skipNetsLargerThanThis_ = 100;

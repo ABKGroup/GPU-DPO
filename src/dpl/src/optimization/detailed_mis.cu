@@ -192,7 +192,7 @@ void DetailedMis::run(DetailedMgr* mgrPtr, GpuData& db_, std::vector<std::string
   mgrPtr_ = mgrPtr;
   // db_ = mgrPtr_->getGpuData();
 
-  int passes = 1;
+  int passes = 30;
   double tol = 0.01;
   for (size_t i = 1; i < args.size(); i++) {
     if (args[i] == "-p" && i + 1 < args.size()) {
@@ -254,6 +254,7 @@ void DetailedMis::run(DetailedMgr* mgrPtr, GpuData& db_, std::vector<std::string
   allocateCuda(state.device_num_selected, 1, int);
   allocateCuda(state.orig_x, state.batch_size * state.set_size, int);
   allocateCuda(state.orig_y, state.batch_size * state.set_size, int);
+  allocateCuda(state.orig_seg, state.batch_size * state.set_size, int);
   allocateCuda(state.orig_spaces, state.batch_size * state.set_size, Space);
   allocateCuda(state.selected_markers, db_.num_nodes, int);
   allocateCuda(state.dependent_markers, db_.num_nodes, unsigned char);
@@ -330,10 +331,10 @@ void DetailedMis::run(DetailedMgr* mgrPtr, GpuData& db_, std::vector<std::string
 
     const int64_t last_hpwl = curr_hpwl;
     curr_hpwl = compute_total_hpwl(db_, db_.x, db_.y, state.net_hpwls);
-    if (/*obj_ == DetailedMis::Hpwl
-        &&*/ std::abs(curr_hpwl - last_hpwl) / (double) last_hpwl <= tol) {
-      break;
-    }
+    // if (/*obj_ == DetailedMis::Hpwl
+    //     &&*/ std::abs(curr_hpwl - last_hpwl) / (double) last_hpwl <= tol) {
+    //   break;
+    // }
     // const double last_disp = curr_disp;
     // curr_disp = Utility::disp_l1(network_, tot_disp, max_disp, avg_disp);
     // if (obj_ == DetailedMis::Disp
@@ -367,6 +368,7 @@ void DetailedMis::run(DetailedMgr* mgrPtr, GpuData& db_, std::vector<std::string
   cudaFree(state.solution_costs);
   cudaFree(state.orig_x);
   cudaFree(state.orig_y);
+  cudaFree(state.orig_seg);
   cudaFree(state.orig_spaces);
   cudaFree(state.selected_markers);
   cudaFree(state.dependent_markers);

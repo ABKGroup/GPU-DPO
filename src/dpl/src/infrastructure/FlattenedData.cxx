@@ -12,9 +12,10 @@
 
 namespace dpl {
 
-FlattenedData::FlattenedData(Architecture* arch, Network* network) {
-  arch_ = arch;
-  network_ = network;
+FlattenedData::FlattenedData(DetailedMgr* mgr) {
+  mgr_ = mgr;
+  arch_ = mgr_->getArchitecture();
+  network_ = mgr_->getNetwork();
 }
 
 void FlattenedData::createFlattenedData() {
@@ -25,18 +26,29 @@ void FlattenedData::createFlattenedData() {
   num_regions = arch_->getNumRegions();
   site_width = arch_->getRow(0)->getSiteWidth().v;
   row_height = arch_->getRow(0)->getHeight().v;
+  site_spacing = arch_->getRow(0)->getSiteSpacing().v;
+  row_left = arch_->getRow(0)->getLeft().v;
+  max_displacement_x = mgr_->getMaxDisplacementX();
+  max_displacement_y = mgr_->getMaxDisplacementY();
   num_threads = 8;
 
   createNodeInfo();
+  createSegmentInfo();
   createPinInfo();
   createNetInfo();
   createFenceInfo();
   createChipInfo();
   createRowInfo();
-  shiftDatabase();
+  //shiftDatabase();    // don't think this is needed
 }
 
 void FlattenedData::createNodeInfo() {
+  // Creates padding info for each node
+  use_padding = arch_->getUsePadding();
+  if (use_padding) {
+    node_left_padding.resize(num_nodes);
+    node_right_padding.resize(num_nodes);
+  }
   num_movable_nodes = network_->getNumMovableNodes();
   num_terminal_nodes = network_->getNumTerminalNodes();
   num_filler_nodes = network_->getNumFillerNodes();
@@ -47,6 +59,8 @@ void FlattenedData::createNodeInfo() {
   y.resize(num_nodes);
   node_size_x.resize(num_nodes);
   node_size_y.resize(num_nodes);
+  node_bottom_power.resize(num_nodes);
+  node_top_power.resize(num_nodes);
 
   for (int i = 0; i < network_->getNumNodes(); i++) {
     Node* node = network_->getNode(i);
@@ -57,6 +71,36 @@ void FlattenedData::createNodeInfo() {
     y[node_id] = node->getBottom().v;
     node_size_x[node_id] = node->getWidth().v;
     node_size_y[node_id] = node->getHeight().v;
+    node_bottom_power[node_id] = node->getBottomPower();
+    node_top_power[node_id] = node->getTopPower();
+    if (use_padding) {
+      int leftPadding, rightPadding;
+      arch_->getCellPadding(node, leftPadding, rightPadding);
+      node_left_padding[node->getId()] = leftPadding;
+      node_right_padding[node->getId()] = rightPadding;
+    }
+  }
+}
+
+void FlattenedData::createSegmentInfo() {
+  num_segments = mgr_->getNumSegments();
+  orig_node2segs.resize(num_nodes);
+  node2segs.resize(num_nodes);
+  //flat_seg2node_map.resize(num_segments);
+  //flat_seg2node_start_map.resize(num_segments + 1);
+  //int ptr = 0;
+  //int lastIdx = 0;
+  //flat_seg2node_start_map[0] = 0;
+  for (int i = 0; i < mgr_->getNumSegments(); i++) {
+    const std::vector<Node*>& nodes = mgr_->getCellsInSeg(i);
+    for (Node* node : nodes) {
+      int node_id = node->getId();
+      node2segs[node_id] = i; 
+      orig_node2segs[node_id] = i;
+      //flat_seg2node_map[ptr++] = node_id;
+    }
+    //lastIdx += nodes.size();
+    //flat_seg2node_start_map[i + 1] = lastIdx;
   }
 }
 
@@ -131,6 +175,7 @@ void FlattenedData::createFenceInfo() {
   // the simplest case: if there is only one region (which is the entire chip)
   // and the region has only one rectangle (no sub-rectangles)
   // then disregard fence regions completely
+  // this implementation might need to change
   if (arch_->getRegions().size() == 1 
     && arch_->getRegions()[0]->getRects().size() == 1
     && arch_->getRegions()[0]->getRects()[0].xMin() == arch_->getMinX().v
@@ -191,7 +236,7 @@ void FlattenedData::createChipInfo() {
 
 void FlattenedData::createRowInfo() {
   num_sites_x = std::round((xh - xl) / site_width);
-  num_sites_y = std::round((yh - yl) / row_height);
+  num_sites_y = arch_->getNumRows();
 }
 
 void FlattenedData::shiftDatabase() {
@@ -219,10 +264,10 @@ void FlattenedData::shiftDatabase() {
   }
 }
 
-// update node locations in network once device ops are done
-void FlattenedData::populateNetwork(Network& network) {
+// update node locations once device ops are done
+void FlattenedData::populateNetwork(Network& network, DetailedMgr& mgr) {
   // shift the chip layout back to its original state
-  if (xl == 0 && shift_factor_x != 0) {
+  /*if (xl == 0 && shift_factor_x != 0) {
     xl += shift_factor_x;
     xh += shift_factor_x;
     for (auto& val : x) {
@@ -241,7 +286,7 @@ void FlattenedData::populateNetwork(Network& network) {
     for (auto& val : init_y) {
       val += shift_factor_y;
     }
-  }
+  }*/
   // we should only have to update locations of non-fixed nodes
   for (int i = 0; i < network.getNumMovableNodes(); i++) {
     Node* node = network.getNode(i);
@@ -250,6 +295,11 @@ void FlattenedData::populateNetwork(Network& network) {
     }
     if (node->getBottom().v != y[i]) {
       node->setBottom(DbuY{y[i]});
+    }
+    // nodes might have moved to a different segment
+    if (node2segs[i] != orig_node2segs[i]) {
+      mgr.removeCellFromSegment(node, orig_node2segs[i]);
+      mgr.addCellToSegment(node, node2segs[i]);
     }
   }
 }

@@ -68,7 +68,7 @@ bool Detailed::improve(DetailedMgr& mgr, FlattenedData& flattenedData)
       // Copy data back to host once done
       if (deviceOpsDone && !dataCopiedBack) {
         gpuData_->copyToHost(*flattenedData_);
-        flattenedData_->populateNetwork(*network_);
+        flattenedData_->populateNetwork(*network_, *mgr_);
         gpuData_->freeData();
         dataCopiedBack = true;
       }
@@ -163,20 +163,20 @@ void Detailed::doDetailedCommand(std::vector<std::string>& args, GpuData& db_)
     mis.run(mgr_, db_, args);
   } else if (strcmp(args[0].c_str(), "gs") == 0) {
     DetailedGlobalSwap gs(arch_, network_);
-    gs.run(mgr_, db_, args);
+    //gs.run(mgr_, db_, args);
   } else if (strcmp(args[0].c_str(), "vs") == 0) {
     DetailedVerticalSwap vs(arch_, network_);
-    vs.run(mgr_, args);
+    //vs.run(mgr_, args);
   } else if (strcmp(args[0].c_str(), "ro") == 0) {
     DetailedReorderer ro(arch_, network_);
-    ro.run(mgr_, db_, args);
+    //ro.run(mgr_, db_, args);
     deviceOpsDone = true;
   } else if (strcmp(args[0].c_str(), "orient") == 0) {
     DetailedOrient orienter(arch_, network_);
-    orienter.run(mgr_, args);
+    //orienter.run(mgr_, args);
   } else if (strcmp(args[0].c_str(), "default") == 0) {
     DetailedRandom random(arch_, network_);
-    random.run(mgr_, args);
+    //random.run(mgr_, args);
   } else {
     return;
   }

@@ -12,6 +12,7 @@
 #include <vector>
 #include <cmath>
 #include <omp.h>
+#include <fstream>
 
 #include "detailed_manager.h"
 #include "infrastructure/architecture.h"
@@ -248,31 +249,31 @@ void make_row2node_map(const GpuData& db,
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
-std::vector<std::vector<int>> quick_perm(int N) {
-  std::vector<int> a(N), p(N, 0);
-  std::iota(a.begin(), a.end(), 0);
-  int total_num = 1;
-  for (int i = 1; i < N; ++i) {
-    total_num *= (i + 1);
-  }
-  std::vector<std::vector<int>> result;
-  result.reserve(total_num);
-  result.push_back(a);
+// std::vector<std::vector<int>> quick_perm(int N) {
+//   std::vector<int> a(N), p(N, 0);
+//   std::iota(a.begin(), a.end(), 0);
+//   int total_num = 1;
+//   for (int i = 1; i < N; ++i) {
+//     total_num *= (i + 1);
+//   }
+//   std::vector<std::vector<int>> result;
+//   result.reserve(total_num);
+//   result.push_back(a);
   
-  int i = 1;
-  while (i < N) {
-    if (p[i] < i) {
-      std::swap(a[i % 2 * p[i]], a[i]);
-      result.push_back(a);
-      ++p[i];
-      i = 1;
-    } else {
-      p[i++] = 0;
-    }
-  }
+//   int i = 1;
+//   while (i < N) {
+//     if (p[i] < i) {
+//       std::swap(a[i % 2 * p[i]], a[i]);
+//       result.push_back(a);
+//       ++p[i];
+//       i = 1;
+//     } else {
+//       p[i++] = 0;
+//     }
+//   }
 
-  return result;
-}
+//   return result;
+// }
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
@@ -445,7 +446,7 @@ __global__ void compute_reorder_hpwl(GpuData db, KReorderState state, int group_
             int flag = (1 << j);
             if ((instance_net.node_marker & flag)) {
               int permuted_offset = permutation[j];
-              int other_node_xl = target_x[permuted_offset];
+              int other_node_xl = target_x[permuted_offset] + target_sizes[permuted_offset] / 2;
               other_node_xl += instance_net.pin_offset_x[j];
               bxl = min(bxl, other_node_xl);
               bxh = max(bxh, other_node_xl);
@@ -863,7 +864,7 @@ void k_reorder(GpuData& db,
     assert(state.reorder_instances.size1 == host_reorder_instances.size());
     int group_size = host_reorder_instances[group_id].size();
     if (group_size) {
-      for (int offset = 0; offset < state.K; offset += state.K / 2) {
+      for (int offset = 0; offset < state.K; offset += 1) {
         reset_state<<<64, 512>>>(db, state, group_id);
         compute_node2inst_map<<<ceilDiv(group_size, 256), 256>>>(db, state, group_id, offset);
         compute_net_markers<<<ceilDiv(db.num_movable_nodes, 256), 256>>>(db, state);
@@ -889,14 +890,456 @@ void k_reorder(GpuData& db,
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
+__global__ void apply_best_reorder(GpuData db, ReorderState state, int group_id) {
+  // Attempts to apply the best permutation
+  // as long as the legality checks are met
+  int inst_offset = state.group_offsets[group_id];
+  int inst_count = state.group_counts[group_id];
+  int inst_id = blockIdx.x * blockDim.x + threadIdx.x;
+
+  if (inst_id >= inst_count) return;
+
+  int global_inst_id = inst_offset + inst_id;
+  ReorderInstance inst = state.instances[global_inst_id];
+  int perm_id = state.best_permute_id[global_inst_id];
+
+  // Read permutation
+  int perm[MAX_K];
+  for (int i = 0; i < inst.num_cells; ++i) {
+    perm[i] = state.permutations[perm_id * MAX_K + i];
+  }
+
+  // Apply permutation
+  int x_cursor = db.x[inst.node_ids[0]];  // Start from leftmost node's x
+  for (int i = 0; i < inst.num_cells; ++i) {
+    int node_id = inst.node_ids[perm[i]];
+
+    // Align to site
+    int site_width = db.site_width;
+    int aligned_x = ((x_cursor + site_width - 1) / site_width) * site_width;
+    x_cursor = aligned_x;
+
+    // Check displacement constraint
+    int orig_x = db.init_x[node_id];
+    int max_disp = db.max_displacement_x;
+    if (::abs(aligned_x - orig_x) > max_disp) return;
+
+    // Check fence region constraint
+    if (db.num_regions) {
+      int y = db.y[node_id];
+      if (!db.inside_fence(node_id, aligned_x, y)) return;
+    }
+    db.x[node_id] = aligned_x;
+    x_cursor += db.node_size_x[node_id];
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+__global__ void compute_reorder_costs(GpuData db, ReorderState state, int group_id) {
+  int total_perms = state.num_permutations;
+  int inst_offset = state.group_offsets[group_id];
+  int inst_count = state.group_counts[group_id];
+
+  int tid = blockIdx.x * blockDim.x + threadIdx.x;
+  int global_perm_id = tid % total_perms;
+  int local_inst_id = tid / total_perms;
+
+  if (local_inst_id >= inst_count) return;
+
+  int inst_id = inst_offset + local_inst_id;
+  ReorderInstance inst = state.instances[inst_id];
+
+  int node_ids[MAX_K];
+  for (int i = 0; i < inst.num_cells; ++i) {
+    node_ids[i] = inst.node_ids[i];
+  }
+
+  int perm[MAX_K];
+  for (int i = 0; i < inst.num_cells; ++i) {
+    perm[i] = state.permutations[global_perm_id * MAX_K + i];
+  }
+
+  // Step 1: collect all nets touched by the window
+  const int max_nets = 256;
+  int net_ids[max_nets];
+  int net_count = 0;
+
+  for (int i = 0; i < inst.num_cells; ++i) {
+    int node_id = node_ids[perm[i]];
+    for (int j = db.flat_node2pin_start_map[node_id]; j < db.flat_node2pin_start_map[node_id + 1]; ++j) {
+      int pin_id = db.flat_node2pin_map[j];
+      int net_id = db.pin2net_map[pin_id];
+      if (db.net_mask[net_id] == 0) continue;
+
+      bool found = false;
+      for (int k = 0; k < net_count; ++k) {
+        if (net_ids[k] == net_id) {
+          found = true;
+          break;
+        }
+      }
+      if (!found && net_count < max_nets) {
+        net_ids[net_count++] = net_id;
+      }
+    }
+  }
+
+  // Step 2: compute HPWL for each collected net
+  int cost = 0;
+  for (int i = 0; i < net_count; ++i) {
+    int net_id = net_ids[i];
+    int net_bxl = INT_MAX, net_bxh = INT_MIN;
+    for (int k = db.flat_net2pin_start_map[net_id]; k < db.flat_net2pin_start_map[net_id + 1]; ++k) {
+      int pin_id = db.flat_net2pin_map[k];
+      int node_id = db.pin2node_map[pin_id];
+      int px = (db.x[node_id] + db.node_size_x[node_id]) / 2 + db.pin_offset_x[pin_id];
+      net_bxl = min(net_bxl, px);
+      net_bxh = max(net_bxh, px);
+    }
+    cost += (net_bxh - net_bxl);
+  }
+
+  state.costs[inst_id * total_perms + global_perm_id] = cost;
+}
+
+__global__ void reduce_min_costs_cub(ReorderState state, int group_id) {
+  typedef cub::BlockReduce<ItemWithIndex, 256> BlockReduce;
+  __shared__ typename BlockReduce::TempStorage temp_storage;
+
+  int total_perms = state.num_permutations;
+  int inst_offset = state.group_offsets[group_id];
+  int inst_count = state.group_counts[group_id];
+  int inst_id = blockIdx.x;
+  if (inst_id >= inst_count) return;
+  int global_inst_id = inst_offset + inst_id;
+
+  auto inst_costs = state.costs + global_inst_id * total_perms;
+  auto inst_best_permute_id = state.best_permute_id + global_inst_id;
+
+  ItemWithIndex thread_data = {INT_MAX, 0};
+  for (int i = threadIdx.x; i < total_perms; i += blockDim.x) {
+    int cost = inst_costs[i];
+    if (cost < thread_data.value) {
+      thread_data.value = cost;
+      thread_data.index = i;
+    }
+  }
+
+  __syncthreads();
+
+  ItemWithIndex aggregate = BlockReduce(temp_storage).Reduce(thread_data, ReduceMinOP());
+  
+  __syncthreads();
+
+  if (threadIdx.x == 0) *inst_best_permute_id = aggregate.index;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+bool does_window_fit(const std::vector<Node*>& nodes,
+                     int istrt, int istop,
+                     int leftLimit, int rightLimit,
+                     Architecture* arch) {
+  const int size = istop - istrt + 1;
+  if (size <= 0) {
+    return false;
+  }
+
+  std::vector<int> left(size, 0);
+  std::vector<int> right(size, 0);
+  std::vector<int> width(size, 0);
+
+  int totalPadding = 0;
+  int totalWidth = 0;
+
+  for (int i = 0; i < size; i++) {
+    const Node* ndi = nodes[istrt + i];
+    arch->getCellPadding(ndi, left[i], right[i]);
+    width[i] = ndi->getWidth().v;
+    totalPadding += left[i] + right[i];
+    totalWidth += width[i];
+  }
+
+  const int availableSpace = rightLimit - leftLimit;
+  if (availableSpace < totalWidth + totalPadding) {
+    return false;   // not enough space for default spacing
+  }
+
+  // Try to spread remaining space evenly as extra padding
+  const int excessSpace = availableSpace - (totalWidth + totalPadding);
+  const int siteWidth = arch->getRow(0)->getSiteWidth().v;
+  const int sitePerCellTotal = excessSpace / siteWidth / size;
+  const int sitePerCellRight = sitePerCellTotal / 2;
+  const int sitePerCellLeft = sitePerCellTotal - sitePerCellRight;
+
+  int adjustedPadding = totalPadding + (sitePerCellRight + sitePerCellLeft) * siteWidth * size;
+  if (totalWidth + adjustedPadding > availableSpace) {
+    return false;  // even with spreading, we don't fit
+  }
+
+  return true; 
+}
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+std::vector<std::vector<int>> quick_perm(int n) {
+  std::vector<int> a(n), p(n, 0);
+  std::iota(a.begin(), a.end(), 0);
+  std::vector<std::vector<int>> result;
+  result.push_back(a);  // first permutation is identity
+
+  int i = 1;
+  while (i < n) {
+    if (p[i] < i) {
+      int j = (i % 2 == 1) ? p[i] : 0;
+      std::swap(a[i], a[j]);
+      result.push_back(a);
+      ++p[i];
+      i = 1;
+    } else {
+      p[i] = 0;
+      ++i;
+    }
+  }
+  return result;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+void reorder(GpuData& db, ReorderState state) {
+  for (int group_id = 0; group_id < state.num_groups; ++group_id) {
+
+    int group_size = state.h_group_counts[group_id];
+    if (group_size == 0) continue;
+
+    int total_threads = group_size * state.num_permutations;
+    int cost_blocks = (total_threads + 255) / 256;
+    int reduce_blocks = group_size;
+    int apply_blocks = (group_size + 255) / 256;
+
+    compute_reorder_costs<<<cost_blocks, 256>>>(db, state, group_id);
+    reduce_min_costs_cub<<<reduce_blocks, 256>>>(state, group_id);
+    apply_best_reorder<<<apply_blocks, 256>>>(db, state, group_id);
+  }
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+void compute_instances(GpuData& db,
+                       Architecture* arch,
+                       DetailedMgr* mgrPtr,
+                       Network* network,
+                       int windowSize,
+                       ReorderState& state,
+                       std::vector<std::vector<int>> segment_groups) {
+  std::vector<ReorderInstance> all_instances;
+  std::vector<int> group_offsets;
+  std::vector<int> group_counts;
+
+  int offset = 0;
+  for (const auto& group : segment_groups) {
+    int count_before = all_instances.size();
+    for (int seg_id : group) {
+      DetailedSeg* seg = mgrPtr->getSegment(seg_id);
+      int row_id = seg->getRowId();
+      const auto& nodes = mgrPtr->getCellsInSeg(seg_id);
+      if ((int)nodes.size() < 2) {
+        continue;
+      }
+      
+      int j = 0;
+      while (j < (int)nodes.size()) {
+        while (j < (int)nodes.size() && arch->isMultiHeightCell(nodes[j])) {
+          j++;
+        }
+        int jstrt = j;
+        while (j < (int)nodes.size() && arch->isSingleHeightCell(nodes[j])) {
+          j++;
+        }
+        int jstop = j - 1;
+
+        for (int i = jstrt; i + windowSize <= jstop + 1; i += windowSize) {
+          int istrt = i;
+          int istop = std::min(jstop, istrt + windowSize - 1);
+          if (istop == jstop) {
+            istrt = std::max(jstrt, istop - windowSize + 1);
+          }
+          const Node* next = (istop != (int)nodes.size() - 1) ? nodes[istop + 1] : nullptr;
+          const Node* prev = (istrt != 0) ? nodes[istrt - 1] : nullptr;
+
+          int rightLimit = seg->getMaxX().v;
+          if (next) {
+            int lp, rp;
+            arch->getCellPadding(next, lp, rp);
+            rightLimit = std::min(rightLimit, next->getLeft().v - lp);
+          }
+          int leftLimit = seg->getMinX().v;
+          if (prev) {
+            int lp, rp;
+            arch->getCellPadding(prev, lp, rp);
+            leftLimit = std::max(leftLimit, prev->getRight().v + rp);
+          }
+
+          if (does_window_fit(nodes, istrt, istop, leftLimit, rightLimit, arch)) {
+            std::vector<int> node_ids;
+            for (int k = 0; k < (istop - istrt + 1); ++k) {
+              int nid = nodes[istrt + k]->getId();
+              node_ids.push_back(nid);
+            }
+
+            ReorderInstance inst;
+            inst.num_cells = istop - istrt + 1;
+            inst.seg_id = seg_id;
+            inst.row_id = row_id;
+            inst.jstrt = jstrt;
+            inst.jstop = jstop;
+            inst.left_limit = leftLimit;
+            inst.right_limit = rightLimit;
+            for (int k = 0; k < inst.num_cells; k++) {
+              inst.node_ids[k] = node_ids[k];
+            }
+            all_instances.push_back(inst);
+          }
+        }
+      }
+      int count_after = all_instances.size();
+      group_offsets.push_back(offset);
+      group_counts.push_back(count_after - count_before);
+      offset = count_after;
+    }
+  }
+  
+  if (all_instances.empty()) return;
+
+  std::vector<std::vector<int>> permutations = quick_perm(windowSize);
+
+  const int num_instances = all_instances.size();
+  const int num_perms = permutations.size();
+
+  std::vector<int> flat_perms(num_perms * MAX_K, -1);
+  for (int i = 0; i < num_perms; i++) {
+    for (int j = 0; j < windowSize; j++) {
+      flat_perms[i * MAX_K + j] = permutations[i][j];
+    }
+  }
+
+  allocateCopyCuda(state.instances, all_instances.data(), num_instances);
+  allocateCopyCuda(state.permutations, flat_perms.data(), num_perms * MAX_K);
+  allocateCopyCuda(state.group_offsets, group_offsets.data(), group_offsets.size());
+  allocateCopyCuda(state.group_counts, group_counts.data(), group_counts.size());
+
+  state.num_groups = group_counts.size();
+  state.num_instances = num_instances;
+  state.num_permutations = num_perms;
+  state.K = windowSize;
+  state.allocate(num_instances, num_perms);
+
+  state.h_group_counts = group_counts.data();
+  state.h_group_offsets = group_offsets.data();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+std::vector<std::vector<int>> group_independent_segments(DetailedMgr* mgrPtr,
+                                                         int num_threads = 1) {
+  // Here we group the independent segments instead of independent rows 
+  // We only want to consider placeable regions so we don't need the entire row
+  // Segments in the same group do not share any nets
+  int num_segments = mgrPtr->getNumSegments();
+  std::vector<std::vector<int>> seg_graph(num_segments);
+  std::vector<std::set<int>> seg2nets(num_segments);
+
+#pragma omp parallel for num_threads(num_threads)
+  for (int s = 0; s < num_segments; ++s) {
+    DetailedSeg* seg = mgrPtr->getSegment(s);
+    const std::vector<Node*>& nodes = mgrPtr->getCellsInSeg(s);
+    for (Node* node : nodes) {
+      for (int p = 0; p < node->getNumPins(); ++p) {
+        const Pin* pin = node->getPins()[p];
+        const Edge* edge = pin->getEdge();
+        if (edge) {
+          seg2nets[s].insert(edge->getId());
+        }
+      }
+    }
+  }
+
+  std::vector<std::vector<unsigned char>> adjacency_matrix(num_segments, std::vector<unsigned char>(num_segments, 0));
+#pragma omp parallel for num_threads(num_threads)
+  for (int i = 0; i < num_segments; ++i) {
+    for (int j = i + 1; j < num_segments; ++j) {
+      for (int net : seg2nets[j]) {
+        if (seg2nets[i].count(net)) {
+          adjacency_matrix[i][j] = adjacency_matrix[j][i] = 1;
+          break;
+        }
+      }
+    }
+  }
+
+#pragma omp parallel for num_threads(num_threads)
+  for (int i = 0; i < num_segments; ++i) {
+    for (int j = 0; j < num_segments; ++j) {
+      if (i != j && adjacency_matrix[i][j]) {
+#pragma omp critical
+        seg_graph[i].push_back(j);
+      }
+    }
+  }
+
+  std::vector<std::vector<int>> groups;
+  std::vector<unsigned char> dependent(num_segments, 0);
+  std::vector<unsigned char> selected(num_segments, 0);
+  int num_selected = 0;
+
+  while (num_selected < num_segments) {
+    std::vector<int> group;
+    std::vector<unsigned char> this_iter_selected(num_segments, 0);
+    for (int i = 0; i < num_segments; ++i) {
+      if (!dependent[i] && !selected[i]) {
+        group.push_back(i);
+        this_iter_selected[i] = 1;
+        selected[i] = 1;
+        num_selected++;
+        for (int nbr : seg_graph[i]) {
+          dependent[nbr] = 1;
+        }
+      }
+    }
+    std::fill(dependent.begin(), dependent.end(), 0);
+    groups.push_back(group);
+  }
+
+  printf("[INFO GPU-DPO] Found %d independent segment groups across %d segments.\n", (int)groups.size(), num_segments);
+
+  // Verify independence of all groups
+  for (size_t g = 0; g < groups.size(); ++g) {
+    const auto& group = groups[g];
+    std::set<int> nets_in_group;
+    for (int seg_id : group) {
+      for (int net : seg2nets[seg_id]) {
+        if (nets_in_group.count(net)) {
+          printf("[ERROR GPU-DPO] Group %d has net overlap on net %d.\n", (int)g, (int)net);
+        }
+        nets_in_group.insert(net);
+      }
+    }
+  }
+
+  return groups;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 void DetailedReorderer::run(DetailedMgr* mgrPtr, GpuData& db_,
                             const std::vector<std::string>& args)
 {
   // Given the arguments, figure out which routine to run to do the reordering.
 
   mgrPtr_ = mgrPtr;
-  // db_ = mgrPtr_->getGpuData();
-
   windowSize_ = 3;
 
   int passes = 1;
@@ -917,110 +1360,120 @@ void DetailedReorderer::run(DetailedMgr* mgrPtr, GpuData& db_,
   windowSize_ = std::min(4, std::max(2, windowSize_));
   tol = std::max(tol, 0.01);
 
-  db_.set_num_bins(numBinsX_, numBinsY_);
-  KReorderState state;
-  GpuData cpu_db;
-  state.K = windowSize_;
+  db_.set_num_bins(numBinsX_, numBinsY_); // may not need this for reordering
+  // KReorderState state;
+  // GpuData cpu_db;
+  // state.K = windowSize_;
 
-  // distribute cells to rows on host
-  // copy cell locations from device to host
-  std::vector<std::vector<int>> host_row2node_map(db_.num_sites_y);
-  std::vector<int> host_node_space_x(db_.num_movable_nodes);
-  std::vector<std::vector<int>> host_permutations = quick_perm(windowSize_);
-  std::vector<unsigned char> host_adjacency_matrix;
-  std::vector<std::vector<int>> host_row_graph;
-  std::vector<std::vector<int>> host_independent_rows;
-  std::vector<std::vector<KReorderInstance>> host_reorder_instances;
-  printf("[INFO GPU-DPO] %d permutations\n", host_permutations.size());
+  // // distribute cells to rows on host
+  // // copy cell locations from device to host
+  // std::vector<std::vector<int>> host_row2node_map(db_.num_sites_y);
+  // std::vector<int> host_node_space_x(db_.num_movable_nodes);
+  // std::vector<std::vector<int>> host_permutations = quick_perm(windowSize_);
+  // std::vector<unsigned char> host_adjacency_matrix;
+  // std::vector<std::vector<int>> host_row_graph;
+  // std::vector<std::vector<int>> host_independent_rows;
+  // std::vector<std::vector<KReorderInstance>> host_reorder_instances;
+  // printf("[INFO GPU-DPO] %d permutations\n", host_permutations.size());
 
-  // initialize cpu db from db
-  {
-    cpu_db.xl = db_.xl;
-    cpu_db.yl = db_.yl;
-    cpu_db.xh = db_.xh;
-    cpu_db.yh = db_.yh;
-    cpu_db.site_width = db_.site_width;
-    cpu_db.row_height = db_.row_height;
-    cpu_db.bin_size_x = db_.bin_size_x;
-    cpu_db.bin_size_y = db_.bin_size_y;
-    cpu_db.num_bins_x = db_.num_bins_x;
-    cpu_db.num_bins_y = db_.num_bins_y;
-    cpu_db.num_sites_x = db_.num_sites_x;
-    cpu_db.num_sites_y = db_.num_sites_y;
-    cpu_db.num_nodes = db_.num_nodes;
-    cpu_db.num_movable_nodes = db_.num_movable_nodes;
-    cpu_db.num_nets = db_.num_nets;
-    cpu_db.num_pins = db_.num_pins;
+  // // initialize cpu db from db
+  // {
+  //   cpu_db.xl = db_.xl;
+  //   cpu_db.yl = db_.yl;
+  //   cpu_db.xh = db_.xh;
+  //   cpu_db.yh = db_.yh;
+  //   cpu_db.site_width = db_.site_width;
+  //   cpu_db.row_height = db_.row_height;
+  //   cpu_db.bin_size_x = db_.bin_size_x;
+  //   cpu_db.bin_size_y = db_.bin_size_y;
+  //   cpu_db.num_bins_x = db_.num_bins_x;
+  //   cpu_db.num_bins_y = db_.num_bins_y;
+  //   cpu_db.num_sites_x = db_.num_sites_x;
+  //   cpu_db.num_sites_y = db_.num_sites_y;
+  //   cpu_db.num_nodes = db_.num_nodes;
+  //   cpu_db.num_movable_nodes = db_.num_movable_nodes;
+  //   cpu_db.num_nets = db_.num_nets;
+  //   cpu_db.num_pins = db_.num_pins;
 
-    allocateCopyCpu(cpu_db.net_mask, db_.net_mask, db_.num_nets, int);
-    allocateCopyCpu(cpu_db.flat_net2pin_start_map, db_.flat_net2pin_start_map, db_.num_nets + 1, int);
-    allocateCopyCpu(cpu_db.flat_net2pin_map, db_.flat_net2pin_map, db_.num_pins, int);
-    allocateCopyCpu(cpu_db.pin2node_map, db_.pin2node_map, db_.num_pins, int);
-    allocateCopyCpu(cpu_db.x, db_.x, db_.num_nodes, int);
-    allocateCopyCpu(cpu_db.y, db_.y, db_.num_nodes, int);
-    allocateCopyCpu(cpu_db.node_size_x, db_.node_size_x, db_.num_nodes, int);
-    allocateCopyCpu(cpu_db.node_size_y, db_.node_size_y, db_.num_nodes, int);
+  //   allocateCopyCpu(cpu_db.net_mask, db_.net_mask, db_.num_nets, int);
+  //   allocateCopyCpu(cpu_db.flat_net2pin_start_map, db_.flat_net2pin_start_map, db_.num_nets + 1, int);
+  //   allocateCopyCpu(cpu_db.flat_net2pin_map, db_.flat_net2pin_map, db_.num_pins, int);
+  //   allocateCopyCpu(cpu_db.pin2node_map, db_.pin2node_map, db_.num_pins, int);
+  //   allocateCopyCpu(cpu_db.x, db_.x, db_.num_nodes, int);
+  //   allocateCopyCpu(cpu_db.y, db_.y, db_.num_nodes, int);
+  //   allocateCopyCpu(cpu_db.node_size_x, db_.node_size_x, db_.num_nodes, int);
+  //   allocateCopyCpu(cpu_db.node_size_y, db_.node_size_y, db_.num_nodes, int);
 
-    make_row2node_map(cpu_db, cpu_db.x, cpu_db.y, host_row2node_map, db_.num_threads);
-    std::vector<std::vector<int>> host_row2node_map_left = db_.reorder_row_map(cpu_db.x, cpu_db.y, cpu_db.node_size_x, cpu_db.node_size_y, host_row2node_map, 1);
-    host_node_space_x.resize(cpu_db.num_movable_nodes);
-    for (int i = 0; i < cpu_db.num_sites_y; ++i) {
-      for (unsigned int j = 0; j < host_row2node_map_left.at(i).size(); ++j) {
-        int node_id = host_row2node_map_left[i][j];
-        if (node_id < db_.num_movable_nodes) {
-          auto& space = host_node_space_x[node_id];
-          int space_xl = cpu_db.x[node_id];
-          int space_xh = cpu_db.xh;
-          if (j + 1 < host_row2node_map_left[i].size()) {
-            int right_node_id = host_row2node_map_left[i][j + 1];
-            space_xh = min(space_xh, cpu_db.x[right_node_id]);
-          }
-          space = space_xh - space_xl;
-          // align space to sites, as I assume space_xl aligns to sites
-          // I also assume node width should be integral numbers of sites
-          space = floorDiv(space, db_.site_width) * db_.site_width;
-          int node_size_x = cpu_db.node_size_x[node_id];
-          if (!(space >= node_size_x)) {
-            printf("[INFO GPU-DPO] Assertion failed: space >= node_size_x — space %d, node_size_x[%d] %d, original space (%d, %d), site_width %d\n", space, node_id, node_size_x, space_xl, space_xh, db_.site_width);
-          }
-        }
-      }
-    }
-    compute_row_conflict_graph(cpu_db, host_row2node_map, host_adjacency_matrix, host_row_graph, db_.num_threads);
-    compute_independent_rows(cpu_db, host_row_graph, host_independent_rows);
-    compute_reorder_instances(cpu_db, host_row2node_map, host_independent_rows, host_reorder_instances, state.K);
-  }
-  // initialize cuda state
-  {
-    allocateCopyCuda(state.node_space_x, host_node_space_x.data(), db_.num_movable_nodes);
+  //   make_row2node_map(cpu_db, cpu_db.x, cpu_db.y, host_row2node_map, db_.num_threads);
+  //   std::vector<std::vector<int>> host_row2node_map_left = db_.reorder_row_map(cpu_db.x, cpu_db.y, cpu_db.node_size_x, cpu_db.node_size_y, host_row2node_map, 1);
+  //   host_node_space_x.resize(cpu_db.num_movable_nodes);
+  //   for (int i = 0; i < cpu_db.num_sites_y; ++i) {
+  //     for (unsigned int j = 0; j < host_row2node_map_left.at(i).size(); ++j) {
+  //       int node_id = host_row2node_map_left[i][j];
+  //       if (node_id < db_.num_movable_nodes) {
+  //         auto& space = host_node_space_x[node_id];
+  //         int space_xl = cpu_db.x[node_id];
+  //         int space_xh = cpu_db.xh;
+  //         if (j + 1 < host_row2node_map_left[i].size()) {
+  //           int right_node_id = host_row2node_map_left[i][j + 1];
+  //           space_xh = min(space_xh, cpu_db.x[right_node_id]);
+  //         }
+  //         space = space_xh - space_xl;
+  //         // align space to sites, as I assume space_xl aligns to sites
+  //         // I also assume node width should be integral numbers of sites
+  //         space = floorDiv(space, db_.site_width) * db_.site_width;
+  //         int node_size_x = cpu_db.node_size_x[node_id];
+  //         if (!(space >= node_size_x)) {
+  //           printf("[INFO GPU-DPO] Assertion failed: space >= node_size_x — space %d, node_size_x[%d] %d, original space (%d, %d), site_width %d\n", space, node_id, node_size_x, space_xl, space_xh, db_.site_width);
+  //         }
+  //       }
+  //     }
+  //   }
+  //   compute_row_conflict_graph(cpu_db, host_row2node_map, host_adjacency_matrix, host_row_graph, db_.num_threads);
+  //   compute_independent_rows(cpu_db, host_row_graph, host_independent_rows);
+  //   compute_reorder_instances(cpu_db, host_row2node_map, host_independent_rows, host_reorder_instances, state.K);
+  // }
+  // // initialize cuda state
+  // {
+  //   allocateCopyCuda(state.node_space_x, host_node_space_x.data(), db_.num_movable_nodes);
 
-    std::vector<int> host_permutations_flat(host_permutations.size() * windowSize_);
-    for (unsigned int i = 0; i < host_permutations.size(); ++i) {
-      std::copy(host_permutations[i].begin(), host_permutations[i].end(), host_permutations_flat.begin() + i * windowSize_);
-    }
-    state.num_permutations = host_permutations.size();
-    allocateCopyCuda(state.permutations, host_permutations_flat.data(), state.num_permutations * state.K);
+  //   std::vector<int> host_permutations_flat(host_permutations.size() * windowSize_);
+  //   for (unsigned int i = 0; i < host_permutations.size(); ++i) {
+  //     std::copy(host_permutations[i].begin(), host_permutations[i].end(), host_permutations_flat.begin() + i * windowSize_);
+  //   }
+  //   state.num_permutations = host_permutations.size();
+  //   allocateCopyCuda(state.permutations, host_permutations_flat.data(), state.num_permutations * state.K);
 
-    state.row2node_map.initialize(host_row2node_map);
-    state.reorder_instances.initialize(host_reorder_instances);
+  //   state.row2node_map.initialize(host_row2node_map);
+  //   state.reorder_instances.initialize(host_reorder_instances);
 
-    allocateCuda(state.costs, state.reorder_instances.size2 * state.num_permutations, int);
-    allocateCuda(state.best_permute_id, state.reorder_instances.size2, int);
-    allocateCuda(state.instance_nets, state.reorder_instances.size2 * MAX_NUM_NETS_PER_INSTANCE, InstanceNet);
-    allocateCuda(state.instance_nets_size, state.reorder_instances.size2, int);
-    allocateCuda(state.node2inst_map, db_.num_nodes, int);
-    allocateCuda(state.net_markers, db_.num_nets, int);
-    allocateCuda(state.node_markers, db_.num_nodes, unsigned char);
-    allocateCuda(state.device_num_moved, 1, int);
-    allocateCuda(state.net_hpwls, db_.num_nets, int);
-  }
+  //   allocateCuda(state.costs, state.reorder_instances.size2 * state.num_permutations, int);
+  //   allocateCuda(state.best_permute_id, state.reorder_instances.size2, int);
+  //   allocateCuda(state.instance_nets, state.reorder_instances.size2 * MAX_NUM_NETS_PER_INSTANCE, InstanceNet);
+  //   allocateCuda(state.instance_nets_size, state.reorder_instances.size2, int);
+  //   allocateCuda(state.node2inst_map, db_.num_nodes, int);
+  //   allocateCuda(state.net_markers, db_.num_nets, int);
+  //   allocateCuda(state.node_markers, db_.num_nodes, unsigned char);
+  //   allocateCuda(state.device_num_moved, 1, int);
+  //   allocateCuda(state.net_hpwls, db_.num_nets, int);
+  // }
+
+  ReorderState state;
+
+  allocateCuda(state.net_hpwls, db_.num_nets, int);
 
   int64_t curr_hpwl = compute_total_hpwl(db_, db_.x, db_.y, state.net_hpwls);
   const int64_t init_hpwl = curr_hpwl;
+  if (init_hpwl == 0) return;
+
+  // Extract independent row groups once
+  auto segment_groups = group_independent_segments(mgrPtr_, db_.num_threads);
+  compute_instances(db_, arch_, mgrPtr_, network_, windowSize_, state, segment_groups);
+
   for (int p = 1; p <= passes; p++) {
     const int64_t last_hpwl = curr_hpwl;
-
-    k_reorder(db_, state, host_reorder_instances);
+    reorder(db_, state);
+    //k_reorder(db_, state, host_reorder_instances);
     checkCuda(cudaDeviceSynchronize());
 
     curr_hpwl = compute_total_hpwl(db_, db_.x, db_.y, state.net_hpwls);
@@ -1040,34 +1493,36 @@ void DetailedReorderer::run(DetailedMgr* mgrPtr, GpuData& db_,
 
   checkCuda(cudaDeviceSynchronize());
 
-  // destroy cuda state
-  {
-    cudaFree(state.node_space_x);
-    cudaFree(state.permutations);
-    state.row2node_map.destroy();
-    state.reorder_instances.destroy();
-    cudaFree(state.costs);
-    cudaFree(state.best_permute_id);
-    cudaFree(state.instance_nets);
-    cudaFree(state.instance_nets_size);
-    cudaFree(state.node2inst_map);
-    cudaFree(state.net_markers);
-    cudaFree(state.node_markers);
-    cudaFree(state.device_num_moved);
-    cudaFree(state.net_hpwls);
-  }
+  state.destroy();
 
-  // destroy cpu db
-  {
-    free((void*)cpu_db.net_mask);
-    free((void*)cpu_db.flat_net2pin_start_map);
-    free((void*)cpu_db.flat_net2pin_map);
-    free((void*)cpu_db.pin2node_map);
-    free((void*)cpu_db.x);
-    free((void*)cpu_db.y);
-    free((void*)cpu_db.node_size_x);
-    free((void*)cpu_db.node_size_y);
-  }
+  // // destroy cuda state
+  // {
+  //   cudaFree(state.node_space_x);
+  //   cudaFree(state.permutations);
+  //   state.row2node_map.destroy();
+  //   state.reorder_instances.destroy();
+  //   cudaFree(state.costs);
+  //   cudaFree(state.best_permute_id);
+  //   cudaFree(state.instance_nets);
+  //   cudaFree(state.instance_nets_size);
+  //   cudaFree(state.node2inst_map);
+  //   cudaFree(state.net_markers);
+  //   cudaFree(state.node_markers);
+  //   cudaFree(state.device_num_moved);
+  //   cudaFree(state.net_hpwls);
+  // }
+
+  // // destroy cpu db
+  // {
+  //   free((void*)cpu_db.net_mask);
+  //   free((void*)cpu_db.flat_net2pin_start_map);
+  //   free((void*)cpu_db.flat_net2pin_map);
+  //   free((void*)cpu_db.pin2node_map);
+  //   free((void*)cpu_db.x);
+  //   free((void*)cpu_db.y);
+  //   free((void*)cpu_db.node_size_x);
+  //   free((void*)cpu_db.node_size_y);
+  // }
 }
 
 }  // namespace dpl

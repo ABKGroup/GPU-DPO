@@ -872,6 +872,7 @@ __global__ void __launch_bounds__(256, 4)
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 __global__ void apply_candidates(GpuData db, SwapState state, int num_candidates) {
+  // overlap, edge spacing, and padding aware
   for (int i = 0; i < num_candidates; ++i) {
     const SwapCandidate& best_cand = state.candidates[i * state.max_num_candidates];
 
