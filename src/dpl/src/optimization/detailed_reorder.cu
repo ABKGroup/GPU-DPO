@@ -1460,15 +1460,25 @@ void DetailedReorderer::run(DetailedMgr* mgrPtr, GpuData& db_,
 
   ReorderState state;
 
+  // Copy data from segments since node segment assignments may have changed from previous kernels
+  // std::vector<int> node2segs(db_.num_nodes);
+  // copyBackToCpu(db_.node2segs, node2segs.data(), db_.num_nodes);
+  // for (int i = 0; i < db_.num_movable_nodes; i++) {
+  //   Node* node = network_->getNode(i);
+  //   mgrPtr_->removeCellFromSegment(node, db_.orig_node2segs[i]);
+  //   mgrPtr_->addCellToSegment(node, db_.node2segs[i]);
+  // }
+
+  // Extract independent row groups once on host
+  auto segment_groups = group_independent_segments(mgrPtr_, db_.num_threads);
+  compute_instances(db_, arch_, mgrPtr_, network_, windowSize_, state, segment_groups);
+
   allocateCuda(state.net_hpwls, db_.num_nets, int);
 
   int64_t curr_hpwl = compute_total_hpwl(db_, db_.x, db_.y, state.net_hpwls);
   const int64_t init_hpwl = curr_hpwl;
   if (init_hpwl == 0) return;
 
-  // Extract independent row groups once
-  auto segment_groups = group_independent_segments(mgrPtr_, db_.num_threads);
-  compute_instances(db_, arch_, mgrPtr_, network_, windowSize_, state, segment_groups);
 
   for (int p = 1; p <= passes; p++) {
     const int64_t last_hpwl = curr_hpwl;

@@ -302,6 +302,7 @@ void FlattenedData::populateNetwork(Network& network, DetailedMgr& mgr) {
       mgr.addCellToSegment(node, node2segs[i]);
     }
   }
+  mgr.resortSegments();
 }
 
 } // namespace dpl
