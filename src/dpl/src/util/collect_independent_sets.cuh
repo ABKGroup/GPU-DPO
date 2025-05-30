@@ -301,14 +301,14 @@ void kmeans_collect_sets_cuda2cpu(const GpuData& db,
                         cudaMemcpyHostToDevice));
 
   // statistics
-  printf(
+  /*printf(
     "[INFO GPU-DPO] from %d nodes, collect %d sets, avg %d nodes, min/max %d/%d nodes\n",
     state.num_selected,
     state.num_independent_sets,
     std::accumulate(independent_set_sizes.begin(), independent_set_sizes.begin() + state.num_independent_sets, 0) /
         state.num_independent_sets,
     *std::min_element(independent_set_sizes.begin(), independent_set_sizes.begin() + state.num_independent_sets),
-    *std::max_element(independent_set_sizes.begin(), independent_set_sizes.begin() + state.num_independent_sets));
+    *std::max_element(independent_set_sizes.begin(), independent_set_sizes.begin() + state.num_independent_sets));*/
 }
 
 void partition_kmeans(const GpuData& db,

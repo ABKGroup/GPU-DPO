@@ -174,7 +174,7 @@ void Detailed::doDetailedCommand(std::vector<std::string>& args, GpuData& db_)
 
   if (strcmp(args[0].c_str(), "mis") == 0) {
     DetailedMis mis(arch_, network_);
-    mis.run(mgr_, db_, args);
+    //mis.run(mgr_, db_, args);
   } else if (strcmp(args[0].c_str(), "gs") == 0) {
     DetailedGlobalSwap gs(arch_, network_);
     //gs.run(mgr_, db_, args);
@@ -183,7 +183,7 @@ void Detailed::doDetailedCommand(std::vector<std::string>& args, GpuData& db_)
     //vs.run(mgr_, args);
   } else if (strcmp(args[0].c_str(), "ro") == 0) {
     DetailedReorderer ro(arch_, network_);
-    //ro.run(mgr_, db_, args);
+    ro.run(mgr_, db_, args);
     deviceOpsDone = true;
   } else if (strcmp(args[0].c_str(), "orient") == 0) {
     DetailedOrient orienter(arch_, network_);

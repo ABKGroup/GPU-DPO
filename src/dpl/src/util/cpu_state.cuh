@@ -70,9 +70,9 @@ void init_cpu_state(const GpuData& db,
   host_state.set_size = state.set_size;
   host_state.grid_size = ceil_power2(std::max(db.num_bins_x, db.num_bins_y) / 8);
   host_state.max_diamond_search_sequence = host_state.grid_size * host_state.grid_size / 2;
-  printf("[INFO GPU-DPO] diamond search grid size %d, sequence length %d\n",
+  /*printf("[INFO GPU-DPO] diamond search grid size %d, sequence length %d\n",
               host_state.grid_size,
-              host_state.max_diamond_search_sequence);
+              host_state.max_diamond_search_sequence);*/
   host_state.selected_nodes.reserve(db.num_movable_nodes);
   host_state.selected_markers.assign(db.num_movable_nodes, 1);
   host_state.ordered_nodes.resize(db.num_movable_nodes);

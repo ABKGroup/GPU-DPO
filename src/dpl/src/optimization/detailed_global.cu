@@ -1114,7 +1114,7 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr, GpuData& db_,
 
   mgr_ = mgrPtr;
 
-  int passes = 1;
+  int passes = 5;
   double tol = 0.01;
   for (size_t i = 1; i < args.size(); i++) {
     if (args[i] == "-p" && i + 1 < args.size()) {
@@ -1167,7 +1167,7 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr, GpuData& db_,
     state.search_bin_strategy = 1;
   } else {
     printf("[INFO GPU-DPO] Estimate memory usage = %ld, use general pair HPWL\n", state.search_bin_strategy);
-    state.search_bin_strategy = 0;
+    //state.search_bin_strategy = 0;
   }
 
   // std::srand(1000);
@@ -1263,9 +1263,9 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr, GpuData& db_,
 
     printf("[INFO GPU-DPO] Pass %d of global swaps; hpwl is %d.\n", p, (int) curr_hpwl);
 
-    if (std::abs(curr_hpwl - last_hpwl) / (double) last_hpwl <= tol) {
-      break;
-    }
+    // if (std::abs(curr_hpwl - last_hpwl) / (double) last_hpwl <= tol) {
+    //   break;
+    // }
   }
   double curr_imp = (((init_hpwl - curr_hpwl) / (double) init_hpwl) * 100.);
   printf("[INFO GPU-DPO] End of global swaps; objective is %d, "

@@ -77,11 +77,11 @@ public:
         m_temp_storage = NULL;
       }
       m_temp_storage_bytes = temp_storage_bytes;
-      printf("[INFO GPU-DPO] allocate %lu bytes in shuffler for length %d*(%zu+%zu)\n",
+      /*printf("[INFO GPU-DPO] allocate %lu bytes in shuffler for length %d*(%zu+%zu)\n",
                     m_temp_storage_bytes,
                     m_num_items,
                     sizeof(T),
-                    sizeof(V));
+                    sizeof(V));*/
       checkCuda(cudaMalloc(&m_temp_storage, m_temp_storage_bytes));
     }
 

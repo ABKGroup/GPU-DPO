@@ -302,17 +302,30 @@ void DetailedMis::run(DetailedMgr* mgrPtr, GpuData& db_, std::vector<std::string
     shuffler();
     checkCuda(cudaDeviceSynchronize());
 
+    //auto start = std::chrono::high_resolution_clock::now();
     maximal_independent_set(db_, state);
     checkCuda(cudaDeviceSynchronize());
+    //auto end = std::chrono::high_resolution_clock::now();
+    //double elapsed_ms = std::chrono::duration<double, std::milli>(end - start).count();
+    //std::cout << "[INFO GPU-DPO] Maximal Independent Set Time: " << elapsed_ms << " ms\n";
 
+    //start = std::chrono::high_resolution_clock::now();
     collect_independent_sets(db_, state, kmeans_state, host_db, host_state);
     checkCuda(cudaDeviceSynchronize());
+    //end = std::chrono::high_resolution_clock::now();
+    //elapsed_ms = std::chrono::duration<double, std::milli>(end - start).count();
+    //std::cout << "[INFO GPU-DPO] Partition Set Time: " << elapsed_ms << " ms\n";
 
+    //start = std::chrono::high_resolution_clock::now();
     cost_matrix_construction(db_, state);
     checkCuda(cudaDeviceSynchronize());
+    //end = std::chrono::high_resolution_clock::now();
+    //elapsed_ms = std::chrono::duration<double, std::milli>(end - start).count();
+    //std::cout << "[INFO GPU-DPO] Compute Cost Matrix Time: " << elapsed_ms << " ms\n";
 
     // solve independent sets
     // print_cost_matrix<<<1, 1>>>(state.cost_matrices + state.cost_matrix_size*3, state.set_size, 0);
+    //start = std::chrono::high_resolution_clock::now();
     linear_assignment_auction(state.cost_matrices,
                               state.solutions,
                               state.num_independent_sets,
@@ -324,6 +337,9 @@ void DetailedMis::run(DetailedMgr* mgrPtr, GpuData& db_, std::vector<std::string
                               state.auction_factor,
                               state.auction_max_iterations);
     checkCuda(cudaDeviceSynchronize());
+    //end = std::chrono::high_resolution_clock::now();
+    //elapsed_ms = std::chrono::duration<double, std::milli>(end - start).count();
+    //std::cout << "[INFO GPU-DPO] Solve LAP Time: " << elapsed_ms << " ms\n";
     // print_solution<<<1, 1>>>(state.solutions + state.set_size*3, state.set_size);
 
     // apply solutions

@@ -45,10 +45,9 @@ void FlattenedData::createFlattenedData() {
 void FlattenedData::createNodeInfo() {
   // Creates padding info for each node
   use_padding = arch_->getUsePadding();
-  if (use_padding) {
-    node_left_padding.resize(num_nodes);
-    node_right_padding.resize(num_nodes);
-  }
+  node_left_padding.resize(num_nodes);
+  node_right_padding.resize(num_nodes);
+  
   num_movable_nodes = network_->getNumMovableNodes();
   num_terminal_nodes = network_->getNumTerminalNodes();
   num_filler_nodes = network_->getNumFillerNodes();
@@ -78,13 +77,15 @@ void FlattenedData::createNodeInfo() {
       arch_->getCellPadding(node, leftPadding, rightPadding);
       node_left_padding[node->getId()] = leftPadding;
       node_right_padding[node->getId()] = rightPadding;
+    } else {
+      node_left_padding[node->getId()] = 0;
+      node_right_padding[node->getId()] = 0;
     }
   }
 }
 
 void FlattenedData::createSegmentInfo() {
   num_segments = mgr_->getNumSegments();
-  orig_node2segs.resize(num_nodes);
   node2segs.resize(num_nodes);
   //flat_seg2node_map.resize(num_segments);
   //flat_seg2node_start_map.resize(num_segments + 1);
@@ -96,7 +97,6 @@ void FlattenedData::createSegmentInfo() {
     for (Node* node : nodes) {
       int node_id = node->getId();
       node2segs[node_id] = i; 
-      orig_node2segs[node_id] = i;
       //flat_seg2node_map[ptr++] = node_id;
     }
     //lastIdx += nodes.size();
@@ -287,6 +287,14 @@ void FlattenedData::populateNetwork(Network& network, DetailedMgr& mgr) {
       val += shift_factor_y;
     }
   }*/
+  std::vector<int> orig_node2segs(num_nodes);
+  for (int i = 0; i < mgr.getNumSegments(); i++) {
+    const std::vector<Node*>& nodes = mgr.getCellsInSeg(i);
+    for (Node* node : nodes) {
+      int node_id = node->getId();
+      orig_node2segs[node_id] = i;
+    }
+  }
   // we should only have to update locations of non-fixed nodes
   for (int i = 0; i < network.getNumMovableNodes(); i++) {
     Node* node = network.getNode(i);

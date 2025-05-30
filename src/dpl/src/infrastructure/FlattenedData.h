@@ -34,7 +34,6 @@ public:
   std::vector<int> node_top_power;
 
   /* segment info */
-  std::vector<int> orig_node2segs;          // stores the original segments which nodes are stored
   std::vector<int> node2segs;               // stores which cells are in the segments
   //std::vector<int> flat_seg2node_map;       // stores the contiguous list of nodes in each segment
   //std::vector<int> flat_seg2node_start_map; // start position of segments

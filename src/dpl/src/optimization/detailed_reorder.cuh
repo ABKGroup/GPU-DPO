@@ -22,47 +22,12 @@ class Network;
 struct ReorderInstance {
   int num_cells;          // how many cells in this window
   int node_ids[MAX_K];    // node IDs
+  int group_id;           // which group this reorder instance belongs to
   int seg_id;             // segment ID in which this reorder is applied
   int row_id;             // physical row ID
-  int jstrt, jstop;       // [start, stop] indices in the segment
+  int istrt, istop;       // [start, stop] indices in the segment
   int left_limit;         // left boundary of legal space
   int right_limit;        // right boundary of legal space
-};
-
-// GPU-resident reorder state including permutations, costs, etc.
-struct ReorderState {
-  ReorderInstance* instances;   // [num_instances]
-  int* permutations;            // [num_permutations * MAX_K]
-  int* costs;                   // [num_instances * num_permutations]
-  int* group_offsets;           // [num_groups]
-  int* group_counts;            // [num_groups]
-  int* best_permute_id;         // [num_instances]
-  int* net_hpwls;
-
-  int* h_group_counts;
-  int* h_group_offsets;
-
-  int num_groups = 0;
-  int num_instances = 0;
-  int num_permutations = 0;
-  int K;
-
-  void allocate(int n_instances, int n_perms) {
-    num_instances = n_instances;
-    num_permutations = n_perms;
-    
-    //allocateCuda(instances, num_instances, ReorderInstance);
-    //allocateCuda(permutations, num_permutations * MAX_K, int);
-    allocateCuda(costs, num_instances * num_permutations, int);
-    allocateCuda(best_permute_id, num_instances, int);
-  }
-
-  void destroy() {
-    cudaFree(instances);
-    cudaFree(permutations);
-    cudaFree(costs);
-    cudaFree(best_permute_id);
-  }
 };
 
 struct InstanceNet {

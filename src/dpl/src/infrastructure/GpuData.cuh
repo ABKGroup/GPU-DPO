@@ -108,8 +108,6 @@ public:
   int* node_top_power = nullptr;
   int* node_bottom_power = nullptr;
   int* node2segs = nullptr;
-  //int* flat_seg2node_map = nullptr;
-  //int* flat_seg2node_start_map = nullptr;
 
   int* pin_offset_x = nullptr;
   int* pin_offset_y = nullptr;
@@ -325,30 +323,7 @@ public:
     box.yh = min(box.yh, yh);
   }
 
-  /*__device__ bool is_site_aligned(const int node_width,
-                                  int& xi,  // node left coordinate
-                                  const int xl,
-                                  int xr)
-  {
-    // check whether a node can be site aligned with the left edge
-    // Given a cell with a target location, xi, determine a
-    // site-aligned position such that the cell falls
-    // within the interval [xl,xr].
-    // This routine works with the left edge of the cell.
-    // We fail if the left edge is out of range, which means cell is OOB
-    xr -= node_width; // adjust range for left edge
-    int xp = max(xl, min(xr, xi));
-    int ix = floorf((xp - row_left) / site_spacing);
-    xp = row_left + ix * site_spacing;
-    if (xp < xl) xp += site_spacing;
-    else if (xp > xhi) xp -= site_spacing;
-
-    if (xp < xl || xp > xhi) return false;
-    xi = xp;
-    return true;
-  }*/
-
-  /*__device__ Box compute_optimal_region(int node_id, const int* xx, const int* yy, const int* size_x, const int* size_y) const {
+  __device__ Box compute_optimal_region(int node_id, const int* xx, const int* yy, const int* size_x, const int* size_y) const {
     Box box(xh, yh, xl, yl);
     for (int node2pin_id = flat_node2pin_start_map[node_id]; node2pin_id < flat_node2pin_start_map[node_id + 1]; ++node2pin_id) {
       int node_pin_id = flat_node2pin_map[node2pin_id];
@@ -358,129 +333,18 @@ public:
           int net_pin_id = flat_net2pin_map[net2pin_id];
           int other_node_id = pin2node_map[net_pin_id];
           if (node_id != other_node_id) {
-            box.xl = min(box.xl, xx[other_node_id] + pin_offset_x[net_pin_id]);
-            box.xh = max(box.xh, xx[other_node_id] + pin_offset_x[net_pin_id]);
-            box.yl = min(box.yl, yy[other_node_id] + pin_offset_y[net_pin_id]);
-            box.yh = max(box.yh, yy[other_node_id] + pin_offset_y[net_pin_id]);
+            box.xl = min(box.xl, xx[other_node_id] - pin_offset_x[net_pin_id]);
+            box.xh = max(box.xh, xx[other_node_id] - pin_offset_x[net_pin_id]);
+            box.yl = min(box.yl, yy[other_node_id] - pin_offset_y[net_pin_id]);
+            box.yh = max(box.yh, yy[other_node_id] - pin_offset_y[net_pin_id]);
           }
         }
       }
     }
     shift_box_to_layout(box);
     return box;
-  }*/
-  __device__ Box compute_optimal_region(
-    int node_id,
-    const int* xx, const int* yy,
-    const int* size_x, const int* size_y) const
-  {
-    // Start with an empty vector of points
-    int xpts[MAX_NET_DEGREE * 2];
-    int ypts[MAX_NET_DEGREE * 2];
-    int t = 0;
-
-    for (int node2pin_id = flat_node2pin_start_map[node_id];
-        node2pin_id < flat_node2pin_start_map[node_id + 1];
-        ++node2pin_id)
-    {
-      int node_pin_id = flat_node2pin_map[node2pin_id];
-      int net_id = pin2net_map[node_pin_id];
-
-      // Skip masked nets or too large nets
-      if (!net_mask[net_id])
-        continue;
-
-      // Compute bounding box of other pins in the net
-      int bbox_xl = xh, bbox_xh = xl;
-      int bbox_yl = yh, bbox_yh = yl;
-      bool has_valid = false;
-
-      for (int net2pin_id = flat_net2pin_start_map[net_id];
-          net2pin_id < flat_net2pin_start_map[net_id + 1];
-          ++net2pin_id)
-      {
-        int net_pin_id = flat_net2pin_map[net2pin_id];
-        int other_node_id = pin2node_map[net_pin_id];
-        if (node_id == other_node_id)
-          continue;
-
-        int px = xx[other_node_id] + pin_offset_x[net_pin_id];
-        int py = yy[other_node_id] + pin_offset_y[net_pin_id];
-
-        bbox_xl = min(bbox_xl, px);
-        bbox_xh = max(bbox_xh, px);
-        bbox_yl = min(bbox_yl, py);
-        bbox_yh = max(bbox_yh, py);
-        has_valid = true;
-      }
-
-      if (has_valid)
-      {
-        // Adjust to cell center by subtracting pin offset
-        int offset_x = pin_offset_x[node_pin_id];
-        int offset_y = pin_offset_y[node_pin_id];
-
-        int cxmin = max(xl, bbox_xl - offset_x);
-        int cxmax = min(xh, bbox_xh - offset_x);
-        int cymin = max(yl, bbox_yl - offset_y);
-        int cymax = min(yh, bbox_yh - offset_y);
-
-        xpts[t] = cxmin;
-        ypts[t] = cymin;
-        ++t;
-
-        xpts[t] = cxmax;
-        ypts[t] = cymax;
-        ++t;
-      }
-    }
-
-    if (t <= 1)
-    {
-      // Default fallback: return whole layout region
-      Box box(xl, yl, xh, yh);
-      return box;
-    }
-
-    // Sort the x and y points to get median box
-    // Simple insertion sort (as t is small)
-    for (int i = 1; i < t; ++i)
-    {
-      int key = xpts[i];
-      int j = i - 1;
-      while (j >= 0 && xpts[j] > key)
-      {
-        xpts[j + 1] = xpts[j];
-        --j;
-      }
-      xpts[j + 1] = key;
-    }
-
-    for (int i = 1; i < t; ++i)
-    {
-      int key = ypts[i];
-      int j = i - 1;
-      while (j >= 0 && ypts[j] > key)
-      {
-        ypts[j + 1] = ypts[j];
-        --j;
-      }
-      ypts[j + 1] = key;
-    }
-
-    int mid = t >> 1;
-    Box box(
-      xpts[mid - 1],
-      ypts[mid - 1],
-      xpts[mid],
-      ypts[mid]
-    );
-
-    shift_box_to_layout(box);
-    return box;
   }
-
-
+  
   __device__ int compute_net_hpwl(int net_id, const int* xx, const int* yy) const {
     if (flat_net2pin_start_map[net_id + 1] - flat_net2pin_start_map[net_id] <= 1) {
       return 0;
