@@ -946,10 +946,21 @@ __global__ void apply_candidates(GpuData db, SwapState state, int num_candidates
 
         device_swap(row2nodes[row_id.sub_id], target_row2nodes[target_row_id.sub_id]);
         device_swap(row_id, target_row_id);
+
+        // Swap segments if they are different
+        if (db.node2segs[best_cand.node_id[0]] != db.node2segs[best_cand.node_id[1]]) {
+          device_swap(db.node2segs[best_cand.node_id[0]], db.node2segs[best_cand.node_id[1]]);
+        }
       }
     }
   }
 }
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+// void apply_lsmc() {
+  
+// }
 
 
 //////////////////////////////////////////////////////////////////////////////
@@ -1101,7 +1112,6 @@ int compute_max_num_nodes_per_bin(const GpuData& db) {
   cudaFree(d_temp_storage);
   cudaFree(d_out);
   cudaFree(node_count_map);
-
   return max_num_nodes_per_bin;
 }
 
@@ -1123,9 +1133,9 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr, GpuData& db_,
       tol = std::atof(args[++i].c_str());
     } else if (args[i] == "-batch" && i + 1 < args.size()) {
       batchSize_ = std::atoi(args[++i].c_str());
-    } else if (args[i] == "binX" && i + 1 < args.size()) {
+    } else if (args[i] == "-binX" && i + 1 < args.size()) {
       numBinsX_ = std::atoi(args[++i].c_str());
-    } else if (args[i] == "binY" && i + 1 < args.size()) {
+    } else if (args[i] == "-binY" && i + 1 < args.size()) {
       numBinsY_ = std::atoi(args[++i].c_str());
     }
   }
@@ -1167,7 +1177,7 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr, GpuData& db_,
     state.search_bin_strategy = 1;
   } else {
     printf("[INFO GPU-DPO] Estimate memory usage = %ld, use general pair HPWL\n", state.search_bin_strategy);
-    //state.search_bin_strategy = 0;
+    state.search_bin_strategy = 0;
   }
 
   // std::srand(1000);
@@ -1253,6 +1263,7 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr, GpuData& db_,
 
   curr_hpwl = compute_total_hpwl(db_, db_.x, db_.y, state.net_hpwls);
   init_hpwl = curr_hpwl;
+  std::cout << "INITIAL HPWL IS " << curr_hpwl << std::endl;
   for (int p = 1; p <= passes; p++) {
     last_hpwl = curr_hpwl;
 
@@ -1263,9 +1274,9 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr, GpuData& db_,
 
     printf("[INFO GPU-DPO] Pass %d of global swaps; hpwl is %d.\n", p, (int) curr_hpwl);
 
-    // if (std::abs(curr_hpwl - last_hpwl) / (double) last_hpwl <= tol) {
-    //   break;
-    // }
+    if (std::abs(curr_hpwl - last_hpwl) / (double) last_hpwl <= tol) {
+      break;
+    }
   }
   double curr_imp = (((init_hpwl - curr_hpwl) / (double) init_hpwl) * 100.);
   printf("[INFO GPU-DPO] End of global swaps; objective is %d, "
@@ -1284,7 +1295,7 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr, GpuData& db_,
   cudaFree(state.node2bin_map);
   cudaFree(state.candidates);
   cudaFree(state.search_bins);
-  cudaFree(state.net_hpwls);
+  cudaFree(state.net_hpwls); 
   cudaFree(state.node_markers);
 
   if (state.pair_hpwl_computing_strategy) {

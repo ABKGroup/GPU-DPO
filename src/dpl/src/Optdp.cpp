@@ -65,7 +65,7 @@ void Opendp::improvePlacement(const int seed,
   // Maximum independent set matching.
   dtParams.script_ += "mis -p 10 -t 0.005 -batch 32 -binX 256 -binY 256 -set 32;";
   // Global swaps.
-  dtParams.script_ += "gs -p 10 -t 0.005 -batch 32 -binX 256 -binY 256;";
+  dtParams.script_ += "gs -p 10 -t 0.005 -batch 256 -binX 16 -binY 16;";
   // Small reordering.
   dtParams.script_ += "ro -p 10 -t 0.005 -binX 256 -binY 256;";
   // Vertical swaps.

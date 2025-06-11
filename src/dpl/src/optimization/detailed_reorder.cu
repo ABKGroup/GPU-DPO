@@ -442,7 +442,7 @@ __global__ void compute_reorder_hpwl(GpuData db, KReorderState state, int group_
             int flag = (1 << j);
             if ((instance_net.node_marker & flag)) {
               int permuted_offset = permutation[j];
-              int other_node_xl = target_x[permuted_offset] + target_sizes[permuted_offset] / 2;
+              int other_node_xl = target_x[permuted_offset] /*+ target_sizes[permuted_offset] / 2*/;
               other_node_xl += instance_net.pin_offset_x[j];
               bxl = min(bxl, other_node_xl);
               bxh = max(bxh, other_node_xl);
@@ -898,7 +898,7 @@ void DetailedReorderer::run(DetailedMgr* mgrPtr, GpuData& db_,
   mgrPtr_ = mgrPtr;
   windowSize_ = 3;
 
-  int passes = 3;
+  int passes = 5;
   double tol = 0.01;
   for (size_t i = 1; i < args.size(); i++) {
     if (args[i] == "-w" && i + 1 < args.size()) {
@@ -1021,6 +1021,7 @@ void DetailedReorderer::run(DetailedMgr* mgrPtr, GpuData& db_,
   int64_t curr_hpwl = compute_total_hpwl(db_, db_.x, db_.y, state.net_hpwls);
   const int64_t init_hpwl = curr_hpwl;
   if (init_hpwl == 0) return;
+  std::cout << "INITIAL HPWL IS " << curr_hpwl << std::endl;
 
   for (int p = 1; p <= passes; p++) {
     const int64_t last_hpwl = curr_hpwl;

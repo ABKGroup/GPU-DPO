@@ -87,20 +87,12 @@ void FlattenedData::createNodeInfo() {
 void FlattenedData::createSegmentInfo() {
   num_segments = mgr_->getNumSegments();
   node2segs.resize(num_nodes);
-  //flat_seg2node_map.resize(num_segments);
-  //flat_seg2node_start_map.resize(num_segments + 1);
-  //int ptr = 0;
-  //int lastIdx = 0;
-  //flat_seg2node_start_map[0] = 0;
   for (int i = 0; i < mgr_->getNumSegments(); i++) {
     const std::vector<Node*>& nodes = mgr_->getCellsInSeg(i);
     for (Node* node : nodes) {
       int node_id = node->getId();
       node2segs[node_id] = i; 
-      //flat_seg2node_map[ptr++] = node_id;
     }
-    //lastIdx += nodes.size();
-    //flat_seg2node_start_map[i + 1] = lastIdx;
   }
 }
 

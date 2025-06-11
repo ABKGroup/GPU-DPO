@@ -63,7 +63,7 @@ struct SwapState {
   PitchNestedVector<NodePinPair> net2nodepin_map;
 
   int* search_bins = nullptr;
-  int search_bin_strategy;  ///< how to compute search bins for eahc cell: 0 for
+  int search_bin_strategy;  ///< how to compute search bins for each cell: 0 for
                             ///< cell bin, 1 for optimal region
 
   SwapCandidate* candidates;
@@ -124,9 +124,9 @@ class DetailedGlobalSwap : public DetailedGenerator
   int moves_;
   int swaps_;
 
-  int batchSize_ = 32;
-  int numBinsX_ = 256;
-  int numBinsY_ = 256;
+  int batchSize_ = 256;
+  int numBinsX_ = 32;
+  int numBinsY_ = 32;
 };
 
 }  // namespace dpl

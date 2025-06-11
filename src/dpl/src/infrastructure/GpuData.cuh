@@ -333,10 +333,10 @@ public:
           int net_pin_id = flat_net2pin_map[net2pin_id];
           int other_node_id = pin2node_map[net_pin_id];
           if (node_id != other_node_id) {
-            box.xl = min(box.xl, xx[other_node_id] - pin_offset_x[net_pin_id]);
-            box.xh = max(box.xh, xx[other_node_id] - pin_offset_x[net_pin_id]);
-            box.yl = min(box.yl, yy[other_node_id] - pin_offset_y[net_pin_id]);
-            box.yh = max(box.yh, yy[other_node_id] - pin_offset_y[net_pin_id]);
+            box.xl = min(box.xl, xx[other_node_id] + pin_offset_x[net_pin_id]);
+            box.xh = max(box.xh, xx[other_node_id] + pin_offset_x[net_pin_id]);
+            box.yl = min(box.yl, yy[other_node_id] + pin_offset_y[net_pin_id]);
+            box.yh = max(box.yh, yy[other_node_id] + pin_offset_y[net_pin_id]);
           }
         }
       }
