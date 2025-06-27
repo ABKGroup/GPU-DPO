@@ -108,6 +108,7 @@ public:
   int* node_top_power = nullptr;
   int* node_bottom_power = nullptr;
   int* node2segs = nullptr;
+  int* node_is_single_height_cell = nullptr;
 
   int* pin_offset_x = nullptr;
   int* pin_offset_y = nullptr;
@@ -186,6 +187,7 @@ public:
     allocateCopyCuda(node_right_padding, db.node_right_padding.data(), db.num_nodes);
     allocateCopyCuda(node_top_power, db.node_top_power.data(), db.num_nodes);
     allocateCopyCuda(node_bottom_power, db.node_bottom_power.data(), db.num_nodes);
+    allocateCopyCuda(node_is_single_height_cell, db.node_is_single_height_cell.data(), db.num_nodes);
 
     xl = db.xl;
     xh = db.xh;
@@ -233,6 +235,7 @@ public:
     copyBackToCpu(flat_region_boxes_start, db.flat_region_boxes_start.data(), num_regions + 1);
     copyBackToCpu(flat_region_boxes, db.flat_region_boxes.data(), region_boxes_size);
     copyBackToCpu(node2fence_region_map, db.node2fence_region_map.data(), num_nodes);
+    copyBackToCpu(node_is_single_height_cell, db.node_is_single_height_cell.data(), num_nodes);
 
     db.xl = xl;
     db.xh = xh;
@@ -279,6 +282,7 @@ public:
     cudaFree(node_right_padding);
     cudaFree(node_bottom_power);
     cudaFree(node_top_power);
+    cudaFree(node_is_single_height_cell);
   }
 
   void set_num_bins(int num_bins_x_, int num_bins_y_) {

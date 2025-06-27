@@ -15,7 +15,15 @@ namespace dpl {
 ////////////////////////////////////////////////////////////////
 void Opendp::improvePlacement(const int seed,
                               const int max_displacement_x,
-                              const int max_displacement_y)
+                              const int max_displacement_y,
+                              const int window_size,
+                              const int problem_size,
+                              const int num_iterations,
+                              const int kick_move,
+                              const int run_gs,
+                              const int run_reorder,
+                              const int run_mis,
+                              const float tolerance)
 {
   logger_->report("Detailed placement improvement.");
 
@@ -60,14 +68,26 @@ void Opendp::improvePlacement(const int seed,
   // like density, displacement, etc. in addition to wirelength.
   // Everything done through a script string.
 
+  std::string num_iterations_opt = " -p " + std::to_string(num_iterations); 
+  std::string window_size_opt = " -w " + std::to_string(window_size);
+  std::string problem_size_opt = " -s " + std::to_string(problem_size);
+  std::string kick_move_opt = " -kick " + std::to_string(kick_move);
+  std::string run_gs_opt = " -run " + std::to_string(run_gs);
+  std::string run_reorder_opt = " -run " + std::to_string(run_reorder);
+  std::string run_mis_opt = " -run " + std::to_string(run_mis);
+  std::string tolerance_opt = " -t " + std::to_string(tolerance);
+  std::string batch_size_opt = " -b " + std::to_string(32);     // value is hard-coded for now
+  std::string bin_size_x_opt = " -bin_x " + std::to_string(16); // value is hard-coded for now 
+  std::string bin_size_y_opt = " -bin_y " + std::to_string(16); // value is hard-coded for now
+
   DetailedParams dtParams;
   dtParams.script_ = "";
   // Maximum independent set matching.
-  dtParams.script_ += "mis -p 10 -t 0.005 -batch 32 -binX 256 -binY 256 -set 32;";
+  dtParams.script_ += "mis" + num_iterations_opt + tolerance_opt + batch_size_opt + bin_size_x_opt + bin_size_y_opt + problem_size_opt + run_mis_opt + ";";
   // Global swaps.
-  dtParams.script_ += "gs -p 10 -t 0.005 -batch 256 -binX 16 -binY 16;";
+  dtParams.script_ += "gs" + num_iterations_opt + tolerance_opt + batch_size_opt + bin_size_x_opt + bin_size_y_opt + kick_move_opt + run_gs_opt + ";";
   // Small reordering.
-  dtParams.script_ += "ro -p 10 -t 0.005 -binX 256 -binY 256;";
+  dtParams.script_ += "ro" + num_iterations_opt + tolerance_opt + bin_size_x_opt + bin_size_y_opt + run_reorder_opt + ";";
   // Vertical swaps.
   dtParams.script_ += "vs -p 10 -t 0.005;";
   // Random moves and swaps with hpwl as a cost function.  Use
@@ -77,7 +97,6 @@ void Opendp::improvePlacement(const int seed,
   if (disallow_one_site_gaps) {
     dtParams.script_ += "disallow_one_site_gaps;";
   }
-
   // Run the script.
   Detailed dt(dtParams);
   dt.improve(mgr, *flattenedData_);

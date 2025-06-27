@@ -60,6 +60,7 @@ void FlattenedData::createNodeInfo() {
   node_size_y.resize(num_nodes);
   node_bottom_power.resize(num_nodes);
   node_top_power.resize(num_nodes);
+  node_is_single_height_cell.resize(num_nodes);
 
   for (int i = 0; i < network_->getNumNodes(); i++) {
     Node* node = network_->getNode(i);
@@ -80,6 +81,11 @@ void FlattenedData::createNodeInfo() {
     } else {
       node_left_padding[node->getId()] = 0;
       node_right_padding[node->getId()] = 0;
+    }
+    if (arch_->isSingleHeightCell(node)) {
+      node_is_single_height_cell[node->getId()] = 1;
+    } else if (arch_->isMultiHeightCell(node)) {
+      node_is_single_height_cell[node->getId()] = 0;
     }
   }
 }
@@ -290,14 +296,18 @@ void FlattenedData::populateNetwork(Network& network, DetailedMgr& mgr) {
   // we should only have to update locations of non-fixed nodes
   for (int i = 0; i < network.getNumMovableNodes(); i++) {
     Node* node = network.getNode(i);
-    if (node->getLeft().v != x[i]) {
+    if (node->getLeft().v != x[i] 
+      && !mgr.getArchitecture()->isMultiHeightCell(network.getNode(i))) {
       node->setLeft(DbuX{x[i]});
     }
-    if (node->getBottom().v != y[i]) {
+    if (node->getBottom().v != y[i]
+        && !mgr.getArchitecture()->isMultiHeightCell(network.getNode(i))) {
       node->setBottom(DbuY{y[i]});
     }
     // nodes might have moved to a different segment
-    if (node2segs[i] != orig_node2segs[i]) {
+    // needs to handle for multi-height cells too
+    if (node2segs[i] != orig_node2segs[i]
+        && !mgr.getArchitecture()->isMultiHeightCell(network.getNode(i))) {
       mgr.removeCellFromSegment(node, orig_node2segs[i]);
       mgr.addCellToSegment(node, node2segs[i]);
     }

@@ -100,7 +100,7 @@ bool Detailed::improve(DetailedMgr& mgr, FlattenedData& flattenedData)
   // We do not need to do flipping though.
   {
     DetailedOrient orienter(arch_, network_);
-    //orienter.run(mgr_, "orient -f");
+    orienter.run(mgr_, "orient -f");
   }
 
   // Different checks which are useful for debugging.
@@ -177,13 +177,13 @@ void Detailed::doDetailedCommand(std::vector<std::string>& args, GpuData& db_)
     //mis.run(mgr_, db_, args);
   } else if (strcmp(args[0].c_str(), "gs") == 0) {
     DetailedGlobalSwap gs(arch_, network_);
-    gs.run(mgr_, db_, args);
+    //gs.run(mgr_, db_, args);
   } else if (strcmp(args[0].c_str(), "vs") == 0) {
     DetailedVerticalSwap vs(arch_, network_);
     //vs.run(mgr_, args);
   } else if (strcmp(args[0].c_str(), "ro") == 0) {
     DetailedReorderer ro(arch_, network_);
-    //ro.run(mgr_, db_, args);
+    ro.run(mgr_, db_, args);
     deviceOpsDone = true;
   } else if (strcmp(args[0].c_str(), "orient") == 0) {
     DetailedOrient orienter(arch_, network_);

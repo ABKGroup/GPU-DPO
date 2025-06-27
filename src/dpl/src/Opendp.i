@@ -150,10 +150,28 @@ set_debug_cmd(float min_displacement,
 
 void improve_placement_cmd(int seed,
   int max_displacement_x,
-  int max_displacement_y)
+  int max_displacement_y,
+  int window_size,
+  int problem_size,
+  int num_iterations,
+  int kick_move,
+  int run_gs,
+  int run_reorder,
+  int run_mis,
+  float tolerance)
 {
   dpl::Opendp* opendp = ord::OpenRoad::openRoad()->getOpendp();
-  opendp->improvePlacement(seed, max_displacement_x, max_displacement_y);
+  opendp->improvePlacement(seed, 
+                           max_displacement_x, 
+                           max_displacement_y,
+                           window_size,
+                           problem_size,
+                           num_iterations,
+                           kick_move,
+                           run_gs,
+                           run_reorder,
+                           run_mis,
+                           tolerance);
 }
 
 } // namespace

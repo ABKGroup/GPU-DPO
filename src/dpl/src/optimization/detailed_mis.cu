@@ -193,8 +193,9 @@ void DetailedMis::run(DetailedMgr* mgrPtr, GpuData& db_, std::vector<std::string
   mgrPtr_ = mgrPtr;
   // db_ = mgrPtr_->getGpuData();
 
-  int passes = 30;
+  int passes = 50;
   double tol = 0.01;
+  int run_mis = 1;
   for (size_t i = 1; i < args.size(); i++) {
     if (args[i] == "-p" && i + 1 < args.size()) {
       passes = std::atoi(args[++i].c_str());
@@ -202,16 +203,25 @@ void DetailedMis::run(DetailedMgr* mgrPtr, GpuData& db_, std::vector<std::string
       tol = std::atof(args[++i].c_str());
     } /*else if (args[i] == "-d") {
       obj_ = DetailedMis::Disp;
-    }*/ else if (args[i] == "-batch" && i + 1 < args.size()) {
+    }*/ else if (args[i] == "-b" && i + 1 < args.size()) {
       batchSize_ = std::atoi(args[++i].c_str());
-    } else if (args[i] == "-binX" && i + 1 < args.size()) {
+    } else if (args[i] == "-bin_x" && i + 1 < args.size()) {
       numBinsX_ = std::atoi(args[++i].c_str());
-    } else if (args[i] == "-binY" && i + 1 < args.size()) {
+    } else if (args[i] == "-bin_y" && i + 1 < args.size()) {
       numBinsY_ = std::atoi(args[++i].c_str());
+    } else if (args[i] == "-s" && i + 1 < args.size()) {
+      setSize_ = std::atoi(args[++i].c_str());
+    } else if (args[i] == "-run" && i + 1 < args.size()) {
+      run_mis = std::atoi(args[++i].c_str());
     }
   }
   tol = std::max(tol, 0.01);
-  passes = std::max(passes, 1);
+  passes = std::max(passes, 1) * 5;   // it takes MIS longer to extract all independent sets
+
+  if (!run_mis) {
+    printf("[INFO GPU-DPO] Skipping maximum independent set matching due to flag passed in.\n");
+    return;
+  }
 
   db_.set_num_bins(numBinsX_, numBinsY_);
   IndependentSetMatchingState state;
@@ -336,7 +346,7 @@ void DetailedMis::run(DetailedMgr* mgrPtr, GpuData& db_, std::vector<std::string
                               state.auction_min_eps,
                               state.auction_factor,
                               state.auction_max_iterations);
-    checkCuda(cudaDeviceSynchronize());
+    //checkCuda(cudaDeviceSynchronize());
     //end = std::chrono::high_resolution_clock::now();
     //elapsed_ms = std::chrono::duration<double, std::milli>(end - start).count();
     //std::cout << "[INFO GPU-DPO] Solve LAP Time: " << elapsed_ms << " ms\n";

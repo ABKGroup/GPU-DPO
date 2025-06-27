@@ -32,6 +32,7 @@ public:
   std::vector<int> node_size_y; 
   std::vector<int> node_bottom_power;
   std::vector<int> node_top_power;
+  std::vector<int> node_is_single_height_cell;  // 0 if multi-height, 1 if single-height
 
   /* segment info */
   std::vector<int> node2segs;               // stores which cells are in the segments

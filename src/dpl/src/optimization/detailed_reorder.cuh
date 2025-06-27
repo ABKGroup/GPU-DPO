@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 
-#define MAX_K 4     // Maximum number of cells in a reorder window
+#define MAX_K 8     // Maximum number of cells in a reorder window
 #define MAX_NUM_NETS_PER_NODE 20
 #define MAX_NUM_NETS_PER_INSTANCE (MAX_NUM_NETS_PER_NODE * MAX_K)
 
@@ -73,6 +73,13 @@ struct KReorderState {
   int K;  ///< number of cells to reorder
 
   int* net_hpwls;  ///< used for compute HPWL
+};
+
+struct DPState {
+  int placed_mask; // bitmask: which cells are placed
+  int pos[MAX_K];  // x position for each cell (if placed)
+  int row[MAX_K];  // row for each cell (if placed)
+  int cost;        // total cost (HPWL, inf if overlap)
 };
 
 class DetailedReorderer

@@ -14,6 +14,9 @@
 #include <omp.h>
 #include <fstream>
 #include <chrono>
+#include <thrust/device_vector.h>
+#include <thrust/host_vector.h>
+#include <climits>
 
 #include "detailed_manager.h"
 #include "infrastructure/architecture.h"
@@ -890,6 +893,237 @@ void k_reorder(GpuData& db,
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
+// Multi-row Dynamic Programming (DP) for Local Reordering (GPU-accelerated)
+// Implements the approach from Han et al., TCAD 2019, Section V.
+// Objective: Minimize HPWL, ensure no overlap, allow cell movement across rows.
+// This is a demonstration for a small window (e.g., 2 rows x K cells).
+//
+// Inputs:
+//   - db: Placement database
+//   - state: Reorder state (for memory, cost, etc.)
+//   - window_cells: vector of node IDs in the window (across multiple rows)
+//   - window_rows: vector of row IDs for each cell
+//   - legal_x: legal x region for placement
+//   - legal_y: legal y region for placement (row indices)
+//
+// The DP state encodes which cells are placed, their positions, and the cost.
+// CUDA is used to parallelize the evaluation of DP states.
+//
+// NOTE: This is a simplified demonstration. For large windows, state space
+// grows rapidly. For production, use pruning and/or metaheuristics.
+
+__device__ int compute_hpwl_device(const GpuData& db, const int* node_ids, const int* pos, const int* row, int num_cells) {
+  // Compute HPWL for all nets connected to these cells (only x span for simplicity)
+  int hpwl = 0;
+  // For each net, find min/max x among pins in this window, and among all pins
+  // 1. Collect all nets connected to window cells
+  int nets_in_window[MAX_K * MAX_NUM_NETS_PER_NODE];
+  int net_counts[MAX_K * MAX_NUM_NETS_PER_NODE];
+  int num_nets_in_window = 0;
+  for (int i = 0; i < num_cells; ++i) {
+    int node_id = node_ids[i];
+    for (int node2pin_id = db.flat_node2pin_start_map[node_id]; node2pin_id < db.flat_node2pin_start_map[node_id + 1]; ++node2pin_id) {
+      int node_pin_id = db.flat_node2pin_map[node2pin_id];
+      int net_id = db.pin2net_map[node_pin_id];
+      // Only count each net once
+      int found = -1;
+      for (int j = 0; j < num_nets_in_window; ++j) {
+        if (nets_in_window[j] == net_id) { found = j; break; }
+      }
+      if (found == -1) {
+        nets_in_window[num_nets_in_window] = net_id;
+        net_counts[num_nets_in_window] = 1;
+        num_nets_in_window++;
+      } else {
+        net_counts[found]++;
+      }
+    }
+  }
+  // 2. For each net with at least 2 pins in the window, compute HPWL using window cell positions for those pins, and db.x/db.y for others
+  for (int ni = 0; ni < num_nets_in_window; ++ni) {
+    int net_id = nets_in_window[ni];
+    if (net_counts[ni] < 2) continue; // Only consider nets with at least 2 pins in window
+    int net_xl = INT_MAX, net_xh = INT_MIN;
+    // For all pins in net
+    for (int net2pin_id = db.flat_net2pin_start_map[net_id]; net2pin_id < db.flat_net2pin_start_map[net_id + 1]; ++net2pin_id) {
+      int net_pin_id = db.flat_net2pin_map[net2pin_id];
+      int other_node_id = db.pin2node_map[net_pin_id];
+      // Check if this node is in window
+      int in_window = -1;
+      for (int i = 0; i < num_cells; ++i) {
+        if (node_ids[i] == other_node_id) { in_window = i; break; }
+      }
+      int x = 0;
+      if (in_window != -1) {
+        x = pos[in_window] + db.pin_offset_x[net_pin_id];
+      } else {
+        x = db.x[other_node_id] + db.pin_offset_x[net_pin_id];
+      }
+      if (x < net_xl) net_xl = x;
+      if (x > net_xh) net_xh = x;
+    }
+    hpwl += (net_xh - net_xl);
+  }
+  return hpwl;
+}
+
+// Helper: get cell height in rows
+__device__ __inline__ int get_cell_height_rows(const GpuData& db, int node_id) {
+  return (db.node_size_y[node_id] + db.row_height - 1) / db.row_height;
+}
+
+__global__ void dp_expand_kernel(const GpuData db, const int* node_ids, const int* init_x, const int* init_row, int num_cells, int legal_xl, int legal_xh, int legal_yl, int legal_yh, DPState* dp_states, int num_states, DPState* next_states, int* next_count) {
+  int idx = blockIdx.x * blockDim.x + threadIdx.x;
+  if (idx >= num_states) return;
+  const DPState& state = dp_states[idx];
+  // For each unplaced cell, try all legal positions (no overlap)
+  for (int c = 0; c < num_cells; ++c) {
+    if (!(state.placed_mask & (1 << c))) {
+      int cell_height = get_cell_height_rows(db, node_ids[c]);
+      // Try all legal x, row positions for cell c
+      for (int r = legal_yl; r <= legal_yh - cell_height + 1; ++r) {
+        for (int x = legal_xl; x <= legal_xh; x += db.site_width) {
+          // Check overlap with already placed cells, considering multi-height
+          bool overlap = false;
+          int x1 = x;
+          int x2 = x + db.node_size_x[node_ids[c]];
+          for (int pc = 0; pc < num_cells; ++pc) {
+            if (state.placed_mask & (1 << pc)) {
+              int pc_row = state.row[pc];
+              int pc_height = get_cell_height_rows(db, node_ids[pc]);
+              int px1 = state.pos[pc];
+              int px2 = px1 + db.node_size_x[node_ids[pc]];
+              // For each row the new cell would occupy
+              for (int r_off = 0; r_off < cell_height; ++r_off) {
+                int r_cur = r + r_off;
+                // For each row the placed cell occupies
+                for (int pc_r_off = 0; pc_r_off < pc_height; ++pc_r_off) {
+                  int pc_r_cur = pc_row + pc_r_off;
+                  if (r_cur == pc_r_cur) {
+                    // Check x overlap
+                    if (!(x2 <= px1 || x1 >= px2)) {
+                      overlap = true;
+                      break;
+                    }
+                  }
+                }
+                if (overlap) break;
+              }
+              if (overlap) break;
+            }
+          }
+          if (overlap) continue;
+          // Create new state
+          DPState new_state = state;
+          new_state.placed_mask |= (1 << c);
+          new_state.pos[c] = x;
+          new_state.row[c] = r;
+          // Compute cost (HPWL)
+          new_state.cost = compute_hpwl_device(db, node_ids, new_state.pos, new_state.row, num_cells);
+          // Store if cost is finite
+          if (new_state.cost < INT_MAX) {
+            int out_idx = atomicAdd(next_count, 1);
+            next_states[out_idx] = new_state;
+          }
+        }
+      }
+    }
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+__global__ void find_best_dp_state(const DPState* dp_states, int num_states, int* best_idx) {
+  extern __shared__ int sdata[];
+  int tid = threadIdx.x;
+  int idx = blockIdx.x * blockDim.x + threadIdx.x;
+  int local_best = -1;
+  int local_best_cost = INT_MAX;
+  if (idx < num_states) {
+    local_best = idx;
+    local_best_cost = dp_states[idx].cost;
+  }
+  sdata[tid] = local_best;
+  __shared__ int best_cost_shared[1024]; // up to 1024 threads per block
+  best_cost_shared[tid] = local_best_cost;
+  __syncthreads();
+  // Parallel reduction for min cost
+  for (int s = blockDim.x / 2; s > 0; s >>= 1) {
+    if (tid < s && (idx + s) < num_states) {
+      if (best_cost_shared[tid + s] < best_cost_shared[tid]) {
+        best_cost_shared[tid] = best_cost_shared[tid + s];
+        sdata[tid] = sdata[tid + s];
+      }
+    }
+    __syncthreads();
+  }
+  if (tid == 0) {
+    // Write block's best idx to global memory
+    best_idx[blockIdx.x] = sdata[0];
+  }
+}
+
+__global__ void apply_best_dp_state(GpuData db, const DPState* dp_states, int best_idx, const int* window_cells, int num_cells) {
+  const DPState& best = dp_states[best_idx];
+  int i = blockIdx.x * blockDim.x + threadIdx.x;
+  if (i < num_cells) {
+    int node_id = window_cells[i];
+    if (best.pos[i] >= 0 && best.row[i] >= 0) {
+      db.x[node_id] = best.pos[i];
+      db.y[node_id] = db.yl + best.row[i] * db.row_height;
+    }
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+void multirow_dp_reorder(GpuData& db, KReorderState& state, const std::vector<int>& window_cells, const std::vector<int>& window_rows, int legal_xl, int legal_xh, int legal_yl, int legal_yh) {
+  int num_cells = window_cells.size();
+  thrust::host_vector<DPState> dp_states(1);
+  dp_states[0].placed_mask = 0;
+  for (int i = 0; i < MAX_K; ++i) { dp_states[0].pos[i] = -1; dp_states[0].row[i] = -1; }
+  dp_states[0].cost = 0;
+
+  thrust::device_vector<DPState> d_dp_states = dp_states;
+  thrust::device_vector<DPState> d_next_states(1024 * 1024); // up to 1M states
+  thrust::device_vector<int> d_next_count(1);
+  thrust::device_vector<int> d_window_cells(window_cells);
+
+  for (int step = 0; step < num_cells; ++step) {
+    d_next_count[0] = 0;
+    int num_states = d_dp_states.size();
+    int threads = 256;
+    int blocks = (num_states + threads - 1) / threads;
+    dp_expand_kernel<<<blocks, threads>>>(db, thrust::raw_pointer_cast(window_cells.data()), nullptr, nullptr, num_cells, legal_xl, legal_xh, legal_yl, legal_yh, thrust::raw_pointer_cast(d_dp_states.data()), num_states, thrust::raw_pointer_cast(d_next_states.data()), thrust::raw_pointer_cast(d_next_count.data()));
+    cudaDeviceSynchronize();
+    int next_count = d_next_count[0];
+    d_dp_states.resize(next_count);
+    thrust::copy(d_next_states.begin(), d_next_states.begin() + next_count, d_dp_states.begin());
+  }
+  // Find best state index on GPU
+  int num_states = d_dp_states.size();
+  int threads = 256;
+  int blocks = (num_states + threads - 1) / threads;
+  thrust::device_vector<int> d_best_idx(blocks);
+  find_best_dp_state<<<blocks, threads, threads * sizeof(int)>>>(thrust::raw_pointer_cast(d_dp_states.data()), num_states, thrust::raw_pointer_cast(d_best_idx.data()));
+  cudaDeviceSynchronize();
+  // Reduce on host if needed
+  thrust::host_vector<int> h_best_idx = d_best_idx;
+  int best_idx = h_best_idx[0];
+  int best_cost = d_dp_states[best_idx].cost;
+  for (int i = 1; i < h_best_idx.size(); ++i) {
+    if (d_dp_states[h_best_idx[i]].cost < best_cost) {
+      best_idx = h_best_idx[i];
+      best_cost = d_dp_states[best_idx].cost;
+    }
+  }
+  // Apply best placement on GPU
+  apply_best_dp_state<<<(num_cells + 255) / 256, 256>>>(db, thrust::raw_pointer_cast(d_dp_states.data()), best_idx, thrust::raw_pointer_cast(d_window_cells.data()), num_cells);
+  cudaDeviceSynchronize();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 void DetailedReorderer::run(DetailedMgr* mgrPtr, GpuData& db_,
                             const std::vector<std::string>& args)
 {
@@ -900,6 +1134,7 @@ void DetailedReorderer::run(DetailedMgr* mgrPtr, GpuData& db_,
 
   int passes = 5;
   double tol = 0.01;
+  int run_reorder = 1;
   for (size_t i = 1; i < args.size(); i++) {
     if (args[i] == "-w" && i + 1 < args.size()) {
       windowSize_ = std::atoi(args[++i].c_str());
@@ -907,14 +1142,21 @@ void DetailedReorderer::run(DetailedMgr* mgrPtr, GpuData& db_,
       passes = std::atoi(args[++i].c_str());
     } else if (args[i] == "-t" && i + 1 < args.size()) {
       tol = std::atof(args[++i].c_str());
-    } else if (args[i] == "-binX" && i + 1 < args.size()) {
+    } else if (args[i] == "-bin_x" && i + 1 < args.size()) {
       numBinsX_ = std::atoi(args[++i].c_str());
-    } else if (args[i] == "-binY" && i + 1 < args.size()) {
+    } else if (args[i] == "-bin_y" && i + 1 < args.size()) {
       numBinsY_ = std::atoi(args[++i].c_str());
+    } else if (args[i] == "-run" && i + 1 < args.size()) {
+      run_reorder = std::atoi(args[++i].c_str());
     }
   }
-  windowSize_ = std::min(4, std::max(2, windowSize_));
+  //windowSize_ = std::min(windowSize_, std::max(2, windowSize_));
   tol = std::max(tol, 0.01);
+  
+  if (!run_reorder) {
+    printf("[INFO GPU-DPO] Skipping local reordering due to flag passed in.\n");
+    return;
+  }
 
   db_.set_num_bins(numBinsX_, numBinsY_); // may not need this for reordering
   KReorderState state;
@@ -1026,17 +1268,35 @@ void DetailedReorderer::run(DetailedMgr* mgrPtr, GpuData& db_,
   for (int p = 1; p <= passes; p++) {
     const int64_t last_hpwl = curr_hpwl;
     auto start = std::chrono::high_resolution_clock::now();
-    k_reorder(db_, state, host_reorder_instances);
+    // --- BEGIN MULTI-ROW DP INTEGRATION ---
+    for (size_t group_id = 0; group_id < host_reorder_instances.size(); ++group_id) {
+      const auto& group = host_reorder_instances[group_id];
+      for (size_t inst_id = 0; inst_id < group.size(); ++inst_id) {
+        const auto& inst = group[inst_id];
+        // Extract window_cells and window_rows for this instance
+        std::vector<int> window_cells;
+        std::vector<int> window_rows;
+        for (int i = inst.idx_bgn; i < inst.idx_end; ++i) {
+          int node_id = host_row2node_map[inst.row_id][i];
+          window_cells.push_back(node_id);
+          window_rows.push_back(inst.row_id); // For now, all in the same row; extend for multi-row
+        }
+        // Define legal region (for demo, use row's full legal region)
+        int legal_xl = db_.xl;
+        int legal_xh = db_.xh;
+        int legal_yl = 0;
+        int legal_yh = db_.num_sites_y - 1;
+        if (!window_cells.empty()) {
+          multirow_dp_reorder(db_, state, window_cells, window_rows, legal_xl, legal_xh, legal_yl, legal_yh);
+        }
+      }
+    }
     checkCuda(cudaDeviceSynchronize());
     auto end = std::chrono::high_resolution_clock::now();
-
     std::chrono::duration<double, std::milli> elapsed = end - start;
     std::cout << "[INFO GPU-DPO] Iteration time: " << elapsed.count() << " ms\n";
-
     curr_hpwl = compute_total_hpwl(db_, db_.x, db_.y, state.net_hpwls);
-
     printf("[INFO GPU-DPO] Pass %d of reordering; objective is %d.\n", p, (int) curr_hpwl);
-
     if (std::abs(curr_hpwl - last_hpwl) / (double) last_hpwl <= tol) {
       break;
     }

@@ -164,7 +164,9 @@ sta::define_cmd_args "improve_placement" {\
 
 proc improve_placement { args } {
   sta::parse_key_args "improve_placement" args \
-    keys {-random_seed -max_displacement} flags {-disallow_one_site_gaps}
+    keys {-random_seed -max_displacement -window_size -problem_size -num_iterations \
+          -kick_move -run_gs -run_reorder -run_mis -tolerance} \
+    flags {-disallow_one_site_gaps}
 
   if { [ord::get_db_block] == "NULL" } {
     utl::error DPL 342 "No design block found."
@@ -195,9 +197,54 @@ proc improve_placement { args } {
     set max_displacement_x 0
     set max_displacement_y 0
   }
-
+  if { [info exists keys(-window_size)] } {
+    # set the reordering window size
+    set window_size $keys(-window_size)
+  } else {
+    set window_size 3
+  }
+  if { [info exists keys(-problem_size)] } {
+    # set the maximum MIS problem size
+    set problem_size $keys(-problem_size)
+  } else {
+    set problem_size 64
+  }
+  if { [info exists keys(-num_iterations)] } {
+    # set the number of iterations to perform each detailed placement operator
+    set num_iterations $keys(-num_iterations)
+  } else {
+    set num_iterations 10
+  }
+  if { [info exists keys(-kick_move)] } {
+    # percentage of design instances to perform random swap 
+    set kick_move $keys(-kick_move)
+  } else {
+    set kick_move 25
+  }
+  if { [info exists keys(-run_gs)] } {
+    set run_gs $keys(-run_gs)
+  } else {
+    set run_gs 1
+  }
+  if { [info exists keys(-run_reorder)] } {
+    set run_reorder $keys(-run_reorder)
+  } else {
+    set run_reorder 1
+  }
+  if { [info exists keys(-run_mis)] } {
+    set run_mis $keys(-run_mis)
+  } else {
+    set run_mis 1
+  }
+  if { [info exists keys(-tolerance)] } {
+    set tolerance $keys(-tolerance)
+  } else {
+    set tolerance 0.005
+  }
   sta::check_argc_eq0 "improve_placement" $args
-  dpl::improve_placement_cmd $seed $max_displacement_x $max_displacement_y
+  dpl::improve_placement_cmd $seed $max_displacement_x $max_displacement_y \
+    $window_size $problem_size $num_iterations $kick_move $run_gs \
+    $run_reorder $run_mis $tolerance
 }
 namespace eval dpl {
 # min_displacement is the smallest displacement to draw

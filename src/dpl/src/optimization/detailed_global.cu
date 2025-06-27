@@ -10,6 +10,8 @@
 #include <string>
 #include <vector>
 #include <cstdio>
+#include <random>
+#include <chrono>
 
 #include "detailed_manager.h"
 #include "infrastructure/Objects.h"
@@ -72,19 +74,23 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr,
   for (int p = 1; p <= passes; p++) {
     last_hpwl = curr_hpwl;
 
+    auto start = std::chrono::high_resolution_clock::now();
     // XXX: Actually, global swapping is nothing more than random
     // greedy improvement in which the move generating is done
     // using this object to generate a target which is the optimal
     // region for each candidate cell.
     globalSwap();
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed = end - start;
 
     curr_hpwl = Utility::hpwl(network_, hpwl_x, hpwl_y);
 
     mgr_->getLogger()->info(DPL,
                             306,
-                            "Pass {:3d} of global swaps; hpwl is {:.6e}.",
+                            "Pass {:3d} of global swaps; hpwl is {:.6e}. Time: {:.3f} ms.",
                             p,
-                            (double) curr_hpwl);
+                            (double) curr_hpwl,
+                            elapsed.count() * 1000.0);
 
     if (std::abs(curr_hpwl - last_hpwl) / (double) last_hpwl <= tol) {
       break;
@@ -749,9 +755,7 @@ __global__ void __launch_bounds__(256, 4)
     if (bin_id >= 0) {
       bin2nodes = state.bin2node_map(bin_id);
       num_nodes_in_bin =
-          state.bin2node_map.size(bin_id) *
-          (db.node_size_y[node_id] ==
-           db.row_height);  // only consider single-row height cell
+          state.bin2node_map.size(bin_id) * db.node_is_single_height_cell[node_id];
       step_size = max((float)num_nodes_in_bin / (float)max_num_candidates, (float)1);
       iters = min(max_num_candidates, num_nodes_in_bin);
     }
@@ -958,10 +962,79 @@ __global__ void apply_candidates(GpuData db, SwapState state, int num_candidates
 
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
-// void apply_lsmc() {
-  
-// }
+void apply_lsmc(GpuData &db, DetailedMgr &mgr, int kick_move) {
+  // Here, we apply large stage Markov chain descent.
+  // Kick move is a percentage of movable design instances.
+  // We perturb the initial placement by kick move percent,
+  // which randomly swaps cells that make the HPWL worse.
+  FlattenedData cpu_db(&mgr); 
+  cpu_db.createFlattenedData();
+  db.copyToHost(cpu_db);
+  DetailedMgr* mgr_ptr = cpu_db.mgr_;
+  Network* network = cpu_db.network_;
+  Architecture* arch = cpu_db.arch_;
 
+  DetailedHPWL hpwlObj(network);
+  hpwlObj.init(mgr_ptr, nullptr);
+
+  std::vector<Node*> candidates = mgr_ptr->getSingleHeightCells();
+  int num_movable = (int)candidates.size();
+  if (num_movable < 2) return;
+
+  int num_swaps = 0;
+  int currHpwl = hpwlObj.curr();
+  uint64_t hpwl_x, hpwl_y;
+  float total_swapped_cells = (float)kick_move / 100.0 * cpu_db.num_movable_nodes;
+  printf("[INFO GPU-DPO] Performing LSMC. Attempting to randomly swap %d cells.\n", (int)total_swapped_cells);
+  while (num_swaps < (int)total_swapped_cells) {
+    // use the same random seed set in cmd line
+    int i = mgr_ptr->getRandom(num_movable);    
+    int j = mgr_ptr->getRandom(num_movable);    
+    if (i == j) continue;
+    Node* ni = candidates[i];
+    Node* nj = candidates[j];
+    if (ni == nj) continue;
+    DbuX xi = ni->getLeft();
+    DbuY yi = ni->getBottom();
+    int si = mgr_ptr->getReverseCellToSegs(ni->getId())[0]->getSegId();
+    DbuX xj = nj->getLeft();
+    DbuY yj = nj->getBottom();
+    int sj = mgr_ptr->getReverseCellToSegs(nj->getId())[0]->getSegId();
+    if (mgr_ptr->trySwap(ni, xi, yi, si, xj, yj, sj)) {
+      int newHpwl = hpwlObj.curr();
+      if (newHpwl > currHpwl) { // Only accept if HPWL worsens
+        mgr_ptr->acceptMove();
+        currHpwl = newHpwl;
+        num_swaps++;
+      } else {
+        mgr_ptr->rejectMove();
+      }
+    }
+  }
+  int lsmc_hpwl = Utility::hpwl(network, hpwl_x, hpwl_y);
+  printf("[INFO GPU-DPO] HPWL after performing LSMC is %d.\n", lsmc_hpwl);
+  // Repopulate cpu_db.x, cpu_db.y, and cpu_db.node2segs from the network and manager after swaps
+  for (int i = 0; i < cpu_db.num_movable_nodes; ++i) {
+    Node* node = mgr_ptr->getNetwork()->getNode(i);
+    if (cpu_db.x[i] != node->getLeft().v) {
+      cpu_db.x[i] = node->getLeft().v;
+    }
+    if (cpu_db.y[i] != node->getBottom().v) {
+      cpu_db.y[i] = node->getBottom().v;
+    }
+    // Update node2segs
+    if (mgr_ptr->getNumReverseCellToSegs(i) > 0 
+        && cpu_db.node2segs[i] != mgr_ptr->getReverseCellToSegs(i)[0]->getSegId()) {
+      cpu_db.node2segs[i] = mgr_ptr->getReverseCellToSegs(i)[0]->getSegId();
+    }
+  }
+  // Copy only the updated node locations and segment IDs to the GPU
+  cudaMemcpy(db.x, cpu_db.x.data(), sizeof(int) * cpu_db.num_nodes, cudaMemcpyHostToDevice);
+  cudaMemcpy(db.y, cpu_db.y.data(), sizeof(int) * cpu_db.num_nodes, cudaMemcpyHostToDevice);
+  cudaMemcpy(db.node2segs, cpu_db.node2segs.data(), sizeof(int) * cpu_db.num_nodes, cudaMemcpyHostToDevice);
+
+  printf("[INFO GPU-DPO] Performed %d random swaps.\n", num_swaps);
+}
 
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
@@ -1126,21 +1199,36 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr, GpuData& db_,
 
   int passes = 5;
   double tol = 0.01;
+  int kick_move = 25;
+  int run_global_swap = 1;
   for (size_t i = 1; i < args.size(); i++) {
     if (args[i] == "-p" && i + 1 < args.size()) {
       passes = std::atoi(args[++i].c_str());
     } else if (args[i] == "-t" && i + 1 < args.size()) {
       tol = std::atof(args[++i].c_str());
-    } else if (args[i] == "-batch" && i + 1 < args.size()) {
+    } else if (args[i] == "-b" && i + 1 < args.size()) {
       batchSize_ = std::atoi(args[++i].c_str());
-    } else if (args[i] == "-binX" && i + 1 < args.size()) {
+    } else if (args[i] == "-bin_x" && i + 1 < args.size()) {
       numBinsX_ = std::atoi(args[++i].c_str());
-    } else if (args[i] == "-binY" && i + 1 < args.size()) {
+    } else if (args[i] == "-bin_y" && i + 1 < args.size()) {
       numBinsY_ = std::atoi(args[++i].c_str());
+    } else if (args[i] == "-kick" && i + 1 < args.size()) {
+      kick_move = std::atoi(args[++i].c_str());
+    } else if (args[i] == "-run" && i + 1 < args.size()) {
+      run_global_swap = std::atoi(args[++i].c_str());
     }
   }
   passes = std::max(passes, 1);
   tol = std::max(tol, 0.01); 
+  kick_move = std::max(kick_move, 0);
+
+  if (!run_global_swap) {
+    printf("[INFO GPU-DPO] Skipping global swap due to flag passed in.\n");
+    return;
+  }
+
+  // Perform LSMC to get a worse initial placement
+  // apply_lsmc(db_, *mgrPtr, kick_move);
 
   db_.set_num_bins(numBinsX_, numBinsY_);
   printf("[INFO GPU-DPO] bins %dx%d, bin sizes %gx%g, die size %d, %d, %d, %d\n",
@@ -1203,6 +1291,7 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr, GpuData& db_,
       cudaMemcpy(host_node_size_y.data(), db_.node_size_y, sizeof(int) * db_.num_nodes, cudaMemcpyDeviceToHost));
 
   // distribute cells to rows on host, copy cell locations from device to host
+  // when handling multi-height cells, we consider a cell can occupy multiple rows
   std::vector<std::vector<int>> host_row2node_map(db_.num_sites_y);
   std::vector<RowMapIndex> host_node2row_map(db_.num_movable_nodes);
   std::vector<Space> host_spaces(db_.num_movable_nodes);
@@ -1266,14 +1355,13 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr, GpuData& db_,
   std::cout << "INITIAL HPWL IS " << curr_hpwl << std::endl;
   for (int p = 1; p <= passes; p++) {
     last_hpwl = curr_hpwl;
-
+    auto start = std::chrono::high_resolution_clock::now();
     global_swap(db_, state);
     checkCuda(cudaDeviceSynchronize());
-
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed = end - start;
     curr_hpwl = compute_total_hpwl(db_, db_.x, db_.y, state.net_hpwls);
-
-    printf("[INFO GPU-DPO] Pass %d of global swaps; hpwl is %d.\n", p, (int) curr_hpwl);
-
+    printf("[INFO GPU-DPO] Pass %d of global swaps; hpwl is %d. Time: %.3f ms.\n", p, (int) curr_hpwl, elapsed.count() * 1000.0);
     if (std::abs(curr_hpwl - last_hpwl) / (double) last_hpwl <= tol) {
       break;
     }
