@@ -1,35 +1,5 @@
-///////////////////////////////////////////////////////////////////////////////
-// BSD 3-Clause License
-//
-// Copyright (c) 2020, The Regents of the University of California
-// All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are met:
-//
-// * Redistributions of source code must retain the above copyright notice, this
-//   list of conditions and the following disclaimer.
-//
-// * Redistributions in binary form must reproduce the above copyright notice,
-//   this list of conditions and the following disclaimer in the documentation
-//   and/or other materials provided with the distribution.
-//
-// * Neither the name of the copyright holder nor the names of its
-//   contributors may be used to endorse or promote products derived from
-//   this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-// ARE
-// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-// FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-// DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-///////////////////////////////////////////////////////////////////////////////
+// SPDX-License-Identifier: BSD-3-Clause
+// Copyright (c) 2020-2025, The OpenROAD Authors
 
 #include "graphics.h"
 
@@ -37,6 +7,8 @@
 #include <cmath>
 #include <cstdio>
 #include <limits>
+#include <memory>
+#include <string>
 #include <utility>
 #include <vector>
 
@@ -87,9 +59,8 @@ Graphics::Graphics(utl::Logger* logger,
   gui::Gui::get()->registerRenderer(this);
   initHeatmap();
   if (inst) {
-    for (GCell* cell : nbc_->gCells()) {
-      Instance* cell_inst = cell->instance();
-      if (cell_inst && cell_inst->dbInst() == inst) {
+    for (GCell* cell : nbc_->getGCells()) {
+      if (cell->contains(inst)) {
         selected_ = cell;
         break;
       }
@@ -237,8 +208,8 @@ void Graphics::drawSingleGCell(const GCell* gCell, gui::Painter& painter)
 
   gui::Painter::Color color;
   if (gCell->isInstance()) {
-    color = gCell->instance()->isLocked() ? gui::Painter::dark_cyan
-                                          : gui::Painter::dark_green;
+    color = gCell->isLocked() ? gui::Painter::dark_cyan
+                              : gui::Painter::dark_green;
   } else if (gCell->isFiller()) {
     color = gui::Painter::dark_magenta;
   }
@@ -278,9 +249,9 @@ void Graphics::drawNesterov(gui::Painter& painter)
 
   // Draw the placeable objects
   painter.setPen(gui::Painter::white);
-  drawCells(nbc_->gCells(), painter);
+  drawCells(nbc_->getGCells(), painter);
   for (const auto& nb : nbVec_) {
-    drawCells(nb->gCells(), painter);
+    drawCells(nb->getGCells(), painter);
   }
 
   painter.setBrush(gui::Painter::Color(gui::Painter::light_gray, 50));
@@ -348,8 +319,7 @@ void Graphics::reportSelected()
   if (!selected_) {
     return;
   }
-  auto instance = selected_->instance();
-  logger_->report("Inst: {}", instance->dbInst()->getName());
+  logger_->report("Inst: {}", selected_->name());
 
   if (np_) {
     auto wlCoeffX = np_->getWireLengthCoefX();
@@ -417,7 +387,7 @@ gui::SelectionSet Graphics::select(odb::dbTechLayer* layer,
     return gui::SelectionSet();
   }
 
-  for (GCell* cell : nbc_->gCells()) {
+  for (GCell* cell : nbc_->getGCells()) {
     const int gcx = cell->dCx();
     const int gcy = cell->dCy();
 
@@ -435,7 +405,11 @@ gui::SelectionSet Graphics::select(odb::dbTechLayer* layer,
     gui::Gui::get()->redraw();
     if (cell->isInstance()) {
       reportSelected();
-      return {gui::Gui::get()->makeSelected(cell->instance()->dbInst())};
+      gui::SelectionSet selected;
+      for (Instance* inst : cell->insts()) {
+        selected.insert(gui::Gui::get()->makeSelected(inst->dbInst()));
+      }
+      return selected;
     }
   }
   return gui::SelectionSet();

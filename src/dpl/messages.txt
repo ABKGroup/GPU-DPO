@@ -1,0 +1,65 @@
+DPL 0001 FillerPlacement.cpp:84    Placed {} filler instances. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/FillerPlacement.cpp#L84
+DPL 0002 FillerPlacement.cpp:173   could not fill gap of size {} at {},{} dbu between {} and {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/FillerPlacement.cpp#L173
+DPL 0003 Opendp.tcl:39             -disallow_one_site_gaps is deprecated WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/Opendp.tcl#L39
+DPL 0004 Opendp.tcl:141            -disallow_one_site_gaps is deprecated WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/Opendp.tcl#L141
+DPL 0012 Grid.cpp:547              no rows found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/infrastructure/Grid.cpp#L547
+DPL 0015 Place.cpp:296             instance {} does not fit inside the ROW core area. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/Place.cpp#L296
+DPL 0016 Place.cpp:407             cannot place instance {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/Place.cpp#L407
+DPL 0017 Place.cpp:463             cannot place instance {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/Place.cpp#L463
+DPL 0020 OptMirror.cpp:76          Mirrored {} instances INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/OptMirror.cpp#L76
+DPL 0021 OptMirror.cpp:78          HPWL before          {:8.1f} u INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/OptMirror.cpp#L78
+DPL 0022 OptMirror.cpp:82          HPWL after           {:8.1f} u INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/OptMirror.cpp#L82
+DPL 0023 OptMirror.cpp:89          HPWL delta           {:8.1f} % INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/OptMirror.cpp#L89
+DPL 0026 Place.cpp:1135            legalPt called on fixed cell {}. CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/Place.cpp#L1135
+DPL 0027 Opendp.tcl:53             no rows defined in design. Use initialize_floorplan to add rows. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/Opendp.tcl#L53
+DPL 0028 Opendp.tcl:246            $name did not match any masters. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/Opendp.tcl#L246
+DPL 0029 Opendp.tcl:263            cannot find instance $inst_name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/Opendp.tcl#L263
+DPL 0030 Opendp.tcl:279            cannot find instance $inst_name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/Opendp.tcl#L279
+DPL 0031 Opendp.tcl:24             -max_displacement disp|{disp_x disp_y} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/Opendp.tcl#L24
+DPL 0032 Opendp.tcl:221            Debug instance $instance_name not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/Opendp.tcl#L221
+DPL 0033 CheckPlacement.cpp:121    detailed placement checks failed. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/CheckPlacement.cpp#L121
+DPL 0034 Opendp.cpp:112            Detailed placement failed on the following {} instances: INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/Opendp.cpp#L112
+DPL 0035 Opendp.cpp:117             {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/Opendp.cpp#L117
+DPL 0036 Opendp.cpp:124            Detailed placement failed. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/Opendp.cpp#L124
+DPL 0037 Opendp.cpp:93             Use remove_fillers before detailed placement. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/Opendp.cpp#L93
+DPL 0039 Opendp.tcl:250            \ ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/Opendp.tcl#L250
+DPL 0042 Opendp.cpp:413            No cells found in group {}.  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/Opendp.cpp#L413
+DPL 0048 CheckPlacement.cpp:142    Could not find overlapping cell for cell {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/CheckPlacement.cpp#L142
+DPL 0049 Grid.cpp:551              Mixing hybrid and non-hybrid rows is unsupported. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/infrastructure/Grid.cpp#L551
+DPL 0050 FillerPlacement.cpp:231   No fillers found for {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/FillerPlacement.cpp#L231
+DPL 0051 Grid.cpp:536              Site widths are not equal: {}={} != {}={} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/infrastructure/Grid.cpp#L536
+DPL 0054 DecapPlacement.cpp:120    Run remove_fillers before inserting decap cells ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/DecapPlacement.cpp#L120
+DPL 0055 DecapPlacement.cpp:101    Gaps not found when inserting decap cells. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/DecapPlacement.cpp#L101
+DPL 0056 DecapPlacement.cpp:159    Placed {} decap cells. Total capacitance: {:6.6f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/DecapPlacement.cpp#L159
+DPL 0103 Opendp.tcl:129            No design block found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/Opendp.tcl#L129
+DPL 0104 Opendp.tcl:152            No design block found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/Opendp.tcl#L152
+DPL 0105 Opendp.tcl:118            No design block found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/Opendp.tcl#L118
+DPL 0200 legalize_shift.cxx:170    Unexpected displacement during legalization. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/legalize_shift.cxx#L170
+DPL 0201 legalize_shift.cxx:186    Placement check failure during legalization. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/legalize_shift.cxx#L186
+DPL 0308 detailed_vertical.cxx:98  Pass {:3d} of vertical swaps; hpwl is {:.6e}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/optimization/detailed_vertical.cxx#L98
+DPL 0309 detailed_vertical.cxx:111 End of vertical swaps; objective is {:.6e},  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/optimization/detailed_vertical.cxx#L111
+DPL 0310 detailed_manager.cxx:880  Assigned {:d} cells into segments.  Movement in X-direction  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/optimization/detailed_manager.cxx#L880
+DPL 0311 detailed_manager.cxx:1195 Found {:d} overlaps between adjacent cells. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/optimization/detailed_manager.cxx#L1195
+DPL 0312 detailed_manager.cxx:1251 Found {:d} edge spacing violations and {:d} padding violations. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/optimization/detailed_manager.cxx#L1251
+DPL 0313 detailed_manager.cxx:1429 Found {:d} cells in wrong regions. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/optimization/detailed_manager.cxx#L1429
+DPL 0314 detailed_manager.cxx:1487 Found {:d} site alignment problems. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/optimization/detailed_manager.cxx#L1487
+DPL 0315 detailed_manager.cxx:1518 Found {:d} row alignment problems. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/optimization/detailed_manager.cxx#L1518
+DPL 0317 detailed_abu.cxx:373      ABU: Target {:.2f},  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/objective/detailed_abu.cxx#L373
+DPL 0318 detailed_manager.cxx:1040 Collected {:d} single height cells. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/optimization/detailed_manager.cxx#L1040
+DPL 0319 detailed_manager.cxx:1084 Collected {:d} multi-height cells spanning {:d} rows. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/optimization/detailed_manager.cxx#L1084
+DPL 0320 detailed_manager.cxx:1111 Collected {:d} fixed cells. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/optimization/detailed_manager.cxx#L1111
+DPL 0321 detailed_manager.cxx:1140 Collected {:d} wide cells. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/optimization/detailed_manager.cxx#L1140
+DPL 0322 detailed_manager.cxx:241  Image ({:d}, {:d}) - ({:d}, {:d}) INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/optimization/detailed_manager.cxx#L241
+DPL 0336 detailed_vertical.cxx:380 Generator {:s},  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/optimization/detailed_vertical.cxx#L380
+DPL 0339 detailed_manager.cxx:1312 One-site gap violation detected with a  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/optimization/detailed_manager.cxx#L1312
+DPL 0340 detailed_manager.cxx:1322 One-site gap violation detected with a  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/optimization/detailed_manager.cxx#L1322
+DPL 0342 Opendp.tcl:170            No design block found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/Opendp.tcl#L170
+DPL 0344 Opendp.tcl:191            -max_displacement disp|{disp_x disp_y} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/Opendp.tcl#L191
+DPL 0380 detailed_orient.cxx:66    Cell flipping. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/optimization/detailed_orient.cxx#L66
+DPL 0381 detailed_orient.cxx:74    Encountered {:d} issues when orienting cells for rows. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/optimization/detailed_orient.cxx#L74
+DPL 0382 detailed_orient.cxx:80    Changed {:d} cell orientations for row compatibility. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/optimization/detailed_orient.cxx#L80
+DPL 0383 detailed_orient.cxx:89    Performed {:d} cell flips. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/optimization/detailed_orient.cxx#L89
+DPL 0384 detailed_orient.cxx:94    End of flipping; objective is {:.6e}, improvement is {:.2f} percent. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/optimization/detailed_orient.cxx#L94
+DPL 0400 detailed_manager.cxx:125  Detailed improvement internal error: {:s}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/optimization/detailed_manager.cxx#L125
+DPL 0401 detailed_manager.cxx:88   Setting random seed to {:d}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/optimization/detailed_manager.cxx#L88
+DPL 0402 detailed_manager.cxx:106  Setting maximum displacement {:d} {:d} to  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dpl/src/optimization/detailed_manager.cxx#L106

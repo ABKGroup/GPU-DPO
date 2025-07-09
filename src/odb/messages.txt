@@ -1,0 +1,475 @@
+GRT 0056 odb.tcl:616               In argument -clock_layers, min routing layer is\      greater than max routing layer. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L616
+GRT 0057 odb.tcl:592               Missing track structure for layer $layer_name. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L592
+ODB 0000 dbWireCodec.cpp:1474      {} Net {} not found ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1474
+ODB 0002 dbDatabase.cpp:535        Error opening file {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbDatabase.cpp#L535
+ODB 0008 dbBlock.cpp:2713          Cannot duplicate net {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBlock.cpp#L2713
+ODB 0009 dbBlock.cpp:2717          id mismatch ({},{}) for net {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBlock.cpp#L2717
+ODB 0010 dbBlock.cpp:2930          tot = {}, upd = {}, enc = {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBlock.cpp#L2930
+ODB 0015 tmg_conn_w.cpp:64         disconnected net {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/tmg_conn_w.cpp#L64
+ODB 0016 tmg_conn.cpp:1584         problem in getExtension() ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/tmg_conn.cpp#L1584
+ODB 0018 tmg_conn.cpp:1807         error in addToWire ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/tmg_conn.cpp#L1807
+ODB 0019 dbBlock.cpp:3037          Can not open file {} to write! WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBlock.cpp#L3037
+ODB 0021 dbCCSeg.cpp:361               ccSeg={} capn0={} next0={} capn1={} next1={} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbCCSeg.cpp#L361
+ODB 0022 dbCCSeg.cpp:387           ccSeg {} has capnd {} {}, not {} ! INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbCCSeg.cpp#L387
+ODB 0023 dbCCSeg.cpp:717           CCSeg {} does not have orig capNode {}. Can not swap. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbCCSeg.cpp#L717
+ODB 0024 dbCapNode.cpp:116         cc seg {} has both capNodes {} {} from the same net {} .  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbCapNode.cpp#L116
+ODB 0025 dbCapNode.cpp:1025          capn {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbCapNode.cpp#L1025
+ODB 0026 dbBTerm.cpp:982           Pin {} is mirrored with another pin. The  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBTerm.cpp#L982
+ODB 0027 odb.tcl:842               -exclude: $interval is an invalid region. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L842
+ODB 0028 odb.tcl:845               -exclude: invalid syntax in $region.\          Use (top|bottom|left|right):interval. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L845
+ODB 0030 dbMarkerCategory.cpp:518  Unable to open TritonRoute DRC report: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarkerCategory.cpp#L518
+ODB 0031 dbMarkerCategory.cpp:471  Unable to open marker report: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarkerCategory.cpp#L471
+ODB 0034 dbITerm.cpp:747           Can not find physical location of iterm {}/{} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbITerm.cpp#L747
+ODB 0037 dbInst.cpp:888            instance bound to a block {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbInst.cpp#L888
+ODB 0038 dbInst.cpp:910            instance already bound to a block {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbInst.cpp#L910
+ODB 0039 dbInst.cpp:915            Forced Initialize to 0 WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbInst.cpp#L915
+ODB 0040 dbInst.cpp:923            block already bound to an instance {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbInst.cpp#L923
+ODB 0041 dbInst.cpp:928            Forced Initialize to 0 WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbInst.cpp#L928
+ODB 0042 dbInst.cpp:936            block not a direct child of instance owner WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbInst.cpp#L936
+ODB 0043 dbInst.cpp:945            _dbHier::create fails WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbInst.cpp#L945
+ODB 0044 dbInst.cpp:1065           Failed(_hierarchy) to swap: {} -> {} {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbInst.cpp#L1065
+ODB 0045 dbInst.cpp:1109           Failed(termSize) to swap: {} -> {} {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbInst.cpp#L1109
+ODB 0046 dbInst.cpp:1137           Failed(mtermEquiv) to swap: {} -> {} {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbInst.cpp#L1137
+ODB 0047 dbInst.cpp:1507           instance {} has no output pin WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbInst.cpp#L1507
+ODB 0048 dbNet.cpp:730             Net {} {} had been CC adjusted by {}. Please unadjust first. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbNet.cpp#L730
+ODB 0052 dbNet.cpp:1755            Net {}, {} has no extraction data WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbNet.cpp#L1755
+ODB 0053 dbNet.cpp:1797            Net {}, {} has no extraction data WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbNet.cpp#L1797
+ODB 0054 dbRSeg.cpp:505            CC segs of RSeg {}-{} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbRSeg.cpp#L505
+ODB 0055 dbMarkerCategory.cpp:565  Unable to parse line as violation type (line: {}): {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarkerCategory.cpp#L565
+ODB 0056 dbRSeg.cpp:511            rseg {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbRSeg.cpp#L511
+ODB 0057 dbRSeg.cpp:792            Cannot find cap nodes for Rseg {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbRSeg.cpp#L792
+ODB 0058 dbTech.cpp:814            Layer {} is not a routing layer! WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbTech.cpp#L814
+ODB 0059 dbTech.cpp:823            Layer {}, routing level {}, has {} pitch !! ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbTech.cpp#L823
+ODB 0060 dbTech.cpp:833            Layer {}, routing level {}, has {} width !! ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbTech.cpp#L833
+ODB 0061 dbTech.cpp:843            Layer {}, routing level {}, has {} spacing !! ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbTech.cpp#L843
+ODB 0062 dbWire.cpp:1195           This wire has no net WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWire.cpp#L1195
+ODB 0063 dbWireCodec.cpp:1209      {} No wires for net {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1209
+ODB 0064 dbWireCodec.cpp:1218      {} begin decoder for net {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1218
+ODB 0065 dbWireCodec.cpp:1227      {} End decoder for net {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1227
+ODB 0066 dbWireCodec.cpp:1239      {} New path: layer {} type {}  non-default rule {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1239
+ODB 0067 dbWireCodec.cpp:1248      {} New path: layer {} type {}\n INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1248
+ODB 0068 dbWireCodec.cpp:1271      {} New path at junction {}, point(ext) {} {} {}, with rule  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1271
+ODB 0069 dbWireCodec.cpp:1283      {} New path at junction {}, point(ext) {} {} {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1283
+ODB 0070 dbWireCodec.cpp:1296      {} New path at junction {}, point {} {}, with rule {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1296
+ODB 0071 dbWireCodec.cpp:1306      {} New path at junction {}, point {} {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1306
+ODB 0072 dbWireCodec.cpp:1316      {} opcode after junction is not point or point_ext??\n WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1316
+ODB 0073 dbWireCodec.cpp:1335      {} Short at junction {}, with rule {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1335
+ODB 0074 dbWireCodec.cpp:1342      {} Short at junction {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1342
+ODB 0075 dbWireCodec.cpp:1358      {} Virtual wire at junction {}, with rule {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1358
+ODB 0076 dbWireCodec.cpp:1365      {} Virtual wire at junction {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1365
+ODB 0077 dbWireCodec.cpp:1373      {} Found point {} {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1373
+ODB 0078 dbWireCodec.cpp:1379      {} Found point(ext){} {} {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1379
+ODB 0079 dbWireCodec.cpp:1385      {} Found via {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1385
+ODB 0080 dbWireCodec.cpp:1394      block via found in signal net! INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1394
+ODB 0081 dbWireCodec.cpp:1408      {} Found Iterm INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1408
+ODB 0082 dbWireCodec.cpp:1413      {} Found Bterm INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1413
+ODB 0083 dbWireCodec.cpp:1421      {} GOT RULE {}, EXPECTED RULE {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1421
+ODB 0084 dbWireCodec.cpp:1430      {} Found Rule {} in middle of path INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1430
+ODB 0085 dbWireCodec.cpp:1439      {} End decoder for net {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1439
+ODB 0086 dbWireCodec.cpp:1447      {} Hit default! ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L1447
+ODB 0087 dbWirePathItr.cpp:492     {} No wires for net {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWirePathItr.cpp#L492
+ODB 0088 definBlockage.cpp:46      error: undefined layer ({}) referenced WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definBlockage.cpp#L46
+ODB 0089 definBlockage.cpp:57      error: undefined component ({}) referenced WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definBlockage.cpp#L57
+ODB 0090 definBlockage.cpp:192     error: undefined component ({}) referenced WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definBlockage.cpp#L192
+ODB 0091 definBlockage.cpp:213     warning: Blockage max density {} not in [0, 100] will be ignored WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definBlockage.cpp#L213
+ODB 0092 definComponent.cpp:128    error: unknown library cell referenced ({}) for instance ({}) WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definComponent.cpp#L128
+ODB 0093 definComponent.cpp:150    error: duplicate instance definition({}) WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definComponent.cpp#L150
+ODB 0094 definComponent.cpp:156    \t\tCreated {} Insts INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definComponent.cpp#L156
+ODB 0095 definFill.cpp:37          error: undefined layer ({}) referenced WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definFill.cpp#L37
+ODB 0097 definNet.cpp:97           \t\tCreated {} Nets INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definNet.cpp#L97
+ODB 0098 definNet.cpp:111          duplicate must-join net found ({}) WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definNet.cpp#L111
+ODB 0099 definNet.cpp:151          error: netlist component ({}) is not defined WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definNet.cpp#L151
+ODB 0100 definNet.cpp:161          error: netlist component-pin ({}, {}) is not defined WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definNet.cpp#L161
+ODB 0101 dbMarkerCategory.cpp:581  Unable to parse line as violation source (line: {}): {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarkerCategory.cpp#L581
+ODB 0103 definNet.cpp:195          error: undefined NONDEFAULTRULE ({}) referenced WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definNet.cpp#L195
+ODB 0104 definNet.cpp:278          error: undefined layer ({}) referenced WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definNet.cpp#L278
+ODB 0105 definNet.cpp:292          error: RULE ({}) referenced for layer ({}) WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definNet.cpp#L292
+ODB 0106 definNet.cpp:319          error: undefined TAPER RULE ({}) referenced WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definNet.cpp#L319
+ODB 0107 definNet.cpp:437          error: undefined via ({}) referenced WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definNet.cpp#L437
+ODB 0108 definNet.cpp:471          error: invalid VIA layers, cannot determine exit layer of path WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definNet.cpp#L471
+ODB 0109 definNet.cpp:496          error: undefined via ({}) referenced WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definNet.cpp#L496
+ODB 0110 definNet.cpp:513          error: invalid VIA layers in {} in net {}, currently on  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definNet.cpp#L513
+ODB 0111 definNonDefaultRule.cpp:36 error: Duplicate NONDEFAULTRULE {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definNonDefaultRule.cpp#L36
+ODB 0112 definNonDefaultRule.cpp:59 error: Cannot find tech-via {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definNonDefaultRule.cpp#L59
+ODB 0113 definNonDefaultRule.cpp:76 error: Cannot find tech-via-generate rule {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definNonDefaultRule.cpp#L76
+ODB 0114 definNonDefaultRule.cpp:94 error: Cannot find layer {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definNonDefaultRule.cpp#L94
+ODB 0115 definNonDefaultRule.cpp:111 error: Cannot find layer {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definNonDefaultRule.cpp#L111
+ODB 0116 definNonDefaultRule.cpp:119 error: Duplicate layer rule ({}) in non-default-rule statement. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definNonDefaultRule.cpp#L119
+ODB 0117 definPin.cpp:93           PIN {} missing right bus character. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definPin.cpp#L93
+ODB 0118 definPin.cpp:99           PIN {} missing left bus character. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definPin.cpp#L99
+ODB 0119 definPin.cpp:190          error: Cannot specify effective width and minimum spacing  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definPin.cpp#L190
+ODB 0120 definPin.cpp:205          error: Cannot specify effective width and minimum spacing  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definPin.cpp#L205
+ODB 0121 definPin.cpp:231          error: undefined layer ({}) referenced WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definPin.cpp#L231
+ODB 0122 definPin.cpp:373          error: Cannot find PIN {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definPin.cpp#L373
+ODB 0123 definPin.cpp:386          error: Cannot find PIN {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definPin.cpp#L386
+ODB 0124 dbBlock.cpp:1647          Top layer grid region is out of the die area. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBlock.cpp#L1647
+ODB 0125 definReader.cpp:1837      lines processed: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L1837
+ODB 0126 definReader.cpp:1842      error: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L1842
+ODB 0127 definReader.cpp:1871      Reading DEF file: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L1871
+ODB 0128 definReader.cpp:412       Design: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L412
+ODB 0129 definReader.cpp:1875      Error: Failed to read DEF file WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L1875
+ODB 0130 definReader.cpp:1880          Created {} pins. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L1880
+ODB 0131 definReader.cpp:1888          Created {} components and {} component-terminals. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L1888
+ODB 0132 definReader.cpp:1901          Created {} special nets and {} connections. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L1901
+ODB 0133 definReader.cpp:1909          Created {} nets and {} connections. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L1909
+ODB 0134 definReader.cpp:1924      Finished DEF file: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L1924
+ODB 0135 definReader.cpp:1940      Reading DEF file: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L1940
+ODB 0137 definReader.cpp:1944      Error: Failed to read DEF file WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L1944
+ODB 0138 definReader.cpp:1949          Created {} pins. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L1949
+ODB 0139 definReader.cpp:1953          Created {} components and {} component-terminals. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L1953
+ODB 0140 definReader.cpp:1961          Created {} special nets and {} connections. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L1961
+ODB 0141 definReader.cpp:1969          Created {} nets and {} connections. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L1969
+ODB 0142 definReader.cpp:1976      Finished DEF file: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L1976
+ODB 0148 definReader.cpp:2055      error: Cannot open DEF file {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L2055
+ODB 0149 definReader.cpp:2077      DEF parser returns an error! WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L2077
+ODB 0152 definRegion.cpp:36        Region \"{}\" already exists WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definRegion.cpp#L36
+ODB 0153 dbPowerSwitch.cpp:301     Cannot map port {} to {} because no lib cell is added ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbPowerSwitch.cpp#L301
+ODB 0154 dbPowerSwitch.cpp:311     Cannot map port {} to {} because the mterm is not found ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbPowerSwitch.cpp#L311
+ODB 0155 definRow.cpp:86           error: undefined site ({}) referenced in row ({}) statement. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definRow.cpp#L86
+ODB 0157 definSNet.cpp:121         error: netlist component ({}) is not defined WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definSNet.cpp#L121
+ODB 0158 definSNet.cpp:131         error: netlist component-pin ({}, {}) is not defined WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definSNet.cpp#L131
+ODB 0159 definSNet.cpp:197         error: undefined layer ({}) referenced WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definSNet.cpp#L197
+ODB 0160 definSNet.cpp:217         error: undefined layer ({}) referenced WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definSNet.cpp#L217
+ODB 0161 definSNet.cpp:253         error: SHIELD net ({}) does not exists. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definSNet.cpp#L253
+ODB 0162 definSNet.cpp:272         error: undefined layer ({}) referenced WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definSNet.cpp#L272
+ODB 0163 definSNet.cpp:417         error: undefined via ({}) referenced WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definSNet.cpp#L417
+ODB 0164 definSNet.cpp:484         error: undefined via ({}) referenced WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definSNet.cpp#L484
+ODB 0165 definTracks.cpp:49        error: undefined layer ({}) referenced WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definTracks.cpp#L49
+ODB 0166 definVia.cpp:39           error: duplicate via ({}) WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definVia.cpp#L39
+ODB 0167 definVia.cpp:53           error: cannot file VIA GENERATE rule in technology ({}). WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definVia.cpp#L53
+ODB 0168 definVia.cpp:93           error: undefined layer ({}) referenced WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definVia.cpp#L93
+ODB 0169 definVia.cpp:102          error: undefined layer ({}) referenced WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definVia.cpp#L102
+ODB 0170 definVia.cpp:111          error: undefined layer ({}) referenced WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definVia.cpp#L111
+ODB 0171 definVia.cpp:220          error: undefined layer ({}) referenced WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definVia.cpp#L220
+ODB 0172 defout_impl.cpp:148       Cannot open DEF file ({}) for writing WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defout/defout_impl.cpp#L148
+ODB 0173 defout_impl.cpp:1054      warning: pin {} skipped because it has no net WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defout/defout_impl.cpp#L1054
+ODB 0174 defout_impl.cpp:1847      warning: missing shield net WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defout/defout_impl.cpp#L1847
+ODB 0175 lefin.cpp:173             illegal: non-orthogonal-path at Pin WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L173
+ODB 0176 lefin.cpp:197             error: undefined layer ({}) referenced WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L197
+ODB 0177 lefin.cpp:388             error: undefined via ({}) referenced WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L388
+ODB 0178 lefin.cpp:408             error: undefined via ({}) referenced WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L408
+ODB 0179 lefin.cpp:502             invalid BUSBITCHARS ({})\n ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L502
+ODB 0180 lefin.cpp:580             duplicate LAYER ({}) ignored WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L580
+ODB 0181 lefin.cpp:601             Skipping LAYER ({}) ; Non Routing or Cut type WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L601
+ODB 0182 lefin.cpp:610             Skipping LAYER ({}) ; cannot understand type WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L610
+ODB 0183 lefin.cpp:821             In layer {}, spacing layer {} not found ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L821
+ODB 0184 lefin.cpp:1197            cannot find EEQ for macro {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1197
+ODB 0185 lefin.cpp:1206            cannot find LEQ for macro {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1206
+ODB 0186 lefin.cpp:1229            macro {} references unknown site {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1229
+ODB 0187 lefin.cpp:1281            duplicate NON DEFAULT RULE ({}) WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1281
+ODB 0188 lefin.cpp:1292            Invalid layer name {} in NON DEFAULT RULE {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1292
+ODB 0189 lefin.cpp:1329            Invalid layer name {} in NONDEFAULT SPACING WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1329
+ODB 0190 lefin.cpp:1337            Invalid layer name {} in NONDEFAULT SPACING WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1337
+ODB 0191 lefin.cpp:1360            error: undefined VIA {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1360
+ODB 0192 lefin.cpp:1373            error: undefined VIA GENERATE RULE {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1373
+ODB 0193 lefin.cpp:1387            error: undefined LAYER {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1387
+ODB 0194 lefin.cpp:1448            Cannot add a new PIN ({}) to MACRO ({}), because the pins have  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1448
+ODB 0195 lefin.cpp:1475            Invalid layer name {} in antenna info for term {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1475
+ODB 0196 lefin.cpp:1494            Invalid layer name {} in antenna info for term {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1494
+ODB 0197 lefin.cpp:1513            Invalid layer name {} in antenna info for term {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1513
+ODB 0198 lefin.cpp:1531            Invalid layer name {} in antenna info for term {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1531
+ODB 0199 lefin.cpp:1558            Invalid layer name {} in antenna info for term {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1558
+ODB 0200 lefin.cpp:1574            Invalid layer name {} in antenna info for term {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1574
+ODB 0201 lefin.cpp:1590            Invalid layer name {} in antenna info for term {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1590
+ODB 0202 lefin.cpp:1607            Invalid layer name {} in antenna info for term {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1607
+ODB 0203 lefin.cpp:1740            Invalid layer name {} in SPACING WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1740
+ODB 0204 lefin.cpp:1746            Invalid layer name {} in SPACING WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1746
+ODB 0205 lefin.cpp:1789            The LEF UNITS DATABASE MICRON convert factor ({}) is greater than  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1789
+ODB 0206 lefin.cpp:1819            error: invalid dbu-per-micron value {}; valid units (100,  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1819
+ODB 0207 lefin.cpp:1836            Unknown object type for USEMINSPACING: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1836
+ODB 0208 lefin.cpp:1719            Row pattern site {} can't be found WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1719
+ODB 0209 lefin.cpp:1888            VIA: undefined layer ({}) in VIA ({}) WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1888
+ODB 0210 lefin.cpp:1918            error: missing VIA GENERATE rule {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1918
+ODB 0211 lefin.cpp:1934            error: missing LAYER {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1934
+ODB 0212 lefin.cpp:1943            error: missing LAYER {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1943
+ODB 0213 lefin.cpp:1951            error: missing LAYER {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1951
+ODB 0214 lefin.cpp:2005            duplicate VIARULE ({}) ignoring... WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L2005
+ODB 0215 lefin.cpp:2015            error: VIARULE ({}) undefined layer {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L2015
+ODB 0216 lefin.cpp:2045            error: undefined VIA {} in VIARULE {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L2045
+ODB 0217 lefin.cpp:2064            duplicate VIARULE ({}) ignoring... WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L2064
+ODB 0218 lefin.cpp:2074            error: VIARULE ({}) undefined layer {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L2074
+ODB 0219 dbPowerSwitch.cpp:328     Cannot map port {} to {} because no lib cell is added ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbPowerSwitch.cpp#L328
+ODB 0220 dbPowerSwitch.cpp:338     Cannot map port {} to {} because the mterm is not in the same master ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbPowerSwitch.cpp#L338
+ODB 0221 lefin.cpp:2142            {} lines parsed! INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L2142
+ODB 0222 lefin.cpp:2150            While reading LEF file: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L2150
+ODB 0223 odb.tcl:677               please load the design before trying to use this command. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L677
+ODB 0224 dbMarkerCategory.cpp:611  Unable to find tech layer (line: {}): {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarkerCategory.cpp#L611
+ODB 0225 dbMarkerCategory.cpp:630  Unable to parse bounding box (line: {}): {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarkerCategory.cpp#L630
+ODB 0226 dbMarkerCategory.cpp:636  Unable to parse bounding box (line: {}): {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarkerCategory.cpp#L636
+ODB 0227 dbMarkerCategory.cpp:643  Unable to parse bounding box (line: {}): {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarkerCategory.cpp#L643
+ODB 0228 lefin.cpp:2297            Error: technology does not exists WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L2297
+ODB 0229 lefin.cpp:2302            Error: library ({}) already exists WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L2302
+ODB 0230 lefin.cpp:2330            Error: library ({}) already exists WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L2330
+ODB 0231 lefin.cpp:2336            Error: technology {} already exists WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L2336
+ODB 0232 dbBlock.cpp:3153          Net {} is not routed. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBlock.cpp#L3153
+ODB 0233 dbMarkerCategory.cpp:728  Unknown source type (line: {}): {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarkerCategory.cpp#L728
+ODB 0234 dbMarkerCategory.cpp:683  Unable to find net (line: {}): {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarkerCategory.cpp#L683
+ODB 0235 dbMarkerCategory.cpp:695  Unable to find instance (line: {}): {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarkerCategory.cpp#L695
+ODB 0236 dbMarkerCategory.cpp:707  Unable to find iterm (line: {}): {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarkerCategory.cpp#L707
+ODB 0237 dbMarkerCategory.cpp:719  Unable to find bterm (line: {}): {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarkerCategory.cpp#L719
+ODB 0238 dbMarkerCategory.cpp:493  Unable to parse JSON file: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarkerCategory.cpp#L493
+ODB 0239 dbBlock.cpp:1763          Pin {} is assigned to multiple constraints. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBlock.cpp#L1763
+ODB 0240 reader.cpp:530            error: Cannot open LEF file {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/reader.cpp#L530
+ODB 0241 create_box.cpp:143        error: Cannot create a via instance, via ({}) has no shapes WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/create_box.cpp#L143
+ODB 0242 create_box.cpp:173        error: Can not determine which direction to continue path, WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/create_box.cpp#L173
+ODB 0243 create_box.cpp:176               via ({}) spans above and below the current layer ({}). INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/create_box.cpp#L176
+ODB 0244 create_box.cpp:212        error: Cannot create a via instance, via ({}) has no shapes WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/create_box.cpp#L212
+ODB 0245 create_box.cpp:242        error: Net {}: Can not determine which direction to continue path, WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/create_box.cpp#L242
+ODB 0246 lefin.cpp:2223            unknown incomplete layer prop of type {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L2223
+ODB 0247 definReader.cpp:983       skipping undefined pin {} encountered in {} DEF WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L983
+ODB 0248 definReader.cpp:523       skipping undefined comp {} encountered in {} DEF WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L523
+ODB 0249 definReader.cpp:1636      skipping undefined net {} encountered in FLOORPLAN DEF WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L1636
+ODB 0250 definReader.cpp:1861      Chip does not exist ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L1861
+ODB 0251 definReader.cpp:1864      Chip already exists ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L1864
+ODB 0252 definReader.cpp:1884          Updated {} pins. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L1884
+ODB 0253 definReader.cpp:1896          Updated {} components. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L1896
+ODB 0254 definReader.cpp:1917          Updated {} nets and {} connections. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L1917
+ODB 0255 dbMarker.cpp:397          Unable to find tech layer: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarker.cpp#L397
+ODB 0256 dbMarker.cpp:442          Unable to find shape of violation: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarker.cpp#L442
+ODB 0257 dbMarker.cpp:471          Unable to find net: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarker.cpp#L471
+ODB 0258 dbMarker.cpp:480          Unable to find instance: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarker.cpp#L480
+ODB 0259 dbMarker.cpp:489          Unable to find iterm: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarker.cpp#L489
+ODB 0260 definReader.cpp:44        DESIGN is not defined in DEF WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L44
+ODB 0261 definReader.cpp:382       Block with name \"{}\" already exists, renaming too \"{}\" WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L382
+ODB 0262 dbMarker.cpp:498          Unable to find bterm: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarker.cpp#L498
+ODB 0263 dbMarker.cpp:719          Unable to find obstruction WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarker.cpp#L719
+ODB 0264 dbMarker.cpp:504          Unknown source type: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarker.cpp#L504
+ODB 0265 dbMarker.cpp:509          Failed to add source item: {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarker.cpp#L509
+ODB 0266 dbMarker.cpp:410          Unable to process violation shape WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarker.cpp#L410
+ODB 0267 dbObject.cpp:172          Unable to find {} object type ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbObject.cpp#L172
+ODB 0268 dbMarkerCategory.cpp:258  Unable to write markers: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarkerCategory.cpp#L258
+ODB 0269 dbMarkerCategory.cpp:448  Unable to open {} to write markers ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarkerCategory.cpp#L448
+ODB 0270 reader.cpp:521            error: Cannot open zipped LEF file {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/reader.cpp#L521
+ODB 0271 definReader.cpp:2065      error: Cannot open zipped DEF file {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L2065
+ODB 0272 dbBlock.cpp:3351          Unable to open {} to write markers ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBlock.cpp#L3351
+ODB 0274 create_box.cpp:31         Zero length path segment ({},{}) ({},{}) WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/create_box.cpp#L31
+ODB 0275 definReader.cpp:743       skipping undefined net {} encountered in FLOORPLAN DEF WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L743
+ODB 0276 create_box.cpp:247               via ({}) spans above and below the current layer ({}). INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/create_box.cpp#L247
+ODB 0277 lefin.cpp:2167            dropping LEF58_SPACING rule for cut layer {} for  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L2167
+ODB 0278 dbMarker.cpp:350          Unsupported object type: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarker.cpp#L350
+ODB 0279 lefin.cpp:726             parse mismatch in layer property {} for layer {} : \"{}\" WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L726
+ODB 0280 lefin.cpp:2183            dropping LEF58_SPACINGTABLE rule for cut layer {} for  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L2183
+ODB 0281 dbMarkerCategory.cpp:426  Unable to open {} to write markers ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarkerCategory.cpp#L426
+ODB 0282 dbTechLayer.cpp:1854      setNumMask {} not in range [1,3] ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbTechLayer.cpp#L1854
+ODB 0283 cdl.cpp:91                Can't open masters file {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/cdl/cdl.cpp#L91
+ODB 0284 cdl.cpp:122               Master {} not found. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/cdl/cdl.cpp#L122
+ODB 0285 cdl.cpp:126               Master {} seen more than once in {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/cdl/cdl.cpp#L126
+ODB 0286 cdl.cpp:137               Terminal {} of CDL master {} not found in LEF. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/cdl/cdl.cpp#L137
+ODB 0287 cdl.cpp:200               Master {} was not in the masters CDL files. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/cdl/cdl.cpp#L200
+ODB 0288 lefin.cpp:2278            LEF data from {} is discarded due to errors ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L2278
+ODB 0289 lefin.cpp:2352            LEF data from {} is discarded due to errors ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L2352
+ODB 0290 dbMarker.cpp:625          Unsupported object type: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarker.cpp#L625
+ODB 0291 dbMarkerCategory.cpp:601  Unable to parse line as violation location (line: {}): {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarkerCategory.cpp#L601
+ODB 0292 lefin.cpp:2314            LEF data from {} is discarded due to errors ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L2314
+ODB 0293 definReader.cpp:1474      TECHNOLOGY is ignored WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L1474
+ODB 0294 dbMarker.cpp:427          Unable to process violation shape {} points WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarker.cpp#L427
+ODB 0295 dbMarker.cpp:232          Unsupported object type: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarker.cpp#L232
+ODB 0296 dbMarker.cpp:458          Unable to process violation source WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMarker.cpp#L458
+ODB 0297 dbModule.cpp:202          Physical only instance {} can't be added to module {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbModule.cpp#L202
+ODB 0298 dbModule.cpp:387          The top module can't be destroyed. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbModule.cpp#L387
+ODB 0299 definVia.cpp:248          Via {} has only {} shapes and must have at least three. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definVia.cpp#L248
+ODB 0300 definVia.cpp:258          Via {} has cut top layer {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definVia.cpp#L258
+ODB 0301 definVia.cpp:268          Via {} has cut bottom layer {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definVia.cpp#L268
+ODB 0302 definVia.cpp:284          Via {} has no cut shapes. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definVia.cpp#L284
+ODB 0303 util.cpp:223              The initial {} rows ({} sites) were cut with {} shapes for a  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/zutil/util.cpp#L223
+ODB 0304 definGroup.cpp:35         Group \"{}\" already exists WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definGroup.cpp#L35
+ODB 0305 definGroup.cpp:48         Region \"{}\" is not found WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definGroup.cpp#L48
+ODB 0306 definGroup.cpp:73         error: netlist component ({}) is not defined WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definGroup.cpp#L73
+ODB 0307 dbBlock.cpp:3064          Guides file could not be opened. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBlock.cpp#L3064
+ODB 0308 odb.tcl:13                please load the design before trying to use this command ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L13
+ODB 0309 odb.tcl:18                duplicate group name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L18
+ODB 0310 odb.tcl:30                please load the design before trying to use this command ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L30
+ODB 0311 odb.tcl:38                please define either top module or the modinst path ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L38
+ODB 0312 odb.tcl:41                module does not exist ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L41
+ODB 0313 odb.tcl:50                duplicate group name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L50
+ODB 0314 odb.tcl:62                duplicate group name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L62
+ODB 0315 odb.tcl:222               -area is a list of 4 coordinates ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L222
+ODB 0316 odb.tcl:230               please define area ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L230
+ODB 0317 odb.tcl:237               please load the design before trying to use this command ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L237
+ODB 0318 odb.tcl:242               duplicate region name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L242
+ODB 0319 odb.tcl:249               duplicate group name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L249
+ODB 0320 odb.tcl:262               please load the design before trying to use this command ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L262
+ODB 0321 odb.tcl:267               group does not exist ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L267
+ODB 0322 odb.tcl:270               group is not of physical cluster type ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L270
+ODB 0323 odb.tcl:284               please load the design before trying to use this command ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L284
+ODB 0324 odb.tcl:289               group does not exist ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L289
+ODB 0325 odb.tcl:292               group is not of voltage domain type ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L292
+ODB 0326 odb.tcl:304               define domain name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L304
+ODB 0327 odb.tcl:309               define net name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L309
+ODB 0328 odb.tcl:314               please load the design before trying to use this command ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L314
+ODB 0329 odb.tcl:320               group does not exist ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L320
+ODB 0330 odb.tcl:323               group is not of voltage domain type ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L323
+ODB 0331 odb.tcl:326               net does not exist ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L326
+ODB 0332 odb.tcl:338               define domain name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L338
+ODB 0333 odb.tcl:343               define net name ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L343
+ODB 0334 odb.tcl:348               please load the design before trying to use this command ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L348
+ODB 0335 odb.tcl:354               group does not exist ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L354
+ODB 0336 odb.tcl:357               group is not of voltage domain type ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L357
+ODB 0337 odb.tcl:360               net does not exist ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L360
+ODB 0338 odb.tcl:374               please load the design before trying to use this command ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L374
+ODB 0339 odb.tcl:379               cluster does not exist ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L379
+ODB 0340 odb.tcl:382               group is not of physical cluster type ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L382
+ODB 0341 odb.tcl:387               modinst does not exist ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L387
+ODB 0342 odb.tcl:394               inst does not exist ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L394
+ODB 0343 odb.tcl:401               child physical cluster does not exist ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L401
+ODB 0344 odb.tcl:404               child group is not of physical cluster type ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L404
+ODB 0345 odb.tcl:419               please load the design before trying to use this command ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L419
+ODB 0346 odb.tcl:424               cluster does not exist ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L424
+ODB 0347 odb.tcl:427               group is not of physical cluster type ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L427
+ODB 0348 odb.tcl:432               parent module does not exist ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L432
+ODB 0349 odb.tcl:436               modinst does not exist ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L436
+ODB 0350 odb.tcl:443               inst does not exist ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L443
+ODB 0351 odb.tcl:450               child physical cluster does not exist ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L450
+ODB 0352 odb.tcl:453               child group is not of physical cluster type ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L453
+ODB 0353 odb.tcl:466               please load the design before trying to use this command ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L466
+ODB 0354 odb.tcl:485               please load the design before trying to use this command ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L485
+ODB 0355 odb.tcl:550               please load the design before trying to use this command ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L550
+ODB 0356 lefin.cpp:2199            dropping LEF58_METALWIDTHVIAMAP for  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L2199
+ODB 0357 cdl.cpp:194               Master {} was not in the masters CDL files, but master  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/cdl/cdl.cpp#L194
+ODB 0358 cdl.cpp:168               cannot open file {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/cdl/cdl.cpp#L168
+ODB 0359 dbInst.cpp:392            Attempt to change the origin of {} instance {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbInst.cpp#L392
+ODB 0360 dbInst.cpp:489            Attempt to change the orientation of {} instance {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbInst.cpp#L489
+ODB 0361 lefin.cpp:2213            dropping LEF58_AREA for referencing undefined layer {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L2213
+ODB 0362 dbInst.cpp:1363           Attempt to destroy dont_touch instance {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbInst.cpp#L1363
+ODB 0363 odb.tcl:609               please load the design before trying to use this command ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L609
+ODB 0364 dbNet.cpp:2123            Attempt to destroy dont_touch net {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbNet.cpp#L2123
+ODB 0365 odb.tcl:648               please load the design before trying to use this command ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L648
+ODB 0366 odb.tcl:663               please load the design before trying to use this command ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L663
+ODB 0367 dbModule.cpp:215          Attempt to change the module of dont_touch instance {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbModule.cpp#L215
+ODB 0368 dbInst.cpp:1057           Attempt to change master of dont_touch instance {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbInst.cpp#L1057
+ODB 0369 dbITerm.cpp:300           Attempt to connect iterm of dont_touch instance {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbITerm.cpp#L300
+ODB 0370 dbITerm.cpp:449           Attempt to disconnect term {} of dont_touch instance {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbITerm.cpp#L449
+ODB 0371 dbModule.cpp:253          Attempt to remove dont_touch instance {} from parent module ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbModule.cpp#L253
+ODB 0372 dbITerm.cpp:464           Attempt to disconnect iterm {} of dont_touch net {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbITerm.cpp#L464
+ODB 0373 dbITerm.cpp:308           Attempt to connect iterm to dont_touch net {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbITerm.cpp#L308
+ODB 0374 dbBTerm.cpp:753           Attempt to destroy bterm on dont_touch net {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBTerm.cpp#L753
+ODB 0375 dbBTerm.cpp:429           Attempt to disconnect bterm of dont_touch net {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBTerm.cpp#L429
+ODB 0376 dbBTerm.cpp:608           Attempt to create bterm on dont_touch net {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBTerm.cpp#L608
+ODB 0377 dbBTerm.cpp:409           Attempt to connect bterm to dont_touch net {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBTerm.cpp#L409
+ODB 0378 dbBlock.cpp:3247          Global connections are not set up. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBlock.cpp#L3247
+ODB 0379 dbGlobalConnect.cpp:294   {} is marked do not touch, will be skipped for global conenctions WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbGlobalConnect.cpp#L294
+ODB 0380 dbGlobalConnect.cpp:323   {}/{} is connected to {} which is marked do not touch,  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbGlobalConnect.cpp#L323
+ODB 0381 dbBlock.cpp:3221          Invalid net specified. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBlock.cpp#L3221
+ODB 0382 dbBlock.cpp:3225          {} is marked do not touch, which will cause the global  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBlock.cpp#L3225
+ODB 0383 dbBlock.cpp:3299          {} is marked do not touch and will be skipped in global  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBlock.cpp#L3299
+ODB 0384 dbGlobalConnect.cpp:245   Invalid regular expression specified the {} pattern: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbGlobalConnect.cpp#L245
+ODB 0385 dbInst.cpp:1234           Attempt to create instance with duplicate name: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbInst.cpp#L1234
+ODB 0386 util.cpp:204              {} contains {} placed instances and will not be cut. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/zutil/util.cpp#L204
+ODB 0387 definNonDefaultRule.cpp:210 error: Non-default rule ({}) has no rule for layer {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definNonDefaultRule.cpp#L210
+ODB 0388 lefin.cpp:733             unsupported {} property for layer {} :\"{}\" INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L733
+ODB 0389 dbModule.cpp:402          Must destroy module instance before destroying  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbModule.cpp#L402
+ODB 0390 tmg_conn.cpp:1136         order_wires failed: net {}, shorts to another term at  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/tmg_conn.cpp#L1136
+ODB 0391 tmg_conn.cpp:1166         order_wires failed: net {}, shorts to another term at  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/tmg_conn.cpp#L1166
+ODB 0392 tmg_conn.cpp:1202         order_wires failed: net {}, shorts to another term at  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/tmg_conn.cpp#L1202
+ODB 0393 tmg_conn.cpp:1667         tmg_conn::addToWire: value of k is negative: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/tmg_conn.cpp#L1667
+ODB 0394 lefin.cpp:1681            Duplicate site {} in {} already seen in {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1681
+ODB 0395 tmg_conn.cpp:1482         cannot order {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/tmg_conn.cpp#L1482
+ODB 0396 tmg_conn.cpp:1564         cannot order {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/tmg_conn.cpp#L1564
+ODB 0397 dbITerm.cpp:403           Attempt to connect iterm of dont_touch instance {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbITerm.cpp#L403
+ODB 0398 dbJournal.cpp:145         In journal, nested actions are not allowed. CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbJournal.cpp#L145
+ODB 0399 dbJournal.cpp:239         In undo saw unexpected END_ACTION. CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbJournal.cpp#L239
+ODB 0408 dbJournal.cpp:2291        No undo_updateNetField support for field {} CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbJournal.cpp#L2291
+ODB 0409 dbJournal.cpp:2336        No undo_updateInstField support for field {} CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbJournal.cpp#L2336
+ODB 0410 dbJournal.cpp:2354        No undo_updateITermField support for field {} CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbJournal.cpp#L2354
+ODB 0411 dbJournal.cpp:2374        No undo_updateRSegField support for field {} CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbJournal.cpp#L2374
+ODB 0412 dbJournal.cpp:2392        No undo_updateCapNodeField support for field {} CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbJournal.cpp#L2392
+ODB 0413 dbJournal.cpp:2412        No undo_updateCCSegField support for field {} CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbJournal.cpp#L2412
+ODB 0414 dbTrackGrid.cpp:268       Horizontal tracks for layer {} not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbTrackGrid.cpp#L268
+ODB 0415 dbTrackGrid.cpp:281       Vertical tracks for layer {} not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbTrackGrid.cpp#L281
+ODB 0416 dbTrackGrid.cpp:287       Layer {} has invalid direction. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbTrackGrid.cpp#L287
+ODB 0417 dbJournal.cpp:2001        No undo_deleteObject support for type {} CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbJournal.cpp#L2001
+ODB 0418 dbTrackGrid.cpp:257       Layer is empty. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbTrackGrid.cpp#L257
+ODB 0419 dbJournal.cpp:248         In undo, expected END_ACTION. CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbJournal.cpp#L248
+ODB 0420 tmg_conn.cpp:533          tmg_conn::detachTilePins: tilepin inside iterm. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/tmg_conn.cpp#L533
+ODB 0421 definReader.cpp:2075      DEF parser returns an error! ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L2075
+ODB 0423 lefin.cpp:586             LEF58_REGION layer {} ignored WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L586
+ODB 0425 definComponentMaskShift.cpp:26 error: undefined layer ({}) referenced WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definComponentMaskShift.cpp#L26
+ODB 0426 dbJournalLog.cpp:28       In journal: expected type {} got {}. CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbJournalLog.cpp#L28
+ODB 0427 dbJournalLog.cpp:265      Journal debug mode mismatch. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbJournalLog.cpp#L265
+ODB 0428 dbBlock.cpp:1721          Cannot get top layer grid region. Pin placement grid on top  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBlock.cpp#L1721
+ODB 0430 dbBox.cpp:712             Layer {} has index {} which is too large to be stored ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBox.cpp#L712
+ODB 0431 dbMaster.cpp:693          Can't delete master {} which still has instances ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbMaster.cpp#L693
+ODB 0432 dbDatabase.cpp:441        getTech() is obsolete in a multi-tech db ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbDatabase.cpp#L441
+ODB 0433 dbITerm.cpp:315           Connecting instances on different dies into  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbITerm.cpp#L315
+ODB 0434 dbBox.cpp:381             Mask must be between 0 and 3. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBox.cpp#L381
+ODB 0435 dbBox.cpp:690             Mask must be 0 when no layer is provided. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBox.cpp#L690
+ODB 0436 dbInst.cpp:1321           Attempt to create instance with duplicate name: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbInst.cpp#L1321
+ODB 0437 definReader.cpp:1024      Mismatched pin direction between verilog netlist and floorplan  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/defin/definReader.cpp#L1024
+ODB 0438 dbDatabase.cpp:114        Internal inconsistency: no table found for type {} CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbDatabase.cpp#L114
+ODB 0439 odb.tcl:565               No design loaded. Cannot write macro placement. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L565
+ODB 0440 dbITerm.cpp:290           Attempt to connect iterm {} to a null net ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbITerm.cpp#L290
+ODB 0441 dbJournal.cpp:1806        No undo_createObject support for type {} CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbJournal.cpp#L1806
+ODB 0442 dbJournal.cpp:2075        No undo_connectObject support for type {} CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbJournal.cpp#L2075
+ODB 0443 dbJournal.cpp:2162        No undo_disconnectObject support for type {} CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbJournal.cpp#L2162
+ODB 0444 dbJournal.cpp:2229        No undo_swapObject support for type {} CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbJournal.cpp#L2229
+ODB 0445 dbJournal.cpp:2264        No undo_updateField support for type {} CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbJournal.cpp#L2264
+ODB 0446 dbITerm.cpp:135           dbITerm does not have dbInst. CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbITerm.cpp#L135
+ODB 0447 gdsout.cpp:23             Could not open file {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/gdsout/gdsout.cpp#L23
+ODB 0448 gdsout.cpp:53             Invalid data type ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/gdsout/gdsout.cpp#L53
+ODB 0449 gdsout.cpp:117            Invalid data type ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/gdsout/gdsout.cpp#L117
+ODB 0450 gdsin.cpp:24              Could not open file {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/gdsin/gdsin.cpp#L24
+ODB 0451 gdsin.cpp:41              Corrupted GDS, Expected: {} Got: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/gdsin/gdsin.cpp#L41
+ODB 0452 gdsin.cpp:52              Corrupted GDS, Expected data type: {} Got: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/gdsin/gdsin.cpp#L52
+ODB 0453 dbModInst.cpp:465         The modules cannot be swapped because module {}  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbModInst.cpp#L465
+ODB 0454 dbModInst.cpp:516         The modules cannot be swapped because module {}  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbModInst.cpp#L516
+ODB 0455 dbModInst.cpp:560         Unique module {} cannot be created ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbModInst.cpp#L560
+ODB 0456 dbModule.cpp:625          Module port {} cannot be created ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbModule.cpp#L625
+ODB 0457 dbModule.cpp:646          Module bus port {} cannot be created ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbModule.cpp#L646
+ODB 0458 dbModule.cpp:676          Module bus bit {} cannot be created ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbModule.cpp#L676
+ODB 0459 dbModule.cpp:745          Module instance {} cannot be created ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbModule.cpp#L745
+ODB 0460 dbModule.cpp:839          Module mod net {} cannot be created ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbModule.cpp#L839
+ODB 0461 dbModule.cpp:863          Port {} cannot be connected to mod net {} because it  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbModule.cpp#L863
+ODB 0462 dbModule.cpp:895          Instance terminal {} cannot be connected to mod net {}  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbModule.cpp#L895
+ODB 0464 dbModInst.cpp:500         Module {} has a null port ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbModInst.cpp#L500
+ODB 0465 dbModInst.cpp:504         Module {} has a null port ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbModInst.cpp#L504
+ODB 0466 dbModInst.cpp:614         modBTerm for {} is not found in copied module {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbModInst.cpp#L614
+ODB 0467 dbJournal.cpp:2196        No undo_swapObject Name support for type {} CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbJournal.cpp#L2196
+ODB 0468 dbModule.cpp:663          Module bus bit {}[{}] does not exist ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbModule.cpp#L663
+ODB 0470 dbModInst.cpp:453         The modules cannot be swapped because the new module {} is  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbModInst.cpp#L453
+ODB 0471 dbModInst.cpp:582         Mod instance {} cannot be created ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbModInst.cpp#L582
+ODB 0476 dbModule.cpp:972          Top module {} could not be found under child block {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbModule.cpp#L972
+ODB 0500 dbBlock.cpp:1652          The x_step for the top layer grid must be greater than zero. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBlock.cpp#L1652
+ODB 0501 dbBlock.cpp:1658          The y_step for the top layer grid must be greater than zero. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBlock.cpp#L1658
+ODB 0502 dbBlock.cpp:1664          The pin width for the top layer grid must be greater than zero. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBlock.cpp#L1664
+ODB 0503 dbBlock.cpp:1670          The pin height for the top layer grid must be greater than zero. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBlock.cpp#L1670
+ODB 0504 dbBlock.cpp:1676          The pin keepout for the top layer grid must be greater than zero. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBlock.cpp#L1676
+ODB 1000 odb.tcl:75                Layer ${layerName} not found, skipping NDR for this layer WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L75
+ODB 1001 odb.tcl:146               Layer ${firstLayer} not found WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L146
+ODB 1002 odb.tcl:149               Layer ${lastLayer} not found WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L149
+ODB 1003 odb.tcl:208               ([$layer getName]) layer's width from (${name}) NDR is not defined. Using the default value [ord::dbu_to_microns [$layer getWidth]] WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L208
+ODB 1004 odb.tcl:164               -name is missing ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L164
+ODB 1005 odb.tcl:171               NonDefaultRule ${name} already exists ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L171
+ODB 1006 odb.tcl:176               Spacing values \[$spacings\] are malformed ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L176
+ODB 1007 odb.tcl:183               Width values \[$widths\] are malformed ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L183
+ODB 1008 odb.tcl:191               Via ${viaName} not found, skipping NDR for this via ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L191
+ODB 1009 odb.tcl:95                Invalid input in create_ndr cmd WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L95
+ODB 1100 dbAccessPoint.cpp:264     Access direction is of unknown type ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbAccessPoint.cpp#L264
+ODB 1101 dbAccessPoint.cpp:284     Access direction is of unknown type ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbAccessPoint.cpp#L284
+ODB 1102 dbWireCodec.cpp:608       Mask color: {}, but must be between 1 and 3 ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L608
+ODB 1103 dbWireCodec.cpp:632       Mask color: {}, but must be between 0 and 3 ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbWireCodec.cpp#L632
+ODB 1104 dbITerm.cpp:550           Attempt to disconnect term {} of dont_touch instance {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbITerm.cpp#L550
+ODB 1105 dbITerm.cpp:561           Attempt to disconnect iterm {} of dont_touch net {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbITerm.cpp#L561
+ODB 1106 dbBTerm.cpp:457           Attempt to disconnect bterm of dont_touch net {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBTerm.cpp#L457
+ODB 1107 dbJournal.cpp:451         Unknown type of action for redo_createObject CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbJournal.cpp#L451
+ODB 1108 dbJournal.cpp:661         Unknown type of action for redo_deleteObject CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbJournal.cpp#L661
+ODB 1109 dbJournal.cpp:828         Unknown type of action for redo_disconnectObject CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbJournal.cpp#L828
+ODB 1110 dbJournal.cpp:751         Unknown type of object for redo_connectObject CRITICAL https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbJournal.cpp#L751
+ODB 1111 dbObstruction.cpp:387     You cannot delete a system created obstruction (isSystemReserved). ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbObstruction.cpp#L387
+ODB 1112 dbBlockage.cpp:228        You cannot delete a system created blockage (isSystemReserved). ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/db/dbBlockage.cpp#L228
+ODB 2000 lefin.cpp:1186            Cannot parse LEF property '{}' with value '{}' WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/lefin/lefin.cpp#L1186
+PPL 0010 odb.tcl:850               The -region keyword is required for exclude_io_pin_region command. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L850
+PPL 0016 odb.tcl:731               Both -direction and -pin_names constraints not allowed. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L731
+PPL 0052 odb.tcl:879               Routing layer not found for name $layer_name. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L879
+PPL 0053 odb.tcl:882               -layer is required. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L882
+PPL 0054 odb.tcl:889               -x_step and -y_step are required. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L889
+PPL 0055 odb.tcl:915               -region is required. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L915
+PPL 0056 odb.tcl:921               -size is not a list of 2 values. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L921
+PPL 0057 odb.tcl:927               -size is required. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L927
+PPL 0058 odb.tcl:779               The -pin_names argument is required when using -group flag. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L779
+PPL 0059 odb.tcl:763               Box at top layer must have 4 values (llx lly urx ury). ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L763
+PPL 0063 odb.tcl:911               -region is not a list of 4 values {llx lly urx ury}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L911
+PPL 0073 odb.tcl:771               Constraint with region $region has an invalid edge. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L771
+PPL 0081 odb.tcl:793               List of pins must have an even number of pins. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L793
+PPL 0083 odb.tcl:703               Both -region and -mirrored_pins constraints not allowed. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L703
+PPL 0087 odb.tcl:707               Both -mirrored_pins and -group constraints not allowed. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L707
+PPL 0095 odb.tcl:787               -order cannot be used without -group. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/odb/src/swig/tcl/odb.tcl#L787

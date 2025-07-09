@@ -1,6 +1,7 @@
 or_integration_tests(
   "rsz"
   TESTS
+    gain_buffering1_hier
     repair_fanout1_hier
     repair_fanout2_hier
     repair_fanout3_hier      
@@ -84,6 +85,7 @@ or_integration_tests(
     repair_setup7
     repair_setup7_limit
     repair_setup8
+    repair_setup9
     repair_setup_undo
     repair_slew1
     repair_slew2
@@ -128,6 +130,12 @@ or_integration_tests(
     report_floating_nets1
     report_floating_nets2
     report_floating_nets3
+    report_overdriven_nets1
+    report_overdriven_nets2
+    report_overdriven_nets3
+    report_overdriven_nets4
+    report_overdriven_nets5
+    report_overdriven_nets6
     resize1
     resize1_hier
     resize4
@@ -148,6 +156,7 @@ or_integration_tests(
     repair_setup4_multi
     repair_setup6_multi
     repair_setup7_multi
+    report_equiv_cells
   PASSFAIL_TESTS
     cpp_tests
 )

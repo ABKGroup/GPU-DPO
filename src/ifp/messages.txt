@@ -1,0 +1,42 @@
+IFP 0001 InitFloorplan.cc:571      Added {} rows of {} site {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.cc#L571
+IFP 0002 InitFloorplan.cc:205      {} ({:.3f}um, {:.3f}um) does not fit in the core area:  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.cc#L205
+IFP 0010 InitFloorplan.tcl:167     layer $layer_name not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.tcl#L167
+IFP 0013 InitFloorplan.tcl:278     -core_space is either a list of 4 margins or one value for all margins. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.tcl#L278
+IFP 0014 InitFloorplan.tcl:265     -die_area cannot be used with -utilization. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.tcl#L265
+IFP 0015 InitFloorplan.tcl:306     -die_area is a list of 4 coordinates. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.tcl#L306
+IFP 0018 InitFloorplan.i:158       Unable to find site: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.i#L158
+IFP 0019 InitFloorplan.tcl:323     no -utilization or -die_area specified. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.tcl#L323
+IFP 0020 InitFloorplan.tcl:21      -core_area cannot be used with -utilization. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.tcl#L21
+IFP 0021 InitFloorplan.cc:862      Track pattern for {} will be skipped due to x_offset > die width. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.cc#L862
+IFP 0022 InitFloorplan.cc:870      Track pattern for {} will be skipped due to y_offset > die height. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.cc#L870
+IFP 0023 InitFloorplan.tcl:299     -utilization cannot be used with -die_area. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.tcl#L299
+IFP 0024 InitFloorplan.tcl:27      -core_space cannot be used with -die_area. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.tcl#L27
+IFP 0025 InitFloorplan.tcl:170     layer $layer_name is not a routing layer. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.tcl#L170
+IFP 0026 InitFloorplan.cc:430      left core row: {} has less than 10 sites WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.cc#L430
+IFP 0027 InitFloorplan.cc:461      right core row: {} has less than 10 sites WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.cc#L461
+IFP 0028 InitFloorplan.cc:317      Core area lower left ({:.3f}, {:.3f}) snapped to  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.cc#L317
+IFP 0029 InitFloorplan.cc:766      Unable to determine tiecell ({}) function. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.cc#L766
+IFP 0030 InitFloorplan.cc:791      Inserted {} tiecells using {}/{}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.cc#L791
+IFP 0031 InitFloorplan.tcl:236     Unable to find master: $tie_cell ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.tcl#L236
+IFP 0032 InitFloorplan.tcl:241     Unable to find master pin: $args ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.tcl#L241
+IFP 0033 InitFloorplan.tcl:302     -aspect_ratio cannot be used with -die_area. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.tcl#L302
+IFP 0034 InitFloorplan.tcl:281     no -core_space specified. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.tcl#L281
+IFP 0035 InitFloorplan.tcl:57      use -site to add placement rows. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.tcl#L57
+IFP 0044 InitFloorplan.cc:927      Non horizontal layer uses property LEF58_PITCH. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.cc#L927
+IFP 0045 InitFloorplan.cc:940      No routing Row found in layer {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.cc#L940
+IFP 0048 InitFloorplan.cc:642      Site {} is incompatible with site {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.cc#L642
+IFP 0049 InitFloorplan.cc:679      Added {} rows from site {} row pattern. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.cc#L679
+IFP 0050 InitFloorplan.cc:705      Added {} rows of site {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.cc#L705
+IFP 0051 InitFloorplan.cc:329      Constraining row parity is not supported for hybrid rows. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.cc#L329
+IFP 0052 InitFloorplan.cc:514      No site found for instance {} in block {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.cc#L514
+IFP 0053 InitFloorplan.cc:750      Liberty cell or port {}/{} not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.cc#L750
+IFP 0054 InitFloorplan.cc:580      Site {} height {}um of  is not a multiple of site {} height {}um. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.cc#L580
+IFP 0055 InitFloorplan.cc:276      Die area must contain the core area. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.cc#L276
+IFP 0056 InitFloorplan.cc:815      No pitch found layer {} so no tracks will be generated. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.cc#L815
+IFP 0057 InitFloorplan.tcl:78      -row_parity must be NONE, ODD or EVEN ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.tcl#L78
+IFP 0058 InitFloorplan.tcl:125     -core_space is either a list of 4 margins or one value for all margins. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.tcl#L125
+IFP 0059 InitFloorplan.tcl:89      -core_area is a list of 4 coordinates. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.tcl#L89
+IFP 0060 InitFloorplan.tcl:84      -core_space cannot be used with -core_area. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.tcl#L84
+IFP 0062 InitFloorplan.tcl:143     no -core_area or -core_space specified. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.tcl#L143
+IFP 0063 InitFloorplan.cc:272      Floorplan die area is 0. Cannot build rows. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.cc#L272
+IFP 0064 InitFloorplan.cc:237      Floorplan die area is 0. Cannot build rows. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ifp/src/InitFloorplan.cc#L237

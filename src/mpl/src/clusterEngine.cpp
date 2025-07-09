@@ -1,38 +1,15 @@
-///////////////////////////////////////////////////////////////////////////////
-// BSD 3-Clause License
-//
-// Copyright (c) 2021, The Regents of the University of California
-// All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are met:
-//
-// * Redistributions of source code must retain the above copyright notice, this
-//   list of conditions and the following disclaimer.
-//
-// * Redistributions in binary form must reproduce the above copyright notice,
-//   this list of conditions and the following disclaimer in the documentation
-//   and/or other materials provided with the distribution.
-//
-// * Neither the name of the copyright holder nor the names of its
-//   contributors may be used to endorse or promote products derived from
-//   this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-// ARE
-// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-// FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-// DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-///////////////////////////////////////////////////////////////////////////////
+// SPDX-License-Identifier: BSD-3-Clause
+// Copyright (c) 2021-2025, The OpenROAD Authors
 
 #include "clusterEngine.h"
 
+#include <algorithm>
+#include <cmath>
+#include <map>
+#include <memory>
+#include <set>
+#include <string>
+#include <utility>
 #include <vector>
 
 #include "db_sta/dbNetwork.hh"
@@ -94,11 +71,6 @@ void ClusteringEngine::run()
   }
 }
 
-void ClusteringEngine::setDesignMetrics(Metrics* design_metrics)
-{
-  design_metrics_ = design_metrics;
-}
-
 void ClusteringEngine::setTree(PhysicalHierarchy* tree)
 {
   tree_ = tree;
@@ -115,6 +87,7 @@ void ClusteringEngine::init()
     return;
   }
 
+  setDieArea();
   setFloorplanShape();
   searchForFixedInstsInsideFloorplanShape();
 
@@ -132,6 +105,19 @@ void ClusteringEngine::init()
   }
 
   reportDesignData();
+}
+
+// Note: The die area's dimensions will be used inside
+// SA Core when computing the wirelength in a situation in which
+// the target cluster is a cluster of unplaced IOs.
+void ClusteringEngine::setDieArea()
+{
+  const odb::Rect& die = block_->getDieArea();
+
+  tree_->die_area = Rect(block_->dbuToMicrons(die.xMin()),
+                         block_->dbuToMicrons(die.yMin()),
+                         block_->dbuToMicrons(die.xMax()),
+                         block_->dbuToMicrons(die.yMax()));
 }
 
 float ClusteringEngine::computeMacroWithHaloArea(
@@ -239,7 +225,8 @@ void ClusteringEngine::reportDesignData()
 {
   const odb::Rect& die = block_->getDieArea();
   logger_->report(
-      "Die Area: ({}, {}) ({}, {}),  Floorplan Area: ({}, {}) ({}, {})",
+      "Die Area: ({:.2f}, {:.2f}) ({:.2f}, {:.2f}),  Floorplan Area: ({:.2f}, "
+      "{:.2f}) ({:.2f}, {:.2f})",
       block_->dbuToMicrons(die.xMin()),
       block_->dbuToMicrons(die.yMin()),
       block_->dbuToMicrons(die.xMax()),
@@ -709,7 +696,8 @@ void ClusteringEngine::computeMacroPinVertices(VerticesMaps& vertices_maps)
 {
   for (auto& [macro, hard_macro] : tree_->maps.inst_to_hard) {
     for (odb::dbITerm* pin : macro->getITerms()) {
-      if (pin->getSigType() != odb::dbSigType::SIGNAL) {
+      if (pin->getSigType() != odb::dbSigType::SIGNAL
+          && pin->getSigType() != odb::dbSigType::CLOCK) {
         continue;
       }
 
@@ -1909,26 +1897,31 @@ void ClusteringEngine::breakMixedLeaf(Cluster* mixed_leaf)
 
   std::vector<HardMacro*> hard_macros = mixed_leaf->getHardMacros();
   std::vector<Cluster*> macro_clusters;
-
   createOneClusterForEachMacro(parent, hard_macros, macro_clusters);
-
-  std::vector<int> size_class(hard_macros.size(), -1);
-  classifyMacrosBySize(hard_macros, size_class);
 
   updateConnections();
 
-  std::vector<int> signature_class(hard_macros.size(), -1);
-  classifyMacrosByConnSignature(macro_clusters, signature_class);
+  const int number_of_macros = static_cast<int>(hard_macros.size());
+  std::vector<int> size_class(number_of_macros, -1);
+  std::vector<int> signature_class(number_of_macros, -1);
+  std::vector<int> interconn_class(number_of_macros, -1);
+  std::vector<int> macro_class(number_of_macros, -1);
 
-  std::vector<int> interconn_class(hard_macros.size(), -1);
-  classifyMacrosByInterconn(macro_clusters, interconn_class);
-
-  std::vector<int> macro_class(hard_macros.size(), -1);
-  groupSingleMacroClusters(macro_clusters,
-                           size_class,
-                           signature_class,
-                           interconn_class,
-                           macro_class);
+  if (number_of_macros == 1) {
+    // We don't want the single-macro macro cluster to be treated
+    // as an array of interconnected macros with one macro.
+    interconn_class.front() = -1;
+    macro_class.front() = 0;
+  } else {
+    classifyMacrosBySize(hard_macros, size_class);
+    classifyMacrosByConnSignature(macro_clusters, signature_class);
+    classifyMacrosByInterconn(macro_clusters, interconn_class);
+    groupSingleMacroClusters(macro_clusters,
+                             size_class,
+                             signature_class,
+                             interconn_class,
+                             macro_class);
+  }
 
   mixed_leaf->clearHardMacros();
 

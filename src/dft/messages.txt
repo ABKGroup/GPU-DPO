@@ -1,0 +1,23 @@
+DFT 0001 dft.tcl:14                No design block found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dft/src/dft.tcl#L14
+DFT 0002 ScanReplace.cpp:393       Can't scan replace cell '{:s}', that has lib cell '{:s}'.  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dft/src/replace/ScanReplace.cpp#L393
+DFT 0003 ScanReplace.cpp:383       Cell '{:s}' is already an scan cell, we will not replace it INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dft/src/replace/ScanReplace.cpp#L383
+DFT 0004 ClockDomainHash.cpp:25    Clock mix config requested is not supported ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dft/src/clock_domain/ClockDomainHash.cpp#L25
+DFT 0005 ScanCellFactory.cpp:132   Cell '{:s}' doesn't have a valid clock connected. Can't  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dft/src/cells/ScanCellFactory.cpp#L132
+DFT 0006 dft.i:114                 Internal error: unrecognized signal '{}' to set a pattern for ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dft/src/dft.i#L114
+DFT 0007 ScanCellFactory.cpp:141   Cell '{:s}' is not a scan cell. Can't use it for scan architect WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dft/src/cells/ScanCellFactory.cpp#L141
+DFT 0008 dft.tcl:28                No design block found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dft/src/dft.tcl#L28
+DFT 0009 dft.tcl:40                No design block found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dft/src/dft.tcl#L40
+DFT 0010 Opt.cpp:81                Couldn't find nearest neighbor, too many overlapping cells ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dft/src/architect/Opt.cpp#L81
+DFT 0011 ScanCellFactory.cpp:44    Cell master '{:s}' has no lib info. Can't find scan cell WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dft/src/cells/ScanCellFactory.cpp#L44
+DFT 0012 ScanReplace.cpp:365       Cell master '{:s}' has no lib info. Can't create scan cell(s) WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dft/src/replace/ScanReplace.cpp#L365
+DFT 0018 Utils.cpp:152             Failed to create port: a port named '{}' already exists ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dft/src/utils/Utils.cpp#L152
+DFT 0030 ScanCell.hh:106           Failed to create driver net named '{}' ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dft/src/cells/ScanCell.hh#L106
+DFT 0031 Utils.cpp:142             Error while attempting to create new port {}: an  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dft/src/utils/Utils.cpp#L142
+DFT 0034 ScanStitch.cpp:146        Instance {} not found for {} port ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dft/src/stitch/ScanStitch.cpp#L146
+DFT 0035 ScanStitch.cpp:154        ITerm {}/{} not found for {} port ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dft/src/stitch/ScanStitch.cpp#L154
+DFT 0036 ScanStitch.cpp:162        ITerm {}/{} for {} port is a {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dft/src/stitch/ScanStitch.cpp#L162
+DFT 0037 ScanStitch.cpp:203        Instance {} not found for {} port ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dft/src/stitch/ScanStitch.cpp#L203
+DFT 0038 ScanStitch.cpp:211        ITerm {}/{} not found for {} port ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dft/src/stitch/ScanStitch.cpp#L211
+DFT 0039 ScanStitch.cpp:219        ITerm {}/{} for {} port is a {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dft/src/stitch/ScanStitch.cpp#L219
+DFT 0040 ScanStitch.cpp:232        Top-level pin '{}' specified as {} is not an output port ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dft/src/stitch/ScanStitch.cpp#L232
+DFT 0049 ScanCellFactory.cpp:102   Can't find a clock pin for cell '{:s}' WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/dft/src/cells/ScanCellFactory.cpp#L102

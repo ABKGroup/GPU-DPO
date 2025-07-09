@@ -1,36 +1,5 @@
-#############################################################################
-##
-## Copyright (c) 2019, The Regents of the University of California
-## All rights reserved.
-##
-## BSD 3-Clause License
-##
-## Redistribution and use in source and binary forms, with or without
-## modification, are permitted provided that the following conditions are met:
-##
-## * Redistributions of source code must retain the above copyright notice, this
-##   list of conditions and the following disclaimer.
-##
-## * Redistributions in binary form must reproduce the above copyright notice,
-##   this list of conditions and the following disclaimer in the documentation
-##   and/or other materials provided with the distribution.
-##
-## * Neither the name of the copyright holder nor the names of its
-##   contributors may be used to endorse or promote products derived from
-##   this software without specific prior written permission.
-##
-## THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-## AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-## IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-## ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
-## LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-## CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-## SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-## INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-## CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-## ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-## POSSIBILITY OF SUCH DAMAGE.
-#############################################################################
+# SPDX-License-Identifier: BSD-3-Clause
+# Copyright (c) 2019-2025, The OpenROAD Authors
 
 sta::define_cmd_args "detailed_placement" { \
                            [-max_displacement disp|{disp_x disp_y}] \
@@ -41,7 +10,6 @@ proc detailed_placement { args } {
   sta::parse_key_args "detailed_placement" args \
     keys {-max_displacement -report_file_name} flags {-disallow_one_site_gaps}
 
-  set disallow_one_site_gaps [info exists flags(-disallow_one_site_gaps)]
   if { [info exists keys(-max_displacement)] } {
     set max_displacement $keys(-max_displacement)
     if { [llength $max_displacement] == 1 } {
@@ -66,6 +34,11 @@ proc detailed_placement { args } {
   }
 
   sta::check_argc_eq0 "detailed_placement" $args
+
+  if { [info exists flags(-disallow_one_site_gaps)] } {
+    utl::warn DPL 3 "-disallow_one_site_gaps is deprecated"
+  }
+
   if { [ord::db_has_rows] } {
     set site [dpl::get_row_site]
     # Convert displacement from microns to sites.
@@ -74,7 +47,7 @@ proc detailed_placement { args } {
     set max_displacement_y [expr [ord::microns_to_dbu $max_displacement_y] \
       / [$site getHeight]]
     dpl::detailed_placement_cmd $max_displacement_x $max_displacement_y \
-      $disallow_one_site_gaps $file_name
+      $file_name
     dpl::report_legalization_stats
   } else {
     utl::error "DPL" 27 "no rows defined in design. Use initialize_floorplan to add rows."
@@ -159,13 +132,15 @@ proc check_placement { args } {
   sta::parse_key_args "check_placement" args \
     keys {-report_file_name} flags {-verbose -disallow_one_site_gaps}
   set verbose [info exists flags(-verbose)]
-  set disallow_one_site_gaps [info exists flags(-disallow_one_site_gaps)]
   sta::check_argc_eq0 "check_placement" $args
   set file_name ""
   if { [info exists keys(-report_file_name)] } {
     set file_name $keys(-report_file_name)
   }
-  dpl::check_placement_cmd $verbose $disallow_one_site_gaps $file_name
+  if { [info exists flags(-disallow_one_site_gaps)] } {
+    utl::warn DPL 4 "-disallow_one_site_gaps is deprecated"
+  }
+  dpl::check_placement_cmd $verbose $file_name
 }
 
 sta::define_cmd_args "optimize_mirroring" {}
@@ -181,6 +156,96 @@ proc optimize_mirroring { args } {
   dpl::optimize_mirroring_cmd
 }
 
+sta::define_cmd_args "improve_placement" {\
+    [-random_seed seed]\
+    [-max_displacement disp|{disp_x disp_y}]\
+    [-disallow_one_site_gaps]\
+}
+
+proc improve_placement { args } {
+  sta::parse_key_args "improve_placement" args \
+    keys {-random_seed -max_displacement -window_size -problem_size -num_iterations \
+          -kick_move -run_gs -run_reorder -run_mis -tolerance} \
+    flags {-disallow_one_site_gaps}
+
+  if { [ord::get_db_block] == "NULL" } {
+    utl::error DPL 342 "No design block found."
+  }
+
+  if { [info exists flags(-disallow_one_site_gaps)] } {
+    utl::warn DPL 343"-disallow_one_site_gaps is deprecated"
+  }
+  set seed 1
+  if { [info exists keys(-random_seed)] } {
+    set seed $keys(-random_seed)
+  }
+  if { [info exists keys(-max_displacement)] } {
+    set max_displacement $keys(-max_displacement)
+    if { [llength $max_displacement] == 1 } {
+      sta::check_positive_integer "-max_displacement" $max_displacement
+      set max_displacement_x $max_displacement
+      set max_displacement_y $max_displacement
+    } elseif { [llength $max_displacement] == 2 } {
+      lassign $max_displacement max_displacement_x max_displacement_y
+      sta::check_positive_integer "-max_displacement" $max_displacement_x
+      sta::check_positive_integer "-max_displacement" $max_displacement_y
+    } else {
+      sta::error DPL 344 "-max_displacement disp|{disp_x disp_y}"
+    }
+  } else {
+    # use default displacement
+    set max_displacement_x 0
+    set max_displacement_y 0
+  }
+  if { [info exists keys(-window_size)] } {
+    # set the reordering window size
+    set window_size $keys(-window_size)
+  } else {
+    set window_size 3
+  }
+  if { [info exists keys(-problem_size)] } {
+    # set the maximum MIS problem size
+    set problem_size $keys(-problem_size)
+  } else {
+    set problem_size 64
+  }
+  if { [info exists keys(-num_iterations)] } {
+    # set the number of iterations to perform each detailed placement operator
+    set num_iterations $keys(-num_iterations)
+  } else {
+    set num_iterations 10
+  }
+  if { [info exists keys(-kick_move)] } {
+    # percentage of design instances to perform random swap 
+    set kick_move $keys(-kick_move)
+  } else {
+    set kick_move 25
+  }
+  if { [info exists keys(-run_gs)] } {
+    set run_gs $keys(-run_gs)
+  } else {
+    set run_gs 1
+  }
+  if { [info exists keys(-run_reorder)] } {
+    set run_reorder $keys(-run_reorder)
+  } else {
+    set run_reorder 1
+  }
+  if { [info exists keys(-run_mis)] } {
+    set run_mis $keys(-run_mis)
+  } else {
+    set run_mis 1
+  }
+  if { [info exists keys(-tolerance)] } {
+    set tolerance $keys(-tolerance)
+  } else {
+    set tolerance 0.005
+  }
+  sta::check_argc_eq0 "improve_placement" $args
+  dpl::improve_placement_cmd $seed $max_displacement_x $max_displacement_y \
+    $window_size $problem_size $num_iterations $kick_move $run_gs \
+    $run_reorder $run_mis $tolerance
+}
 namespace eval dpl {
 # min_displacement is the smallest displacement to draw
 # measured as a multiple of row_height.

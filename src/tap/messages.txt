@@ -1,0 +1,22 @@
+TAP 0001 tapcell.tcl:42            No design block found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/tap/src/tapcell.tcl#L42
+TAP 0002 tapcell.tcl:226           No design block found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/tap/src/tapcell.tcl#L226
+TAP 0003 tapcell.cpp:519           Inserted {} endcap corners. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/tap/src/tapcell.cpp#L519
+TAP 0004 tapcell.cpp:522           Inserted {} endcaps. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/tap/src/tapcell.cpp#L522
+TAP 0005 tapcell.cpp:152           Inserted {} tapcells. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/tap/src/tapcell.cpp#L152
+TAP 0006 tapcell.tcl:297           No design block found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/tap/src/tapcell.tcl#L297
+TAP 0010 tapcell.tcl:154           Master $tapcell_master_name not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/tap/src/tapcell.tcl#L154
+TAP 0011 tapcell.tcl:164           Master $endcap_master_name not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/tap/src/tapcell.tcl#L164
+TAP 0014 tapcell.tcl:48            endcap_cpp option is deprecated. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/tap/src/tapcell.tcl#L48
+TAP 0015 tapcell.tcl:126           tbtie_cpp option is deprecated. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/tap/src/tapcell.tcl#L126
+TAP 0016 tapcell.tcl:130           no_cell_at_top_bottom option is deprecated. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/tap/src/tapcell.tcl#L130
+TAP 0017 tapcell.tcl:52            disallow_one_site_gaps option is deprecated. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/tap/src/tapcell.tcl#L52
+TAP 0020 tapcell.cpp:1202          Unable to fill {} boundary in {} from {:.4f}um to {:.4f}um ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/tap/src/tapcell.cpp#L1202
+TAP 0032 tapcell.cpp:322           Macro {} is not placed. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/tap/src/tapcell.cpp#L322
+TAP 0033 tapcell.cpp:357           Not able to build instance {} with master {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/tap/src/tapcell.cpp#L357
+TAP 0034 tapcell.tcl:208           Master $endcap_master_name not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/tap/src/tapcell.tcl#L208
+TAP 0035 tapcell.i:25              Master {} not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/tap/src/tapcell.i#L25
+TAP 0100 tapcell.tcl:245           Removed $taps_removed tapcells. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/tap/src/tapcell.tcl#L245
+TAP 0101 tapcell.tcl:247           Removed $endcaps_removed endcaps. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/tap/src/tapcell.tcl#L247
+TAP 0102 tapcell.tcl:384           Unable to find $master ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/tap/src/tapcell.tcl#L384
+TAP 0103 tapcell.tcl:411           $key0, $key1, or $key2 is required. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/tap/src/tapcell.tcl#L411
+TAP 0104 tapcell.cpp:1422          Found multiple masters for {}. Use -{}  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/tap/src/tapcell.cpp#L1422

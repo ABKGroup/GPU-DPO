@@ -1,50 +1,23 @@
-///////////////////////////////////////////////////////////////////////////
-//
-// BSD 3-Clause License
-//
-// Copyright (c) 2020, The Regents of the University of California
-// All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are met:
-//
-// * Redistributions of source code must retain the above copyright notice, this
-//   list of conditions and the following disclaimer.
-//
-// * Redistributions in binary form must reproduce the above copyright notice,
-//   this list of conditions and the following disclaimer in the documentation
-//   and/or other materials provided with the distribution.
-//
-// * Neither the name of the copyright holder nor the names of its
-//   contributors may be used to endorse or promote products derived from
-//   this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
-// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-// POSSIBILITY OF SUCH DAMAGE.
-//
-///////////////////////////////////////////////////////////////////////////////
+// SPDX-License-Identifier: BSD-3-Clause
+// Copyright (c) 2021-2025, The OpenROAD Authors
 
 #pragma once
 
+#include <algorithm>
 #include <iostream>
+#include <limits>
 #include <map>
+#include <memory>
 #include <random>
 #include <set>
 #include <string>
+#include <utility>
 #include <vector>
 
 #include "odb/db.h"
 #include "odb/dbTypes.h"
 #include "odb/odb.h"
+#include "shapes.h"
 
 namespace odb {
 class Rect;
@@ -68,7 +41,11 @@ class HardMacro;
 class SoftMacro;
 class Cluster;
 
+using IntervalList = std::vector<Interval>;
+using TilingList = std::vector<Tiling>;
+using TilingSet = std::set<Tiling>;
 using UniqueClusterVector = std::vector<std::unique_ptr<Cluster>>;
+using Point = std::pair<float, float>;
 
 // ****************************************************************************
 // This file includes the basic functions and basic classes for the HierRTLMP
@@ -140,8 +117,8 @@ class Metrics
           float macro_area);
 
   void addMetrics(const Metrics& metrics);
-  const std::pair<unsigned int, unsigned int> getCountStats() const;
-  const std::pair<float, float> getAreaStats() const;
+  std::pair<unsigned int, unsigned int> getCountStats() const;
+  std::pair<float, float> getAreaStats() const;
   unsigned int getNumMacro() const;
   unsigned int getNumStdCell() const;
   float getStdCellArea() const;
@@ -176,11 +153,11 @@ class Cluster
   // cluster id can not be changed
   int getId() const;
   // cluster name can be updated
-  const std::string getName() const;
+  const std::string& getName() const;
   void setName(const std::string& name);
   // cluster type (default type = MixedCluster)
   void setClusterType(const ClusterType& cluster_type);
-  const ClusterType getClusterType() const;
+  ClusterType getClusterType() const;
   std::string getClusterTypeString() const;
 
   // Instances (Here we store dbModule to reduce memory)
@@ -189,9 +166,12 @@ class Cluster
   void addLeafMacro(odb::dbInst* leaf_macro);
   void addLeafInst(odb::dbInst* inst);
   void specifyHardMacros(std::vector<HardMacro*>& hard_macros);
-  const std::vector<odb::dbModule*> getDbModules() const;
-  const std::vector<odb::dbInst*> getLeafStdCells() const;
-  const std::vector<odb::dbInst*> getLeafMacros() const;
+  // TODO: the following return internal arrays by value. This should be
+  // good as const reference iff the callsites don't then call Add*() methods
+  // while iterating over it. Verify and then possibly optimize.
+  std::vector<odb::dbModule*> getDbModules() const;
+  std::vector<odb::dbInst*> getLeafStdCells() const;
+  std::vector<odb::dbInst*> getLeafMacros() const;
   std::vector<HardMacro*> getHardMacros() const;
   void clearDbModules();
   void clearLeafStdCells();
@@ -223,7 +203,7 @@ class Cluster
 
   // Metrics Support
   void setMetrics(const Metrics& metrics);
-  const Metrics getMetrics() const;
+  const Metrics& getMetrics() const;
   int getNumStdCell() const;
   int getNumMacro() const;
   float getArea() const;
@@ -237,8 +217,9 @@ class Cluster
   float getY() const;
   void setX(float x);
   void setY(float y);
-  const std::pair<float, float> getLocation() const;
+  std::pair<float, float> getLocation() const;
   Rect getBBox() const;
+  Point getCenter() const;
 
   // Hierarchy Support
   void setParent(Cluster* parent);
@@ -256,7 +237,9 @@ class Cluster
   // Connection signature support
   void initConnection();
   void addConnection(int cluster_id, float weight);
-  const std::map<int, float> getConnection() const;
+  // TODO: this should return a const reference iff callers don't implicitly
+  // modify it. See comment in Cluster.
+  std::map<int, float> getConnection() const;
   bool isSameConnSignature(const Cluster& cluster, float net_threshold);
   bool hasMacroConnectionWith(const Cluster& cluster, float net_threshold);
   // Get closely-connected cluster if such cluster exists
@@ -266,20 +249,9 @@ class Cluster
   int getCloseCluster(const std::vector<int>& candidate_clusters,
                       float net_threshold);
 
-  // Path synthesis support
-  // After path synthesis, the children cluster of current cluster will
-  // not have any connections outsize the parent cluster
-  // All the outside connections have been converted to the connections
-  // related to pin access
-  void setPinAccess(int cluster_id, Boundary pin_access, float weight);
-  void addBoundaryConnection(Boundary pin_a, Boundary pin_b, float num_net);
-  const std::pair<Boundary, float> getPinAccess(int cluster_id);
-  const std::map<int, std::pair<Boundary, float>> getPinAccessMap() const;
-  const std::map<Boundary, std::map<Boundary, float>> getBoundaryConnection()
-      const;
-
   // virtual connections
-  const std::vector<std::pair<int, int>> getVirtualConnections() const;
+  // TODO: return const reference iff precondition ok (see comment in Cluster)
+  std::vector<std::pair<int, int>> getVirtualConnections() const;
   void addVirtualConnection(int src, int target);
 
   // Print Basic Information
@@ -289,13 +261,13 @@ class Cluster
   void setSoftMacro(std::unique_ptr<SoftMacro> soft_macro);
   SoftMacro* getSoftMacro() const;
 
-  void setMacroTilings(const std::vector<std::pair<float, float>>& tilings);
-  const std::vector<std::pair<float, float>> getMacroTilings() const;
+  void setTilings(const TilingList& tilings);
+  const TilingList& getTilings() const;
 
  private:
   // Private Variables
-  int id_ = -1;  // cluster id (a valid cluster id should be nonnegative)
-  std::string name_ = "";            // cluster name
+  int id_ = -1;       // cluster id (a valid cluster id should be nonnegative)
+  std::string name_;  // cluster name
   ClusterType type_ = MixedCluster;  // cluster type
 
   // Instances in the cluster
@@ -327,8 +299,7 @@ class Cluster
   Cluster* parent_ = nullptr;  // parent of current cluster
   UniqueClusterVector children_;
 
-  // macro tilings for hard macros
-  std::vector<std::pair<float, float>> macro_tilings_;  // <width, height>
+  TilingList tilings_;
 
   // To support grouping small clusters based connection signature,
   // we define connection_map_
@@ -356,9 +327,11 @@ class HardMacro
  public:
   // Create a macro with specified size
   // Model fixed terminals
-  HardMacro(std::pair<float, float> loc,
+  HardMacro(std::pair<float, float> location,
             const std::string& name,
-            Cluster* cluster = nullptr);
+            float width,
+            float height,
+            Cluster* cluster);
 
   // In this case, we model the pin position at the center of the macro
   HardMacro(float width, float height, const std::string& name);
@@ -374,13 +347,14 @@ class HardMacro
   void setCluster(Cluster* cluster) { cluster_ = cluster; }
   Cluster* getCluster() const { return cluster_; }
   bool isClusterOfUnplacedIOPins() const;
+  Rect getBBox() const;
 
   // Get Physical Information
   // Note that the default X and Y include halo_width
   void setLocation(const std::pair<float, float>& location);
   void setX(float x);
   void setY(float y);
-  const std::pair<float, float> getLocation() const;
+  std::pair<float, float> getLocation() const;
   float getX() const { return x_; }
   float getY() const { return y_; }
   // The position of pins relative to the lower left of the instance
@@ -397,7 +371,7 @@ class HardMacro
   void setRealLocation(const std::pair<float, float>& location);
   void setRealX(float x);
   void setRealY(float y);
-  const std::pair<float, float> getRealLocation() const;
+  std::pair<float, float> getRealLocation() const;
   float getRealX() const;
   float getRealY() const;
   float getRealWidth() const;
@@ -412,8 +386,8 @@ class HardMacro
 
   // Interfaces with OpenDB
   odb::dbInst* getInst() const;
-  const std::string getName() const;
-  const std::string getMasterName() const;
+  const std::string& getName() const;
+  std::string getMasterName() const;
 
   int getXDBU() const { return block_->micronsToDbu(getX()); }
 
@@ -497,37 +471,29 @@ class SoftMacro
   // Create a SoftMacro representing the blockage
   SoftMacro(float width, float height, const std::string& name);
 
-  // Create a SoftMacro representing the IO cluster
-  SoftMacro(const std::pair<float, float>& pos,
+  SoftMacro(const std::pair<float, float>& location,
             const std::string& name,
-            float width = 0.0,
-            float height = 0.0,
-            Cluster* cluster = nullptr);
+            float width,
+            float height,
+            Cluster* cluster);
 
   // create a SoftMacro from a cluster
   SoftMacro(Cluster* cluster);
 
   // name
-  const std::string getName() const;
+  const std::string& getName() const;
 
   void setX(float x);
   void setY(float y);
   void setLocation(const std::pair<float, float>& location);
-  void setWidth(float width);      // only for StdCellCluster and MixedCluster
-  void setHeight(float height);    // only for StdCellCluster and MixedCluster
-  void shrinkArea(float percent);  // only for StdCellCluster
-  void setArea(float area);        // only for StdCellCluster and MixedCluster
+  void setWidth(float width);    // only for StdCellCluster and MixedCluster
+  void setHeight(float height);  // only for StdCellCluster and MixedCluster
+  void setArea(float area);      // only for StdCellCluster and MixedCluster
   void resizeRandomly(std::uniform_real_distribution<float>& distribution,
                       std::mt19937& generator);
-  // This function for discrete shape curves, HardMacroCluster
-  // If force_flag_ = true, it will force the update of width_list_ and
-  // height_list_
-  void setShapes(const std::vector<std::pair<float, float>>& shapes,
-                 bool force_flag = false);  // < <width, height>
-  // This function for specify shape curves (piecewise function),
-  // for StdCellCluster and MixedCluster
-  void setShapes(const std::vector<std::pair<float, float>>& width_list,
-                 float area);
+  void setShapes(const TilingList& tilings, bool force = false);
+  void setShapes(const IntervalList& width_intervals, float area);
+
   float getX() const { return x_; }
   float getY() const { return y_; }
 
@@ -560,10 +526,9 @@ class SoftMacro
   float getMacroUtil() const;
 
  private:
-  // utility function
-  int findPos(std::vector<std::pair<float, float>>& list,
-              float& value,
-              bool increase_order);
+  int findIntervalIndex(const IntervalList& interval_list,
+                        float& value,
+                        bool increasing_list);
 
   // We define x_, y_ and orientation_ here
   // Also enable the multi-threading
@@ -573,9 +538,11 @@ class SoftMacro
   float height_ = 0.0;     // height_
   float area_ = 0.0;       // area of the standard cell cluster
   std::string name_ = "";  // macro name
-  // variables to describe shape curves (discrete or piecewise curves)
-  std::vector<std::pair<float, float>> width_list_;   // nondecreasing order
-  std::vector<std::pair<float, float>> height_list_;  // nonincreasing order
+
+  // The shape curve (discrete or piecewise) of a cluster is the
+  // combination of its width/height intervals.
+  IntervalList width_intervals_;   // nondecreasing order
+  IntervalList height_intervals_;  // nonincreasing order
 
   // Interfaces with hard macro
   Cluster* cluster_ = nullptr;
@@ -594,14 +561,12 @@ struct BundledNet
   {
     this->terminals = std::pair<int, int>(src, target);
     this->weight = weight;
-    hpwl = 0;
   }
 
   BundledNet(const std::pair<int, int>& terminals, float weight)
   {
     this->terminals = terminals;
     this->weight = weight;
-    hpwl = 0;
   }
 
   bool operator==(const BundledNet& net)
@@ -610,19 +575,8 @@ struct BundledNet
            && (terminals.second == net.terminals.second);
   }
 
-  // id for terminals, the id can be the id of hard macro or soft
-  // macro
-  std::pair<int, int> terminals;
-  // Number of bundled connections (can be timing-related weight)
-  float weight;
-  // support for bus synthsis
-  float hpwl;  // HPWL of the Net (in terms of path length)
-  // shortest paths:  to minimize timing
-  // store all the shortest paths between two soft macros
-  std::vector<std::vector<int>> edge_paths;
-  // store all the shortest paths between two soft macros in terms of
-  // boundary edges.  All the internal edges are removed
-  std::vector<std::vector<int>> boundary_edge_paths;
+  std::pair<int, int> terminals;  // source_id <--> target_id (undirected)
+  float weight;  // Number of bundled connections (can be timing-related)
 
   // In our framework, we only bundled connections between clusters.
   // Thus each net must have both src_cluster_id and target_cluster_id
@@ -655,52 +609,14 @@ struct Rect
   void setXMax(float ux) { this->ux = ux; }
   void setYMax(float uy) { this->uy = uy; }
 
-  float getX() const { return (lx + ux) / 2.0; }
-  float getY() const { return (ly + uy) / 2.0; }
+  float xCenter() const { return (lx + ux) / 2.0; }
+  float yCenter() const { return (ly + uy) / 2.0; }
 
   float getWidth() const { return ux - lx; }
   float getHeight() const { return uy - ly; }
 
   float getPerimeter() const { return 2 * getWidth() + 2 * getHeight(); }
   float getArea() const { return getWidth() * getHeight(); }
-
-  void setLoc(float x,
-              float y,
-              float core_lx,
-              float core_ly,
-              float core_ux,
-              float core_uy)
-  {
-    if (fixed_flag == true) {
-      return;
-    }
-
-    const float width = ux - lx;
-    const float height = uy - ly;
-    lx = x - width / 2.0;
-    ly = y - height / 2.0;
-    ux = x + width / 2.0;
-    uy = y + height / 2.0;
-    if (lx < core_lx) {
-      lx = core_lx;
-      ux = lx + width;
-    }
-
-    if (ly < core_ly) {
-      ly = core_ly;
-      uy = ly + height;
-    }
-
-    if (ux > core_ux) {
-      lx = core_ux - width;
-      ux = core_ux;
-    }
-
-    if (uy > core_uy) {
-      ly = core_uy - height;
-      uy = core_uy;
-    }
-  }
 
   void moveHor(float dist)
   {
@@ -712,92 +628,6 @@ struct Rect
   {
     ly = ly + dist;
     uy = uy + dist;
-  }
-
-  void move(float x_dist,
-            float y_dist,
-            float core_lx,
-            float core_ly,
-            float core_ux,
-            float core_uy)
-  {
-    if (fixed_flag == true) {
-      return;
-    }
-    moveHor(x_dist);
-    moveVer(y_dist);
-    const float width = getWidth();
-    const float height = getHeight();
-    if (lx < core_lx) {
-      lx = core_lx;
-      ux = lx + width;
-    }
-
-    if (ly < core_ly) {
-      ly = core_ly;
-      uy = ly + height;
-    }
-
-    if (ux > core_ux) {
-      lx = core_ux - width;
-      ux = core_ux;
-    }
-
-    if (uy > core_uy) {
-      ly = core_uy - height;
-      uy = core_uy;
-    }
-
-    if (lx < core_lx - 1.0 || ly < core_ly - 1.0 || ux > core_ux + 1.0
-        || uy > core_uy + 1.0) {
-      std::cout << "Error !!!\n"
-                << "core_lx =  " << core_lx << "  " << "core_ly =  " << core_ly
-                << "  " << "core_ux =  " << core_ux << "  "
-                << "core_uy =  " << core_uy << std::endl;
-    }
-  }
-
-  void resetForce()
-  {
-    f_x_a = 0.0;
-    f_y_a = 0.0;
-    f_x_r = 0.0;
-    f_y_r = 0.0;
-    f_x = 0.0;
-    f_y = 0.0;
-  }
-
-  void makeSquare(float ar = 1.0)
-  {
-    if (fixed_flag == true) {
-      return;
-    }
-    const float x = getX();
-    const float y = getY();
-    const float height = std::sqrt(getWidth() * getHeight() * ar);
-    const float width = getWidth() * getHeight() / height;
-    lx = x - width / 2.0;
-    ly = y - height / 2.0;
-    ux = x + width / 2.0;
-    uy = y + height / 2.0;
-  }
-
-  void addAttractiveForce(float f_x, float f_y)
-  {
-    f_x_a += f_x;
-    f_y_a += f_y;
-  }
-
-  void addRepulsiveForce(float f_x, float f_y)
-  {
-    f_x_r += f_x;
-    f_y_r += f_y;
-  }
-
-  void setForce(float f_x_, float f_y_)
-  {
-    f_x = f_x_;
-    f_y = f_y_;
   }
 
   bool isValid() const { return (lx < ux) && (ly < uy); }
@@ -841,19 +671,6 @@ struct Rect
   float ly = 0.0;
   float ux = 0.0;
   float uy = 0.0;
-
-  // for force-directed placement
-  // attractive force
-  float f_x_a = 0.0;
-  float f_y_a = 0.0;
-
-  // repulsive force
-  float f_x_r = 0.0;
-  float f_y_r = 0.0;
-
-  // total force
-  float f_x = 0.0;
-  float f_y = 0.0;
 
   bool fixed_flag = false;
 };

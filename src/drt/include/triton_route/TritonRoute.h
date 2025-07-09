@@ -1,34 +1,7 @@
-/* Authors: Lutong Wang and Bangqi Xu */
-/*
- * Copyright (c) 2019, The Regents of the University of California
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
- *     * Redistributions of source code must retain the above copyright
- *       notice, this list of conditions and the following disclaimer.
- *     * Redistributions in binary form must reproduce the above copyright
- *       notice, this list of conditions and the following disclaimer in the
- *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the University nor the
- *       names of its contributors may be used to endorse or promote products
- *       derived from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED. IN NO EVENT SHALL THE REGENTS BE LIABLE FOR ANY DIRECT,
- * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
- * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
+// SPDX-License-Identifier: BSD-3-Clause
+// Copyright (c) 2019-2025, The OpenROAD Authors
 
 #pragma once
-
-#include <tcl.h>
 
 #include <boost/asio/thread_pool.hpp>
 #include <list>
@@ -37,6 +10,7 @@
 #include <optional>
 #include <queue>
 #include <string>
+#include <utility>
 #include <vector>
 
 #include "odb/geom.h"
@@ -50,10 +24,6 @@ class dbNet;
 
 namespace utl {
 class Logger;
-}
-
-namespace gui {
-class Gui;
 }
 
 namespace stt {
@@ -102,6 +72,7 @@ struct ParamStruct
   int minAccessPoints = -1;
   bool saveGuideUpdates = false;
   std::string repairPDNLayerName;
+  int num_threads;
 };
 
 class TritonRoute
@@ -177,15 +148,15 @@ class TritonRoute
   void updateGlobals(const char* file_name);
   void resetDb(const char* file_name);
   void clearDesign();
-  void updateDesign(const std::vector<std::string>& updates);
-  void updateDesign(const std::string& path);
+  void updateDesign(const std::vector<std::string>& updates, int num_threads);
+  void updateDesign(const std::string& path, int num_threads);
   void addWorkerResults(
       const std::vector<std::pair<int, std::string>>& results);
   bool getWorkerResults(std::vector<std::pair<int, std::string>>& results);
   int getWorkerResultsSize();
   void sendDesignDist();
   bool writeGlobals(const std::string& name);
-  void sendDesignUpdates(const std::string& router_cfg_path);
+  void sendDesignUpdates(const std::string& router_cfg_path, int num_threads);
   void sendGlobalsUpdates(const std::string& router_cfg_path,
                           const std::string& serializedViaData);
   void reportDRC(const std::string& file_name,
@@ -197,11 +168,12 @@ class TritonRoute
                 int y1,
                 int x2,
                 int y2,
-                const std::string& marker_name);
+                const std::string& marker_name,
+                int num_threads);
   bool initGuide();
   void prep();
   odb::dbDatabase* getDb() const { return db_; }
-  void fixMaxSpacing();
+  void fixMaxSpacing(int num_threads);
 
  private:
   std::unique_ptr<frDesign> design_;
@@ -213,7 +185,6 @@ class TritonRoute
   std::unique_ptr<FlexDR> dr_;  // kept for single stepping
   stt::SteinerTreeBuilder* stt_builder_{nullptr};
   int num_drvs_{-1};
-  gui::Gui* gui_{nullptr};
   dst::Distributed* dist_{nullptr};
   bool distributed_{false};
   std::string dist_ip_;

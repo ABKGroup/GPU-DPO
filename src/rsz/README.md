@@ -209,6 +209,15 @@ buffer_ports
 | `-inputs`, `-outputs` | Insert a buffer between the input and load, output and load respectively. The default behavior is `-inputs` and `-outputs` set if neither is specified. |
 | `-max_utilization` | Defines the percentage of core area used. |
 
+#### Instance Name Prefixes
+
+`buffer_ports` uses the following prefixes for the buffer instances that it inserts:
+
+| Instance Prefix | Purpose |
+| ----- | ----- |
+| input | Buffering primary inputs |
+| output | Buffering primary outputs |
+
 ### Remove Buffers
 
 Use the `remove_buffers` command to remove buffers inserted by synthesis. This
@@ -248,7 +257,8 @@ repair_design
     [-slew_margin slew_margin]
     [-cap_margin cap_margin]
     [-max_utilization util]
-    [-buffer_gain gain_ratio]
+    [-pre_placement]
+    [-buffer_gain float_value] (deprecated)
     [-match_cell_footprint]
     [-verbose]
 ```
@@ -261,9 +271,23 @@ repair_design
 | `-slew_margin` | Add a slew margin. The default value is `0`, the allowed values are integers `[0, 100]`. |
 | `-cap_margin` | Add a capactitance margin. The default value is `0`, the allowed values are integers `[0, 100]`. |
 | `-max_utilization` | Defines the percentage of core area used. |
-| `-buffer_gain` | Enables gain-based buffering with the given gain value. |
+| `-pre_placement` | Enables performing an initial pre-placement sizing and buffering round. |
+| `-buffer_gain` | Deprecated alias for `-pre_placement`. The passed value is ignored. |
 | `-match_cell_footprint` | Obey the Liberty cell footprint when swapping gates. |
 | `-verbose` | Enable verbose logging on progress of the repair. |
+
+#### Instance Name Prefixes
+
+`repair_design` uses the following prefixes for the buffer instances that it inserts:
+
+| Instance Prefix | Purpose |
+| ----- | ----- |
+| fanout | Fixing max fanout |
+| gain | Gain based buffering |
+| load_slew | Fixing max transition violations |
+| max_cap | Fixing max capacitance |
+| max_length | Fixing max length |
+| wire | Repairs load slew, length, and max capacitance violations in net wire segment |
 
 ### Repair Tie Fanout
 
@@ -346,6 +370,17 @@ Use`-recover_power` to specify the percent of paths with positive slack which
 will be considered for gate resizing to save power. It is recommended that
 this option be used with global routing based parasitics. 
 
+#### Instance Name Prefixes
+
+`repair_timing` uses the following prefixes for the buffer and gate instances that it inserts:
+
+| Instance Prefix | Purpose |
+| ----- | ----- |
+| clone | Gate cloning |
+| hold | Hold fixing |
+| rebuffer | Buffering for setup fixing |
+| split | Split off non-critical loads behind a buffer to reduce load |
+
 ### Repair Clock Nets
 
 The `clock_tree_synthesis` command inserts a clock tree in the design
@@ -395,6 +430,23 @@ report_floating_nets
     [-verbose]
 ```
 
+### Report Overdriven Nets
+
+The `report_overdriven_nets` command reports nets with connected by multiple drivers.
+
+```tcl
+report_overdriven_nets
+    [-include_parallel_driven]
+    [-verbose]
+```
+
+#### Options
+
+| Switch Name | Description |
+| ----- | ----- |
+| `-include_parallel_driven` | Include nets that are driven by multiple parallel drivers. |
+| `-verbose` | Print the net names. |
+
 ### Eliminate Dead Logic
 
 The `eliminate_dead_logic` command eliminates dead logic, i.e. it removes standard cell instances which can be removed without affecting the function of the design.
@@ -429,21 +481,34 @@ If you are a developer, you might find these useful. More details can be found i
 
 ### Setting Optimization Configuration
 
-The `set_opt_config` command configures optimization settings that apply to all 
-optimization commands like repair_design and repair_timing.
+The `set_opt_config` command configures optimization settings that apply to
+data cell selection, affecting all optimization commands like repair_design and repair_timing.
+However, this does not apply to clock cell selection in clock_tree_synthesis or repair_clock_nets.
 
 ```tcl
 set_opt_config 
-    [-sizing_area_limit float_value]
-    [-sizing_leakage_limit float_value]
+    [-limit_sizing_area float_value]
+    [-limit_sizing_leakage float_value]
+    [-keep_sizing_site boolean_value]
+    [-keep_sizing_vt boolean_value]
+    [-set_early_sizing_cap_ratio float_value]
+    [-set_early_buffer_sizing_cap_ratio float_value]
+    [-sizing_area_limit float_value] (deprecated)
+    [-sizing_leakage_limit float_value] (deprecated)
 ```
 
 #### Options
 
 | Switch Name | Description |
 | ----- | ----- |
-| `-sizing_area_limit` | Don't consider cells whose area is more than float_value of the current cell during sizing. For example, if the value is 2, all cells with area more than 2X of the current cell will not be considered for sizing. The cell LEF will be used for area computation, not liberty cell area. |
-| `-sizing_leakage_limit` | Don't consider cells whose leakage is more than float_value of the current cell during sizing. For example, if the value is 2, all cells with leakage more than 2X of the current cell will not be considered for sizing. The leakage power will be computed from the current timing corner. |
+| `-limit_sizing_area` | Exclude cells from sizing if their area exceeds <float_value> times the current cell's area. For example, with 2.0, only cells with an area <= 2X the current cell's area are considered. The area is determined from LEF, not Liberty. |
+| `-limit_sizing_leakage` | Exclude cells from sizing if their leakage power exceeds <float_value> times the current cell's leakage. For example, with 2.0, only cells with leakage <= 2X the current cell's leakage are considered. Leakage power is based on the current timing corner. |
+| `-keep_sizing_site` | Ensure cells retain their original site type during sizing. This prevents short cells from being replaced by tall cells (or vice versa) in mixed-row designs. |
+| `-keep_sizing_vt` | Preserve the cell's VT type during sizing, preventing swaps between HVT and LVT cells. This works only if VT layers are defined in the LEF obstruction section. |
+| `-set_early_sizing_cap_ratio` | Maintain the specified ratio between input pin capacitance and output pin load when performing initial sizing of gates. |
+| `-set_early_buffer_sizing_cap_ratio` | Maintain the specified ratio between input pin capacitance and output pin load when performing initial sizing of buffers. |
+| `-sizing_area_limit` | Deprecated.   Use -limit_sizing_area instead. |
+| `-sizing_leakage_limit` | Deprecated.  Use -limit_sizing_leakage instead. |
 
 ### Reporting Optimization Configuration
 
@@ -455,21 +520,51 @@ report_opt_config
 
 ### Resetting Optimization Configuration
 
-The `reset_opt_config` command resets optimization settings applied from set_opt_config command.
+The `reset_opt_config` command resets optimization settings applied from `set_opt_config` command.
 If no options are specified, all optimization configurations are reset.
 
 ```tcl
 reset_opt_config 
-    [-sizing_area_limit]
-    [-sizing_leakage_limit]
+    [-limit_sizing_area]
+    [-limit_sizing_leakage]
+    [-keep_sizing_site]
+    [-keep_sizing_vt]
+    [-set_early_sizing_cap_ratio]
+    [-set_early_buffer_sizing_cap_ratio]
+    [-sizing_area_limit] (deprecated)
+    [-sizing_leakage_limit] (deprecated)
 ```
 
 #### Options
 
 | Switch Name | Description |
 | ----- | ----- |
-| `-sizing_area_limit` | Remove area restriction during sizing. |
-| `-sizing_leakage_limit` | Remove leakage power restriction during sizing. |
+| `-limit_sizing_area` | Remove area restriction during sizing. |
+| `-limit_sizing_leakage` | Remove leakage power restriction during sizing. |
+| `-keep_sizing_site` | Remove site restriction during sizing. |
+| `-keep_sizing_vt` | Remove VT type restriction during sizing. |
+| `-set_early_sizing_cap_ratio` | Remove capacitance ratio setting for early sizing. |
+| `-set_early_buffer_sizing_cap_ratio` | Remove capacitance ratio setting for early buffer sizing. |
+| `-sizing_area_limit` | Deprecated.  Use -limit_sizing_area instead. |
+| `-sizing_leakage_limit` | Deprecated.  Use -limit_sizing_leakage instead. |
+
+### Finding Equivalent Cells
+
+The `report_equiv_cells` command finds all functionally equivalent library cells for a given library cell with relative area and leakage power details.
+
+```tcl
+report_equiv_cells 
+    [-match_cell_footprint]
+    [-all]
+    lib_cell
+```
+
+#### Options
+
+| Switch Name | Description |
+| ----- | ----- |
+| `-match_cell_footprint` | Limit equivalent cell list to include only cells that match library cell_footprint attribute. |
+| `-all` | List all equivalent cells, ignoring sizing restrictions and cell_footprint.  Cells excluded due to these restrictions are marked with an asterisk. |
 
 ## Example scripts
 

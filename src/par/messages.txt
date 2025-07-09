@@ -1,0 +1,40 @@
+PAR 0001 PartitionMgr.cpp:747      Writing partition to verilog. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/PartitionMgr.cpp#L747
+PAR 0002 TritonPart.cpp:210        Partitioning hypergraph. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L210
+PAR 0003 TritonPart.cpp:251        Timing-driven mode is not supported! Disabling timing aware. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L251
+PAR 0004 TritonPart.cpp:299        Partitioning netlist. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L299
+PAR 0005 TritonPart.cpp:368        Reading netlist. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L368
+PAR 0006 TritonPart.cpp:422        Updated solution file name: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L422
+PAR 0007 TritonPart.cpp:457        Evaluating hypergraph partitioning solution. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L457
+PAR 0008 TritonPart.cpp:497        Cannot open the solution file : {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L497
+PAR 0009 TritonPart.cpp:508        Timing-driven mode is not supported! Disabling timing aware. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L508
+PAR 0010 TritonPart.cpp:668        Evaluating netlist partitioning solution. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L668
+PAR 0011 TritonPart.cpp:745        Reading netlist. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L745
+PAR 0012 TritonPart.cpp:862        Writing hypergraph. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L862
+PAR 0013 TritonPart.cpp:868        Writing integer weight hypergraph. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L868
+PAR 0015 PartitionMgr.cpp:756      Property 'partition_id' not found for inst {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/PartitionMgr.cpp#L756
+PAR 0017 TritonPart.cpp:1192       Read hypergraph has {} vertices and {} hyperedges. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L1192
+PAR 0018 TritonPart.cpp:1503       Read netlist has {} vertices, {} hyperedges and {} timing paths. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L1503
+PAR 0019 TritonPart.cpp:1711       The traversed timing graph has {} unconstrained hyperedges! WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L1711
+PAR 0021 TritonPart.cpp:1327       Cannot open the fixed instance file : {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L1327
+PAR 0022 TritonPart.cpp:1354       Cannot open the community file : {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L1354
+PAR 0023 TritonPart.cpp:1381       Cannot open the group file : {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L1381
+PAR 0024 TritonPart.cpp:1520       Timing driven partitioning is disabled WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L1520
+PAR 0025 PartitionMgr.cpp:827      Unable to open file {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/PartitionMgr.cpp#L827
+PAR 0026 PartitionMgr.cpp:836      Unable to find instance {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/PartitionMgr.cpp#L836
+PAR 0027 PartitionMgr.cpp:859      Unable to convert line \"{}\" to an integer in file: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/PartitionMgr.cpp#L859
+PAR 0028 PartitionMgr.cpp:870      Instances in partitioning ({}) does not match instances in  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/PartitionMgr.cpp#L870
+PAR 0029 TritonPart.cpp:877        Cannot open the solution file : {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L877
+PAR 0030 TritonPart.cpp:973        Cannot open the input hypergraph file : {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L973
+PAR 0031 TritonPart.cpp:1054       Cannot open the fixed file : {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L1054
+PAR 0032 TritonPart.cpp:1072       Cannot open the community file : {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L1072
+PAR 0033 TritonPart.cpp:1093       Cannot open the group file : {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L1093
+PAR 0034 TritonPart.cpp:1116       Cannot open the placement file : {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L1116
+PAR 0035 TritonPart.cpp:1477       There are no vertices or hyperedges ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L1477
+PAR 0036 PartitionMgr.cpp:849      Unable to open file {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/PartitionMgr.cpp#L849
+PAR 0037 TritonPart.cpp:1472       Extracting timing paths. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/TritonPart.cpp#L1472
+PAR 0051 partitionmgr.tcl:996      Missing mandatory argument -read_file ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/partitionmgr.tcl#L996
+PAR 0103 partitionmgr.tcl:487      No design block found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/partitionmgr.tcl#L487
+PAR 0104 partitionmgr.tcl:808      No design block found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/partitionmgr.tcl#L808
+PAR 0142 Evaluator.cpp:268         This no timing-critical paths when calling GetTimingCuts() WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/Evaluator.cpp#L268
+PAR 0924 partitionmgr.tcl:82       Missing mandatory argument -hypergraph_file. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/partitionmgr.tcl#L82
+PAR 0925 partitionmgr.tcl:318      Missing mandatory argument -hypergraph_file. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/par/src/partitionmgr.tcl#L318

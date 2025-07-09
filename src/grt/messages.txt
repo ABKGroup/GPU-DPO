@@ -1,0 +1,183 @@
+GRT 0001 GlobalRouter.cpp:1117     Minimum degree: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L1117
+GRT 0002 GlobalRouter.cpp:1118     Maximum degree: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L1118
+GRT 0003 GlobalRouter.cpp:4049     Macros: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L4049
+GRT 0004 GlobalRouter.cpp:3771     Blockages: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L3771
+GRT 0005 GlobalRouter.tcl:478      Layer $layer_name not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L478
+GRT 0006 GlobalRouter.cpp:407      Repairing antennas, iteration {}. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L407
+GRT 0007 GlobalRouter.cpp:272      Design does not have any routable net  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L272
+GRT 0008 GlobalRouter.cpp:2084     The read_guides command does not allow parasitics estimation  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2084
+GRT 0009 GlobalRouter.cpp:4839     rerouting {} nets. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L4839
+GRT 0010 GlobalRouter.cpp:3617     Instance {} is not placed. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L3617
+GRT 0011 GlobalRouter.cpp:3689     Pin {} is not placed. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L3689
+GRT 0012 RepairAntennas.cpp:101    Found {} antenna violations. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/RepairAntennas.cpp#L101
+GRT 0014 GlobalRouter.cpp:329      Routed nets: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L329
+GRT 0015 GlobalRouter.cpp:437      Inserted {} diodes. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L437
+GRT 0018 GlobalRouter.cpp:3002     Total wirelength: {} um INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L3002
+GRT 0019 GlobalRouter.cpp:3557     Found {} clock nets. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L3557
+GRT 0020 GlobalRouter.cpp:4421     Min routing layer: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L4421
+GRT 0021 GlobalRouter.cpp:4422     Max routing layer: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L4422
+GRT 0022 GlobalRouter.cpp:4423     Global adjustment: {}% INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L4423
+GRT 0023 GlobalRouter.cpp:4424     Grid origin: ({}, {}) INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L4424
+GRT 0025 MakeWireParasitics.cpp:224 Non wire or via route found on net {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/MakeWireParasitics.cpp#L224
+GRT 0026 MakeWireParasitics.cpp:324 Missing route to pin {} in net {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/MakeWireParasitics.cpp#L324
+GRT 0027 RepairAntennas.cpp:448    Design has rows with different site widths. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/RepairAntennas.cpp#L448
+GRT 0028 GlobalRouter.cpp:4044     Found {} pins outside die area. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L4044
+GRT 0029 GlobalRouter.cpp:3655     Pin {} does not have geometries below the max routing layer ({}). ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L3655
+GRT 0030 GlobalRouter.cpp:1906     Specified layer {} for adjustment is greater than max  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L1906
+GRT 0031 GlobalRouter.cpp:2954     At least 2 pins in position ({}, {}), layer {}, port {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2954
+GRT 0034 GlobalRouter.cpp:3606     Net connected to instance of class COVER added for routing. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L3606
+GRT 0035 GlobalRouter.cpp:3638     Pin {} is outside die area. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L3638
+GRT 0036 GlobalRouter.cpp:3700     Pin {} is outside die area. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L3700
+GRT 0037 GlobalRouter.cpp:3838     Found blockage outside die area. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L3838
+GRT 0038 GlobalRouter.cpp:3990     Found blockage outside die area in instance {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L3990
+GRT 0039 GlobalRouter.cpp:4027     Found pin {} outside die area in instance {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L4027
+GRT 0041 GlobalRouter.cpp:4132     Net {} has wires/vias outside die area. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L4132
+GRT 0042 GlobalRouter.cpp:3727     Pin {} does not have geometries in a valid routing layer. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L3727
+GRT 0043 GlobalRouter.cpp:4349     No OR_DEFAULT vias defined. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L4349
+GRT 0044 GlobalRouter.tcl:34       set_global_routing_layer_adjustment requires layer and adj arguments. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L34
+GRT 0045 GlobalRouter.tcl:282      Run global_route before repair_antennas. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L282
+GRT 0047 GlobalRouter.tcl:48       Missing dbTech. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L48
+GRT 0048 GlobalRouter.tcl:56       Command set_global_routing_region_adjustment is missing -layer argument. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L56
+GRT 0051 GlobalRouter.tcl:165      Missing dbTech. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L165
+GRT 0052 GlobalRouter.tcl:169      Missing dbBlock. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L169
+GRT 0053 GlobalRouter.cpp:4436     Routing resources analysis: INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L4436
+GRT 0055 GlobalRouter.tcl:180      Wrong number of arguments for origin. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L180
+GRT 0059 GlobalRouter.tcl:450      Missing technology file. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L450
+GRT 0060 GlobalRouter.tcl:462      Layer [$tech_layer getConstName] is greater than\      the max routing layer ([$max_tech_layer getConstName]). ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L462
+GRT 0061 GlobalRouter.tcl:466      Layer [$tech_layer getConstName] is less than the\      min routing layer ([$min_tech_layer getConstName]). ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L466
+GRT 0062 GlobalRouter.tcl:493      Input format to define layer range for $cmd is min-max. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L493
+GRT 0063 GlobalRouter.tcl:500      Missing dbBlock. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L500
+GRT 0064 GlobalRouter.tcl:506      Lower left x is outside die area. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L506
+GRT 0065 GlobalRouter.tcl:510      Lower left y is outside die area. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L510
+GRT 0066 GlobalRouter.tcl:514      Upper right x is outside die area. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L514
+GRT 0067 GlobalRouter.tcl:518      Upper right y is outside die area. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L518
+GRT 0068 RepairAntennas.cpp:176    Global route segment for net {} not  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/RepairAntennas.cpp#L176
+GRT 0069 GlobalRouter.tcl:247      Diode cell $diode_cell not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L247
+GRT 0070 GlobalRouter.cpp:587      Layer {} does not have track grid. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L587
+GRT 0071 GlobalRouter.cpp:1428     Layer spacing not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L1428
+GRT 0072 GlobalRouter.cpp:1587     Informed region is outside die area. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L1587
+GRT 0073 GlobalRouter.tcl:260      Diode cell has more than one non power/ground port. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L260
+GRT 0074 GlobalRouter.cpp:2466     Routing with guides in blocked metal for net {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2466
+GRT 0075 GlobalRouter.cpp:2438     Connection between non-adjacent layers in net {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2438
+GRT 0076 GlobalRouter.cpp:2801     Net {} does not have route guides. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2801
+GRT 0079 GlobalRouter.cpp:2941     Pin {} does not have layer assignment. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2941
+GRT 0080 GlobalRouter.cpp:2970     Invalid pin placement. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2970
+GRT 0084 GlobalRouter.cpp:578      Layer {} does not have a valid direction. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L578
+GRT 0085 GlobalRouter.cpp:573      Routing layer {} not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L573
+GRT 0086 GlobalRouter.cpp:3374     Track for layer {} not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L3374
+GRT 0088 GlobalRouter.cpp:3389     Layer {:7s} Track-Pitch = {:.4f}  line-2-Via Pitch: {:.4f} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L3389
+GRT 0090 GlobalRouter.cpp:3449     Track for layer {} not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L3449
+GRT 0094 GlobalRouter.cpp:4058     Design with no nets. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L4058
+GRT 0096 GlobalRouter.cpp:4488     Final congestion report: INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L4488
+GRT 0101 FastRoute.cpp:1069        Running extra iterations to remove overflow. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/FastRoute.cpp#L1069
+GRT 0103 FastRoute.cpp:1197        Extra Run for hard benchmark. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/FastRoute.cpp#L1197
+GRT 0104 GlobalRouter.tcl:234      No design block found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L234
+GRT 0111 FastRoute.cpp:1367        Final number of vias: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/FastRoute.cpp#L1367
+GRT 0112 FastRoute.cpp:1368        Final usage 3D: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/FastRoute.cpp#L1368
+GRT 0113 FastRoute.cpp:410         Underflow in reduce: cap, reducedCap: {}, {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/FastRoute.cpp#L410
+GRT 0114 FastRoute.cpp:448         Underflow in reduce: cap, reducedCap: {}, {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/FastRoute.cpp#L448
+GRT 0115 GlobalRouter.cpp:338      Global routing finished with congestion. Check the  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L338
+GRT 0116 GlobalRouter.cpp:343      Global routing finished with congestion. Check the  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L343
+GRT 0120 heatMapRudy.cpp:97        Instance {} is not placed. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/heatMapRudy.cpp#L97
+GRT 0121 GlobalRouter.cpp:399      repair_antennas should perform only one iteration when the  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L399
+GRT 0122 RipUp.cpp:379             Maze ripup wrong for net {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/RipUp.cpp#L379
+GRT 0123 RipUp.cpp:501             Maze ripup wrong in newRipupNet for net {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/RipUp.cpp#L501
+GRT 0125 maze.cpp:615              Setup heap: not maze routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/maze.cpp#L615
+GRT 0126 GlobalRouter.cpp:607      Layers {} and {} have the same preferred routing direction ({}). ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L607
+GRT 0149 utility.cpp:2035          Invalid access to nbrCnt vector ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/utility.cpp#L2035
+GRT 0150 maze.cpp:1487             Net {} has errors during updateRouteType1. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/maze.cpp#L1487
+GRT 0164 utility.cpp:1739          Initial grid wrong y1 x1 [{} {}], net start [{} {}] routelen  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/utility.cpp#L1739
+GRT 0165 utility.cpp:1753          End grid wrong y2 x2 [{} {}], net start [{} {}] routelen {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/utility.cpp#L1753
+GRT 0166 utility.cpp:1769          Net {} edge[{}] maze route wrong, distance {}, i {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/utility.cpp#L1769
+GRT 0167 utility.cpp:1783          Invalid 2D tree for net {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/utility.cpp#L1783
+GRT 0169 maze.cpp:815              Net {}: Invalid index for position ({}, {}). Net degree: {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/maze.cpp#L815
+GRT 0170 GlobalRouter.cpp:2021     Load a design before running the global router commands. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2021
+GRT 0171 maze3D.cpp:380            Invalid index for position ({}, {}). ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/maze3D.cpp#L380
+GRT 0172 maze3D.cpp:704            Invalid index for position ({}, {}). ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/maze3D.cpp#L704
+GRT 0179 route.cpp:303             Wrong node status {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/route.cpp#L303
+GRT 0181 route.cpp:910             Wrong node status {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/route.cpp#L910
+GRT 0183 maze3D.cpp:1121           Net {}: heap underflow during 3D maze routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/maze3D.cpp#L1121
+GRT 0187 maze3D.cpp:366            In 3D maze routing, type 1 node shift, cnt_n1A1 is 1. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/maze3D.cpp#L366
+GRT 0188 RSMT.cpp:111              Invalid number of node neighbors. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/RSMT.cpp#L111
+GRT 0189 RSMT.cpp:119              Failure in copy tree. Number of edges: {}. Number of nodes: {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/RSMT.cpp#L119
+GRT 0197 utility.cpp:339           Via related to pin nodes: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/utility.cpp#L339
+GRT 0198 utility.cpp:340           Via related Steiner nodes: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/utility.cpp#L340
+GRT 0199 utility.cpp:341           Via filling finished. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/utility.cpp#L341
+GRT 0200 utility.cpp:579           Start point not assigned. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/utility.cpp#L579
+GRT 0201 maze.cpp:686              Setup heap: not maze routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/maze.cpp#L686
+GRT 0202 utility.cpp:685           Target ending layer ({}) out of range. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/utility.cpp#L685
+GRT 0203 utility.cpp:1090          Caused floating pin node. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/utility.cpp#L1090
+GRT 0204 utility.cpp:1173          Invalid layer value in gridsL, {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/utility.cpp#L1173
+GRT 0206 utility.cpp:1309          Trying to recover a 0-length edge. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/utility.cpp#L1309
+GRT 0207 utility.cpp:1720          Ripped up edge without edge length reassignment. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/utility.cpp#L1720
+GRT 0208 utility.cpp:1728          Route length {}, tree length {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/utility.cpp#L1728
+GRT 0209 GlobalRouter.cpp:3705     Pin {} is completely outside the die area and  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L3705
+GRT 0213 FastRoute.cpp:587         Cannot get available resources: edge is not vertical or horizontal. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/FastRoute.cpp#L587
+GRT 0214 FastRoute.cpp:605         Cannot get edge capacity: edge is not vertical or horizontal. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/FastRoute.cpp#L605
+GRT 0215 GlobalRouter.tcl:276      -ratio_margin must be between 0 and 100 percent. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L276
+GRT 0219 GlobalRouter.tcl:105      Command set_macro_extension needs one argument: extension. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L105
+GRT 0221 RepairAntennas.cpp:258    Cannot create wire for net {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/RepairAntennas.cpp#L258
+GRT 0222 GlobalRouter.tcl:473      No technology has been read. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L473
+GRT 0223 GlobalRouter.tcl:329      Missing dbBlock. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L329
+GRT 0224 GlobalRouter.tcl:413      Missing dbBlock. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L413
+GRT 0225 RipUp.cpp:106             Maze ripup wrong in newRipup. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/RipUp.cpp#L106
+GRT 0226 RipUp.cpp:197             Net {} ripup type is {}. Expected LRoute. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/RipUp.cpp#L197
+GRT 0228 utility.cpp:1616          Horizontal edge usage exceeds the maximum allowed.  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/utility.cpp#L1616
+GRT 0229 utility.cpp:1630          Vertical edge usage exceeds the maximum allowed.  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/utility.cpp#L1630
+GRT 0230 FastRoute.cpp:1337        Congestion iterations cannot increase overflow, reached the  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/FastRoute.cpp#L1337
+GRT 0231 GlobalRouter.tcl:387      Net name not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L387
+GRT 0232 GlobalRouter.cpp:4902     Routing congestion too high. Check the congestion  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L4902
+GRT 0233 GlobalRouter.cpp:2103     Failed to open guide file {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2103
+GRT 0234 GlobalRouter.cpp:2126     Cannot find net {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2126
+GRT 0235 GlobalRouter.cpp:2146     Cannot find layer {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2146
+GRT 0236 GlobalRouter.cpp:2155     Error reading guide file {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2155
+GRT 0237 GlobalRouter.cpp:4628     Net {} global route wire length: {:.2f}um INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L4628
+GRT 0238 GlobalRouter.tcl:443      -net is required. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L443
+GRT 0239 GlobalRouter.cpp:4652     Net {} does not have detailed route. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L4652
+GRT 0240 GlobalRouter.cpp:4658     Net {} detailed route wire length: {:.2f}um INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L4658
+GRT 0241 GlobalRouter.cpp:4623     Net {} does not have global route. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L4623
+GRT 0242 GlobalRouter.tcl:125      -seed argument is required. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L125
+GRT 0243 RepairAntennas.cpp:501    Unable to repair antennas on net with diodes. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/RepairAntennas.cpp#L501
+GRT 0244 GlobalRouter.cpp:384      Diode {}/{} ANTENNADIFFAREA is zero. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L384
+GRT 0245 GlobalRouter.tcl:263      Too arguments to repair_antennas. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L263
+GRT 0246 GlobalRouter.cpp:378      No diode with LEF class CORE ANTENNACELL found. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L378
+GRT 0247 utility.cpp:1508          v_edge mismatch {} vs {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/utility.cpp#L1508
+GRT 0248 utility.cpp:1519          h_edge mismatch {} vs {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/utility.cpp#L1519
+GRT 0249 GlobalRouter.cpp:2090     Load design before reading guides ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2090
+GRT 0250 GlobalRouter.cpp:2135     Net {} has guides but is not routed by the global  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2135
+GRT 0251 GlobalRouter.cpp:279      The start_incremental and end_incremental flags cannot be  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L279
+GRT 0252 GlobalRouter.tcl:296      Missing dbBlock. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L296
+GRT 0253 GlobalRouter.cpp:2317     Detected invalid guide dimensions: ({}, {}). ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2317
+GRT 0254 utility.cpp:226           Edge has no previous routing. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/utility.cpp#L226
+GRT 0255 GlobalRouter.cpp:2506     Global route segments file could not be opened. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2506
+GRT 0256 GlobalRouter.cpp:2540     Load design before reading guides ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2540
+GRT 0257 GlobalRouter.cpp:2553     Failed to open global route segments file {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2553
+GRT 0258 GlobalRouter.cpp:2574     Cannot find net {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2574
+GRT 0259 GlobalRouter.cpp:2580     Cannot find layer {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2580
+GRT 0260 GlobalRouter.cpp:2583     Cannot find layer {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2583
+GRT 0261 GlobalRouter.cpp:2593     Error reading global route segments file {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2593
+GRT 0262 GlobalRouter.cpp:2599     Net {} has disconnected segments. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2599
+GRT 0263 GlobalRouter.cpp:2604     Pin(s) {}not covered in net {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2604
+GRT 0264 GlobalRouter.cpp:2694     Segment {} of net {} is not a horizontal/vertical line or via. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2694
+GRT 0265 GlobalRouter.cpp:2723     Segment {} of net {} is not a horizontal/vertical line or via. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2723
+GRT 0266 GlobalRouter.cpp:694      Net {} does not cover all its pins. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L694
+GRT 0267 GlobalRouter.cpp:670      Net {} has disconnected segments. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L670
+GRT 0268 GlobalRouter.cpp:716      Net {} has no driver pin. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L716
+GRT 0269 GlobalRouter.tcl:395      -net argument is required. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.tcl#L395
+GRT 0270 GlobalRouter.cpp:223      Load a design before running the global router commands. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L223
+GRT 0300 GlobalRouter.cpp:2063     Timing is not available, setting critical nets percentage to 0. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L2063
+GRT 0301 GlobalRouter.cpp:1890     Timing is not available, setting critical nets percentage to 0. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L1890
+GRT 0302 RepairAntennas.cpp:1458   Inserted {} jumpers for {} nets. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/RepairAntennas.cpp#L1458
+GRT 0350 MakeWireParasitics.cpp:426 Missing route to pin {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/MakeWireParasitics.cpp#L426
+GRT 0500 RipUp.cpp:269             Route type is not maze, netID {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/RipUp.cpp#L269
+GRT 0601 maze3D.cpp:896            Unable to update: position not found in 3D  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/maze3D.cpp#L896
+GRT 0602 maze3D.cpp:941            Unable to update: position not found in 3D  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/maze3D.cpp#L941
+GRT 0603 maze3D.cpp:986            Unable to update: position not found in 3D  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/maze3D.cpp#L986
+GRT 0604 maze3D.cpp:1029           Unable to update: position not found in 3D  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/maze3D.cpp#L1029
+GRT 0605 maze3D.cpp:1071           Unable to update: position not found in 3D heap for net {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/maze3D.cpp#L1071
+GRT 0606 maze3D.cpp:1111           Unable to update: position not found in 3D heap for net {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/maze3D.cpp#L1111
+GRT 0607 maze.cpp:1184             Unable to update: position not found in 2D heap for net {}. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/maze.cpp#L1184
+GRT 0701 GlobalRouter.cpp:4158     Missing track structure for routing layers. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L4158
+GRT 0703 GlobalRouter.cpp:4243     No segment was found in the routing that connects to the  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/GlobalRouter.cpp#L4243
+GRT 1247 utility.cpp:1583          v_edge mismatch {} vs {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/utility.cpp#L1583
+GRT 1248 utility.cpp:1596          h_edge mismatch {} vs {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/grt/src/fastroute/src/utility.cpp#L1596

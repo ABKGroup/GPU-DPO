@@ -1,43 +1,15 @@
-///////////////////////////////////////////////////////////////////////////////
-// BSD 3-Clause License
-//
-// Copyright (c) 2020, The Regents of the University of California
-// All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are met:
-//
-// * Redistributions of source code must retain the above copyright notice, this
-//   list of conditions and the following disclaimer.
-//
-// * Redistributions in binary form must reproduce the above copyright notice,
-//   this list of conditions and the following disclaimer in the documentation
-//   and/or other materials provided with the distribution.
-//
-// * Neither the name of the copyright holder nor the names of its
-//   contributors may be used to endorse or promote products derived from
-//   this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
-// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-// POSSIBILITY OF SUCH DAMAGE.
+// SPDX-License-Identifier: BSD-3-Clause
+// Copyright (c) 2020-2025, The OpenROAD Authors
 
 // Generator Code Begin Cpp
 #include "dbTechLayerCutSpacingTableDefRule.h"
 
 #include <cstdint>
 #include <cstring>
+#include <map>
+#include <string>
 
 #include "dbDatabase.h"
-#include "dbDiff.hpp"
 #include "dbTable.h"
 #include "dbTable.hpp"
 #include "dbTechLayer.h"
@@ -146,78 +118,6 @@ bool _dbTechLayerCutSpacingTableDefRule::operator<(
   return true;
 }
 
-void _dbTechLayerCutSpacingTableDefRule::differences(
-    dbDiff& diff,
-    const char* field,
-    const _dbTechLayerCutSpacingTableDefRule& rhs) const
-{
-  DIFF_BEGIN
-  DIFF_FIELD(flags_.default_valid_);
-  DIFF_FIELD(flags_.same_mask_);
-  DIFF_FIELD(flags_.same_net_);
-  DIFF_FIELD(flags_.same_metal_);
-  DIFF_FIELD(flags_.same_via_);
-  DIFF_FIELD(flags_.layer_valid_);
-  DIFF_FIELD(flags_.no_stack_);
-  DIFF_FIELD(flags_.non_zero_enclosure_);
-  DIFF_FIELD(flags_.prl_for_aligned_cut_);
-  DIFF_FIELD(flags_.center_to_center_valid_);
-  DIFF_FIELD(flags_.center_and_edge_valid_);
-  DIFF_FIELD(flags_.no_prl_);
-  DIFF_FIELD(flags_.prl_valid_);
-  DIFF_FIELD(flags_.max_x_y_);
-  DIFF_FIELD(flags_.end_extension_valid_);
-  DIFF_FIELD(flags_.side_extension_valid_);
-  DIFF_FIELD(flags_.exact_aligned_spacing_valid_);
-  DIFF_FIELD(flags_.horizontal_);
-  DIFF_FIELD(flags_.prl_horizontal_);
-  DIFF_FIELD(flags_.vertical_);
-  DIFF_FIELD(flags_.prl_vertical_);
-  DIFF_FIELD(flags_.non_opposite_enclosure_spacing_valid_);
-  DIFF_FIELD(flags_.opposite_enclosure_resize_spacing_valid_);
-  DIFF_FIELD(default_);
-  DIFF_FIELD(second_layer_);
-  DIFF_FIELD(prl_);
-  DIFF_FIELD(extension_);
-  DIFF_END
-}
-
-void _dbTechLayerCutSpacingTableDefRule::out(dbDiff& diff,
-                                             char side,
-                                             const char* field) const
-{
-  DIFF_OUT_BEGIN
-  DIFF_OUT_FIELD(flags_.default_valid_);
-  DIFF_OUT_FIELD(flags_.same_mask_);
-  DIFF_OUT_FIELD(flags_.same_net_);
-  DIFF_OUT_FIELD(flags_.same_metal_);
-  DIFF_OUT_FIELD(flags_.same_via_);
-  DIFF_OUT_FIELD(flags_.layer_valid_);
-  DIFF_OUT_FIELD(flags_.no_stack_);
-  DIFF_OUT_FIELD(flags_.non_zero_enclosure_);
-  DIFF_OUT_FIELD(flags_.prl_for_aligned_cut_);
-  DIFF_OUT_FIELD(flags_.center_to_center_valid_);
-  DIFF_OUT_FIELD(flags_.center_and_edge_valid_);
-  DIFF_OUT_FIELD(flags_.no_prl_);
-  DIFF_OUT_FIELD(flags_.prl_valid_);
-  DIFF_OUT_FIELD(flags_.max_x_y_);
-  DIFF_OUT_FIELD(flags_.end_extension_valid_);
-  DIFF_OUT_FIELD(flags_.side_extension_valid_);
-  DIFF_OUT_FIELD(flags_.exact_aligned_spacing_valid_);
-  DIFF_OUT_FIELD(flags_.horizontal_);
-  DIFF_OUT_FIELD(flags_.prl_horizontal_);
-  DIFF_OUT_FIELD(flags_.vertical_);
-  DIFF_OUT_FIELD(flags_.prl_vertical_);
-  DIFF_OUT_FIELD(flags_.non_opposite_enclosure_spacing_valid_);
-  DIFF_OUT_FIELD(flags_.opposite_enclosure_resize_spacing_valid_);
-  DIFF_OUT_FIELD(default_);
-  DIFF_OUT_FIELD(second_layer_);
-  DIFF_OUT_FIELD(prl_);
-  DIFF_OUT_FIELD(extension_);
-
-  DIFF_END
-}
-
 _dbTechLayerCutSpacingTableDefRule::_dbTechLayerCutSpacingTableDefRule(
     _dbDatabase* db)
 {
@@ -225,42 +125,6 @@ _dbTechLayerCutSpacingTableDefRule::_dbTechLayerCutSpacingTableDefRule(
   default_ = 0;
   prl_ = 0;
   extension_ = 0;
-}
-
-_dbTechLayerCutSpacingTableDefRule::_dbTechLayerCutSpacingTableDefRule(
-    _dbDatabase* db,
-    const _dbTechLayerCutSpacingTableDefRule& r)
-{
-  flags_.default_valid_ = r.flags_.default_valid_;
-  flags_.same_mask_ = r.flags_.same_mask_;
-  flags_.same_net_ = r.flags_.same_net_;
-  flags_.same_metal_ = r.flags_.same_metal_;
-  flags_.same_via_ = r.flags_.same_via_;
-  flags_.layer_valid_ = r.flags_.layer_valid_;
-  flags_.no_stack_ = r.flags_.no_stack_;
-  flags_.non_zero_enclosure_ = r.flags_.non_zero_enclosure_;
-  flags_.prl_for_aligned_cut_ = r.flags_.prl_for_aligned_cut_;
-  flags_.center_to_center_valid_ = r.flags_.center_to_center_valid_;
-  flags_.center_and_edge_valid_ = r.flags_.center_and_edge_valid_;
-  flags_.no_prl_ = r.flags_.no_prl_;
-  flags_.prl_valid_ = r.flags_.prl_valid_;
-  flags_.max_x_y_ = r.flags_.max_x_y_;
-  flags_.end_extension_valid_ = r.flags_.end_extension_valid_;
-  flags_.side_extension_valid_ = r.flags_.side_extension_valid_;
-  flags_.exact_aligned_spacing_valid_ = r.flags_.exact_aligned_spacing_valid_;
-  flags_.horizontal_ = r.flags_.horizontal_;
-  flags_.prl_horizontal_ = r.flags_.prl_horizontal_;
-  flags_.vertical_ = r.flags_.vertical_;
-  flags_.prl_vertical_ = r.flags_.prl_vertical_;
-  flags_.non_opposite_enclosure_spacing_valid_
-      = r.flags_.non_opposite_enclosure_spacing_valid_;
-  flags_.opposite_enclosure_resize_spacing_valid_
-      = r.flags_.opposite_enclosure_resize_spacing_valid_;
-  flags_.spare_bits_ = r.flags_.spare_bits_;
-  default_ = r.default_;
-  second_layer_ = r.second_layer_;
-  prl_ = r.prl_;
-  extension_ = r.extension_;
 }
 
 dbIStream& operator>>(dbIStream& stream,

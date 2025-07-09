@@ -1,0 +1,233 @@
+ODB 0273 dbUtil.cpp:177            Create ND RULE {} for layer/width {},{} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/dbUtil.cpp#L177
+ODB 0400 dbUtil.cpp:273            Cannot create wire, because net name is nullptr\n WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/dbUtil.cpp#L273
+ODB 0401 dbUtil.cpp:276            Cannot create wire, because routing layer ({}) is invalid WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/dbUtil.cpp#L276
+ODB 0402 dbUtil.cpp:326            Cannot create net %s, because wire width ({}) is less than  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/dbUtil.cpp#L326
+ODB 0403 dbUtil.cpp:353            Cannot create net {}, because failed to create bterms WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/dbUtil.cpp#L353
+ODB 0404 dbUtil.cpp:508            Cannot create wire, because net name is nullptr WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/dbUtil.cpp#L508
+ODB 0405 dbUtil.cpp:511            Cannot create wire, because routing layer ({}) is invalid WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/dbUtil.cpp#L511
+ODB 0406 dbUtil.cpp:587            Cannot create net {}, duplicate net WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/dbUtil.cpp#L587
+ODB 0407 dbUtil.cpp:601            Cannot create net {}, because failed to create bterms WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/dbUtil.cpp#L601
+RCX 0001 ext.cpp:303               Reading SPEF file: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/ext.cpp#L303
+RCX 0002 ext.cpp:311               Filename is not defined! ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/ext.cpp#L311
+RCX 0003 netRC.cpp:2336            Read SPEF into extracted db! WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L2336
+RCX 0005 netRC.cpp:2348            Can't open SPEF file {} to write. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L2348
+RCX 0007 extBench.cpp:458          Finished {} measurements for pattern MET_UNDER_MET INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extBench.cpp#L458
+RCX 0008 netRC.cpp:2332            There is no extraction db! WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L2332
+RCX 0009 extDefPatterns.cpp:916    Finished {} measurements for pattern MET_UNDER_MET INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extDefPatterns.cpp#L916
+RCX 0010 extDefPatterns.cpp:978    Finished {} measurements for pattern MET_UNDER_MET INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extDefPatterns.cpp#L978
+RCX 0011 extDefPatterns.cpp:1048   Finished {} measurements for pattern MET_UNDER_MET INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extDefPatterns.cpp#L1048
+RCX 0019 ext.cpp:361               diffing spef {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/ext.cpp#L361
+RCX 0021 ext.cpp:414               calibrate on spef file  {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/ext.cpp#L414
+RCX 0029 ext.cpp:170               Defined extraction corner {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/ext.cpp#L170
+RCX 0030 ext.cpp:181               The original process corner name is required ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/ext.cpp#L181
+RCX 0031 ext.cpp:190               Defined Derived extraction corner {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/ext.cpp#L190
+RCX 0040 netRC.cpp:1880            Final {} rc segments INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L1880
+RCX 0042 extSpef.cpp:1548          {} nets finished INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpef.cpp#L1548
+RCX 0043 extFlow_v2.cpp:134        {} wires to be extracted INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extFlow_v2.cpp#L134
+RCX 0044 extSpefIn.cpp:2658        {} spef insts not found in db. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2658
+RCX 0045 netRC.cpp:1987            Extract {} nets, {} rsegs, {} caps, {} ccs INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L1987
+RCX 0046 util.cpp:34               Can not find net {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/util.cpp#L34
+RCX 0047 extSpef.cpp:1587          {} nets finished INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpef.cpp#L1587
+RCX 0048 extSpefIn.cpp:2649        {} db nets not read from spef. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2649
+RCX 0049 extSpefIn.cpp:2652        {} db insts not read from spef. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2652
+RCX 0050 extSpefIn.cpp:2655        {} spef nets not found in db. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2655
+RCX 0052 extSpefIn.cpp:2662        Unmatched spef and db! ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2662
+RCX 0055 extBench.cpp:267          Finished {} bench measurements for pattern MET_OVER_MET INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extBench.cpp#L267
+RCX 0056 extDefPatternsVia.cpp:226 Finished {} bench measurements for pattern VIA INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extDefPatternsVia.cpp#L226
+RCX 0057 extBench.cpp:327          Finished {} bench measurements for pattern MET_UNDER_MET INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extBench.cpp#L327
+RCX 0058 extBench.cpp:389          Finished {} bench measurements for pattern MET_DIAGUNDER_MET INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extBench.cpp#L389
+RCX 0059 extDefPatterns.cpp:849    Finished {} bench measurements for pattern MET_OVER_MET INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extDefPatterns.cpp#L849
+RCX 0060 extSpefIn.cpp:2605             merged {} coupling caps INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2605
+RCX 0065 extmain.cpp:615             layer {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmain.cpp#L615
+RCX 0072 extRCmodel.cpp:3184       Can't find <OVER> rules for {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel.cpp#L3184
+RCX 0074 extmeasure.cpp:53         Cannot find net {} from the {} table entry {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmeasure.cpp#L53
+RCX 0076 extSpefIn.cpp:563         Cap Node {} not extracted WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L563
+RCX 0077 extSpefIn.cpp:734         Spef net {} not found in db. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L734
+RCX 0078 extSpefIn.cpp:2230        Break simple loop of {} nets WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2230
+RCX 0079 extmeasure.cpp:1782       Have processed {} CC caps, and stored {} CC caps INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmeasure.cpp#L1782
+RCX 0081 extFlow.cpp:273           Die Area for the block has 0 size, or is undefined! ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extFlow.cpp#L273
+RCX 0082 extFlow.cpp:291           Layer {}, routing level {}, has pitch {}!! ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extFlow.cpp#L291
+RCX 0107 netRC.cpp:1995            Nothing is extracted out of {} nets! WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L1995
+RCX 0110 netRC.cpp:607             Net {} has no wires. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L607
+RCX 0111 netRC.cpp:655             Net {} {} has a loop at x={} y={} {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L655
+RCX 0112 netRC.cpp:753             Can't locate bterm {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L753
+RCX 0113 netRC.cpp:758             Can't locate iterm {}/{} ( {} ) ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L758
+RCX 0114 netRC.cpp:766             Net {} {} does not start from an iterm or a bterm. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L766
+RCX 0115 netRC.cpp:773             Net {} {} already has rseg! ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L773
+RCX 0117 extmain_v2.cpp:744        Net {} {} has a loop at x={} y={} {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmain_v2.cpp#L744
+RCX 0120 netRC.cpp:1187            No matching process corner for scaled corner {}, model {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L1187
+RCX 0121 netRC.cpp:1333            The corresponding process corner has to be defined using the  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L1333
+RCX 0122 netRC.cpp:1349            A process corner for Extraction RC Model {} has already been  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L1349
+RCX 0127 netRC.cpp:1770            No RC model was read with command <load_model>,  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L1770
+RCX 0128 netRC.cpp:1810            skipping Extraction ... INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L1810
+RCX 0129 netRC.cpp:1814            Wrong combination of corner related options! WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L1814
+RCX 0134 netRC.cpp:2231            Can't execute write_spef command. There's no extraction data. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L2231
+RCX 0135 netRC.cpp:2156            Corner {} is out of range; There are {} corners in DB! WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L2156
+RCX 0136 netRC.cpp:2180            Can't find corner name {} in the parasitics DB! INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L2180
+RCX 0137 netRC.cpp:2250            Can't open file \"{}\" to write spef. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L2250
+RCX 0138 extmain.cpp:310           {} layers are missing resistance value; Check LEF file.  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmain.cpp#L310
+RCX 0139 extmain.cpp:302           Missing Resistance value for layer {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmain.cpp#L302
+RCX 0140 extmain.cpp:514           Have processed {} total segments, {} signal segments, {} CC  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmain.cpp#L514
+RCX 0141 extmain.cpp:593           Context of layer {} xy={} len={} base={} width={} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmain.cpp#L593
+RCX 0142 extmain.cpp:605             layer {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmain.cpp#L605
+RCX 0143 extmain.cpp:617               {}: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmain.cpp#L617
+RCX 0144 ext.cpp:436               \nSpef List option -spef_file_list is required\n ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/ext.cpp#L436
+RCX 0145 ext.cpp:439               \nCorner List option -corner_list  is required\n ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/ext.cpp#L439
+RCX 0146 ext.cpp:470               \nCorner List option -corner_list  is required\n ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/ext.cpp#L470
+RCX 0147 ext.cpp:155               bench_verilog: file is not defined! ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/ext.cpp#L155
+RCX 0148 ext.cpp:209               Extraction corner {} not found! WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/ext.cpp#L209
+RCX 0150 ext.cpp:452               \nMismatch of number Corners and Spef Files\n ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/ext.cpp#L452
+RCX 0152 extprocess.cpp:1049       Can't determine Top Width for Conductor <{}> WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extprocess.cpp#L1049
+RCX 0153 extprocess.cpp:1082       Can't determine thickness for Conductor <{}> WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extprocess.cpp#L1082
+RCX 0154 extprocess.cpp:1535       Can't determine thickness for Diel <{}> WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extprocess.cpp#L1535
+RCX 0155 extprocess.cpp:2012       Can't read VarTable section: <{}> WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extprocess.cpp#L2012
+RCX 0156 extprocess.cpp:438        BOX NAME={:-15s}; CX=0; CY={:6.3f}; W={}; H= {:.3f}; DIEL= {}; INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extprocess.cpp#L438
+RCX 0157 extprocess.cpp:482        BLOCK NAME={:-15s}; V1=0, 0,{:6.3f}; WIDTH={}; LENGTH= {.3f};  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extprocess.cpp#L482
+RCX 0158 extprocess.cpp:1023       Can't determine Bottom Width for Conductor <{}> WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extprocess.cpp#L1023
+RCX 0159 extprocess.cpp:1551       Can't open file {} with permissions <{}> ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extprocess.cpp#L1551
+RCX 0171 extSpef.cpp:167           Can't open log file diff_spef.log for writing! ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpef.cpp#L167
+RCX 0172 extSpef.cpp:172           Can't open output file diff_spef.out for writing! ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpef.cpp#L172
+RCX 0175 extSpef.cpp:1106          Non-symmetric case feature is not implemented! WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpef.cpp#L1106
+RCX 0176 extSpef.cpp:1384          Skip instance {} for cell {} is excluded INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpef.cpp#L1384
+RCX 0178 extSpefIn.cpp:2313        \" -N {} \" is unknown. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2313
+RCX 0208 extRCmodel.cpp:102        {} {} {} {}  {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel.cpp#L102
+RCX 0216 extRCmodel.cpp:3196       Can't find <UNDER> rules for {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel.cpp#L3196
+RCX 0217 extRCmodel.cpp:3202       Can't find <OVERUNDER> rules for {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel.cpp#L3202
+RCX 0218 extModelGen.cpp:260       Cannot write {} rules for <DensityModel>    // {} and layer {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extModelGen.cpp#L260
+RCX 0219 extRCmodel.cpp:3264       Cannot write <UNDER> rules for <DensityModel> {} and layer {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel.cpp#L3264
+RCX 0220 extModelGen.cpp:201       Cannot write <DIAGUNDER> rules for      // <DensityModel> {} and layer {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extModelGen.cpp#L201
+RCX 0221 extRCmodel.cpp:3300       Cannot write <OVERUNDER> rules for <DensityModel> {} and layer {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel.cpp#L3300
+RCX 0222 extRCmodel.cpp:3604       There were {} extraction models defined but only {} exists  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel.cpp#L3604
+RCX 0223 extRCmodel.cpp:3628       Cannot find model index {} in extRules file {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel.cpp#L3628
+RCX 0226 extFlow_v2.cpp:798        There were {} extraction models defined but only {} exists  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extFlow_v2.cpp#L798
+RCX 0227 extRCmodel_process.cpp:280 Finished {} measurements for pattern M{}_diagUnder_M{} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel_process.cpp#L280
+RCX 0228 extFlow_v2.cpp:822        Cannot find model index {} in extRules file {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extFlow_v2.cpp#L822
+RCX 0232 extRCmodel_process.cpp:619 Finished {} patterns INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel_process.cpp#L619
+RCX 0233 extRCmodel_process.cpp:548 Finished {} measurements for pattern M{}_over_M{}_under_M{} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel_process.cpp#L548
+RCX 0234 extRCmodel_process.cpp:561 Finished {} measurements for pattern MET_UNDER_MET INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel_process.cpp#L561
+RCX 0235 extSolverGen.cpp:21       Width {} and Space {} multiplier lists are NOT correct\n WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSolverGen.cpp#L21
+RCX 0236 extRCmodel_process.cpp:215 Finished {} measurements for pattern M{}_over_M{} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel_process.cpp#L215
+RCX 0237 extRCmodel_process.cpp:225 Finished {} measurements for pattern MET_OVER_MET INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel_process.cpp#L225
+RCX 0238 extSolverGen.cpp:216      Finished {} measurements for pattern M{}_under_M{} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSolverGen.cpp#L216
+RCX 0239 extFlow.cpp:1271          Zero rseg wire property {} on main net {} {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extFlow.cpp#L1271
+RCX 0240 extFlow.cpp:1282          GndCap: cannot find rseg for rsegId {} on net {} {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extFlow.cpp#L1282
+RCX 0241 extSolverGen.cpp:224      Finished {} measurements for pattern MET_UNDER_MET INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSolverGen.cpp#L224
+RCX 0242 extSolverGen.cpp:279      Finished {} measurements for pattern M{}_over_M{}_under_M{} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSolverGen.cpp#L279
+RCX 0243 extSolverGen.cpp:290      Finished {} measurements for pattern MET_OVERUNDER_MET INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSolverGen.cpp#L290
+RCX 0244 extSolverGen.cpp:246      Finished {} measurements for pattern M{}_diagUnder_M{} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSolverGen.cpp#L246
+RCX 0245 extSolverGen.cpp:254      Finished {} measurements for pattern MET_DIAGUNDER_MET INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSolverGen.cpp#L254
+RCX 0246 extSolverGen.cpp:46       Finished {} patterns INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSolverGen.cpp#L46
+RCX 0247 extRCmodel_process.cpp:290 Finished {} measurements for pattern MET_DIAGUNDER_MET INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel_process.cpp#L290
+RCX 0248 extRCmodel_process.cpp:475 Finished {} measurements for pattern M{}_under_M{} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel_process.cpp#L475
+RCX 0249 extRCmodel.cpp:3287       Cannot write <DIAGUNDER> rules for <DensityModel> {} and layer {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel.cpp#L3287
+RCX 0250 extSolverGen.cpp:195      Finished {} measurements for pattern MET_OVER_MET INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSolverGen.cpp#L195
+RCX 0251 extSolverGen.cpp:187      Finished {} measurements for pattern M{}_over_M{} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSolverGen.cpp#L187
+RCX 0252 extmain.cpp:33            Ext object on dbBlock is nullptr! ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmain.cpp#L33
+RCX 0258 extSpefIn.cpp:130         Spef instance {} not found in db. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L130
+RCX 0259 extSpefIn.cpp:162         Can't find bterm {} in db. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L162
+RCX 0260 extSpefIn.cpp:438         {} and {} are connected to a coupling cap of net {} {} in spef, but  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L438
+RCX 0261 extSpefIn.cpp:617         Cap Node {} not extracted WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L617
+RCX 0262 extSpefIn.cpp:534         Iterm {}/{} is connected to net {} {} in spef, but connected  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L534
+RCX 0263 extSpefIn.cpp:590         Bterm {} is connected to net {} {} in spef, but connected to  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L590
+RCX 0264 extSpefIn.cpp:878         Spef net {} not found in db. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L878
+RCX 0265 extSpefIn.cpp:1071        There is cc cap between net {} and net {} in db, but not in  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L1071
+RCX 0266 extSpefIn.cpp:1124        There is cc cap between net {} and net {} in reference spef  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L1124
+RCX 0267 extSpefIn.cpp:1325        {} has no shapes! INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L1325
+RCX 0269 extSpefIn.cpp:1480        Cannot find coords of driver capNode {} of net {} {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L1480
+RCX 0270 extSpefIn.cpp:1521        Driving node of net {} {} is not connected to a rseg. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L1521
+RCX 0271 extSpefIn.cpp:1598        Cannot find node coords for targetCapNodeId {} of net {} {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L1598
+RCX 0272 extSpefIn.cpp:1615        RC of net {} {} is disconnected! WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L1615
+RCX 0273 extSpefIn.cpp:1660        Failed to identify loop in net {} {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L1660
+RCX 0274 extSpefIn.cpp:1667        {} capNodes loop in net {} {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L1667
+RCX 0275 extSpefIn.cpp:1675            id={} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L1675
+RCX 0276 extSpefIn.cpp:1677         cap-{}={} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L1677
+RCX 0277 extSpefIn.cpp:1721        Break one simple loop of {}-rsegs net {} {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L1721
+RCX 0278 extSpefIn.cpp:1748        {}-rsegs net {} {} has a {}-rsegs loop WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L1748
+RCX 0279 extSpefIn.cpp:1775        {}-rsegs net {} {} has {} loops WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L1775
+RCX 0280 extSpefIn.cpp:1833        Net {} {} has rseg before reading spef WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L1833
+RCX 0281 extSpefIn.cpp:1889        \"-N s\" in read_spef command, but no coordinates  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L1889
+RCX 0282 extSpefIn.cpp:1974        Source capnode {} is the same as target capnode {}. Add  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L1974
+RCX 0283 extSpefIn.cpp:2219        Have read {} nets INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2219
+RCX 0284 extSpefIn.cpp:2227        There are {} nets with looped spef rc WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2227
+RCX 0285 extSpefIn.cpp:2561        Break simple loop of {} nets WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2561
+RCX 0286 extSpefIn.cpp:2358        Number of corners in SPEF file = 0. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2358
+RCX 0287 extSpefIn.cpp:2378        Cannot find corner name {} in DB INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2378
+RCX 0288 extSpefIn.cpp:2385        Ext corner {} out of range; There are only {} defined  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2385
+RCX 0289 extSpefIn.cpp:2399        Mismatch on the numbers of corners: Spef file has {} corners vs.  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2399
+RCX 0290 extSpefIn.cpp:2409        Spef corner {} out of range; There are only {} corners in Spef file INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2409
+RCX 0291 extSpefIn.cpp:2449        Have to specify option _db_corner_name INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2449
+RCX 0292 extSpefIn.cpp:2558        {} nets with looped spef rc WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2558
+RCX 0293 extSpefIn.cpp:2676        *{}{}{} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2676
+RCX 0294 extSpefIn.cpp:2694            First {} cc that appear {} times INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2694
+RCX 0295 extSpefIn.cpp:2798        There is no *PORTS section WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2798
+RCX 0296 extSpefIn.cpp:2828        There is no *NAME_MAP section WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2828
+RCX 0297 extSpefIn.cpp:2833        There is no *NAME_MAP section WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2833
+RCX 0298 extSpefIn.cpp:2835        There is no *PORTS section WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2835
+RCX 0357 OpenRCX.tcl:265           No LEF technology has been read. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/OpenRCX.tcl#L265
+RCX 0358 extRCmodel.cpp:3190       Can't find <RESOVER> Res rules for {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel.cpp#L3190
+RCX 0374 extSpefIn.cpp:1583        Inconsistency in RC of net {} {}. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L1583
+RCX 0375 ext.cpp:226               Using LEF RC values to extract! INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/ext.cpp#L226
+RCX 0376 netRC.cpp:2398            DB created {} nets, {} rsegs, {} caps, {} ccs INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L2398
+RCX 0378 ext.cpp:159               Can't open file {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/ext.cpp#L159
+RCX 0380 ext.cpp:358               Filename is not defined to run diff_spef command! ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/ext.cpp#L358
+RCX 0381 ext.cpp:409               Filename for calibration is not defined. Define the  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/ext.cpp#L409
+RCX 0404 extSpefIn.cpp:2369        Cannot find corner name {} in DB INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2369
+RCX 0405 extSpefIn.cpp:1767        {}-rsegs net {} {} has {} loops WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L1767
+RCX 0406 extSpefIn.cpp:1714        Break one simple loop of {}-rsegs net {} {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L1714
+RCX 0407 extSpefIn.cpp:1756        {}-rsegs net {} {} has a {}-rsegs loop WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L1756
+RCX 0410 extRCmodel_process.cpp:485 Finished {} measurements for pattern MET_UNDER_MET INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel_process.cpp#L485
+RCX 0412 extRCmodel.cpp:3251       Cannot write <OVER> rules for <DensityModel> {} and layer {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel.cpp#L3251
+RCX 0413 extRCmodel.cpp:3238       Cannot write <OVER> Res rules for <DensityModel> {}  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel.cpp#L3238
+RCX 0424 parse.cpp:36              Cannot zero/negative number of chars ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/parse.cpp#L36
+RCX 0428 parse.cpp:21              Cannot open file {} for \"{}\" ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/parse.cpp#L21
+RCX 0429 parse.cpp:375             Syntax Error at line {} ({}) ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/parse.cpp#L375
+RCX 0431 netRC.cpp:1290            Defined process_corner {} with ext_model_index {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L1290
+RCX 0433 netRC.cpp:1266            A process corner {} for Extraction RC Model {} has already been  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L1266
+RCX 0434 netRC.cpp:1296            Defined process_corner {} with ext_model_index {} (using  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L1296
+RCX 0435 netRC.cpp:1634            Reading extraction model file {} ... INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L1634
+RCX 0436 netRC.cpp:1853            RC segment generation {} (max_merge_res {:.1f}) ... INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L1853
+RCX 0437 netRC.cpp:75              RECT {} ( {} {} ) ( {} {} )  jids= ( {} {} ) INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L75
+RCX 0438 netRC.cpp:64              VIA {} ( {} {} )  jids= ( {} {} ) INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L64
+RCX 0439 netRC.cpp:1884            Coupling Cap extraction {} ... INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L1884
+RCX 0440 netRC.cpp:1895            Coupling threshhold is {:.4f} fF, coupling capacitance  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L1895
+RCX 0441 extmain_v2.cpp:308        Reading extraction model file {} ... INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmain_v2.cpp#L308
+RCX 0442 extFlow.cpp:1239          {:d}% of {:d} wires extracted INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extFlow.cpp#L1239
+RCX 0443 extSpef.cpp:1554          {} nets finished INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpef.cpp#L1554
+RCX 0444 extSpefIn.cpp:2240        Read {} D_NET nets, {} resistors, {} gnd caps {} coupling caps INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2240
+RCX 0445 extSpefIn.cpp:2531        Have read {} D_NET nets, {} resistors, {} gnd caps {} coupling  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2531
+RCX 0446 extRCmodel_solver.cpp:331 {} lines parsed, {} lines skipped not starting with <Metal>,  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel_solver.cpp#L331
+RCX 0447 extSpefIn.cpp:2637        Db inst {} {} not read from spef file! WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2637
+RCX 0448 extSpefIn.cpp:2625        Db net {} {} not read from spef file! WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2625
+RCX 0449 extSpefIn.cpp:2683        {}  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2683
+RCX 0450 extmain_v2.cpp:183        Extract {} nets, {} rsegs, {} caps, {} ccs INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmain_v2.cpp#L183
+RCX 0451 extSpefIn.cpp:2686        {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2686
+RCX 0452 extSpefIn.cpp:56          Spef instance {} not found in db. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L56
+RCX 0456 extmeasure.cpp:887        pixelTable gave len {}, bigger than expected {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmeasure.cpp#L887
+RCX 0458 extmeasure.cpp:956        pixelTable gave len {}, bigger than expected {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmeasure.cpp#L956
+RCX 0459 extmeasure.cpp:593        getOverUnderIndex: out of range n= {}   m={} u= {} o= {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmeasure.cpp#L593
+RCX 0460 extmeasure.cpp:63         Cannot find dbRseg for net {} from the {} table entry {} WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmeasure.cpp#L63
+RCX 0463 extSpefIn.cpp:2595        Have read {} D_NET nets, {} resistors, {} gnd caps {} coupling caps INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2595
+RCX 0464 extSpefIn.cpp:2608        Broke {} coupling caps of {} fF or smaller INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpefIn.cpp#L2608
+RCX 0465 extSpef.cpp:1584          {} nets finished INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSpef.cpp#L1584
+RCX 0468 netRC.cpp:1639            Can't open extraction model file {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L1639
+RCX 0469 extmain_v2.cpp:313        Can't open extraction model file {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmain_v2.cpp#L313
+RCX 0472 netRC.cpp:1316            The corresponding process corner has to be defined using the  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L1316
+RCX 0474 netRC.cpp:2118            Can't execute write_spef command. There's no block in db! INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L2118
+RCX 0475 netRC.cpp:2215            Can't execute write_spef command. There's no block in db INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L2215
+RCX 0476 extmain.cpp:607               {}: {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmain.cpp#L607
+RCX 0480 netRC.cpp:2416                cc appearance count -- 1:{} 2:{} 3:{} 4:{} 5:{} 6:{}  INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L2416
+RCX 0485 extSolverGen.cpp:683      Cannot open file {} with permissions {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extSolverGen.cpp#L683
+RCX 0486 extRCmodel.cpp:2588       Cannot open file {} with permissions {} INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel.cpp#L2588
+RCX 0487 netRC.cpp:1678            No RC model read from the extraction model!  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/netRC.cpp#L1678
+RCX 0488 extmain_v2.cpp:329        No RC model read from the extraction model!  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmain_v2.cpp#L329
+RCX 0489 extRCmodel.cpp:2786       mv failed: {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel.cpp#L2786
+RCX 0491 extRCmodel.cpp:3031       rm failed on {} ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extRCmodel.cpp#L3031
+RCX 0497 extmain.cpp:345           No design is loaded. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmain.cpp#L345
+RCX 0501 extmain_v2.cpp:142        RC segment generation {} (max_merge_res {:.1f}) ... INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmain_v2.cpp#L142
+RCX 0502 extmain_v2.cpp:170        Final {} rc segments INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmain_v2.cpp#L170
+RCX 0503 extmain_v2.cpp:113        Start Coupling Cap extraction {} ... INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmain_v2.cpp#L113
+RCX 0504 extmain_v2.cpp:118        Coupling capacitance less than {:.4f} fF will be grounded. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmain_v2.cpp#L118
+RCX 0510 extmain_v2.cpp:192        Nothing is extracted out of {} nets! WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmain_v2.cpp#L192
+RCX 0511 extmain_v2.cpp:363        Net {} has no wires. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/extmain_v2.cpp#L363
+RCX 0512 process_ext.cpp:51        No model to write. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/process_ext.cpp#L51
+RCX 0513 process_ext.cpp:42        No model present. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/rcx/src/process_ext.cpp#L42

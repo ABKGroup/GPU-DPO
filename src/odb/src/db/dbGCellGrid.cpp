@@ -1,43 +1,14 @@
-///////////////////////////////////////////////////////////////////////////////
-// BSD 3-Clause License
-//
-// Copyright (c) 2019, Nefelus Inc
-// All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are met:
-//
-// * Redistributions of source code must retain the above copyright notice, this
-//   list of conditions and the following disclaimer.
-//
-// * Redistributions in binary form must reproduce the above copyright notice,
-//   this list of conditions and the following disclaimer in the documentation
-//   and/or other materials provided with the distribution.
-//
-// * Neither the name of the copyright holder nor the names of its
-//   contributors may be used to endorse or promote products derived from
-//   this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
-// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-// POSSIBILITY OF SUCH DAMAGE.
+// SPDX-License-Identifier: BSD-3-Clause
+// Copyright (c) 2019-2025, The OpenROAD Authors
 
 // Generator Code Begin Cpp
 #include "dbGCellGrid.h"
 
 #include <cstdint>
 #include <cstring>
+#include <map>
 
 #include "dbDatabase.h"
-#include "dbDiff.hpp"
 #include "dbHashTable.h"
 #include "dbTable.h"
 #include "dbTable.hpp"
@@ -100,59 +71,9 @@ bool _dbGCellGrid::operator<(const _dbGCellGrid& rhs) const
   return true;
 }
 
-void _dbGCellGrid::differences(dbDiff& diff,
-                               const char* field,
-                               const _dbGCellGrid& rhs) const
-{
-  DIFF_BEGIN
-  DIFF_FIELD(flags_.x_grid_valid_);
-  DIFF_FIELD(flags_.y_grid_valid_);
-  // User Code Begin Differences
-  DIFF_VECTOR(x_origin_);
-  DIFF_VECTOR(x_count_);
-  DIFF_VECTOR(x_step_);
-  DIFF_VECTOR(y_origin_);
-  DIFF_VECTOR(y_count_);
-  DIFF_VECTOR(y_step_);
-  // User Code End Differences
-  DIFF_END
-}
-
-void _dbGCellGrid::out(dbDiff& diff, char side, const char* field) const
-{
-  DIFF_OUT_BEGIN
-  DIFF_OUT_FIELD(flags_.x_grid_valid_);
-  DIFF_OUT_FIELD(flags_.y_grid_valid_);
-
-  // User Code Begin Out
-  DIFF_OUT_VECTOR(x_origin_);
-  DIFF_OUT_VECTOR(x_count_);
-  DIFF_OUT_VECTOR(x_step_);
-  DIFF_OUT_VECTOR(y_origin_);
-  DIFF_OUT_VECTOR(y_count_);
-  DIFF_OUT_VECTOR(y_step_);
-  // User Code End Out
-  DIFF_END
-}
-
 _dbGCellGrid::_dbGCellGrid(_dbDatabase* db)
 {
   flags_ = {};
-}
-
-_dbGCellGrid::_dbGCellGrid(_dbDatabase* db, const _dbGCellGrid& r)
-{
-  flags_.x_grid_valid_ = r.flags_.x_grid_valid_;
-  flags_.y_grid_valid_ = r.flags_.y_grid_valid_;
-  flags_.spare_bits_ = r.flags_.spare_bits_;
-  // User Code Begin CopyConstructor
-  x_origin_ = r.x_origin_;
-  x_count_ = r.x_count_;
-  x_step_ = r.x_step_;
-  y_origin_ = r.y_origin_;
-  y_count_ = r.y_count_;
-  y_step_ = r.y_step_;
-  // User Code End CopyConstructor
 }
 
 dbIStream& operator>>(dbIStream& stream, _dbGCellGrid& obj)
@@ -345,8 +266,7 @@ void dbGCellGrid::getGridX(std::vector<int>& x_grid)
   std::sort(grid->x_grid_.begin(), grid->x_grid_.end());
 
   // remove any duplicates
-  std::vector<int>::iterator new_end;
-  new_end = std::unique(grid->x_grid_.begin(), grid->x_grid_.end());
+  auto new_end = std::unique(grid->x_grid_.begin(), grid->x_grid_.end());
   grid->x_grid_.erase(new_end, grid->x_grid_.end());
   x_grid = grid->x_grid_;
 }
@@ -385,8 +305,7 @@ void dbGCellGrid::getGridY(std::vector<int>& y_grid)
   std::sort(grid->y_grid_.begin(), grid->y_grid_.end());
 
   // remove any duplicates
-  std::vector<int>::iterator new_end;
-  new_end = std::unique(grid->y_grid_.begin(), grid->y_grid_.end());
+  auto new_end = std::unique(grid->y_grid_.begin(), grid->y_grid_.end());
   grid->y_grid_.erase(new_end, grid->y_grid_.end());
   y_grid = grid->y_grid_;
 }

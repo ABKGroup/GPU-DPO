@@ -1,39 +1,12 @@
-///////////////////////////////////////////////////////////////////////////////
-// BSD 3-Clause License
-//
-// Copyright (c) 2021, The Regents of the University of California
-// All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are met:
-//
-// * Redistributions of source code must retain the above copyright notice, this
-//   list of conditions and the following disclaimer.
-//
-// * Redistributions in binary form must reproduce the above copyright notice,
-//   this list of conditions and the following disclaimer in the documentation
-//   and/or other materials provided with the distribution.
-//
-// * Neither the name of the copyright holder nor the names of its
-//   contributors may be used to endorse or promote products derived from
-//   this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
-// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-// POSSIBILITY OF SUCH DAMAGE.
+// SPDX-License-Identifier: BSD-3-Clause
+// Copyright (c) 2021-2025, The OpenROAD Authors
 
 #include "gui/gui.h"
 
 #include <QApplication>
 #include <boost/algorithm/string/predicate.hpp>
+#include <cmath>
+#include <optional>
 #include <stdexcept>
 #include <string>
 #include <vector>
@@ -54,9 +27,9 @@
 #include "ord/OpenRoad.hh"
 #include "ruler.h"
 #include "scriptWidget.h"
-#include "sta/StaMain.hh"
 #include "timingWidget.h"
 #include "utl/Logger.h"
+#include "utl/decode.h"
 #include "utl/exception.h"
 
 extern int cmd_argc;
@@ -610,6 +583,13 @@ void Gui::selectMarkers(odb::dbMarkerCategory* markers)
   main_window->getDRCViewer()->selectCategory(markers);
 }
 
+void Gui::setDisplayControlsColor(const std::string& name,
+                                  const Painter::Color& color)
+{
+  const QColor qcolor(color.r, color.g, color.b, color.a);
+  main_window->getControls()->setControlByPath(name, qcolor);
+}
+
 void Gui::setDisplayControlsVisible(const std::string& name, bool value)
 {
   main_window->getControls()->setControlByPath(
@@ -779,6 +759,28 @@ void Gui::saveClockTreeImage(const std::string& clock_name,
   }
   main_window->getClockViewer()->saveImage(
       clock_name, filename, corner, width, height);
+}
+
+void Gui::saveHistogramImage(const std::string& filename,
+                             const std::string& mode,
+                             int width_px,
+                             int height_px)
+{
+  if (!enabled()) {
+    return;
+  }
+  std::optional<int> width;
+  std::optional<int> height;
+  if (width_px > 0) {
+    width = width_px;
+  }
+  if (height_px > 0) {
+    height = height_px;
+  }
+  const ChartsWidget::Mode chart_mode
+      = main_window->getChartsWidget()->modeFromString(mode);
+  main_window->getChartsWidget()->saveImage(
+      filename, chart_mode, width, height);
 }
 
 void Gui::selectClockviewerClock(const std::string& clock_name)
@@ -1292,7 +1294,7 @@ void Gui::unminimize()
   main_window->showNormal();
 }
 
-void Gui::init(odb::dbDatabase* db, utl::Logger* logger)
+void Gui::init(odb::dbDatabase* db, sta::dbSta* sta, utl::Logger* logger)
 {
   db_ = db;
   setLogger(logger);
@@ -1303,6 +1305,10 @@ void Gui::init(odb::dbDatabase* db, utl::Logger* logger)
   placement_density_heat_map_
       = std::make_unique<PlacementDensityDataSource>(logger);
   placement_density_heat_map_->registerHeatMap();
+
+  power_density_heat_map_
+      = std::make_unique<PowerDensityDataSource>(sta, logger);
+  power_density_heat_map_->registerHeatMap();
 }
 
 void Gui::selectHelp(const std::string& item)
@@ -1320,20 +1326,34 @@ void Gui::selectChart(const std::string& name)
     return;
   }
 
-  ChartsWidget::Mode mode;
-  if (name == "Endpoint Slack") {
-    mode = ChartsWidget::Mode::SLACK_HISTOGRAM;
-  } else if (name == "Select Mode") {
-    mode = ChartsWidget::Mode::SELECT;
-  } else {
-    logger_->error(utl::GUI, 105, "Chart {} is unknown.", name);
-  }
+  const ChartsWidget::Mode mode
+      = main_window->getChartsWidget()->modeFromString(name);
   main_window->getChartsWidget()->setMode(mode);
 }
 
 void Gui::updateTimingReport()
 {
   main_window->getTimingWidget()->populatePaths();
+}
+
+// See class header for documentation.
+std::size_t Gui::TypeInfoHasher::operator()(const std::type_index& x) const
+{
+#ifdef __GLIBCXX__
+  return std::hash<std::type_index>{}(x);
+#else
+  return std::hash<std::string_view>{}(std::string_view(x.name()));
+#endif
+}
+// See class header for documentation.
+bool Gui::TypeInfoComparator::operator()(const std::type_index& a,
+                                         const std::type_index& b) const
+{
+#ifdef __GLIBCXX__
+  return a == b;
+#else
+  return strcmp(a.name(), b.name()) == 0;
+#endif
 }
 
 class SafeApplication : public QApplication
@@ -1386,7 +1406,7 @@ int startGui(int& argc,
   }
   main_window->setTitle(gui->getMainWindowTitle());
 
-  open_road->addObserver(main_window);
+  open_road->getDb()->addObserver(main_window);
   if (!interactive) {
     gui->setContinueAfterClose();
     main_window->setAttribute(Qt::WA_DontShowOnScreen);
@@ -1482,7 +1502,7 @@ int startGui(int& argc,
   }
 
   // cleanup
-  open_road->removeObserver(main_window);
+  open_road->getDb()->removeObserver(main_window);
 
   if (!exception.hasException()) {
     // don't save anything if exception occured
@@ -1608,16 +1628,10 @@ std::string Descriptor::Property::toString(const std::any& value)
   return "<unknown>";
 }
 
-}  // namespace gui
-
-namespace sta {
 // Tcl files encoded into strings.
 extern const char* gui_tcl_inits[];
-}  // namespace sta
 
-extern "C" {
-struct Tcl_Interp;
-}
+}  // namespace gui
 
 namespace ord {
 
@@ -1625,15 +1639,18 @@ extern "C" {
 extern int Gui_Init(Tcl_Interp* interp);
 }
 
-void initGui(OpenRoad* openroad)
+void initGui(Tcl_Interp* interp,
+             odb::dbDatabase* db,
+             sta::dbSta* sta,
+             utl::Logger* logger)
 {
   // Define swig TCL commands.
-  Gui_Init(openroad->tclInterp());
-  sta::evalTclInit(openroad->tclInterp(), sta::gui_tcl_inits);
+  Gui_Init(interp);
+  utl::evalTclInit(interp, gui::gui_tcl_inits);
 
   // ensure gui is made
   auto* gui = gui::Gui::get();
-  gui->init(openroad->getDb(), openroad->getLogger());
+  gui->init(db, sta, logger);
 }
 
 }  // namespace ord
