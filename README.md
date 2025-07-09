@@ -5,6 +5,9 @@
 [![Documentation Status](https://readthedocs.org/projects/openroad/badge/?version=latest)](https://openroad.readthedocs.io/en/latest/?badge=latest)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/5370/badge)](https://bestpractices.coreinfrastructure.org/en/projects/5370)
 
+## GPU-DPO Implementation
+Our codes are under the `dpl` module.
+
 ## About OpenROAD
 
 OpenROAD is the leading open-source, foundational application for
