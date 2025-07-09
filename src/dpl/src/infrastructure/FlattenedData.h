@@ -8,6 +8,7 @@
 #include "architecture.h"
 #include "network.h"
 #include "optimization/detailed_manager.h"
+#include "detailed_segment.h"
 
 namespace dpl {
 

@@ -49,6 +49,8 @@ inline __host__ __device__ int roundDiv(int a, int b) {
 struct Space {
   int xl;
   int xh;
+  int yl; // extended for multi-height cells
+  int yh; // extended for multi-height cells
 };
 
 // =============================================================
@@ -313,6 +315,9 @@ public:
   inline __device__ Space align2site(Space space) const {
     space.xl = ceilDiv((space.xl - xl), site_width) * site_width + xl;
     space.xh = floorDiv((space.xh - xl), site_width) * site_width + xl;
+    // Align yl and yh to row_height
+    space.yl = ceilDiv((space.yl - yl), row_height) * row_height + yl;
+    space.yh = floorDiv((space.yh - yl), row_height) * row_height + yl;
     return space;
   }
 

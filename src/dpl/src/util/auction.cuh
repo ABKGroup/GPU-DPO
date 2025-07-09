@@ -62,26 +62,28 @@ __global__ void __launch_bounds__(256, 4) linear_assignment_auction_kernel(const
     }
 
     for (int i = node_id; i < num_nodes; i += blockDim.x) {
-      person2item[i] = -1;
-      item2person[i] = -1;
+      if (i < num_nodes) {
+        person2item[i] = -1;
+        item2person[i] = -1;
+      }
     }
     __syncthreads();
 
     while (num_assigned < num_nodes && num_iteration < max_iterations) {
       for (int i = node_id; i < num_nodes; i += blockDim.x) {
-        sbids[i] = 0;
+        if (i < num_nodes) sbids[i] = 0;
       }
       for (int i = node_id; i < num_nodes * num_nodes; i += blockDim.x) {
-        bids[i] = 0;
+        if (i < num_nodes * num_nodes) bids[i] = 0;
       }
 
-      s_prices[node_id] = prices[node_id];
+      if (node_id < num_nodes) s_prices[node_id] = prices[node_id];
       __syncthreads();
 
-      if (person2item[node_id] == -1) {
+      if (node_id < num_nodes && person2item[node_id] == -1) {
         T top1_val = BIG_NEGATIVE;
         T top2_val = BIG_NEGATIVE;
-        int top1_col;
+        int top1_col = 0;
         T tmp_val;
 
         for (int col = 0; col < num_nodes; col++) {
@@ -102,35 +104,41 @@ __global__ void __launch_bounds__(256, 4) linear_assignment_auction_kernel(const
           top2_val = top1_val;
         }
         T bid = top1_val - top2_val + auction_eps;
-        bids[num_nodes * top1_col + node_id] = bid;
-        atomicMax(sbids + top1_col, 1);
+        if (top1_col < num_nodes && node_id < num_nodes) {
+          bids[num_nodes * top1_col + node_id] = bid;
+          atomicMax(sbids + top1_col, 1);
+        }
       }
 
       __syncthreads();
 
-      if (sbids[node_id] != 0) {
+      if (node_id < num_nodes && sbids[node_id] != 0) {
         T high_bid = 0;
         int high_bidder = -1;
 
         T tmp_bid = -1;
         for (int i = 0; i < num_nodes; i++) {
-          tmp_bid = bids[node_id * num_nodes + i];
-          if (tmp_bid > high_bid) {
-            high_bid = tmp_bid;
-            high_bidder = i;
+          if (node_id * num_nodes + i < num_nodes * num_nodes) {
+            tmp_bid = bids[node_id * num_nodes + i];
+            if (tmp_bid > high_bid) {
+              high_bid = tmp_bid;
+              high_bidder = i;
+            }
           }
         }
 
         int current_person = item2person[node_id];
-        if (current_person >= 0) {
+        if (current_person >= 0 && current_person < num_nodes) {
           person2item[current_person] = -1;
         } else {
           atomicAdd(&num_assigned, 1);
         }
 
         prices[node_id] += high_bid;
-        person2item[high_bidder] = node_id;
-        item2person[node_id] = high_bidder;
+        if (high_bidder >= 0 && high_bidder < num_nodes) {
+          person2item[high_bidder] = node_id;
+          item2person[node_id] = high_bidder;
+        }
       }
       __syncthreads();
 
@@ -163,6 +171,11 @@ void linear_assignment_auction(const T* cost_matrics,
   const float auction_min_eps,
   const float auction_factor,
   const int max_iterations) {
+
+  if (num_nodes > 1024) {
+    printf("[ERROR] linear_assignment_auction: num_nodes (%d) exceeds 1024, which is not supported by CUDA blocks.\n", num_nodes);
+    return;
+  }
 
   int* person2item = (int*)scratch;
   int* item2person = person2item + num_graphs * num_nodes;

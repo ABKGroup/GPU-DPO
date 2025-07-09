@@ -91,6 +91,7 @@ void FlattenedData::createNodeInfo() {
 }
 
 void FlattenedData::createSegmentInfo() {
+  // this function also records if a multi-height cell occupies multiple segments
   num_segments = mgr_->getNumSegments();
   node2segs.resize(num_nodes);
   for (int i = 0; i < mgr_->getNumSegments(); i++) {
@@ -235,6 +236,7 @@ void FlattenedData::createChipInfo() {
 void FlattenedData::createRowInfo() {
   num_sites_x = std::round((xh - xl) / site_width);
   num_sites_y = arch_->getNumRows();
+  std::cout << "[INFO GPU-DPO] Created " << num_sites_y << " rows." << std::endl;
 }
 
 void FlattenedData::shiftDatabase() {
@@ -262,29 +264,34 @@ void FlattenedData::shiftDatabase() {
   }
 }
 
-// update node locations once device ops are done
-void FlattenedData::populateNetwork(Network& network, DetailedMgr& mgr) {
-  // shift the chip layout back to its original state
-  /*if (xl == 0 && shift_factor_x != 0) {
-    xl += shift_factor_x;
-    xh += shift_factor_x;
-    for (auto& val : x) {
-      val += shift_factor_x;
-    }
-    for (auto& val : init_x) {
-      val += shift_factor_x;
+std::vector<int> findSegmentsForMultiHeightCell(
+    DetailedMgr& mgr,
+    const Node* node,
+    int left,
+    int bottom
+) {
+  std::vector<int> segment_ids;
+  Architecture* arch = mgr.getArchitecture();
+  int spanned = arch->getCellHeightInRows(node);
+  int row_idxl = arch->find_closest_row(DbuY{bottom});
+  int row_idxh = row_idxl + spanned - 1;
+  for (int row = row_idxl; row <= row_idxh; ++row) {
+    const auto& segs = mgr.getSegsInRow(row);
+    for (const auto* seg : segs) {
+      int seg_min_x = seg->getMinX().v;
+      int seg_max_x = seg->getMaxX().v;
+      int cell_min_x = left;
+      int cell_max_x = left + node->getWidth().v;
+      if (cell_max_x > seg_min_x && cell_min_x < seg_max_x) {
+        segment_ids.push_back(seg->getSegId());
+      }
     }
   }
-  if (yl == 0 && shift_factor_y != 0) {
-    yl += shift_factor_y;
-    yh += shift_factor_y;
-    for (auto& val : y) {
-      val += shift_factor_y;
-    }
-    for (auto& val : init_y) {
-      val += shift_factor_y;
-    }
-  }*/
+  return segment_ids;
+}
+
+// update node locations once device ops are done
+void FlattenedData::populateNetwork(Network& network, DetailedMgr& mgr) {
   std::vector<int> orig_node2segs(num_nodes);
   for (int i = 0; i < mgr.getNumSegments(); i++) {
     const std::vector<Node*>& nodes = mgr.getCellsInSeg(i);
@@ -296,21 +303,29 @@ void FlattenedData::populateNetwork(Network& network, DetailedMgr& mgr) {
   // we should only have to update locations of non-fixed nodes
   for (int i = 0; i < network.getNumMovableNodes(); i++) {
     Node* node = network.getNode(i);
-    if (node->getLeft().v != x[i] 
-      && !mgr.getArchitecture()->isMultiHeightCell(network.getNode(i))) {
+    if (node->getLeft().v != x[i] && !mgr.getArchitecture()->isMultiHeightCell(node)) {
       node->setLeft(DbuX{x[i]});
     }
-    if (node->getBottom().v != y[i]
-        && !mgr.getArchitecture()->isMultiHeightCell(network.getNode(i))) {
+    if (node->getBottom().v != y[i] && !mgr.getArchitecture()->isMultiHeightCell(node)) {
       node->setBottom(DbuY{y[i]});
     }
     // nodes might have moved to a different segment
-    // needs to handle for multi-height cells too
-    if (node2segs[i] != orig_node2segs[i]
-        && !mgr.getArchitecture()->isMultiHeightCell(network.getNode(i))) {
-      mgr.removeCellFromSegment(node, orig_node2segs[i]);
-      mgr.addCellToSegment(node, node2segs[i]);
-    }
+    if (!mgr.getArchitecture()->isMultiHeightCell(node)) {
+      if (node2segs[i] != orig_node2segs[i]) {
+        mgr.removeCellFromSegment(node, orig_node2segs[i]);
+        mgr.addCellToSegment(node, node2segs[i]);
+      }
+    } /*else {
+      // Multi-height cell: remove from all old segments, add to all new segments
+      const std::vector<DetailedSeg*>& oldSegs = mgr.getReverseCellToSegs(i);
+      for (auto* seg : oldSegs) {
+        mgr.removeCellFromSegment(node, seg->getSegId());
+      }
+      std::vector<int> new_segs = findSegmentsForMultiHeightCell(mgr, node, x[i], y[i]);
+      for (int seg_id : new_segs) {
+        mgr.addCellToSegment(node, seg_id);
+      }
+    }*/
   }
   mgr.resortSegments();
 }

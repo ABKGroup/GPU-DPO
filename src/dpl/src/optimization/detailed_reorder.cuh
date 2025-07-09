@@ -80,6 +80,8 @@ struct DPState {
   int pos[MAX_K];  // x position for each cell (if placed)
   int row[MAX_K];  // row for each cell (if placed)
   int cost;        // total cost (HPWL, inf if overlap)
+  int variants[MAX_K]; // cell variants (0=original, 1=flipped)
+  int status; // Binary status array (packed)
 };
 
 class DetailedReorderer

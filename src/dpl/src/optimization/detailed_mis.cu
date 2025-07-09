@@ -216,7 +216,7 @@ void DetailedMis::run(DetailedMgr* mgrPtr, GpuData& db_, std::vector<std::string
     }
   }
   tol = std::max(tol, 0.01);
-  passes = std::max(passes, 1) * 5;   // it takes MIS longer to extract all independent sets
+  passes = std::max(passes, 1);   // it takes MIS longer to extract all independent sets
 
   if (!run_mis) {
     printf("[INFO GPU-DPO] Skipping maximum independent set matching due to flag passed in.\n");
@@ -346,7 +346,7 @@ void DetailedMis::run(DetailedMgr* mgrPtr, GpuData& db_, std::vector<std::string
                               state.auction_min_eps,
                               state.auction_factor,
                               state.auction_max_iterations);
-    //checkCuda(cudaDeviceSynchronize());
+    checkCuda(cudaDeviceSynchronize());
     //end = std::chrono::high_resolution_clock::now();
     //elapsed_ms = std::chrono::duration<double, std::milli>(end - start).count();
     //std::cout << "[INFO GPU-DPO] Solve LAP Time: " << elapsed_ms << " ms\n";
