@@ -118,8 +118,8 @@ void DetailedGlobalSwap::globalSwap()
 
   mgr_->resortSegments();
 
-  // Get candidate cells.
-  std::vector<Node*> candidates = mgr_->getSingleHeightCells();
+  // Get candidate cells - support both single-height and multi-height cells
+  std::vector<Node*> candidates = mgr_->getMovableCells();  // Changed from getSingleHeightCells()
   mgr_->shuffle(candidates);
 
   // Wirelength objective.
@@ -563,43 +563,74 @@ __device__ int compute_positions_hint(const GpuData& db,
                                         int node_yl,
                                         int node_width,
                                         Space& space) {
-  // case I: two cells are horizontally abutting
+  // Support multi-height cells - handle cells that may span multiple rows
   cand.node_xl[0][0] = node_xl;
   cand.node_yl[0][0] = node_yl;
   cand.node_xl[1][0] = db.x[cand.node_id[1]];
   cand.node_yl[1][0] = db.y[cand.node_id[1]];
+  
   int target_node_width = db.node_size_x[cand.node_id[1]];
+  int target_node_height = db.node_size_y[cand.node_id[1]];
+  int node_height = db.node_size_y[cand.node_id[0]];
+  
   auto target_space = db.align2site(state.spaces[cand.node_id[1]]);
+  
+  // Check if cells can be swapped considering multi-height constraints
+  // 1. Check horizontal space overlap
   int cond = (space.xh >= target_space.xl);
   cond &= (target_space.xh >= space.xl);
-  cond &= (cand.node_yl[0][0] == cand.node_yl[1][0]);
+  
+  // 2. Check vertical space constraints for multi-height cells
+  // Both cells must fit within their respective vertical spaces
+  cond &= (cand.node_yl[0][0] + node_height <= space.yh);
+  cond &= (cand.node_yl[1][0] + target_node_height <= target_space.yh);
+  
+  // 3. Check power rail compatibility for even-height cells
+  // Even-height cells can only be placed on rows with matching power rails
+  int node_bottom_power = db.node_bottom_power[cand.node_id[0]];
+  int target_bottom_power = db.node_bottom_power[cand.node_id[1]];
+  
+  // Calculate target row bottom power for both cells
+  int target_row_bottom_power_0 = (cand.node_yl[1][0] / db.row_height) % 2;  // 0 for VDD, 1 for VSS
+  int target_row_bottom_power_1 = (cand.node_yl[0][0] / db.row_height) % 2;  // 0 for VDD, 1 for VSS
+  
+  cond &= (node_bottom_power == target_row_bottom_power_0);
+  cond &= (target_bottom_power == target_row_bottom_power_1);
+  
   if (cond) {
-    // case I: abutting, not exactly abutting, there might be space
-    // between two cells, this is a generalized case
-    cond = (space.xl < target_space.xl);
-    cand.node_xl[0][1] = cand.node_xl[1][0] + (target_node_width - node_width) * cond;
-    cand.node_xl[1][1] = cand.node_xl[0][0] - (target_node_width - node_width) * (!cond);
-  } else {
-    // case II: not abutting
-    cond = (space.xh < target_node_width + space.xl);
-    cond |= (target_space.xh < node_width + target_space.xl);
-    if (cond) {
-      // some large number
-      return cuda::numeric_limits<int>::max();
+    // Cells can be swapped - calculate new positions
+    if (space.xh >= target_space.xl && target_space.xh >= space.xl) {
+      // Case I: horizontally abutting or overlapping
+      int space_center = (space.xl + space.xh) / 2;
+      int target_space_center = (target_space.xl + target_space.xh) / 2;
+      
+      cand.node_xl[0][1] = target_space_center - node_width / 2;
+      cand.node_xl[1][1] = space_center - target_node_width / 2;
+    } else {
+      // Case II: not abutting - place cells in their respective spaces
+      cand.node_xl[0][1] = target_space.xl + (target_space.xh - target_space.xl - node_width) / 2;
+      cand.node_xl[1][1] = space.xl + (space.xh - space.xl - target_node_width) / 2;
     }
-    cand.node_xl[0][1] = cand.node_xl[1][0] + (target_node_width - node_width) / 2;
-    cand.node_xl[1][1] = cand.node_xl[0][0] + (node_width - target_node_width) / 2;
+    
+    // Align to site grid
     cand.node_xl[0][1] = db.align2site(cand.node_xl[0][1]);
+    cand.node_xl[1][1] = db.align2site(cand.node_xl[1][1]);
+    
+    // Ensure cells stay within bounds
     cand.node_xl[0][1] = max(cand.node_xl[0][1], target_space.xl);
     cand.node_xl[0][1] = min(cand.node_xl[0][1], target_space.xh - node_width);
-    cand.node_xl[1][1] = db.align2site(cand.node_xl[1][1]);
     cand.node_xl[1][1] = max(cand.node_xl[1][1], space.xl);
     cand.node_xl[1][1] = min(cand.node_xl[1][1], space.xh - target_node_width);
+    
+    // Set vertical positions (maintain current y positions for now)
+    cand.node_yl[0][1] = cand.node_yl[1][0];
+    cand.node_yl[1][1] = cand.node_yl[0][0];
+    
+    return 0;
+  } else {
+    // Cannot swap - return large cost
+    return cuda::numeric_limits<int>::max();
   }
-  cand.node_yl[0][1] = cand.node_yl[1][0];
-  cand.node_yl[1][1] = cand.node_yl[0][0];
-
-  return 0;
 }
 
 
@@ -754,8 +785,8 @@ __global__ void __launch_bounds__(256, 4)
 
     if (bin_id >= 0) {
       bin2nodes = state.bin2node_map(bin_id);
-      num_nodes_in_bin =
-          state.bin2node_map.size(bin_id) * db.node_is_single_height_cell[node_id];
+      // Support multi-height cells - consider all cells in the bin
+      num_nodes_in_bin = state.bin2node_map.size(bin_id);
       step_size = max((float)num_nodes_in_bin / (float)max_num_candidates, (float)1);
       iters = min(max_num_candidates, num_nodes_in_bin);
     }
@@ -767,7 +798,9 @@ __global__ void __launch_bounds__(256, 4)
     for (int i = threadIdx.x; i < iters; i += blockDim.x) {
       cand.node_id[1] = bin2nodes[int(i * step_size)];
       int cond = (cand.node_id[0] != cand.node_id[1]);
-      cond &= (db.node_size_y[cand.node_id[1]] == db.row_height);
+      // Support multi-height cells - allow cells of different heights to be swapped
+      // Only check that both cells are movable
+      cond &= (cand.node_id[1] < db.num_movable_nodes);
       if (cond) {
         cand.cost = compute_positions_hint(db, state, cand, node_xl, node_yl,
                                            node_width, space);
@@ -884,11 +917,17 @@ __global__ void apply_candidates(GpuData db, SwapState state, int num_candidates
         !(state.node_markers[best_cand.node_id[0]] || state.node_markers[best_cand.node_id[1]])) {
       int node_width = db.node_size_x[best_cand.node_id[0]];
       int target_node_width = db.node_size_x[best_cand.node_id[1]];
+      int node_height = db.node_size_y[best_cand.node_id[0]];
+      int target_node_height = db.node_size_y[best_cand.node_id[1]];
       Space& space = state.spaces[best_cand.node_id[0]];
       Space& target_space = state.spaces[best_cand.node_id[1]];
 
+      // Check if cells can fit in each other's spaces (considering multi-height)
       if (best_cand.node_xl[0][1] >= target_space.xl && best_cand.node_xl[0][1] + node_width <= target_space.xh &&
           best_cand.node_xl[1][1] >= space.xl && best_cand.node_xl[1][1] + target_node_width <= space.xh) {
+        
+        // Additional check for multi-height cells - ensure they don't go out of bounds
+        if (best_cand.node_yl[0][1] + node_height <= db.yh && best_cand.node_yl[1][1] + target_node_height <= db.yh) {
         state.node_markers[best_cand.node_id[0]] = 1;
         state.node_markers[best_cand.node_id[1]] = 1;
 
@@ -955,6 +994,7 @@ __global__ void apply_candidates(GpuData db, SwapState state, int num_candidates
         if (db.node2segs[best_cand.node_id[0]] != db.node2segs[best_cand.node_id[1]]) {
           device_swap(db.node2segs[best_cand.node_id[0]], db.node2segs[best_cand.node_id[1]]);
         }
+        }  // End of multi-height bounds check
       }
     }
   }

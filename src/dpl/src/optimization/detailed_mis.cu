@@ -217,7 +217,7 @@ void DetailedMis::run(DetailedMgr* mgrPtr, GpuData& db_, std::vector<std::string
   }
   tol = std::max(tol, 0.01);
   passes = std::max(passes, 1);   // it takes MIS longer to extract all independent sets
-
+  setSize_ = 256;
   if (!run_mis) {
     printf("[INFO GPU-DPO] Skipping maximum independent set matching due to flag passed in.\n");
     return;
