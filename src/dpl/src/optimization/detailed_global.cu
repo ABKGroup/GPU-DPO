@@ -119,7 +119,7 @@ void DetailedGlobalSwap::globalSwap()
   mgr_->resortSegments();
 
   // Get candidate cells - support both single-height and multi-height cells
-  std::vector<Node*> candidates = mgr_->getMovableCells();  // Changed from getSingleHeightCells()
+  std::vector<Node*> candidates = mgr_->getSingleHeightCells();  // Changed from getSingleHeightCells()
   mgr_->shuffle(candidates);
 
   // Wirelength objective.
