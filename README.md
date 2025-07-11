@@ -6,6 +6,7 @@
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/5370/badge)](https://bestpractices.coreinfrastructure.org/en/projects/5370)
 
 ## GPU-DPO Code Structure
+```
 GPU-DPO/   
 ├── src/dpl 
 │   ├── src                             # Kernel function operators
@@ -21,6 +22,7 @@ GPU-DPO/
 │   │   ├── aes-multi-height.tcl        # AES design test script
 │   │   └── jpeg-multi-height.tcl       # JPEG design test script
 └── README.md                           # Project documentation
+```
 
 ## About OpenROAD
 
