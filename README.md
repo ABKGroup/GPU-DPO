@@ -5,8 +5,22 @@
 [![Documentation Status](https://readthedocs.org/projects/openroad/badge/?version=latest)](https://openroad.readthedocs.io/en/latest/?badge=latest)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/5370/badge)](https://bestpractices.coreinfrastructure.org/en/projects/5370)
 
-## GPU-DPO Implementation
-Our codes are under the `dpl` module.
+## GPU-DPO Code Structure
+GPU-DPO/   
+├── src/dpl 
+│   ├── src                             # Kernel function operators
+│   │   ├── graphics                    # Graphics utilities
+│   │   ├── infrastructure              # Placement related objectives
+│   │   ├── objective                   # GPU database construction
+│   │   ├── optimization                # Kernel operator implementations
+│   │   │   ├── detailed_global.cu      # Global swap implementation
+│   │   │   ├── detailed_mis.cu         # MIS implementation
+│   │   │   └── detailed_reorder.cu     # Local reordering implementation
+│   │   └── util                        # Utility related functions
+│   ├── test                            # Detailed placement tests
+│   │   ├── aes-multi-height.tcl        # AES design test script
+│   │   └── jpeg-multi-height.tcl       # JPEG design test script
+└── README.md                           # Project documentation
 
 ## About OpenROAD
 
