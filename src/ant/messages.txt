@@ -1,9 +1,0 @@
-ANT 0001 AntennaChecker.cc:1119    Found {} pin violations. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ant/src/AntennaChecker.cc#L1119
-ANT 0002 AntennaChecker.cc:1117    Found {} net violations. INFO https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ant/src/AntennaChecker.cc#L1117
-ANT 0003 AntennaChecker.tcl:16     No design block found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ant/src/AntennaChecker.tcl#L16
-ANT 0008 AntennaChecker.cc:1066    No detailed or global routing found. Run global_route or  ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ant/src/AntennaChecker.cc#L1066
-ANT 0010 AntennaChecker.tcl:35     -report_filename is deprecated. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ant/src/AntennaChecker.tcl#L35
-ANT 0011 AntennaChecker.tcl:38     -report_violating_nets is deprecated. WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ant/src/AntennaChecker.tcl#L38
-ANT 0012 AntennaChecker.i:38       Net {} not found. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ant/src/AntennaChecker.i#L38
-ANT 0013 AntennaChecker.cc:144     No THICKNESS is provided for layer {}.  Checks on this  WARN https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ant/src/AntennaChecker.cc#L144
-ANT 0014 AntennaChecker.cc:1088    Skipped net {} because it is special. ERROR https://github.com/The-OpenROAD-Project/OpenROAD/tree/master/home/jsliang/GPU-DPO/src/ant/src/AntennaChecker.cc#L1088
