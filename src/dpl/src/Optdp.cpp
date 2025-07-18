@@ -85,7 +85,7 @@ void Opendp::improvePlacement(const int seed,
   // Maximum independent set matching.
   dtParams.script_ += "mis" + num_iterations_opt + tolerance_opt + batch_size_opt + bin_size_x_opt + bin_size_y_opt + problem_size_opt + run_mis_opt + ";";
   // Global swaps.
-  dtParams.script_ += "gs" + num_iterations_opt + tolerance_opt + batch_size_opt + bin_size_x_opt + bin_size_y_opt + kick_move_opt + run_gs_opt + ";";
+  dtParams.script_ += "gs" + num_iterations_opt + tolerance_opt + batch_size_opt + bin_size_x_opt + bin_size_y_opt  + run_gs_opt + ";";
   // Small reordering.
   dtParams.script_ += "ro" + num_iterations_opt + tolerance_opt + bin_size_x_opt + bin_size_y_opt + run_reorder_opt + ";";
   // Vertical swaps.

@@ -49,8 +49,8 @@ inline __host__ __device__ int roundDiv(int a, int b) {
 struct Space {
   int xl;
   int xh;
-  int yl; // extended for multi-height cells
-  int yh; // extended for multi-height cells
+  int yl; 
+  int yh;
 };
 
 // =============================================================
@@ -110,7 +110,22 @@ public:
   int* node_top_power = nullptr;
   int* node_bottom_power = nullptr;
   int* node2segs = nullptr;
+  // int* orig_node2segs = nullptr;
+  int* flat_node2segs_start_map = nullptr;
+  int* flat_seg2nodes = nullptr;
+  int* flat_seg2nodes_start_map = nullptr;
   int* node_is_single_height_cell = nullptr;
+  int* node_heights = nullptr;
+
+  int* seg_row_id = nullptr;    
+  int* seg_reg_id = nullptr;    
+  int* seg_min_x = nullptr;  
+  int* seg_max_x = nullptr;    
+  int* flat_row2seg_map = nullptr;       
+  int* flat_row2seg_start_map = nullptr; 
+
+  int* row_top_power = nullptr;
+  int* row_bottom_power = nullptr;
 
   int* pin_offset_x = nullptr;
   int* pin_offset_y = nullptr;
@@ -137,12 +152,17 @@ public:
   int xh;
   int yh;
 
+  int num_segments;
   int num_sites_x;
   int num_sites_y;
   int row_height;
   int site_width;
   int site_spacing;
   int row_left;
+  int node2segs_size;
+  int flat_row2seg_map_size;
+  int flat_row2seg_start_map_size;
+  int flat_seg2nodes_size;
 
   int max_displacement_x;
   int max_displacement_y;
@@ -173,6 +193,16 @@ public:
     allocateCopyCuda(node_size_x, db.node_size_x.data(), db.num_nodes);
     allocateCopyCuda(node_size_y, db.node_size_y.data(), db.num_nodes);
     allocateCopyCuda(node2segs, db.node2segs.data(), db.num_nodes);
+    // allocateCopyCuda(orig_node2segs, db.orig_node2segs.data(), db.num_nodes);
+    allocateCopyCuda(flat_node2segs_start_map, db.flat_node2segs_start_map.data(), db.num_nodes + 1);
+    allocateCopyCuda(seg_row_id, db.seg_row_id.data(), db.num_segments);
+    allocateCopyCuda(seg_reg_id, db.seg_reg_id.data(), db.num_segments);
+    allocateCopyCuda(seg_min_x,  db.seg_min_x.data(),  db.num_segments);
+    allocateCopyCuda(seg_max_x,  db.seg_max_x.data(),  db.num_segments);
+    allocateCopyCuda(flat_row2seg_map, db.flat_row2seg_map.data(), db.flat_row2seg_map_size);
+    allocateCopyCuda(flat_row2seg_start_map, db.flat_row2seg_start_map.data(), db.flat_row2seg_start_map_size);
+    allocateCopyCuda(flat_seg2nodes, db.flat_seg2nodes.data(), db.flat_seg2nodes_size);
+    allocateCopyCuda(flat_seg2nodes_start_map, db.flat_seg2nodes_start_map.data(), db.num_segments + 1);
     allocateCopyCuda(pin_offset_x, db.pin_offset_x.data(), db.num_pins);
     allocateCopyCuda(pin_offset_y, db.pin_offset_y.data(), db.num_pins);
     allocateCopyCuda(flat_node2pin_start_map, db.flat_node2pin_start_map.data(), db.num_nodes + 1);
@@ -190,6 +220,9 @@ public:
     allocateCopyCuda(node_top_power, db.node_top_power.data(), db.num_nodes);
     allocateCopyCuda(node_bottom_power, db.node_bottom_power.data(), db.num_nodes);
     allocateCopyCuda(node_is_single_height_cell, db.node_is_single_height_cell.data(), db.num_nodes);
+    allocateCopyCuda(node_heights, db.node_heights.data(), db.num_nodes);
+    allocateCopyCuda(row_top_power, db.row_top_power.data(), db.num_sites_y);
+    allocateCopyCuda(row_bottom_power, db.row_bottom_power.data(), db.num_sites_y);
 
     xl = db.xl;
     xh = db.xh;
@@ -199,6 +232,10 @@ public:
     site_width = db.site_width;
     site_spacing = db.site_spacing;
     row_left = db.row_left;
+    node2segs_size = db.node2segs_size;
+    flat_seg2nodes_size = db.flat_seg2nodes_size;
+    flat_row2seg_map_size = db.flat_row2seg_map_size;
+    num_segments = db.num_segments;
 
     max_displacement_x = db.max_displacement_x;
     max_displacement_y = db.max_displacement_y;
@@ -225,6 +262,16 @@ public:
     copyBackToCpu(node_size_x, db.node_size_x.data(), num_nodes);
     copyBackToCpu(node_size_y, db.node_size_y.data(), num_nodes);
     copyBackToCpu(node2segs, db.node2segs.data(), num_nodes);
+    // copyBackToCpu(orig_node2segs, db.orig_node2segs.data(), node2segs_size);
+    copyBackToCpu(flat_node2segs_start_map, db.flat_node2segs_start_map.data(), num_nodes + 1);
+    copyBackToCpu(seg_row_id, db.seg_row_id.data(), num_segments);
+    copyBackToCpu(seg_reg_id, db.seg_reg_id.data(), num_segments);
+    copyBackToCpu(seg_min_x,  db.seg_min_x.data(),  num_segments);
+    copyBackToCpu(seg_max_x,  db.seg_max_x.data(),  num_segments);
+    copyBackToCpu(flat_row2seg_map, db.flat_row2seg_map.data(), flat_row2seg_map_size);
+    copyBackToCpu(flat_row2seg_start_map, db.flat_row2seg_start_map.data(), flat_row2seg_start_map_size);
+    copyBackToCpu(flat_seg2nodes, db.flat_seg2nodes.data(), flat_seg2nodes_size);
+    copyBackToCpu(flat_seg2nodes_start_map, db.flat_seg2nodes_start_map.data(), num_segments + 1);
     copyBackToCpu(pin_offset_x, db.pin_offset_x.data(), num_pins);
     copyBackToCpu(pin_offset_y, db.pin_offset_y.data(), num_pins);
     copyBackToCpu(flat_node2pin_start_map, db.flat_node2pin_start_map.data(), num_nodes + 1);
@@ -238,6 +285,9 @@ public:
     copyBackToCpu(flat_region_boxes, db.flat_region_boxes.data(), region_boxes_size);
     copyBackToCpu(node2fence_region_map, db.node2fence_region_map.data(), num_nodes);
     copyBackToCpu(node_is_single_height_cell, db.node_is_single_height_cell.data(), num_nodes);
+    copyBackToCpu(node_heights, db.node_heights.data(), num_nodes);
+    copyBackToCpu(row_bottom_power, db.row_bottom_power.data(), num_sites_y);
+    copyBackToCpu(row_top_power, db.row_top_power.data(), num_sites_y);
 
     db.xl = xl;
     db.xh = xh;
@@ -247,6 +297,9 @@ public:
     db.site_width = site_width;
     db.site_spacing = site_spacing;
     db.row_left = row_left;
+    db.node2segs_size = node2segs_size;
+    db.num_segments = num_segments;
+    db.flat_seg2nodes_size = flat_seg2nodes_size;
 
     db.num_sites_x = num_sites_x;
     db.num_sites_y = num_sites_y;
@@ -268,6 +321,16 @@ public:
     cudaFree(node_size_x);
     cudaFree(node_size_y);
     cudaFree(node2segs);
+    // cudaFree(orig_node2segs);
+    cudaFree(flat_node2segs_start_map);
+    cudaFree(seg_row_id);
+    cudaFree(seg_reg_id);
+    cudaFree(seg_min_x);
+    cudaFree(seg_max_x);
+    cudaFree(flat_row2seg_map);
+    cudaFree(flat_row2seg_start_map);
+    cudaFree(flat_seg2nodes);
+    cudaFree(flat_seg2nodes_start_map);
     cudaFree(pin_offset_x);
     cudaFree(pin_offset_y);
     cudaFree(flat_node2pin_start_map);
@@ -285,6 +348,9 @@ public:
     cudaFree(node_bottom_power);
     cudaFree(node_top_power);
     cudaFree(node_is_single_height_cell);
+    cudaFree(node_heights);
+    cudaFree(row_top_power);
+    cudaFree(row_bottom_power);
   }
 
   void set_num_bins(int num_bins_x_, int num_bins_y_) {
@@ -315,9 +381,6 @@ public:
   inline __device__ Space align2site(Space space) const {
     space.xl = ceilDiv((space.xl - xl), site_width) * site_width + xl;
     space.xh = floorDiv((space.xh - xl), site_width) * site_width + xl;
-    // Align yl and yh to row_height
-    space.yl = ceilDiv((space.yl - yl), row_height) * row_height + yl;
-    space.yh = floorDiv((space.yh - yl), row_height) * row_height + yl;
     return space;
   }
 

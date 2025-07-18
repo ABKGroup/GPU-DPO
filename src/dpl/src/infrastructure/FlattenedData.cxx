@@ -61,6 +61,7 @@ void FlattenedData::createNodeInfo() {
   node_bottom_power.resize(num_nodes);
   node_top_power.resize(num_nodes);
   node_is_single_height_cell.resize(num_nodes);
+  node_heights.resize(num_nodes);
 
   for (int i = 0; i < network_->getNumNodes(); i++) {
     Node* node = network_->getNode(i);
@@ -87,13 +88,17 @@ void FlattenedData::createNodeInfo() {
     } else if (arch_->isMultiHeightCell(node)) {
       node_is_single_height_cell[node->getId()] = 0;
     }
+    node_heights[node->getId()] = arch_->getCellHeightInRows(node);
   }
 }
 
 void FlattenedData::createSegmentInfo() {
-  // this function also records if a multi-height cell occupies multiple segments
+  // record all segments the nodes occupy
   num_segments = mgr_->getNumSegments();
+  flat_node2segs_start_map.resize(num_nodes + 1);
   node2segs.resize(num_nodes);
+  int lastIdx = 0;
+  flat_node2segs_start_map[0] = 0;
   for (int i = 0; i < mgr_->getNumSegments(); i++) {
     const std::vector<Node*>& nodes = mgr_->getCellsInSeg(i);
     for (Node* node : nodes) {
@@ -101,6 +106,68 @@ void FlattenedData::createSegmentInfo() {
       node2segs[node_id] = i; 
     }
   }
+  node2segs_size = 0;
+  // for (int i = 0; i < num_nodes; i++) {
+  //   Node* node = network_->getNode(i);
+  //   int node_id = node->getId();
+  //   node2segs_size += mgr_->getReverseCellToSegs(node_id).size();
+  // }
+  // node2segs.resize(node2segs_size);
+  // orig_node2segs.resize(node2segs_size);
+  // int ptr = 0;
+  // for (int i = 0; i < num_nodes; ++i) { 
+  //   Node* node = network_->getNode(i);
+  //   int node_id = node->getId();
+  //   for (const auto seg : mgr_->getReverseCellToSegs(node_id)) {
+  //     node2segs[ptr] = seg->getSegId();
+  //     orig_node2segs[ptr] = seg->getSegId();
+  //     ptr++;
+  //   }
+  //   // The number of segments a cell occupies should be the same as its height
+  //   lastIdx += mgr_->getReverseCellToSegs(node_id).size();
+  //   flat_node2segs_start_map[node_id + 1] = lastIdx;
+  // }
+  // node2segs_size = node2segs.size();
+
+  flat_seg2nodes.clear();
+  flat_seg2nodes_start_map.resize(num_segments + 1);
+  int seg2nodes_ptr = 0;  
+  for (int seg_id = 0; seg_id < num_segments; ++seg_id) {
+    const std::vector<Node*>& nodes = mgr_->getCellsInSeg(seg_id);
+    flat_seg2nodes_start_map[seg_id] = seg2nodes_ptr;
+    for (const Node* node : nodes) {
+      flat_seg2nodes.push_back(node->getId());
+      ++seg2nodes_ptr;
+    }
+  }
+  flat_seg2nodes_start_map[num_segments] = seg2nodes_ptr;
+  flat_seg2nodes_size = flat_seg2nodes.size();
+
+  flat_row2seg_start_map.resize(num_sites_y + 1);
+  flat_row2seg_map.clear();
+  seg_row_id.resize(num_segments, -1);
+  seg_reg_id.resize(num_segments, -1);
+  seg_min_x.resize(num_segments, 0);
+  seg_max_x.resize(num_segments, 0);
+  for (int r = 0; r < num_sites_y; ++r) {
+    const auto& segs = mgr_->getSegsInRow(r);
+    flat_row2seg_start_map[r] = flat_row2seg_map.size();
+    for (const auto* seg : segs) {
+      int segId = seg->getSegId();
+      flat_row2seg_map.push_back(segId);
+      // Only fill segment properties once per segment
+      if (seg_row_id[segId] == -1) {
+        seg_row_id[segId] = seg->getRowId();
+        seg_reg_id[segId] = seg->getRegId();
+        seg_min_x[segId] = seg->getMinX().v;
+        seg_max_x[segId] = seg->getMaxX().v;
+      }
+    }
+  }
+  flat_row2seg_start_map[num_sites_y] = flat_row2seg_map.size();
+
+  flat_row2seg_map_size = flat_row2seg_map.size();
+  flat_row2seg_start_map_size = flat_row2seg_start_map.size();
 }
 
 void FlattenedData::createPinInfo() {
@@ -236,7 +303,12 @@ void FlattenedData::createChipInfo() {
 void FlattenedData::createRowInfo() {
   num_sites_x = std::round((xh - xl) / site_width);
   num_sites_y = arch_->getNumRows();
-  std::cout << "[INFO GPU-DPO] Created " << num_sites_y << " rows." << std::endl;
+  row_bottom_power.resize(num_sites_y);
+  row_top_power.resize(num_sites_y);
+  for (int r = 0; r < num_sites_y; ++r) {
+    row_bottom_power[r] = arch_->getRow(r)->getBottomPower();
+    row_top_power[r] = arch_->getRow(r)->getTopPower();
+  }
 }
 
 void FlattenedData::shiftDatabase() {
@@ -264,68 +336,54 @@ void FlattenedData::shiftDatabase() {
   }
 }
 
-std::vector<int> findSegmentsForMultiHeightCell(
-    DetailedMgr& mgr,
-    const Node* node,
-    int left,
-    int bottom
-) {
-  std::vector<int> segment_ids;
-  Architecture* arch = mgr.getArchitecture();
-  int spanned = arch->getCellHeightInRows(node);
-  int row_idxl = arch->find_closest_row(DbuY{bottom});
-  int row_idxh = row_idxl + spanned - 1;
-  for (int row = row_idxl; row <= row_idxh; ++row) {
-    const auto& segs = mgr.getSegsInRow(row);
-    for (const auto* seg : segs) {
-      int seg_min_x = seg->getMinX().v;
-      int seg_max_x = seg->getMaxX().v;
-      int cell_min_x = left;
-      int cell_max_x = left + node->getWidth().v;
-      if (cell_max_x > seg_min_x && cell_min_x < seg_max_x) {
-        segment_ids.push_back(seg->getSegId());
-      }
-    }
-  }
-  return segment_ids;
-}
-
 // update node locations once device ops are done
 void FlattenedData::populateNetwork(Network& network, DetailedMgr& mgr) {
-  std::vector<int> orig_node2segs(num_nodes);
+  // we should only have to update locations of non-fixed nodes
+  std::vector<int> original_node2segs(num_nodes);
   for (int i = 0; i < mgr.getNumSegments(); i++) {
     const std::vector<Node*>& nodes = mgr.getCellsInSeg(i);
     for (Node* node : nodes) {
       int node_id = node->getId();
-      orig_node2segs[node_id] = i;
+      original_node2segs[node_id] = i;
     }
   }
-  // we should only have to update locations of non-fixed nodes
   for (int i = 0; i < network.getNumMovableNodes(); i++) {
     Node* node = network.getNode(i);
+    int node_id = node->getId();
+    // Update node positions
     if (node->getLeft().v != x[i] && !mgr.getArchitecture()->isMultiHeightCell(node)) {
       node->setLeft(DbuX{x[i]});
     }
     if (node->getBottom().v != y[i] && !mgr.getArchitecture()->isMultiHeightCell(node)) {
       node->setBottom(DbuY{y[i]});
     }
-    // nodes might have moved to a different segment
     if (!mgr.getArchitecture()->isMultiHeightCell(node)) {
-      if (node2segs[i] != orig_node2segs[i]) {
-        mgr.removeCellFromSegment(node, orig_node2segs[i]);
+      if (node2segs[i] != original_node2segs[i]) {
+        mgr.removeCellFromSegment(node, original_node2segs[i]);
         mgr.addCellToSegment(node, node2segs[i]);
       }
-    } /*else {
-      // Multi-height cell: remove from all old segments, add to all new segments
-      const std::vector<DetailedSeg*>& oldSegs = mgr.getReverseCellToSegs(i);
-      for (auto* seg : oldSegs) {
-        mgr.removeCellFromSegment(node, seg->getSegId());
-      }
-      std::vector<int> new_segs = findSegmentsForMultiHeightCell(mgr, node, x[i], y[i]);
-      for (int seg_id : new_segs) {
-        mgr.addCellToSegment(node, seg_id);
-      }
-    }*/
+    }
+    // std::vector<int> new_segs;
+    // std::vector<int> current_segs;
+    // int seg_start = flat_node2segs_start_map[node_id];
+    // int seg_end = flat_node2segs_start_map[node_id + 1];
+    // for (int idx = seg_start; idx < seg_end; ++idx) {
+    //   new_segs.push_back(node2segs[idx]);
+    //   current_segs.push_back(orig_node2segs[idx]);
+    // }
+    // // Compare sets
+    // std::sort(current_segs.begin(), current_segs.end());
+    // std::sort(new_segs.begin(), new_segs.end());
+    // if (current_segs != new_segs) {
+    //   if (!mgr.getArchitecture()->isMultiHeightCell(node)) {
+    //     for (int seg : current_segs) {
+    //       mgr.removeCellFromSegment(node, seg);
+    //     }
+    //     for (int seg : new_segs) {
+    //       mgr.addCellToSegment(node, seg);
+    //     }
+    //   }
+    // }
   }
   mgr.resortSegments();
 }

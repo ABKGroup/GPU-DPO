@@ -34,12 +34,28 @@ public:
   std::vector<int> node_bottom_power;
   std::vector<int> node_top_power;
   std::vector<int> node_is_single_height_cell;  // 0 if multi-height, 1 if single-height
+  std::vector<int> node_heights;
 
   /* segment info */
-  std::vector<int> node2segs;               // stores which cells are in the segments
-  //std::vector<int> flat_seg2node_map;       // stores the contiguous list of nodes in each segment
-  //std::vector<int> flat_seg2node_start_map; // start position of segments
   int num_segments;
+  std::vector<int> node2segs;                   // node2segs[node_id] = segment id (single-height only, legacy)
+  std::vector<int> orig_node2segs;              // stores the original node 2 segment mapping (flattened)
+  std::vector<int> flat_node2segs_start_map;    // start index for each node in orig_node2segs (size: num_nodes+1)
+  std::vector<int> flat_seg2nodes;              // concatenated node ids for all segments
+  std::vector<int> flat_seg2nodes_start_map;    // start index for each segment in flat_seg2nodes (size: num_segments+1)
+  std::vector<int> row_bottom_power;            // bottom power rail for each row
+  std::vector<int> row_top_power;               // top power rail for each row
+  int node2segs_size;                           // size of the node2segs map
+  int flat_seg2nodes_size;
+
+  std::vector<int> seg_row_id;    // rowId for each segment
+  std::vector<int> seg_reg_id;    // regId for each segment
+  std::vector<int> seg_min_x;     // xmin for each segment
+  std::vector<int> seg_max_x;     // xmax for each segment
+  std::vector<int> flat_row2seg_map;       // concatenated segment indices for all rows
+  std::vector<int> flat_row2seg_start_map; // start index for each row in flat_row2seg_map (size: num_rows+1)
+  int flat_row2seg_map_size;
+  int flat_row2seg_start_map_size;
 
   /* pin info */
   std::vector<int> pin_offset_x;  

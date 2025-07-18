@@ -556,6 +556,36 @@ inline __device__ int compute_pair_hpwl_general_fast(PitchNestedVector<int>& nod
 
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
+__device__ bool power_compatible(int node_bot_power,
+                                 int node_top_power,
+                                 int row_idxl, int row_idxh, 
+                                 const int* row_bottom_power,
+                                 const int* row_top_power) {
+  int row_bot = row_bottom_power[row_idxl];
+  int row_top = row_top_power[row_idxh];
+
+  // power value of 0 means unknown power
+  // power value of 1 means Power_VDD
+  // power value of 2 means Power_VSS
+
+  bool direct =
+    (node_bot_power == row_bot || node_bot_power == 0 || row_bot == 0) &&
+    (node_top_power == row_top || node_top_power == 0 || row_top == 0);
+  if (direct) return true;
+
+  int nd_bot = node_top_power;
+  int nd_top = node_bot_power;
+
+  bool flipped =
+    (nd_bot == row_bot || nd_bot == 0 || row_bot == 0) &&
+    (nd_top == row_top || nd_top == 0 || row_top == 0);
+  if (flipped) return true;
+
+  return false;
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 __device__ int compute_positions_hint(const GpuData& db,
                                         const SwapState& state,
                                         SwapCandidate& cand,
@@ -599,6 +629,56 @@ __device__ int compute_positions_hint(const GpuData& db,
   cand.node_yl[0][1] = cand.node_yl[1][0];
   cand.node_yl[1][1] = cand.node_yl[0][0];
 
+  // special checks for multi-height cells
+  // if (!db.node_is_single_height_cell[cand.node_id[0]]
+  //     || !db.node_is_single_height_cell[cand.node_id[1]]) {  
+  //   // cell_idx 0 = curr cell, cell_idx 1 = target cell to swap with
+  //   for (int cell_idx = 0; cell_idx < 2; cell_idx++) {
+  //     int node_id = cand.node_id[cell_idx];
+  //     int new_x = cand.node_xl[cell_idx][1];
+  //     int new_y = cand.node_yl[cell_idx][1];
+  //     int width = db.node_size_x[node_id];
+  //     int height = db.node_size_y[node_id];
+  //     int rows_spanned = db.node_heights[node_id];
+
+  //     // a cell would occupy rows [row_start, row_bottom]
+  //     int row_bottom = (new_y - db.yl) / db.row_height;
+  //     int row_top = row_bottom + rows_spanned - 1;
+  //     if (row_bottom < 0 || row_bottom + rows_spanned > db.num_sites_y) {
+  //       return cuda::numeric_limits<int>::max();
+  //     }
+
+  //     if (rows_spanned > 1) {
+  //       int node_bot_power = db.node_bottom_power[node_id];
+  //       int node_top_power = db.node_top_power[node_id];
+  //       if (!power_compatible(node_bot_power, node_top_power,
+  //                             row_bottom, row_top,
+  //                             db.row_bottom_power, db.row_top_power)) {
+  //         return cuda::numeric_limits<int>::max();
+  //       }
+  //     }
+
+  //     // for each row spanned, check if there is a gap for the cell
+  //     for (int r = row_bottom; r < row_bottom + rows_spanned; r++) {
+  //       const int* row_nodes = state.row2node_map(r);
+  //       int num_nodes_in_row = state.row2node_map.size(r);
+  //       bool fits = false;
+  //       for (int idx = 0; idx < num_nodes_in_row - 1; idx++) {
+  //         int left_node = row_nodes[idx];
+  //         int right_node = row_nodes[idx + 1];
+  //         int left_x = db.x[left_node] + db.node_size_x[left_node];
+  //         int right_x = db.x[right_node];
+  //         if (new_x >= left_x && new_x + width <= right_x) {
+  //           fits = true;
+  //           break;
+  //         }
+  //       }
+  //       if (!fits) {
+  //         return cuda::numeric_limits<int>::max();
+  //       }
+  //     }
+  //   }
+  // }
   return 0;
 }
 
@@ -754,8 +834,7 @@ __global__ void __launch_bounds__(256, 4)
 
     if (bin_id >= 0) {
       bin2nodes = state.bin2node_map(bin_id);
-      num_nodes_in_bin =
-          state.bin2node_map.size(bin_id) * db.node_is_single_height_cell[node_id];
+      num_nodes_in_bin = state.bin2node_map.size(bin_id) * db.node_is_single_height_cell[node_id];
       step_size = max((float)num_nodes_in_bin / (float)max_num_candidates, (float)1);
       iters = min(max_num_candidates, num_nodes_in_bin);
     }
@@ -767,7 +846,7 @@ __global__ void __launch_bounds__(256, 4)
     for (int i = threadIdx.x; i < iters; i += blockDim.x) {
       cand.node_id[1] = bin2nodes[int(i * step_size)];
       int cond = (cand.node_id[0] != cand.node_id[1]);
-      cond &= (db.node_size_y[cand.node_id[1]] == db.row_height);
+      cond &= db.node_is_single_height_cell[cand.node_id[1]];
       if (cond) {
         cand.cost = compute_positions_hint(db, state, cand, node_xl, node_yl,
                                            node_width, space);
@@ -815,6 +894,7 @@ __global__ void __launch_bounds__(256, 4)
     num_candidates = (state.max_num_candidates_all << 2);
   }
   __syncthreads();
+  // for all the available movable candidates to swap with, calculate the cost
   for (int i = blockIdx.x * blockDim.x + threadIdx.x; i < num_candidates;
        i += blockDim.x * gridDim.x) {
     SwapCandidate& cand = state.candidates[i >> 2];
@@ -950,11 +1030,155 @@ __global__ void apply_candidates(GpuData db, SwapState state, int num_candidates
 
         device_swap(row2nodes[row_id.sub_id], target_row2nodes[target_row_id.sub_id]);
         device_swap(row_id, target_row_id);
-
         // Swap segments if they are different
+        int seg_start0 = db.flat_node2segs_start_map[best_cand.node_id[0]];
+        int seg_end0   = db.flat_node2segs_start_map[best_cand.node_id[0] + 1];
+        int seg_start1 = db.flat_node2segs_start_map[best_cand.node_id[1]];
+        int seg_end1   = db.flat_node2segs_start_map[best_cand.node_id[1] + 1];
+        int num_segs0 = seg_end0 - seg_start0;
+        int num_segs1 = seg_end1 - seg_start1;
+        int min_segs = min(num_segs0, num_segs1);
+        // Swap as many segments as possible
         if (db.node2segs[best_cand.node_id[0]] != db.node2segs[best_cand.node_id[1]]) {
           device_swap(db.node2segs[best_cand.node_id[0]], db.node2segs[best_cand.node_id[1]]);
         }
+        // for (int k = 0; k < min_segs; ++k) {
+        //   device_swap(db.node2segs[seg_start0 + k], db.node2segs[seg_start1 + k]);
+        // }
+        // bool is_multi0 = (db.node_is_single_height_cell[best_cand.node_id[0]]);
+        // bool is_multi1 = (db.node_is_single_height_cell[best_cand.node_id[1]]);
+
+        // if (is_multi0 && is_multi1) {
+        //   int seg_start0 = db.flat_node2segs_start_map[best_cand.node_id[0]];
+        //   int seg_end0   = db.flat_node2segs_start_map[best_cand.node_id[0] + 1];
+        //   int seg_start1 = db.flat_node2segs_start_map[best_cand.node_id[1]];
+        //   int seg_end1   = db.flat_node2segs_start_map[best_cand.node_id[1] + 1];
+        //   int num_segs0 = seg_end0 - seg_start0;
+        //   int num_segs1 = seg_end1 - seg_start1;
+        //   int min_segs = min(num_segs0, num_segs1);
+
+        //   for (int k = 0; k < min_segs; ++k) {
+        //     device_swap(db.node2segs[seg_start0 + k], db.node2segs[seg_start1 + k]);
+        //   } 
+        // } 
+        // else if (!is_multi0 || !is_multi1) {
+        //   // If at least one candidate is a multi-height cell, 
+        //   // we need to update all spaces spanned by the rows
+        //   int seg_start0 = db.flat_node2segs_start_map[best_cand.node_id[0]];
+        //   int seg_end0   = db.flat_node2segs_start_map[best_cand.node_id[0] + 1];
+        //   int seg_start1 = db.flat_node2segs_start_map[best_cand.node_id[1]];
+        //   int seg_end1   = db.flat_node2segs_start_map[best_cand.node_id[1] + 1];
+        //   int num_segs0 = seg_end0 - seg_start0;
+        //   int num_segs1 = seg_end1 - seg_start1;
+        //   printf("ABOUT TO PERFORM SWAP\n");
+        //   if (num_segs0 == num_segs1) {
+        //     // swapping same size multi-height cells
+        //     for (int k = 0; k < num_segs0; ++k) {
+        //       device_swap(db.node2segs[seg_start0 + k], db.node2segs[seg_start1 + k]);
+        //     }
+        //   } else if (num_segs0 > num_segs1) {
+        //     // cell 0 is taller than cell 1
+        //     for (int k = 0; k < num_segs1; ++k) {
+        //       device_swap(db.node2segs[seg_start0 + k], db.node2segs[seg_start1 + k]);
+        //     }
+        //     // Assign the remaining segments for node0 (the extra rows)
+        //     int node0 = best_cand.node_id[0];
+        //     int new_x0 = db.x[node0];
+        //     int width0 = db.node_size_x[node0];
+        //     // int group_id0 = db.node2fence_region_map[node0];
+        //     int new_y0 = db.y[node0];
+        //     int rows_spanned0 = db.node_heights[node0];
+        //     int row_bottom0 = (new_y0 - db.yl) / db.row_height;
+        //     // The extra rows are from row_bottom0 + num_segs1 to row_bottom0 + num_segs0 - 1
+        //     for (int r = row_bottom0 + num_segs1, seg_idx = seg_start0 + num_segs1; r < row_bottom0 + num_segs0 && r < db.num_sites_y && seg_idx < db.node2segs_size; ++r, ++seg_idx) {
+        //       bool found = false;
+        //       int seg_start = db.flat_row2seg_start_map[r];
+        //       int seg_end = db.flat_row2seg_start_map[r+1];
+        //       for (int sidx = seg_start; sidx < seg_end; ++sidx) {
+        //           int segId = db.flat_row2seg_map[sidx];
+        //           // Optionally check segId < size of seg_min_x, seg_max_x
+        //           if (segId >= 0 /* && segId < seg_array_size */ &&
+        //               db.seg_min_x[segId] <= new_x0 &&
+        //               new_x0 + width0 <= db.seg_max_x[segId]) {
+        //               db.node2segs[seg_idx] = segId;
+        //               found = true;
+        //               break;
+        //           }
+        //       }
+        //       if (!found && seg_idx < db.node2segs_size) {
+        //           db.node2segs[seg_idx] = -1;
+        //       }
+        //     }
+        //   } else if (num_segs0 < num_segs1) {
+        //     // cell 1 is taller than cell 0
+        //     for (int k = 0; k < num_segs0; ++k) {
+        //       device_swap(db.node2segs[seg_start0 + k], db.node2segs[seg_start1 + k]);
+        //     }
+        //     // Assign the remaining segments for node1 (the extra rows)
+        //     int node1 = best_cand.node_id[1];
+        //     int new_x1 = db.x[node1];
+        //     int width1 = db.node_size_x[node1];
+        //     // int group_id1 = db.node2fence_region_map[node1];
+        //     int new_y1 = db.y[node1];
+        //     int rows_spanned1 = db.node_heights[node1];
+        //     int row_bottom1 = (new_y1 - db.yl) / db.row_height;
+        //     // The extra rows are from row_bottom1 + num_segs0 to row_bottom1 + num_segs1 - 1
+        //     for (int r = row_bottom1 + num_segs0, seg_idx = seg_start1 + num_segs0; r < row_bottom1 + num_segs1 && r < db.num_sites_y && seg_idx < db.node2segs_size; ++r, ++seg_idx) {
+        //       bool found = false;
+        //       int seg_start = db.flat_row2seg_start_map[r];
+        //       int seg_end = db.flat_row2seg_start_map[r+1];
+        //       for (int sidx = seg_start; sidx < seg_end; ++sidx) {
+        //           int segId = db.flat_row2seg_map[sidx];
+        //           // Optionally check segId < size of seg_min_x, seg_max_x
+        //           if (segId >= 0 /* && segId < seg_array_size */ &&
+        //               db.seg_min_x[segId] <= new_x1 &&
+        //               new_x1 + width1 <= db.seg_max_x[segId]) {
+        //               db.node2segs[seg_idx] = segId;
+        //               found = true;
+        //               break;
+        //           }
+        //       }
+        //       if (!found && seg_idx < db.node2segs_size) {
+        //           db.node2segs[seg_idx] = -1;
+        //       }
+        //     }
+        //   }
+        //   // Update all affected row spaces for both nodes
+        //   for (int swap_idx = 0; swap_idx < 2; ++swap_idx) {
+        //     int node_id = best_cand.node_id[swap_idx];
+        //     int new_x = db.x[node_id];
+        //     int new_y = db.y[node_id];
+        //     int width = db.node_size_x[node_id];
+        //     int rows_spanned = db.node_heights[node_id];
+        //     int row_bottom = (new_y - db.yl) / db.row_height;
+        //     int row_top = row_bottom + rows_spanned - 1;
+        //     for (int r = row_bottom; r <= row_top; ++r) {
+        //       int* row2nodes = state.row2node_map(r);
+        //       int num_nodes_in_row = state.row2node_map.size(r);
+        //       // Find the index of node_id in row2nodes
+        //       int node_idx = -1;
+        //       for (int idx = 0; idx < num_nodes_in_row; ++idx) {
+        //         if (row2nodes[idx] == node_id) {
+        //           node_idx = idx;
+        //           break;
+        //         }
+        //       }
+        //       if (node_idx == -1) continue;
+        //       // Update the left neighbor
+        //       if (node_idx > 0) {
+        //         int left_neighbor = row2nodes[node_idx - 1];
+        //         Space& left_space = state.spaces[left_neighbor];
+        //         left_space.xh = min(left_space.xh, new_x);
+        //       }
+        //       // Update the right neighbor
+        //       if (node_idx < num_nodes_in_row - 1) {
+        //         int right_neighbor = row2nodes[node_idx + 1];
+        //         Space& right_space = state.spaces[right_neighbor];
+        //         right_space.xl = max(right_space.xl, new_x + width);
+        //       }
+        //     }
+        //   }
+        // }
       }
     }
   }
@@ -975,7 +1199,6 @@ __global__ void iota(int* ptr, int n) {
 void global_swap(GpuData& db, SwapState& state) {
   compute_search_bins<<<ceilDiv(db.num_movable_nodes, 512), 512>>>(db, state, 0, db.num_movable_nodes);
   checkCuda(cudaDeviceSynchronize());
-
   for (int i = 0; i < db.num_movable_nodes; i += state.batch_size) {
     // all results are stored in state.candidates
     int idx_bgn = i;
@@ -1122,8 +1345,7 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr, GpuData& db_,
   mgr_ = mgrPtr;
 
   int passes = 5;
-  double tol = 0.01;
-  int kick_move = 25;
+  double tol = 0.001;
   int run_global_swap = 1;
   for (size_t i = 1; i < args.size(); i++) {
     if (args[i] == "-p" && i + 1 < args.size()) {
@@ -1136,23 +1358,19 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr, GpuData& db_,
       numBinsX_ = std::atoi(args[++i].c_str());
     } else if (args[i] == "-bin_y" && i + 1 < args.size()) {
       numBinsY_ = std::atoi(args[++i].c_str());
-    } else if (args[i] == "-kick" && i + 1 < args.size()) {
-      kick_move = std::atoi(args[++i].c_str());
     } else if (args[i] == "-run" && i + 1 < args.size()) {
       run_global_swap = std::atoi(args[++i].c_str());
     }
   }
+  numBinsX_ = 8;
+  numBinsY_ = 8;
+
   passes = std::max(passes, 1);
   tol = std::max(tol, 0.01); 
-  kick_move = std::max(kick_move, 0);
-
   if (!run_global_swap) {
     printf("[INFO GPU-DPO] Skipping global swap due to flag passed in.\n");
     return;
   }
-
-  // Perform LSMC to get a worse initial placement
-  // apply_lsmc(db_, *mgrPtr, kick_move);
 
   db_.set_num_bins(numBinsX_, numBinsY_);
   printf("[INFO GPU-DPO] bins %dx%d, bin sizes %gx%g, die size %d, %d, %d, %d\n",
@@ -1276,7 +1494,6 @@ void DetailedGlobalSwap::run(DetailedMgr* mgrPtr, GpuData& db_,
 
   curr_hpwl = compute_total_hpwl(db_, db_.x, db_.y, state.net_hpwls);
   init_hpwl = curr_hpwl;
-  std::cout << "INITIAL HPWL IS " << curr_hpwl << std::endl;
   for (int p = 1; p <= passes; p++) {
     last_hpwl = curr_hpwl;
     auto start = std::chrono::high_resolution_clock::now();

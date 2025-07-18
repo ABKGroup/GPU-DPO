@@ -132,7 +132,15 @@ class Opendp
   Padding* getPadding() { return padding_.get(); }
   void improvePlacement(int seed,
                         int max_displacement_x,
-                        int max_displacement_y);
+                        int max_displacement_y,
+                        const int window_size,
+                        const int problem_size,
+                        const int num_iterations,
+                        const int kick_move,
+                        const int run_gs,
+                        const int run_reorder,
+                        const int run_mis,
+                        const float tolerance);
 
  private:
   using bgPoint

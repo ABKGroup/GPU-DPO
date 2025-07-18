@@ -193,8 +193,8 @@ void DetailedMis::run(DetailedMgr* mgrPtr, GpuData& db_, std::vector<std::string
   mgrPtr_ = mgrPtr;
   // db_ = mgrPtr_->getGpuData();
 
-  int passes = 50;
-  double tol = 0.01;
+  int passes = 10;
+  double tol = 0.001;
   int run_mis = 1;
   for (size_t i = 1; i < args.size(); i++) {
     if (args[i] == "-p" && i + 1 < args.size()) {
@@ -222,6 +222,7 @@ void DetailedMis::run(DetailedMgr* mgrPtr, GpuData& db_, std::vector<std::string
     printf("[INFO GPU-DPO] Skipping maximum independent set matching due to flag passed in.\n");
     return;
   }
+  setSize_ = 128;
 
   db_.set_num_bins(numBinsX_, numBinsY_);
   IndependentSetMatchingState state;
@@ -306,8 +307,6 @@ void DetailedMis::run(DetailedMgr* mgrPtr, GpuData& db_, std::vector<std::string
 
   for (int p = 1; p <= passes; p++) {
     // const double curr_obj = (obj_ == DetailedMis::Hpwl) ? curr_hpwl : curr_disp;
-
-    printf("[INFO GPU-DPO] Pass %d of matching; objective is %d.\n", p, curr_hpwl);
     auto start = std::chrono::high_resolution_clock::now();
     shuffler();
     checkCuda(cudaDeviceSynchronize());
@@ -358,10 +357,14 @@ void DetailedMis::run(DetailedMgr* mgrPtr, GpuData& db_, std::vector<std::string
 
     auto end = std::chrono::high_resolution_clock::now();
     double elapsed_ms = std::chrono::duration<double, std::milli>(end - start).count();
-    std::cout << "[INFO GPU-DPO] Iteration time: " << elapsed_ms << " ms\n";
+    //std::cout << "[INFO GPU-DPO] Iteration time: " << elapsed_ms << " ms\n";
 
     const int64_t last_hpwl = curr_hpwl;
     curr_hpwl = compute_total_hpwl(db_, db_.x, db_.y, state.net_hpwls);
+    // if (curr_hpwl > last_hpwl) {
+    //   break;
+    // }
+    // printf("[INFO GPU-DPO] Pass %d of matching; objective is %d.\n", p, curr_hpwl);
     // if (/*obj_ == DetailedMis::Hpwl
     //     &&*/ std::abs(curr_hpwl - last_hpwl) / (double) last_hpwl <= tol) {
     //   break;
@@ -372,6 +375,9 @@ void DetailedMis::run(DetailedMgr* mgrPtr, GpuData& db_, std::vector<std::string
     //     && std::fabs(curr_disp - last_disp) / last_disp <= tol) {
     //   break;
     // }
+    if (std::abs(curr_hpwl - last_hpwl) / (double) last_hpwl <= tol && p % 10 == 0) {
+      break;
+    }
   }
 
   double hpwl_imp = (((init_hpwl - curr_hpwl) / (double) init_hpwl) * 100.);

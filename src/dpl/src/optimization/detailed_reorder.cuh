@@ -89,10 +89,22 @@ class DetailedReorderer
  public:
   DetailedReorderer(Architecture* arch, Network* network);
 
+  void run(DetailedMgr* mgrPtr, const std::string& command);
+  void run(DetailedMgr* mgrPtr, const std::vector<std::string>& args);
+
   void run(DetailedMgr* mgrPtr, GpuData& db, const std::string& command);
   void run(DetailedMgr* mgrPtr, GpuData& db_, const std::vector<std::string>& args);
 
  private:
+  void reorder();
+  void reorder(const std::vector<Node*>& nodes,
+               int jstrt,
+               int jstop,
+               DbuX leftLimit,
+               DbuX rightLimit,
+               int segId,
+               int rowId);
+  double cost(const std::vector<Node*>& nodes, int istrt, int istop);
   Architecture* arch_;
   Network* network_;
 
@@ -100,6 +112,9 @@ class DetailedReorderer
   DetailedMgr* mgrPtr_ = nullptr;
 
   // Other.
+  int skipNetsLargerThanThis_ = 100;
+  std::vector<int> edgeMask_;
+  int traversal_ = 0;
   int windowSize_ = 3;
   int numBinsX_ = 256;
   int numBinsY_ = 256;

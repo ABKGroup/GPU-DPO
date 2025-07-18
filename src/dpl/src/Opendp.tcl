@@ -213,13 +213,13 @@ proc improve_placement { args } {
     # set the number of iterations to perform each detailed placement operator
     set num_iterations $keys(-num_iterations)
   } else {
-    set num_iterations 10
+    set num_iterations 5
   }
   if { [info exists keys(-kick_move)] } {
     # percentage of design instances to perform random swap 
     set kick_move $keys(-kick_move)
   } else {
-    set kick_move 25
+    set kick_move 10
   }
   if { [info exists keys(-run_gs)] } {
     set run_gs $keys(-run_gs)

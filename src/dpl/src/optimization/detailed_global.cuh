@@ -11,6 +11,7 @@
 
 #define maxNodeDegree_ 20
 #define maxNetDegree_ 100
+#define MAX_CELL_HEIGHT_IN_ROWS 10    // we assume that the max height of a multi-height cell is 10
 
 namespace odb {
 class Rect;
@@ -80,6 +81,7 @@ struct SwapState {
                                      ///< net2pin_map; 1: for node2net_map and
                                      ///< net2node_map, which requires
                                      ///< additional memory
+  int* node2segs_multi = nullptr; // [num_nodes * MAX_CELL_HEIGHT_IN_ROWS]
 };
 
 class DetailedGlobalSwap : public DetailedGenerator

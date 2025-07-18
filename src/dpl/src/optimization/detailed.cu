@@ -38,88 +38,71 @@ namespace dpl {
 // Defines.
 ////////////////////////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////////////////////////////
-// Detailed::apply_lsmc:
-////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
-void apply_lsmc(GpuData &db, DetailedMgr &mgr, int kick_move) {
+void updateFlattenedDataAndCopyToGPU(DetailedMgr* mgr, GpuData* gpuData)
+{
+  Network* network = mgr->getNetwork();
+  int num_nodes = network->getNumNodes();
+  std::vector<int> node_x(num_nodes);
+  std::vector<int> node_y(num_nodes);
+  std::vector<int> node_size_x(num_nodes);
+  std::vector<int> node_size_y(num_nodes);
+  std::vector<int> node2segs(num_nodes);
+  for (int i = 0; i < num_nodes; ++i) {
+    Node* node = network->getNode(i);
+    node_x[i] = node->getLeft().v;
+    node_y[i] = node->getBottom().v;
+    node_size_x[i] = node->getWidth().v;
+    node_size_y[i] = node->getHeight().v;
+    if (mgr->getNumReverseCellToSegs(i) > 0) {
+      node2segs[i] = mgr->getReverseCellToSegs(i)[0]->getSegId();
+    } else {
+      node2segs[i] = -1;
+    }
+  }
+  cudaMemcpy(gpuData->x, node_x.data(), sizeof(int) * num_nodes, cudaMemcpyHostToDevice);
+  cudaMemcpy(gpuData->y, node_y.data(), sizeof(int) * num_nodes, cudaMemcpyHostToDevice);
+  cudaMemcpy(gpuData->node_size_x, node_size_x.data(), sizeof(int) * num_nodes, cudaMemcpyHostToDevice);
+  cudaMemcpy(gpuData->node_size_y, node_size_y.data(), sizeof(int) * num_nodes, cudaMemcpyHostToDevice);
+  cudaMemcpy(gpuData->node2segs, node2segs.data(), sizeof(int) * num_nodes, cudaMemcpyHostToDevice);
+}
+
+void apply_lsmc(DetailedMgr* mgr, int kick_move) {
   // Here, we apply large stage Markov chain descent.
   // Kick move is a percentage of movable design instances.
-  // We perturb the initial placement by kick move percent,
-  // which randomly swaps cells that make the HPWL worse.
-  FlattenedData cpu_db(&mgr); 
-  cpu_db.createFlattenedData();
-  db.copyToHost(cpu_db);
-  DetailedMgr* mgr_ptr = cpu_db.mgr_;
-  Network* network = cpu_db.network_;
-  Architecture* arch = cpu_db.arch_;
+  // We perturb the initial placement by kick move percent
+  Network* network = mgr->getNetwork();
+  Architecture* arch = mgr->getArchitecture();
+
+  std::vector<Node*> candidates = mgr->getSingleHeightCells();
+
+  int num_movable = (int)candidates.size();
+  if (num_movable < 1) return;
+
+  int num_moves = (int)((kick_move / 100.0) * candidates.size());
+  if (num_moves > num_movable) num_moves = num_movable;
+
+  DetailedGlobalSwap gs(arch, network);
+
+  int num_success = 0;
+  for (int m = 0; m < num_moves; ++m) {
+    int idx = mgr->getRandom(num_movable); 
+    Node* node = candidates[idx];
+    std::vector<Node*> single_node_vec = {node};
+    if (gs.generate(mgr, single_node_vec)) {
+      mgr->acceptMove();
+      num_success++;
+    } else {
+      mgr->rejectMove();
+    }
+  }
+  printf("[INFO GPU-DPO] Performed %d global swap moves on randomly selected nodes.\n", num_success);
 
   DetailedHPWL hpwlObj(network);
-  hpwlObj.init(mgr_ptr, nullptr);
-
-  std::vector<Node*> candidates = mgr_ptr->getSingleHeightCells();
-  int num_movable = (int)candidates.size();
-  if (num_movable < 2) return;
-
-  int num_swaps = 0;
-  int currHpwl = hpwlObj.curr();
-  uint64_t hpwl_x, hpwl_y;
-  float total_swapped_cells = (float)kick_move / 100.0 * cpu_db.num_movable_nodes;
-  printf("[INFO GPU-DPO] Performing LSMC. Attempting to randomly swap %d cells.\n", (int)total_swapped_cells);
-  while (num_swaps < (int)total_swapped_cells) {
-    // use the same random seed set in cmd line
-    int i = mgr_ptr->getRandom(num_movable);    
-    int j = mgr_ptr->getRandom(num_movable);    
-    if (i == j) continue;
-    Node* ni = candidates[i];
-    Node* nj = candidates[j];
-    if (ni == nj) continue;
-    DbuX xi = ni->getLeft();
-    DbuY yi = ni->getBottom();
-    int si = mgr_ptr->getReverseCellToSegs(ni->getId())[0]->getSegId();
-    DbuX xj = nj->getLeft();
-    DbuY yj = nj->getBottom();
-    int sj = mgr_ptr->getReverseCellToSegs(nj->getId())[0]->getSegId();
-    if (mgr_ptr->trySwap(ni, xi, yi, si, xj, yj, sj)) {
-      //uint64_t hpwl_x, hpwl_y;
-      //int newHpwl = Utility::hpwl(network, hpwl_x, hpwl_y);
-      //if (newHpwl < currHpwl) {
-      //  currHpwl = newHpwl;
-        mgr_ptr->acceptMove();
-        num_swaps++;
-      //}
-      //else {
-        //mgr_ptr->rejectMove();
-      //}
-    } else {
-      mgr_ptr->rejectMove();
-    }
-  }
-  int lsmc_hpwl = Utility::hpwl(network, hpwl_x, hpwl_y);
-  printf("[INFO GPU-DPO] HPWL after performing LSMC is %d.\n", lsmc_hpwl);
-  // Repopulate cpu_db.x, cpu_db.y, and cpu_db.node2segs from the network and manager after swaps
-  for (int i = 0; i < cpu_db.num_movable_nodes; ++i) {
-    Node* node = mgr_ptr->getNetwork()->getNode(i);
-    if (cpu_db.x[i] != node->getLeft().v) {
-      cpu_db.x[i] = node->getLeft().v;
-    }
-    if (cpu_db.y[i] != node->getBottom().v) {
-      cpu_db.y[i] = node->getBottom().v;
-    }
-    // Update node2segs
-    if (mgr_ptr->getNumReverseCellToSegs(i) > 0 
-        && cpu_db.node2segs[i] != mgr_ptr->getReverseCellToSegs(i)[0]->getSegId()) {
-      cpu_db.node2segs[i] = mgr_ptr->getReverseCellToSegs(i)[0]->getSegId();
-    }
-  }
-  // Copy only the updated node locations and segment IDs to the GPU
-  cudaMemcpy(db.x, cpu_db.x.data(), sizeof(int) * cpu_db.num_nodes, cudaMemcpyHostToDevice);
-  cudaMemcpy(db.y, cpu_db.y.data(), sizeof(int) * cpu_db.num_nodes, cudaMemcpyHostToDevice);
-  cudaMemcpy(db.node2segs, cpu_db.node2segs.data(), sizeof(int) * cpu_db.num_nodes, cudaMemcpyHostToDevice);
-
-  printf("[INFO GPU-DPO] Performed %d random swaps.\n", num_swaps);
+  hpwlObj.init(mgr, nullptr);
+  int curr_hpwl = hpwlObj.curr();
+  std::cout << "[INFO GPU-DPO] The initial HPWL after the kick move is " << curr_hpwl << std::endl;
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Detailed::improve:
@@ -127,81 +110,220 @@ void apply_lsmc(GpuData &db, DetailedMgr &mgr, int kick_move) {
 bool Detailed::improve(DetailedMgr& mgr, FlattenedData& flattenedData)
 {
   mgr_ = &mgr;
+
   arch_ = mgr.getArchitecture();
   network_ = mgr.getNetwork();
   flattenedData_ = &flattenedData;
 
-  // LSMC parameters
-  int max_lsmc_iters = 1; // configurable
-  int kick_move = 0;      // configurable
-  int max_failures = 5;
+  int max_lsmc_moves = 5;
+  int kick_move = 5;
+  int max_lsmc_failures = 5;
+  bool perform_lsmc = false;
 
   // Copy the data from host to device
   GpuData* gpuData_ = new GpuData();
-  cudaFree(0);  // triggers context initialization
-  gpuData_->copyToDevice(*flattenedData_);
 
-  // Save best placement
-  FlattenedData best_flattened = *flattenedData_;
+  cudaFree(0);  // triggers context initialization
+
+  auto start = std::chrono::high_resolution_clock::now();
+  gpuData_->copyToDevice(*flattenedData_);
+  auto end = std::chrono::high_resolution_clock::now();
+  double elapsed_ms = std::chrono::duration<double, std::milli>(end - start).count();
+  std::cout << "[INFO GPU-DPO] Copy to device time: " << elapsed_ms << " ms\n";
+
+  // Parse the script string and run each command.
+  boost::char_separator<char> separators(" \r\t\n", ";");
+  boost::tokenizer<boost::char_separator<char>> tokens(params_.script_,
+                                                       separators);
+  std::vector<std::string> args;
+
+  // first initial descent
+  for (auto temp : tokens) {
+    if (temp.back() == ';') {
+      while (!temp.empty() && temp.back() == ';') {
+        temp.resize(temp.size() - 1);
+      }
+      if (!temp.empty()) {
+        args.push_back(temp);
+      }
+      // Command ended by a semi-colon.
+      doDetailedCommand(args, *gpuData_);
+      args.clear();
+      // Copy data back to host once done
+      if (deviceOpsDone && !dataCopiedBack) {
+        auto start = std::chrono::high_resolution_clock::now();
+        gpuData_->copyToHost(*flattenedData_);
+        auto end = std::chrono::high_resolution_clock::now();
+        double elapsed_ms = std::chrono::duration<double, std::milli>(end - start).count();
+        std::cout << "[INFO GPU-DPO] Copy to host time: " << elapsed_ms << " ms\n";
+        flattenedData_->populateNetwork(*network_, *mgr_);
+        dataCopiedBack = true;
+      }
+    } else {
+      args.push_back(temp);
+    }
+  }
+  // Last command; possible if no ending semi-colon.
+  doDetailedCommand(args, *gpuData_);
+
+  // Note: If cell orientation was not the last script
+  // command run, then we should/need to perform
+  // orientation to ensure the cells are properly
+  // oriented for their respective row assignments.
+  // We do not need to do flipping though.
+  {
+    DetailedOrient orienter(arch_, network_);
+    orienter.run(mgr_, "orient -f");
+  }
+
+  // record the initial descent hpwl
   DetailedHPWL hpwlObj(network_);
   hpwlObj.init(mgr_, nullptr);
-  int currHpwl = hpwlObj.curr();
-  int fail_count = 0;
+  int initial_hpwl = hpwlObj.curr();
+  std::cout << "[INFO GPU-DPO] The initial HPWL after the first descent is " << initial_hpwl << std::endl;
+  
+  // Save initial placement and segment info
+  // std::vector<int> curr_x(network_->getNumNodes());
+  // std::vector<int> curr_y(network_->getNumNodes());
+  // std::vector<int> curr_node2segs(network_->getNumNodes());
 
-  for (int lsmc_iter = 0; lsmc_iter < max_lsmc_iters; ++lsmc_iter) {
-    printf("[INFO GPU-DPO] LSMC iteration %d/%d\n", lsmc_iter+1, max_lsmc_iters);
-    // Apply kick move
-    apply_lsmc(*gpuData_, mgr, kick_move);
-    
-    // Run script commands (MIS, GS, RO, etc)
-    boost::char_separator<char> separators(" \r\t\n", ";");
-    boost::tokenizer<boost::char_separator<char>> tokens(params_.script_, separators);
-    std::vector<std::string> args;
+  // for (int i = 0; i < num_movable_nodes; i++) {
+  //   Node node = network_->getNode(i);
+  //   curr_x[i] = node->getLeft();
+  //   curr_y[i] = node->getBottom();
+  //   curr_node2segs = node->getSegId();
+  // }
+  
+  int previous_hpwl = initial_hpwl;
+  int failures = 0;
+  const double IMPROVEMENT_THRESHOLD = 0.001; // 1% improvement threshold
+  
+  // Data currently resides in the CPU at the start of the first LSMC move
+  for (int i = 0; i < max_lsmc_moves; i++) {
+    deviceOpsDone = false;
+    dataCopiedBack = false;
+
+    std::vector<int> saved_x(network_->getNumNodes());
+    std::vector<int> saved_y(network_->getNumNodes());
+    std::vector<int> saved_node2segs(network_->getNumNodes());
+    for (int n = 0; n < network_->getNumNodes(); ++n) {
+      Node* node = network_->getNode(n);
+      if (arch_->isSingleHeightCell(node)) {
+        saved_x[n] = node->getLeft().v;
+        saved_y[n] = node->getBottom().v;
+        if (mgr_->getNumReverseCellToSegs(n) > 0) {
+          saved_node2segs[n] = mgr_->getReverseCellToSegs(n)[0]->getSegId();
+        } else {
+          saved_node2segs[n] = -1;
+        }
+      }
+    }
+
+    // Check if we should perform the LSMC move
+    if (perform_lsmc) {
+      apply_lsmc(&mgr, kick_move);
+      perform_lsmc = false;
+    }
+
+    // Copy node locations and seg IDs to the GPU
+    updateFlattenedDataAndCopyToGPU(mgr_, gpuData_);
+
+    // Attempt to descend again
     for (auto temp : tokens) {
       if (temp.back() == ';') {
-        while (!temp.empty() && temp.back() == ';') temp.resize(temp.size() - 1);
-        if (!temp.empty()) args.push_back(temp);
+        while (!temp.empty() && temp.back() == ';') {
+          temp.resize(temp.size() - 1);
+        }
+        if (!temp.empty()) {
+          args.push_back(temp);
+        }
+        // Command ended by a semi-colon.
         doDetailedCommand(args, *gpuData_);
         args.clear();
+        if (deviceOpsDone && !dataCopiedBack) {
+          auto start = std::chrono::high_resolution_clock::now();
+          gpuData_->copyToHost(*flattenedData_);
+          auto end = std::chrono::high_resolution_clock::now();
+          double elapsed_ms = std::chrono::duration<double, std::milli>(end - start).count();
+          std::cout << "[INFO GPU-DPO] Copy to host time: " << elapsed_ms << " ms\n";
+          flattenedData_->populateNetwork(*network_, *mgr_);
+          dataCopiedBack = true;
+        }
       } else {
         args.push_back(temp);
       }
     }
+    // Last command; possible if no ending semi-colon.
     doDetailedCommand(args, *gpuData_);
 
-    // Copy data back to host to measure HPWL
-    gpuData_->copyToHost(*flattenedData_);
-    uint64_t hpwl_x, hpwl_y;
-    int newHpwl = Utility::hpwl(network_, hpwl_x, hpwl_y);
-    printf("[INFO GPU-DPO] LSMC HPWL after iteration %d: %d (best: %d)\n", lsmc_iter+1, (int)newHpwl, currHpwl);
+    // Note: If cell orientation was not the last script
+    // command run, then we should/need to perform
+    // orientation to ensure the cells are properly
+    // oriented for their respective row assignments.
+    // We do not need to do flipping though.
+    {
+      DetailedOrient orienter(arch_, network_);
+      orienter.run(mgr_, "orient -f");
+    }
 
-    if (newHpwl < currHpwl) {
-      currHpwl = newHpwl;
-      best_flattened = *flattenedData_;
-      fail_count = 0;
-    } else {
-      // Revert to best placement
-      *flattenedData_ = best_flattened;
-      gpuData_->copyToDevice(*flattenedData_);
-      fail_count++;
-      if (fail_count >= max_failures) {
-        printf("[INFO GPU-DPO] Breaking LSMC loop after %d consecutive failures to improve HPWL.\n", fail_count);
-        break;
+    // Check the hpwl
+    int new_hpwl = hpwlObj.curr();
+    double improvement = (double)(previous_hpwl - new_hpwl) / previous_hpwl;
+
+    std::cout << "[INFO GPU-DPO] LSMC iteration " << i
+            << ": HPWL = " << new_hpwl
+            << ", improvement = " << (improvement * 100.0) << "%\n";
+
+    if (new_hpwl > previous_hpwl) {
+      std::cout << "[INFO GPU-DPO] HPWL worsened after LSMC descent. Reverting to previous placement.\n";
+      for (int n = 0; n < network_->getNumNodes(); ++n) {
+        Node* node = network_->getNode(n);
+        if (arch_->isSingleHeightCell(node)) {
+          node->setLeft(DbuX{saved_x[n]});
+          node->setBottom(DbuY{saved_y[n]});
+          int num_segs = mgr_->getNumReverseCellToSegs(n);
+          for (int s = num_segs - 1; s >= 0; --s) {
+            DetailedSeg* seg = mgr_->getReverseCellToSegs(n)[s];
+            mgr_->removeCellFromSegment(node, seg->getSegId());
+          }
+          if (saved_node2segs[n] != -1) {
+            mgr_->addCellToSegment(node, saved_node2segs[n]);
+          }
+        }
       }
+      new_hpwl = hpwlObj.curr();
+      std::cout << "[INFO GPU-DPO] HPWL after revert: " << new_hpwl << "\n";
+      improvement = (double)(previous_hpwl - new_hpwl) / previous_hpwl;
+    }
+
+    // If the new hpwl has low improvement, enable LSMC flag
+    if (improvement < IMPROVEMENT_THRESHOLD) {
+      failures++;
+      std::cout << "[INFO GPU-DPO] Improvement below threshold (" << (IMPROVEMENT_THRESHOLD * 100.0)
+                << "%). Failures: " << failures << "/" << max_lsmc_failures << "\n";
+      perform_lsmc = true;
+    }
+    else {
+      failures = 0;
+      perform_lsmc = false;
+    }
+
+    previous_hpwl = new_hpwl;
+
+    if (failures >= max_lsmc_failures) {
+      std::cout << "[INFO GPU-DPO] Reached maximum allowed LSMC failures. Stopping LSMC loop.\n";
+      break;
     }
   }
 
-  // Copy best placement to device and host
-  *flattenedData_ = best_flattened;
-  gpuData_->copyToDevice(*flattenedData_);
-  gpuData_->copyToHost(*flattenedData_);
-  flattenedData_->populateNetwork(*network_, *mgr_);
   gpuData_->freeData();
-  delete gpuData_;
+  
+  // Final HPWL evaluation
+  int final_hpwl = hpwlObj.curr();
+  double total_improvement = (double)(initial_hpwl - final_hpwl) / initial_hpwl;
+  std::cout << "[INFO GPU-DPO] Total improvement: " << (total_improvement * 100.0) << "%" << std::endl;
 
-  // Orientation and checks as before
-  DetailedOrient orienter(arch_, network_);
-  orienter.run(mgr_, "orient -f");
+  // Different checks which are useful for debugging.
   mgr.checkRegionAssignment();
   mgr.checkRowAlignment();
   mgr.checkSiteAlignment();
@@ -230,6 +352,9 @@ bool Detailed::improve(DetailedMgr& mgr, FlattenedData& flattenedData)
     }
     mgr.setMoveLimit(temp_move_limit);
   }
+
+  // clean up
+  delete gpuData_;
 
   return true;
 }
@@ -273,13 +398,13 @@ void Detailed::doDetailedCommand(std::vector<std::string>& args, GpuData& db_)
   } else if (strcmp(args[0].c_str(), "gs") == 0) {
     DetailedGlobalSwap gs(arch_, network_);
     gs.run(mgr_, db_, args);
+    deviceOpsDone = true;
   } else if (strcmp(args[0].c_str(), "vs") == 0) {
     DetailedVerticalSwap vs(arch_, network_);
     vs.run(mgr_, args);
   } else if (strcmp(args[0].c_str(), "ro") == 0) {
     DetailedReorderer ro(arch_, network_);
-    ro.run(mgr_, db_, args);
-    deviceOpsDone = true;
+    ro.run(mgr_, args);
   } else if (strcmp(args[0].c_str(), "orient") == 0) {
     DetailedOrient orienter(arch_, network_);
     orienter.run(mgr_, args);

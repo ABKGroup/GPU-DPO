@@ -39,6 +39,13 @@ struct IndependentSetMatchingCPUState {
 
 inline int ceil_power2(int v) { return (1 << (int)ceil(log2((float)v))); }
 
+__global__ void print_device_array(const int* arr, int n) {
+  int idx = threadIdx.x + blockIdx.x * blockDim.x;
+  if (idx < n) {
+    printf("arr[%d] = %d\n", idx, arr[idx]);
+  }
+}
+
 void init_cpu_db(const GpuData& db, CpuData& host_db) {
   host_db.num_movable_nodes = db.num_movable_nodes;
   host_db.num_bins_x = db.num_bins_x;
