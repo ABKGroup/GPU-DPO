@@ -10,6 +10,7 @@ GPU-DPO/
 │   │   ├── infrastructure                    # GPU database construction
 │   │   ├── objective                         # Placement related objectives
 │   │   ├── optimization                      # Kernel operator implementations
+│   │   │   ├── detailed.cu                   # LSMC booster utility
 │   │   │   ├── detailed_global.cu            # Global swap implementation
 │   │   │   ├── detailed_mis.cu               # MIS implementation
 │   │   │   └── detailed_reorder.cu           # Local reordering implementation
