@@ -7,8 +7,8 @@ GPU-DPO/
 ├── src/dpl 
 │   ├── src                                   # Kernel function operators
 │   │   ├── graphics                          # Graphics utilities
-│   │   ├── infrastructure                    # Placement related objectives
-│   │   ├── objective                         # GPU database construction
+│   │   ├── infrastructure                    # GPU database construction
+│   │   ├── objective                         # Placement related objectives
 │   │   ├── optimization                      # Kernel operator implementations
 │   │   │   ├── detailed_global.cu            # Global swap implementation
 │   │   │   ├── detailed_mis.cu               # MIS implementation
@@ -17,5 +17,5 @@ GPU-DPO/
 │   ├── test                                  # Detailed placement tests
 │   │   ├── aes-multi-height-batched.tcl      # AES design test script
 │   │   └── jpeg-multi-height-batched.tcl     # JPEG design test script
-└── README.md                                 # Project documentation
+└── README.md                                 # Project directory documentation
 ```
