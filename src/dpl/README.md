@@ -18,5 +18,5 @@ GPU-DPO/
 │   ├── test                                  # Detailed placement tests
 │   │   ├── aes-multi-height-batched.tcl      # AES design test script
 │   │   └── jpeg-multi-height-batched.tcl     # JPEG design test script
-└── README.md                                 # Project directory documentation
+└── ├── README.md                             # GPU-DPO directory documentation
 ```
